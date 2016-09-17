@@ -1,0 +1,19 @@
+<link rel="import" href="ajax-nutrients-service.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+
+<dom-module id="my-view1">
+    <template>
+        <iron-list items="{{nutrients}}" as="item" class="flex">
+            <template>
+                <div style="background-color:white; min-height:50px;">[[item.name]]</div>
+            </template>
+        </iron-list>
+        <ajax-nutrients-service nutrients="{{nutrients}}"></ajax-nutrients-service>
+    </template>
+    <script>
+        Polymer({
+            is: 'my-view1'
+        });
+    </script>
+</dom-module>
