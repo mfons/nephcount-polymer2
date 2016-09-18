@@ -10,28 +10,111 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../bower_components/paper-button/paper-button.html">
+  <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+  <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+  <link rel="import" href="../bower_components/paper-input/paper-input.html">
+  <link rel="import" href="../bower_components/paper-item/paper-item.html">
+  <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+  <link rel="import" href="../bower_components/paper-styles/color.html">
+  <link rel="import" href="../bower_components/paper-styles/typography.html">
+  <link rel="import" href="../bower_components/iron-form/iron-form.html">
+  <link rel="import" href="simple-element.html">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+
 
 <dom-module id="my-view2">
   <template>
-    <style include="shared-styles">
+   <style is="custom-style" include="demo-pages-shared-styles">
       :host {
         display: block;
 
         padding: 10px;
       }
-    </style>
+    .output {
+      margin-top: 20px;
+      word-wrap: break-word;
+      @apply(--paper-font-common-code);
+    }
+    form > paper-button {
+      width: 45%;
+      margin-top: 20px;
+    }
+    form > paper-button:not([disabled]) {
+      background: var(--paper-light-blue-500);
+      color: white;
+    }
+    button {
+      margin-top: 20px;
+    }
+    paper-spinner {
+      width: 14px;
+      height: 14px;
+      margin-right: 20px;
+    }
+    paper-dropdown-menu {
+      display: block;
+    }
+    demo-snippet {
+      --demo-snippet-code: {
+        max-height: 300px;
+      };
+    }
+     </style>
 
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-    </div>
+ <div class="vertical-section-container centered">
+        <form is="iron-form" method="get" action="/" id="presubmit">
+          <paper-input name="name" label="Name" value="Batman" required></paper-input>
+          <paper-input name="foodFluid" label="Food/Fluid" value="enter a food or fluid" required></paper-input>
+          <paper-input name="quantity" label="Quantity" value="enter a quantity" required></paper-input>
+          <paper-input name="uom" label="Unit of Measure" value="enter a unit of measure" required></paper-input>
+          <paper-button raised onclick="_submit(event)">Submit</paper-button>
+          <paper-button raised onclick="_reset(event)">Reset</paper-button>
+          <div class="output"></div>
+        </form>
+
+      </div>
   </template>
 
   <script>
+      
+      
     Polymer({
-      is: 'my-view2'
+      is: 'my-view2',
+        listeners: {
+            'presubmit.iron-form-presubmit': 'myPreSubmit',
+            'presubmit.iron-form-submit': 'mySubmit'
+        },
+        myPreSubmit : function(event) {
+            this.request.params['sidekick'] = 'Robin';
+          },
+        mySubmit : function(event) {
+            this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+          }
     });
-  </script>
+
+       function _submit  (event) {
+            Polymer.dom(event).localTarget.parentElement.submit();
+        };
+       function _reset (event) {
+            var form = Polymer.dom(event).localTarget.parentElement
+            form.reset();
+            form.querySelector('.output').innerHTML = '';            
+        };
+//          presubmit.addEventListener('iron-form-presubmit', function(event) {
+//            this.request.params['sidekick'] = 'Robin';
+//          });
+//          presubmit.addEventListener('iron-form-submit', function(event) {
+//            this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
+//          });
+
+
+</script>
 </dom-module>
