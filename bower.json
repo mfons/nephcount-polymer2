@@ -31,7 +31,9 @@
     "paper-menu": "PolymerElements/paper-menu#^1.2.2",
     "paper-spinner": "PolymerElements/paper-spinner#^1.2.0",
     "iron-form-element-behavior": "PolymerElements/iron-form-element-behavior#^1.0.6",
-    "iron-validatable-behavior": "PolymerElements/iron-validatable-behavior#^1.1.1"
+    "iron-validatable-behavior": "PolymerElements/iron-validatable-behavior#^1.1.1",
+    "app-storage": "PolymerElements/app-storage#^0.9.5",
+    "polymerfire": "firebase/polymerfire#^0.9.7"
   },
   "devDependencies": {
     "web-component-tester": "^4.0.0"

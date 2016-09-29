@@ -13,6 +13,9 @@
   <link rel="import" href="../bower_components/paper-styles/typography.html">
   <link rel="import" href="../bower_components/paper-item/paper-item.html">
   <link rel="import" href="../bower_components/paper-badge/paper-badge.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+  <link rel="import" href="../bower_components/polymerfire/polymerfire.html">
 
 
 <dom-module id="my-view1">
@@ -132,8 +135,14 @@
         }
       </style>
 
-    <ajax-nutrients-service nutrients="{{nutrients}}"></ajax-nutrients-service>
-
+    <!--ajax-nutrients-service nutrients="{{nutrients}}"></ajax-nutrients-service-->
+                
+    <firebase-query
+    id="query"
+    app-name="nephcount"
+    path="/nutrients"
+    data="{{nutrients}}">
+    </firebase-query>
         
       <app-drawer-layout fullbleed>
         <div class="content">
@@ -192,7 +201,14 @@
             properties: {
                  selectedItems: {
                        type: Object
+                 },
+                 nutrients: {
+                     type: Object,
+                     observer: 'dataChanged'
                  }
+            },
+            dataChanged: function (newData, oldData) {
+                 console.log("is my app talking to firebase nephcount/nutrients?");
             },
           iconForItem: function(isSelected) {
             return isSelected ? 'star' : 'star-border';

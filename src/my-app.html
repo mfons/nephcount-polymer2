@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
@@ -62,6 +63,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
     </style>
+
+   <!-- Configure Firebase app: -->
+  <firebase-app
+      name="nephcount"
+      api-key="AIzaSyBJ1n9BY1f-KVIR2v-yGOzS9nEW-fWHK-s"
+      auth-domain="nephcount.firebaseapp.com"
+      database-url="https://nephcount.firebaseio.com">
+  </firebase-app>
+
+
+<!--script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBJ1n9BY1f-KVIR2v-yGOzS9nEW-fWHK-s",
+    authDomain: "nephcount.firebaseapp.com",
+    databaseURL: "https://nephcount.firebaseio.com",
+    storageBucket: "",
+    messagingSenderId: "276739606102"
+  };
+  firebase.initializeApp(config);
+</script-->
 
     <app-location route="{{route}}"></app-location>
     <app-route
@@ -136,4 +159,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     });
   </script>
+    
+    
 </dom-module>
