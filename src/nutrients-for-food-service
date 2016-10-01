@@ -1,0 +1,39 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="ajax-nutrients-service">
+    <style>
+        :host {
+
+        }
+    </style>
+    <template>
+        <iron-ajax 
+            auto
+            id="ajaxNutrientsList"
+            method="GET"
+            url="http://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=DEMO_KEY&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=01009"
+            handle-as="json"
+            on-response="tasksLoaded">
+        </iron-ajax>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "nutrients-for-food-service",
+        properties: {
+            foodNutrients: {
+                type: Array,
+                reflectToAttribute: true,
+                notify: true
+            }
+        },
+        attached: function () {
+            this.nutrients = [];
+        },
+        tasksLoaded: function (data) {
+            console.log(data.detail.response);
+            this.nutrients = data.detail.response.report.foods;
+        }
+    });
+</script>

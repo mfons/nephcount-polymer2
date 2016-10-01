@@ -202,11 +202,17 @@
                  selectedItems: {
                        type: Object
                  },
+                 nutrientsOfInterest: {
+                      type: Object,
+                       reflectToAttribute: true,
+                       notify: true
+                 },
                  nutrients: {
                      type: Object,
                      observer: 'dataChanged'
                  }
             },
+            observers: ['selectedItemsChanged(selectedItems.splices)'],
             dataChanged: function (newData, oldData) {
                  console.log("is my app talking to firebase nephcount/nutrients?");
             },
@@ -225,6 +231,9 @@
           },
           _getFormattedCount: function(count) {
             return count > 0 ? '(' + count + ')' : '';
+          },
+          selectedItemsChanged: function(newSelectedItems, oldSelectedItems) {
+              nutrientsOfInterest = newSelectedItems;
           }
         });
     //});

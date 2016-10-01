@@ -68,10 +68,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       };
     }
      </style>
+    <nutrients-for-food-service food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
 
  <div class="vertical-section-container centered">
         <form is="iron-form" method="get" action="/" id="presubmit">
-          <paper-input name="name" label="Name" value="Batman" required></paper-input>
           <paper-input name="foodFluid" label="Food/Fluid" value="enter a food or fluid" required></paper-input>
           <paper-input name="quantity" label="Quantity" value="enter a quantity" required></paper-input>
           <paper-input name="uom" label="Unit of Measure" value="enter a unit of measure" required></paper-input>
@@ -88,6 +88,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
     Polymer({
       is: 'my-view2',
+        properties: {
+            nutrientsOfInterest: {
+                type: Object
+            }
+        },
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit'
@@ -108,12 +113,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             form.reset();
             form.querySelector('.output').innerHTML = '';            
         };
-//          presubmit.addEventListener('iron-form-presubmit', function(event) {
-//            this.request.params['sidekick'] = 'Robin';
-//          });
-//          presubmit.addEventListener('iron-form-submit', function(event) {
-//            this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
-//          });
 
 
 </script>
