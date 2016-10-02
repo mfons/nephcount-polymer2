@@ -233,7 +233,7 @@
             return count > 0 ? '(' + count + ')' : '';
           },
           selectedItemsChanged: function(newSelectedItems, oldSelectedItems) {
-              nutrientsOfInterest = newSelectedItems;
+              nutrientsOfInterest = this.selectedItems;
           }
         });
     //});

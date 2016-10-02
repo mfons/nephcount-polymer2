@@ -1,6 +1,6 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
-<dom-module id="ajax-nutrients-service">
+<dom-module id="nutrients-for-food-service">
     <style>
         :host {
 
@@ -22,6 +22,10 @@
     Polymer({
         is: "nutrients-for-food-service",
         properties: {
+            nutrientsOfInterest: {
+                type: Object,
+                observer: 'nutrientsOfInterestChanged'
+            },
             foodNutrients: {
                 type: Array,
                 reflectToAttribute: true,
@@ -29,11 +33,14 @@
             }
         },
         attached: function () {
-            this.nutrients = [];
+            this.foodNutrients = [];
         },
         tasksLoaded: function (data) {
-            console.log(data.detail.response);
-            this.nutrients = data.detail.response.report.foods;
+            this.foodNutrients = data.detail.response.report.foods;
+            console.log('nutrients-for-food-service came back with ' + data.detail.response);
+        },
+        nutrientsOfInterestChanged: function(oldData, newData) {
+            console.log('in nutrients-for-food-service looking at nutrients of interest changed: ' + newData);
         }
     });
 </script>

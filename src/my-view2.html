@@ -23,6 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/paper-styles/typography.html">
   <link rel="import" href="../bower_components/iron-form/iron-form.html">
   <link rel="import" href="simple-element.html">
+  <link rel="import" href="nutrients-for-food-service.html">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -68,16 +69,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       };
     }
      </style>
-    <nutrients-for-food-service food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
+      
+     <nutrients-for-food-service nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
 
- <div class="vertical-section-container centered">
+      <div class="vertical-section-container centered">
         <form is="iron-form" method="get" action="/" id="presubmit">
           <paper-input name="foodFluid" label="Food/Fluid" value="enter a food or fluid" required></paper-input>
           <paper-input name="quantity" label="Quantity" value="enter a quantity" required></paper-input>
           <paper-input name="uom" label="Unit of Measure" value="enter a unit of measure" required></paper-input>
           <paper-button raised onclick="_submit(event)">Submit</paper-button>
           <paper-button raised onclick="_reset(event)">Reset</paper-button>
-          <div class="output"></div>
+          <div class="output">[[printAsJson(foodNutrients)]]</div>
         </form>
 
       </div>
@@ -91,6 +93,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         properties: {
             nutrientsOfInterest: {
                 type: Object
+            },
+            foodNutrients: {
+                type: Object
             }
         },
         listeners: {
@@ -102,7 +107,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           },
         mySubmit : function(event) {
             this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
-          }
+          },
+        printAsJson: function(jsonObject) {
+            return JSON.stringify(jsonObject);
+        }
     });
 
        function _submit  (event) {
