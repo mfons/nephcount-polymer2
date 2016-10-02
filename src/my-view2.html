@@ -17,11 +17,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
   <link rel="import" href="../bower_components/paper-input/paper-input.html">
   <link rel="import" href="../bower_components/paper-item/paper-item.html">
+  <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
   <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
   <link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
   <link rel="import" href="../bower_components/paper-styles/color.html">
   <link rel="import" href="../bower_components/paper-styles/typography.html">
   <link rel="import" href="../bower_components/iron-form/iron-form.html">
+  <link rel="import" href="../bower_components/iron-list/iron-list.html">
   <link rel="import" href="simple-element.html">
   <link rel="import" href="nutrients-for-food-service.html">
 
@@ -68,13 +70,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         max-height: 300px;
       };
     }
+    iron-list {
+      flex: 1 1 auto;
+    }
      </style>
       
      <nutrients-for-food-service nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
 
       <div class="vertical-section-container centered">
         <form is="iron-form" method="get" action="/" id="presubmit">
-          <paper-input name="foodFluid" label="Food/Fluid" value="enter a food or fluid" required></paper-input>
+          <paper-input name="foodFluidSearch" label="Search Food/Fluid" value="seach string for food/fluid" required></paper-input>
+          <paper-dropdown-menu required label="Food/Fluid">
+            <paper-listbox class="dropdown-content" selected="1">
+             <template is="dom-repeat" items='[[foodItems]]' as="foodItem">
+                <paper-item>[[foodItem.name]]</paper-item>
+              </template>
+            </paper-listbox>
+          </paper-dropdown-menu>
+            <!-- usda api:  https://ndb.nal.usda.gov/ndb/doc/index -->
+            <!-- search by word:  https://api.nal.usda.gov/ndb/search/?format=json&q=butter&sort=n&max=25&offset=0&api_key=DEMO_KEY -->
+            <!-- get a list of food groups:  https://api.nal.usda.gov/ndb/list?format=json&lt=g&sort=n&api_key=DEMO_KEY -->
+            
           <paper-input name="quantity" label="Quantity" value="enter a quantity" required></paper-input>
           <paper-input name="uom" label="Unit of Measure" value="enter a unit of measure" required></paper-input>
           <paper-button raised onclick="_submit(event)">Submit</paper-button>
@@ -96,6 +112,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             foodNutrients: {
                 type: Object
+            },
+            foodItems: {
+                type: Array,
+                value: function () {
+                    return [{ name: "cashews"}, {name: "salsa"}, {name: "orange"}];
+                }
             }
         },
         listeners: {
