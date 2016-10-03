@@ -1,5 +1,7 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
 
+
+<!-- http://api.data.gov/docs/rate-limits/  with this api_key we can do 1000 requests in an hour. -->
 <dom-module id="nutrients-for-food-service">
     <style>
         :host {
@@ -35,8 +37,12 @@
             ajaxParams: {
                 type: Object,
                 value: function () {
-                    return {"format":"json", "api_key":"DEMO_KEY", "nutrients": ["205", "204", "208", "269"], "ndbno": "01009"};
+                    return {"format":"json", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt", "nutrients": ["205", "204", "208", "269"], "ndbno": "01009"};
                 }
+            },
+            foodId : {
+                type: String,
+                observer:  'foodIdChanged'
             }
         },
         observers: [ 'nutrientsOfInterestChanged(nutrientsOfInterest.*)'],
@@ -52,6 +58,9 @@
             this.set('ajaxParams.nutrients', generateNutrientIdsOfInterest(changeRecord.base));
 
         },
+        foodIdChanged:  function(newFoodId, oldFoodId) {
+            this.set('ajaxParams.ndbno', newFoodId);
+        }
     });
         function generateNutrientIdsOfInterest(detailArray) {
             var returnArray = new Array();

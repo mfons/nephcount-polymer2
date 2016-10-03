@@ -1,0 +1,54 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="foods-by-text-search">
+    <style>
+        :host {
+
+        }
+    </style>
+    <template>
+        <iron-ajax 
+            auto
+            id="ajaxNutrientsList"
+            method="GET"
+            url="https://api.nal.usda.gov/ndb/search/"
+            handle-as="json"
+            params="[[ajaxParams]]"
+            on-response="tasksLoaded">
+        </iron-ajax>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "foods-by-text-search",
+        properties: {
+            foods: {
+                type: Array,
+                reflectToAttribute: true,
+                notify: true
+            },
+            textSearch: {
+                type: String,
+                observer:  'textSearchChanged'
+            },
+            ajaxParams: {
+                type: Object,
+                value: function () {
+                    return {"format":"json", "q":"butter", "sort":"n", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt", "ds": "Standard Reference"};
+                }
+            }
+        },
+        attached: function () {
+            this.foods = [];
+        },
+        tasksLoaded: function (data) {
+            this.foods = data.detail.response.list.item;
+            console.log('===>>>foods-by-text-search came back with ' + data.detail.response);
+        },
+        textSearchChanged: function(newTextSearch, oldTextSearch) {
+            this.set('ajaxParams.q', newTextSearch);
+        }
+    });
+
+</script>

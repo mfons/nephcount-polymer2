@@ -26,6 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/iron-list/iron-list.html">
   <link rel="import" href="simple-element.html">
   <link rel="import" href="nutrients-for-food-service.html">
+  <link rel="import" href="foods-by-text-search.html">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -75,20 +76,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
      </style>
       
-     <nutrients-for-food-service nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
+     <nutrients-for-food-service food-id="[[foodId]]" nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
+      
+      <foods-by-text-search text-search="[[textSearch]]" foods="{{foods}}"></foods-by-text-search>
 
       <div class="vertical-section-container centered">
         <form is="iron-form" method="get" action="/" id="presubmit">
-          <paper-input name="foodFluidSearch" label="Search Food/Fluid" value="seach string for food/fluid" required></paper-input>
+          <paper-input name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required></paper-input>
           <paper-dropdown-menu required label="Food/Fluid">
-            <paper-listbox class="dropdown-content" selected="1">
+            <paper-listbox class="dropdown-content" selected="{{selectedFood}}">
              <template is="dom-repeat" items='[[foodItems]]' as="foodItem">
                 <paper-item>[[foodItem.name]]</paper-item>
               </template>
             </paper-listbox>
           </paper-dropdown-menu>
             <!-- usda api:  https://ndb.nal.usda.gov/ndb/doc/index -->
-            <!-- search by word:  https://api.nal.usda.gov/ndb/search/?format=json&q=butter&sort=n&max=25&offset=0&api_key=DEMO_KEY -->
             <!-- get a list of food groups:  https://api.nal.usda.gov/ndb/list?format=json&lt=g&sort=n&api_key=DEMO_KEY -->
             
           <paper-input name="quantity" label="Quantity" value="enter a quantity" required></paper-input>
@@ -118,8 +120,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 value: function () {
                     return [{ name: "cashews"}, {name: "salsa"}, {name: "orange"}];
                 }
-            }
+            },
+            textSearch: {
+                type: String,
+                value: "butter"
+            },
+            foods: {
+                type: Array
+            },
+            selectedFood: {
+                type: Object,
+                observer: 'selectedFoodChanged'
+            },
+            foodFluidSearchString: {
+                type: String,
+                observer: 'foodFluidSearchStringChanged'
+            },
+            foodId: String
         },
+        observers: [ 'foodsChanged(foods.*)' ],
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit'
@@ -132,7 +151,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           },
         printAsJson: function(jsonObject) {
             return JSON.stringify(jsonObject);
-        }
+        },
+        selectedFoodChanged: function(newObject,oldObject) {
+            console.log("my-view2:  selectedFood has changed: " + newObject);
+            this.set('foodId',this.foodItems[newObject].ndbno);
+        },
+        foodFluidSearchStringChanged:  function (newString, oldString) {
+            this.set('textSearch', newString);
+        },
+        foodsChanged:  function (changeRecord) {
+            this.set('foodItems', changeRecord.base);
+        } 
     });
 
        function _submit  (event) {
