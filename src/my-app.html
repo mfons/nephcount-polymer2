@@ -105,7 +105,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-view1 name="view1" nutrients-of-interest="{{nutrientsOfInterest}}"></my-view1>
+          <my-view1 name="view1" selected-items="{{nutrientsOfInterest}}" ></my-view1>
           <my-view2 name="view2" nutrients-of-interest="[[nutrientsOfInterest]]"></my-view2>
           <my-view3 name="view3"></my-view3>
           <my-view404 name="view404"></my-view404>
@@ -125,16 +125,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           observer: '_pageChanged'
         },
         nutrientsOfInterest: {
-            type: Object,
-            observer: '_nutrientsOfInterestChanged'
+            type: Array
         }
       },
 
       observers: [
-        '_routePageChanged(routeData.page)'
+        '_routePageChanged(routeData.page)', 'nutrientsOfInterestChanged(nutrientsOfInterest.*)'
       ],
-      _nutrientsOfInterestChanged: function(theNutrients) {
-          console.log(' the chosen nutrients are ' + theNutrients);
+      nutrientsOfInterestChanged: function(changeRecord) {
+          console.log(' in my-app, the chosen nutrients are ' + changeRecord.base);
       },
       _routePageChanged: function(page) {
         this.page = page || 'view1';

@@ -11,8 +11,9 @@
             auto
             id="ajaxNutrientsList"
             method="GET"
-            url="https://api.nal.usda.gov/ndb/nutrients/?format=json&api_key=DEMO_KEY&nutrients=205&nutrients=204&nutrients=208&nutrients=269&ndbno=01009"
+            url="https://api.nal.usda.gov/ndb/nutrients/"
             handle-as="json"
+            params="[[ajaxParams]]"
             on-response="tasksLoaded">
         </iron-ajax>
     </template>
@@ -23,15 +24,22 @@
         is: "nutrients-for-food-service",
         properties: {
             nutrientsOfInterest: {
-                type: Object,
-                observer: 'nutrientsOfInterestChanged'
+                type: Array
             },
+            nutrientIdsOfInterest: Array,
             foodNutrients: {
                 type: Array,
                 reflectToAttribute: true,
                 notify: true
+            },
+            ajaxParams: {
+                type: Object,
+                value: function () {
+                    return {"format":"json", "api_key":"DEMO_KEY", "nutrients": ["205", "204", "208", "269"], "ndbno": "01009"};
+                }
             }
         },
+        observers: [ 'nutrientsOfInterestChanged(nutrientsOfInterest.*)'],
         attached: function () {
             this.foodNutrients = [];
         },
@@ -39,8 +47,19 @@
             this.foodNutrients = data.detail.response.report.foods;
             console.log('nutrients-for-food-service came back with ' + data.detail.response);
         },
-        nutrientsOfInterestChanged: function(oldData, newData) {
-            console.log('in nutrients-for-food-service looking at nutrients of interest changed: ' + newData);
-        }
+        nutrientsOfInterestChanged: function(changeRecord) {
+            console.log('in nutrients-for-food-service looking at nutrients of interest changed: ' + changeRecord);
+            this.set('ajaxParams.nutrients', generateNutrientIdsOfInterest(changeRecord.base));
+
+        },
     });
+        function generateNutrientIdsOfInterest(detailArray) {
+            var returnArray = new Array();
+            var arrayLength = detailArray.length;
+            for (var i = 0; i < arrayLength; i++) {
+                returnArray.push(detailArray[i].id);
+            }
+            return returnArray;
+        }
+
 </script>

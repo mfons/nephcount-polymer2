@@ -200,10 +200,7 @@
             is: 'my-view1',
             properties: {
                  selectedItems: {
-                       type: Object
-                 },
-                 nutrientsOfInterest: {
-                      type: Object,
+                       type: Array,
                        reflectToAttribute: true,
                        notify: true
                  },
@@ -212,7 +209,7 @@
                      observer: 'dataChanged'
                  }
             },
-            observers: ['selectedItemsChanged(selectedItems.splices)'],
+            observers: ['selectedItemsChanged(selectedItems.*)'],
             dataChanged: function (newData, oldData) {
                  console.log("is my app talking to firebase nephcount/nutrients?");
             },
@@ -231,9 +228,9 @@
           },
           _getFormattedCount: function(count) {
             return count > 0 ? '(' + count + ')' : '';
-          },
-          selectedItemsChanged: function(newSelectedItems, oldSelectedItems) {
-              nutrientsOfInterest = this.selectedItems;
+          } ,
+          selectedItemsChanged(changeRecord) {
+            console.log('selected items have changed to ' + changeRecord);
           }
         });
     //});
