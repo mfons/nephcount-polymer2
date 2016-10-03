@@ -172,9 +172,10 @@
                 <div class="border"></div>
               </div>
                <!--div style="background-color:white; min-height:50px;">[[item.name]]</div-->
+             </div>
             </template>
         </iron-list>
-        </div>
+          </div>
         <app-drawer align="right">
           <div class="content">
             <app-toolbar class="white-toolbar">
@@ -229,7 +230,7 @@
           _getFormattedCount: function(count) {
             return count > 0 ? '(' + count + ')' : '';
           } ,
-          selectedItemsChanged(changeRecord) {
+          selectedItemsChanged: function(changeRecord) {
             console.log('selected items have changed to ' + changeRecord);
           }
         });
