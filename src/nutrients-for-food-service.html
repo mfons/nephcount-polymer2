@@ -16,6 +16,7 @@
             url="https://api.nal.usda.gov/ndb/nutrients/"
             handle-as="json"
             params="[[ajaxParams]]"
+            requestUrl="{{theRequestUrl}}"
             on-response="tasksLoaded">
         </iron-ajax>
     </template>
@@ -43,6 +44,10 @@
             foodId : {
                 type: String,
                 observer:  'foodIdChanged'
+            },
+            theRequestUrl: {
+                type: String,
+                observer: 'theRequestUrlChanged'
             }
         },
         observers: [ 'nutrientsOfInterestChanged(nutrientsOfInterest.*)'],
@@ -60,6 +65,9 @@
         },
         foodIdChanged:  function(newFoodId, oldFoodId) {
             this.set('ajaxParams.ndbno', newFoodId);
+        },
+        theRequestUrlChanged:  function (newRequestUrl, oldRequestUrl) {
+            console.log(newRequestUrl);
         }
     });
         function generateNutrientIdsOfInterest(detailArray) {
