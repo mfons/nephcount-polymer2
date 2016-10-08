@@ -24,6 +24,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/paper-styles/typography.html">
   <link rel="import" href="../bower_components/iron-form/iron-form.html">
   <link rel="import" href="../bower_components/iron-list/iron-list.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-document.html">
   <link rel="import" href="simple-element.html">
   <link rel="import" href="nutrients-for-food-service.html">
   <link rel="import" href="foods-by-text-search.html">
@@ -79,6 +80,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      <nutrients-for-food-service food-id="[[foodId]]" nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
       
       <foods-by-text-search text-search="[[textSearch]]" foods="{{foods}}"></foods-by-text-search>
+      
+      <firebase-document id="fbdoc"
+          app-name="nephcount"
+         path="/consumption"
+          data="{{consumption}}">
+      </firebase-document>
 
       <div class="vertical-section-container centered">
         <form is="iron-form" method="get" action="/" id="presubmit">
@@ -109,6 +116,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer({
       is: 'my-view2',
         properties: {
+            consumption: {
+                type: Array
+            },
             nutrientsOfInterest: {
                 type: Array
             },
@@ -138,16 +148,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             foodId: String
         },
-        observers: [ 'foodsChanged(foods.*)' ],
+        observers: [ 'foodsChanged(foods.*)', 'consumptionChanged(consumption.*)' ],
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit'
         },
         myPreSubmit : function(event) {
-            this.request.params['sidekick'] = 'Robin';
+            event.preventDefault;
+             console.log("myPreSubmit() function executed");
+            var newObject = {
+    "name" : "example food3",
+    "ndbid" : "00002",
+    "nutrientsOfInterest" : {
+      "amount" : 0,
+      "name" : "example nutrient",
+      "nutrientId" : 0,
+      "uofm" : "oz"
+    },
+    "quantity" : 0,
+    "uofm" : "oz"
+  };
+            newObject.name = this.foodItems[this.selectedFood].name;
+            newObject.ndbid = this.foodItems[this.selectedFood].ndbno;
+            this.push('consumption', newObject);
           },
         mySubmit : function(event) {
-            this.querySelector('.output').innerHTML = JSON.stringify(event.detail);
           },
         printAsJson: function(jsonObject) {
             return JSON.stringify(jsonObject);
@@ -161,16 +186,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         foodsChanged:  function (changeRecord) {
             this.set('foodItems', changeRecord.base);
-        } 
+        },
+        consumptionChanged: function(changeRecord) {
+           console.log("consumption change fired" + changeRecord);
+        }
     });
 
        function _submit  (event) {
-            Polymer.dom(event).localTarget.parentElement.submit();
+           Polymer.dom(event).localTarget.parentElement.submit();
+           console.log("_submit function executed");
         };
        function _reset (event) {
             var form = Polymer.dom(event).localTarget.parentElement
             form.reset();
-            form.querySelector('.output').innerHTML = '';            
+            form.querySelector('.output').innerHTML = '';
+           console.log("_reset() function executed");
         };
 
 
