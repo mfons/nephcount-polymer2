@@ -100,8 +100,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- usda api:  https://ndb.nal.usda.gov/ndb/doc/index -->
             <!-- get a list of food groups:  https://api.nal.usda.gov/ndb/list?format=json&lt=g&sort=n&api_key=DEMO_KEY -->
             
-          <paper-input name="quantity" label="Quantity" value="enter a quantity" required></paper-input>
-          <paper-input name="uom" label="Unit of Measure" value="enter a unit of measure" required></paper-input>
+          <paper-input name="measure" label="Serving size" readonly="true" value="[[measure]]"></paper-input>
+          <paper-input name="weight" label="Weight in grams" readonly="true" value="[[weight]]"></paper-input>
+          <paper-input name="multiplier" label="Multiplier" value="{{multiplier}}" required></paper-input>
+          <paper-input name="consumedGrams" label="Consumed grams" value="{{consumedGrams}}" required></paper-input>
           <paper-button raised onclick="_submit(event)">Submit</paper-button>
           <paper-button raised onclick="_reset(event)">Reset</paper-button>
           <div class="output">[[printAsJson(foodNutrients)]]</div>
@@ -146,9 +148,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 type: String,
                 observer: 'foodFluidSearchStringChanged'
             },
-            foodId: String
+            foodId: String,
+            measure: String,
+            weight: Number,
+            multiplier: Number,
+            consumedGrams: {
+                type:  Number,
+                computed: 'calculateConsumedGrams(weight, multiplier)'
+            }
         },
-        observers: [ 'foodsChanged(foods.*)', 'consumptionChanged(consumption.*)' ],
+        observers: [ 'foodsChanged(foods.*)', 'consumptionChanged(consumption.*)',
+                     'foodNutrientsChanged(foodNutrients.*)'],
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit'
@@ -165,11 +175,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       "nutrientId" : 0,
       "uofm" : "oz"
     },
-    "quantity" : 0,
-    "uofm" : "oz"
+    "measure" : "1 serving size",
+    "weight" : 15,
+    "multiplier" : 1,
+    "consumedGrams" : 15,
+    "consumedDate" : null
   };
             newObject.name = this.foodItems[this.selectedFood].name;
             newObject.ndbid = this.foodItems[this.selectedFood].ndbno;
+            newObject.measure = this.measure;
+            newObject.weight = this.weight;
+            newObject.multiplier = this.multiplier;
+            newObject.consumedGrams = this.consumedGrams;
+            newObject.consumedDate = (new Date()).toUTCString();
             this.push('consumption', newObject);
           },
         mySubmit : function(event) {
@@ -189,6 +207,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         consumptionChanged: function(changeRecord) {
            console.log("consumption change fired" + changeRecord);
+        },
+        foodNutrientsChanged: function(changeRecord) {
+            this.set('measure', changeRecord.base[0].measure);
+            this.set('weight', changeRecord.base[0].weight)
+        },
+        calculateConsumedGrams: function(weight, multiplier) {
+            return weight * multiplier;
         }
     });
 
