@@ -170,7 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     "name" : "example food3",
     "ndbid" : "00002",
     "nutrientsOfInterest" : {
-      "amount" : 0,
+      "value" : 0,
       "name" : "example nutrient",
       "nutrientId" : 0,
       "uofm" : "oz"
@@ -187,8 +187,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             newObject.weight = this.weight;
             newObject.multiplier = this.multiplier;
             newObject.consumedGrams = this.consumedGrams;
-            newObject.consumedDate = (new Date()).toUTCString();
+            newObject.consumedDate = (new Date()).toISOString();
+            newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
             this.push('consumption', newObject);
+            //this.set('consumption.' + this.consumption.length + 'nutrientsOfInterest', new Array);
           },
         mySubmit : function(event) {
           },
