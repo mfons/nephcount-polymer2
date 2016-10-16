@@ -14,8 +14,10 @@
   <link rel="import" href="../bower_components/paper-item/paper-item.html">
   <link rel="import" href="../bower_components/paper-badge/paper-badge.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
-  <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
-  <link rel="import" href="../bower_components/polymerfire/polymerfire.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-document.html">
+  <!--link rel="import" href="../bower_components/polymerfire/firebase-app.html"-->
+  <!--link rel="import" href="../bower_components/polymerfire/polymerfire.html"-->
+  <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 
 
 <dom-module id="my-view1">
@@ -144,7 +146,19 @@
     data="{{nutrients}}">
     </firebase-query>
         
-      <app-drawer-layout fullbleed>
+     <!--firebase-document id="fbdoc"
+          app-name="nephcount"
+         path="/nutrientsOfInterest"
+          data="{{selectedItems}}">
+      </firebase-document-->
+        
+    <!--iron-selector items="[[nutrients]]" multi="true" selectedValues="{{selectedItems}}">
+        <template id="myList" is="dom-repeat" items="[[nutrients]]">
+            <div>[[item.name]]</div>
+        </template>
+    </iron-selector-->
+        
+              <app-drawer-layout fullbleed>
         <div class="content">
           <app-toolbar class="pink-toolbar">
             <div main-title>Selection using iron-list</div>

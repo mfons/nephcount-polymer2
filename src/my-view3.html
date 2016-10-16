@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
 
 <dom-module id="my-view3">
   <template>
@@ -20,18 +21,71 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 10px;
       }
     </style>
+    
 
+      
+    <firebase-query
+    id="query"
+    order-by-child="consumedDate"
+    app-name="nephcount"
+    path="/consumption"
+    data="{{consumption}}">
+    </firebase-query>
+
+          <!--start-at="2016-10-15"
+    end-at="2016-10-16"-->
+
+      
     <div class="card">
-      <div class="circle">3</div>
-      <h1>View Three</h1>
-      <p>Modus commodo minimum eum te, vero utinam assueverit per eu.</p>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.Has at minim mucius aliquam, est id tempor laoreet.Pro saepe pertinax ei, ad pri animal labores suscipiantur.</p>
+      <h1>Report</h1>
+      <h2>TODAY</h2>
+        <div>[[printAsJson(todaysNutrients)]]</div>
+        <!--div>[[printAsJson(consumption)]]</div-->
+      <h2>YESTERDAY</h2>
+        <div></div>
     </div>
   </template>
 
   <script>
     Polymer({
-      is: 'my-view3'
+      is: 'my-view3',
+        properties: {
+            consumption : {
+                type: Array
+            },
+            todaysNutrients: {
+                type: Array,
+                value: []
+            }
+        },
+        observers:[ 'consumptionChanged(consumption.*)'],
+        printAsJson: function(jsonObject) {
+            return JSON.stringify(jsonObject);
+        },
+        consumptionChanged:function(changeRecord) {
+            console.log("consumption changed: ");
+            if (changeRecord.base.length === 0) {
+                return;
+            }
+            for(var i = changeRecord.base.length - 1; i < changeRecord.base.length; i++) {
+                var nutrientsOfInterest= changeRecord.base[i].nutrientsOfInterest;
+                for(var j = 0; j < nutrientsOfInterest.length; j++) {
+                    var noiFound = false;
+                    for (var k = 0; k < this.todaysNutrients.length; k++) {
+                        if (this.todaysNutrients[k].name === nutrientsOfInterest[j].name) {
+                            this.todaysNutrients[k].total += nutrientsOfInterest[j].value * changeRecord.base[i].multiplier;
+                            noiFound = true;
+                            break;
+                        }
+                    }
+                    if (!noiFound) {
+                        this.push('todaysNutrients', {"name": nutrientsOfInterest[j].name,
+                        "total" : nutrientsOfInterest[j].value * changeRecord.base[i].multiplier,
+                        "unit" : nutrientsOfInterest[j].unit});
+                    }
+                }          
+            }
+        }
     });
   </script>
 </dom-module>
