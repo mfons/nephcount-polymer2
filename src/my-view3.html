@@ -39,8 +39,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="card">
       <h1>Report</h1>
       <h2>TODAY</h2>
-        <div>[[printAsJson(todaysNutrients)]]</div>
-        <!--div>[[printAsJson(consumption)]]</div-->
+        <div>[[printArrayAsJson(todaysNutrients.*)]]</div>
       <h2>YESTERDAY</h2>
         <div></div>
     </div>
@@ -55,12 +54,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             todaysNutrients: {
                 type: Array,
-                value: []
+                value: [{name:"test", total:0, unit:"test"}]
             }
         },
-        observers:[ 'consumptionChanged(consumption.*)'],
-        printAsJson: function(jsonObject) {
-            return JSON.stringify(jsonObject);
+        observers:[ 'consumptionChanged(consumption.*)',
+                    'todaysNutrientsChanged(todaysNutrients.*)'],
+        printArrayAsJson: function(changeRecord) {
+            return JSON.stringify(changeRecord.base);
+        },
+        todaysNutrientsChanged: function(changeRecord) {
+            console.log("todaysNutrients array changed...");
         },
         consumptionChanged:function(changeRecord) {
             console.log("consumption changed: ");
@@ -72,16 +75,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 for(var j = 0; j < nutrientsOfInterest.length; j++) {
                     var noiFound = false;
                     for (var k = 0; k < this.todaysNutrients.length; k++) {
-                        if (this.todaysNutrients[k].name === nutrientsOfInterest[j].name) {
-                            this.todaysNutrients[k].total += nutrientsOfInterest[j].value * changeRecord.base[i].multiplier;
+                        if (this.todaysNutrients[k].name === nutrientsOfInterest[j].nutrient) {
+                            this.set('this.todaysNutrients[' + k + '].total', this.todaysNutrients[k].total + nutrientsOfInterest[j].value * changeRecord.base[i].multiplier);
                             noiFound = true;
                             break;
                         }
                     }
-                    if (!noiFound) {
-                        this.push('todaysNutrients', {"name": nutrientsOfInterest[j].name,
-                        "total" : nutrientsOfInterest[j].value * changeRecord.base[i].multiplier,
-                        "unit" : nutrientsOfInterest[j].unit});
+                    if (!noiFound && typeof nutrientsOfInterest[j].nutrient != 'undefined') {
+                        this.push('todaysNutrients', {"name": nutrientsOfInterest[j].nutrient, "total" : nutrientsOfInterest[j].value * changeRecord.base[i].multiplier, "unit" : nutrientsOfInterest[j].unit});
                     }
                 }          
             }
