@@ -1,0 +1,31 @@
+<link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="summary-item">
+    <style>
+        :host {
+             display: block;
+        }
+    </style>
+    <template>
+       <div>[[printAsJsonIfToday(inputItem, matchString)]]</div>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "summary-item",
+        properties: {
+           inputItem: Object,
+            matchString: {
+                type: String
+            }
+        },
+        printAsJsonIfToday: function(obj, match) {
+            if (obj.consumedDate.substring(0, 10) === match) {
+                return JSON.stringify(obj);               
+            }
+            return "";
+         }
+    });
+
+</script>

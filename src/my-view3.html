@@ -11,6 +11,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+  <link rel="import" href="summary-item.html">
+
 
 <dom-module id="my-view3">
   <template>
@@ -40,6 +42,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <h1>Report</h1>
       <h2>TODAY</h2>
         <div>[[printArrayAsJson(todaysNutrients.*)]]</div>
+        <br /><hr />
+        <template is="dom-repeat" items="[[consumption]]">
+            <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
+        </template>
       <h2>YESTERDAY</h2>
         <div></div>
     </div>
@@ -52,9 +58,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             consumption : {
                 type: Array
             },
+            consumptionVisited : {
+                type: Object,
+                value: {}
+                /* seems like I need to clear this after the firebase query comes back */
+            },
             todaysNutrients: {
                 type: Array,
-                value: [{name:"test", total:0, unit:"test"}]
+                value: []
+            },
+            todayString: {
+                type: String,
+                value: (new Date()).toISOString().substring(0, 10)
             }
         },
         observers:[ 'consumptionChanged(consumption.*)',
@@ -70,13 +85,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             if (changeRecord.base.length === 0) {
                 return;
             }
-            for(var i = changeRecord.base.length - 1; i < changeRecord.base.length; i++) {
+            for(var i = changeRecord.base.length - 1; i < changeRecord.base.length && changeRecord.base[i].consumedDate.substring(0, 10) === this.todayString; i++) {
+                if (typeof this.consumptionVisited[changeRecord.base[i].$key] == 'undefined') { // only visit each consumption node once
+                     this.consumptionVisited[changeRecord.base[i].$key] = true;
+                }
+                else {
+                    return;
+                }
+                
                 var nutrientsOfInterest= changeRecord.base[i].nutrientsOfInterest;
                 for(var j = 0; j < nutrientsOfInterest.length; j++) {
                     var noiFound = false;
                     for (var k = 0; k < this.todaysNutrients.length; k++) {
                         if (this.todaysNutrients[k].name === nutrientsOfInterest[j].nutrient) {
-                            this.set('this.todaysNutrients[' + k + '].total', this.todaysNutrients[k].total + nutrientsOfInterest[j].value * changeRecord.base[i].multiplier);
+                            this.set('todaysNutrients.' + k + '.total', this.todaysNutrients[k].total + nutrientsOfInterest[j].value * changeRecord.base[i].multiplier);
                             noiFound = true;
                             break;
                         }
