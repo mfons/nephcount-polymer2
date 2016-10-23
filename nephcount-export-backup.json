@@ -449,6 +449,411 @@
       "value" : "8"
     } ],
     "weight" : 165
+  }, {
+    "consumedDate" : "2016-10-17T12:33:49.273Z",
+    "consumedGrams" : 28.75,
+    "measure" : "1.0 cup, pureed",
+    "multiplier" : ".125",
+    "name" : "Avocados, raw, California",
+    "ndbid" : "09038",
+    "nutrientsOfInterest" : [ {
+      "gm" : 507,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "1166"
+    }, {
+      "gm" : 54,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "124"
+    }, {
+      "gm" : 167,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "384"
+    }, {
+      "gm" : 8,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "18"
+    } ],
+    "weight" : 230
+  }, {
+    "consumedDate" : "2016-10-17T12:34:59.943Z",
+    "consumedGrams" : 19,
+    "measure" : "4.0 pieces",
+    "multiplier" : ".25",
+    "name" : "MORNINGSTAR FARMS Corn Dog Mini, frozen, unprepared",
+    "ndbid" : "16561",
+    "nutrientsOfInterest" : [ {
+      "gm" : 96,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "73"
+    }, {
+      "gm" : 142,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "108"
+    }, {
+      "gm" : 219,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "166"
+    }, {
+      "gm" : 678,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "515"
+    } ],
+    "weight" : 76
+  }, {
+    "consumedDate" : "2016-10-17T12:44:43.386Z",
+    "consumedGrams" : 14.8,
+    "measure" : "1.0 fl oz",
+    "multiplier" : ".5",
+    "name" : "Beverages, carbonated, low calorie, cola or pepper-type, with aspartame, contains caffeine",
+    "ndbid" : "14416",
+    "nutrientsOfInterest" : [ {
+      "gm" : 8,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "2"
+    }, {
+      "gm" : 9,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "3"
+    }, {
+      "gm" : "--",
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "--"
+    } ],
+    "weight" : 29.6
+  }, {
+    "consumedDate" : "2016-10-18T17:40:54.379Z",
+    "consumedGrams" : 23,
+    "measure" : "1.0 cup, pureed",
+    "multiplier" : ".1",
+    "name" : "Avocados, raw, Florida",
+    "ndbid" : "09039",
+    "nutrientsOfInterest" : [ {
+      "gm" : 351,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "807"
+    }, {
+      "gm" : 2.23,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "5.13"
+    }, {
+      "gm" : 40,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "92"
+    }, {
+      "gm" : 2,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "5"
+    }, {
+      "gm" : 120,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "276"
+    } ],
+    "weight" : 230
+  }, {
+    "consumedDate" : "2016-10-18T17:43:17.622Z",
+    "consumedGrams" : 23,
+    "measure" : "1.0 cup, pureed",
+    "multiplier" : ".1",
+    "name" : "Avocados, raw, Florida",
+    "ndbid" : "09039",
+    "nutrientsOfInterest" : [ {
+      "gm" : 351,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "807"
+    }, {
+      "gm" : 2.23,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "5.13"
+    }, {
+      "gm" : 40,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "92"
+    }, {
+      "gm" : 2,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "5"
+    }, {
+      "gm" : 120,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "276"
+    } ],
+    "weight" : 230
+  }, {
+    "consumedDate" : "2016-10-18T17:46:00.251Z",
+    "consumedGrams" : 56.7,
+    "measure" : "1.0 oz",
+    "multiplier" : "2",
+    "name" : "Nuts, cashew nuts, raw",
+    "ndbid" : "12087",
+    "nutrientsOfInterest" : [ {
+      "gm" : 660,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "187"
+    }, {
+      "gm" : 18.22,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "5.17"
+    }, {
+      "gm" : 593,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "168"
+    }, {
+      "gm" : 12,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "3"
+    }, {
+      "gm" : 2314,
+      "nutrient" : "Energy",
+      "nutrient_id" : "268",
+      "unit" : "kJ",
+      "value" : "656"
+    } ],
+    "weight" : 28.35
+  }, {
+    "consumedDate" : "2016-10-19T13:38:43.768Z",
+    "consumedGrams" : 127,
+    "measure" : "1.0 can drained, rinsed",
+    "multiplier" : ".5",
+    "name" : "Chickpeas (garbanzo beans, bengal gram), mature seeds, canned, drained, rinsed in tap water",
+    "ndbid" : "16359",
+    "nutrientsOfInterest" : [ {
+      "gm" : 109,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "277"
+    }, {
+      "gm" : 7.04,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "17.88"
+    }, {
+      "gm" : 80,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "203"
+    }, {
+      "gm" : 212,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "538"
+    }, {
+      "gm" : 138,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "351"
+    } ],
+    "weight" : 254
+  }, {
+    "consumedDate" : "2016-10-19T13:43:37.260Z",
+    "consumedGrams" : 86,
+    "measure" : "1.0 slice presliced",
+    "multiplier" : "2",
+    "name" : "Garlic bread, frozen",
+    "ndbid" : "18963",
+    "nutrientsOfInterest" : [ {
+      "gm" : 103,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "44"
+    }, {
+      "gm" : 8.36,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "3.59"
+    }, {
+      "gm" : 87,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "37"
+    }, {
+      "gm" : 544,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "234"
+    }, {
+      "gm" : 350,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "150"
+    } ],
+    "weight" : 43
+  }, {
+    "consumedDate" : "2016-10-20T11:53:20.671Z",
+    "consumedGrams" : 61,
+    "measure" : "0.5 cup",
+    "multiplier" : ".5",
+    "name" : "Asparagus, canned, regular pack, solids and liquids",
+    "ndbid" : "11013",
+    "nutrientsOfInterest" : [ {
+      "gm" : 172,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "210"
+    }, {
+      "gm" : 1.8,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "2.20"
+    }, {
+      "gm" : 38,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "46"
+    }, {
+      "gm" : 62,
+      "nutrient" : "Energy",
+      "nutrient_id" : "268",
+      "unit" : "kJ",
+      "value" : "76"
+    }, {
+      "gm" : 284,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "346"
+    } ],
+    "weight" : 122
+  }, {
+    "consumedDate" : "2016-10-20T11:54:04.175Z",
+    "consumedGrams" : 28.35,
+    "measure" : "1.0 oz",
+    "multiplier" : "1",
+    "name" : "Snacks, granola bar, with coconut, chocolate coated",
+    "ndbid" : "42272",
+    "nutrientsOfInterest" : [ {
+      "gm" : 254,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "72"
+    }, {
+      "gm" : 5.2,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "1.47"
+    }, {
+      "gm" : 154,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "44"
+    }, {
+      "gm" : 2223,
+      "nutrient" : "Energy",
+      "nutrient_id" : "268",
+      "unit" : "kJ",
+      "value" : "630"
+    }, {
+      "gm" : 152,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "43"
+    } ],
+    "weight" : 28.35
+  }, {
+    "consumedDate" : "2016-10-21T03:00:05.689Z",
+    "consumedGrams" : 34.25,
+    "measure" : "1.0 cup",
+    "multiplier" : ".25",
+    "name" : "Nuts, mixed nuts, dry roasted, with peanuts, with salt added",
+    "ndbid" : "12635",
+    "nutrientsOfInterest" : [ {
+      "gm" : 693,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "949"
+    }, {
+      "gm" : 17.3,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "23.70"
+    }, {
+      "gm" : 435,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "596"
+    }, {
+      "gm" : 345,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "473"
+    }, {
+      "gm" : 594,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "814"
+    } ],
+    "weight" : 137
   } ],
   "nutrients" : [ {
     "id" : "749",
@@ -1212,12 +1617,24 @@
     "offset" : 189
   } ],
   "nutrientsOfInterest" : [ {
-    "id" : 305,
-    "name" : "Phosphorous, P",
+    "id" : "208",
+    "name" : "Energy",
+    "offset" : 84
+  }, {
+    "id" : "305",
+    "name" : "Phosphorus, P",
     "offset" : 134
   }, {
-    "id" : 306,
+    "id" : "306",
     "name" : "Potassium, K",
     "offset" : 136
+  }, {
+    "id" : "203",
+    "name" : "Protein",
+    "offset" : 144
+  }, {
+    "id" : "307",
+    "name" : "Sodium, Na",
+    "offset" : 150
   } ]
 }

@@ -18,6 +18,7 @@
   <!--link rel="import" href="../bower_components/polymerfire/firebase-app.html"-->
   <!--link rel="import" href="../bower_components/polymerfire/polymerfire.html"-->
   <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+  <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 
 
 <dom-module id="my-view1">
@@ -135,6 +136,14 @@
         iron-list {
           @apply(--layout-flex);
         }
+        paper-fab.label {
+            font-size: 20px;
+         }
+         paper-fab {
+             position:absolute;
+             bottom 0px;
+             right:0px;
+         }
       </style>
 
     <!--ajax-nutrients-service nutrients="{{nutrients}}"></ajax-nutrients-service-->
@@ -146,11 +155,11 @@
     data="{{nutrients}}">
     </firebase-query>
         
-     <!--firebase-document id="fbdoc"
+     <firebase-document id="fbdoc"
           app-name="nephcount"
          path="/nutrientsOfInterest"
-          data="{{selectedItems}}">
-      </firebase-document-->
+          data="{{savedSelectedItems}}">
+      </firebase-document>
         
     <!--iron-selector items="[[nutrients]]" multi="true" selectedValues="{{selectedItems}}">
         <template id="myList" is="dom-repeat" items="[[nutrients]]">
@@ -208,6 +217,9 @@
         </app-drawer>
       </app-drawer-layout>
 
+<paper-fab icon="favorite" id="saveSelectedItemsFab" title="Save selected nutrients of interest."></paper-fab>
+        
+        
     </template>
     <script>
       //HTMLImports.whenReady(function() {
@@ -222,11 +234,17 @@
                  nutrients: {
                      type: Object,
                      observer: 'dataChanged'
+                 },
+                 savedSelectedItems: {
+                     type: Array
                  }
             },
             observers: ['selectedItemsChanged(selectedItems.*)'],
             dataChanged: function (newData, oldData) {
                  console.log("is my app talking to firebase nephcount/nutrients?");
+            },
+            listeners: {
+                'saveSelectedItemsFab.tap':'_saveSelectedItems'
             },
           iconForItem: function(isSelected) {
             return isSelected ? 'star' : 'star-border';
@@ -246,6 +264,23 @@
           } ,
           selectedItemsChanged: function(changeRecord) {
             console.log('selected items have changed to ' + changeRecord);
+          },
+          _saveSelectedItems: function(event) {
+              if (typeof this.savedSelectedItems != 'undefined') {
+                  console.log("there are already saved nutrients of interest!");
+                  if (this.selectedItems.length > 0) { // there is something to save
+                      console.log("There are nutrients of interest to save.");
+                      this.splice('savedSelectedItems', 0, this.savedSelectedItems.length); // remove all previously saved items.
+                      for(var i = 0; i < this.selectedItems.length; i++) { 
+                          // push the selected items to the saved array; I am doing this because 
+                          // binding selectedItems to firebase-document value seems to cause an 
+                          // error because of the "$key" property which is in selecteditems for 
+                          // some reason.
+                          this.push('savedSelectedItems', {"id":  this.selectedItems[i].id, "name": this.selectedItems[i].name, "offset": this.selectedItems[i].offset });
+                      }
+                  }
+                  
+              }
           }
         });
     //});
