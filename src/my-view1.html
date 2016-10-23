@@ -178,7 +178,7 @@
           </app-toolbar>
           <!-- Main List for the items -->
         
-        <iron-list items="{{nutrients}}" as="item" class="flex" selected-items="{{selectedItems}}" selection-enabled multi-selection>
+        <iron-list id="nutrientIronList" items="{{nutrients}}" as="item" class="flex" selected-items="{{selectedItems}}" selection-enabled multi-selection>
            <template>
             <div>
                 <div tabindex$="[[tabIndex]]" aria-label$="Select/Deselect [[item.name]]" class$="[[_computedClass(selected)]]">
@@ -239,7 +239,9 @@
                      type: Array
                  }
             },
-            observers: ['selectedItemsChanged(selectedItems.*)'],
+            ready: function() {
+            },
+            observers: ['selectedItemsChanged(selectedItems.*)','_savedSelectedItemsChanged(savedSelectedItems.*, nutrients.*)'],
             dataChanged: function (newData, oldData) {
                  console.log("is my app talking to firebase nephcount/nutrients?");
             },
@@ -264,6 +266,22 @@
           } ,
           selectedItemsChanged: function(changeRecord) {
             console.log('selected items have changed to ' + changeRecord);
+          },
+          _savedSelectedItemsChanged: function(savedSelectedItemsChangeRecord, nutrientsChangedRecord) {
+            console.log('saved selected items... ' );
+            if (savedSelectedItemsChangeRecord.base.length > 0 
+                && nutrientsChangedRecord.base.length === 190  // ANTI PATTERN ALERT...190 IS THE NUMBER OF RECORDS IN THE NUTRIENTS ARRAY FROM FIREBASE
+                &&  this.selectedItems.length === 0 ) {
+                // TODO load any saved nutrients of interest into selectedItems 
+                console.log("about to load saved selected items into selected items...");
+                for(var i = 0; i < nutrientsChangedRecord.base.length; i++) { 
+                    for(var j = 0; j < savedSelectedItemsChangeRecord.base.length; j++) {
+                        if (savedSelectedItemsChangeRecord.base[j].id === nutrientsChangedRecord.base[i].id) {
+                            this.$.nutrientIronList.selectItem(i);
+                        }
+                    }
+                }
+            }
           },
           _saveSelectedItems: function(event) {
               if (typeof this.savedSelectedItems != 'undefined') {
