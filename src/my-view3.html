@@ -70,6 +70,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             todayString: {
                 type: String,
                 value: (new Date()).toISOString().substring(0, 10)
+            },
+            active: {
+                type: Boolean
             }
         },
         observers:[ 'consumptionChanged(consumption.*)',

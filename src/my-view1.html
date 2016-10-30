@@ -63,7 +63,7 @@
             display: none;
           }
         }
-        #itemsList,
+        #nutrientIronList,
         #selectedItemsList {
           @apply(--layout-flex);
         }
@@ -178,17 +178,15 @@
           </app-toolbar>
           <!-- Main List for the items -->
         
-        <iron-list id="nutrientIronList" items="{{nutrients}}" as="item" class="flex" selected-items="{{selectedItems}}" selection-enabled multi-selection>
+        <iron-list id="nutrientIronList" items="[[nutrients]]" selected-items="{{selectedItems}}" selection-enabled multi-selection>
            <template>
             <div>
                 <div tabindex$="[[tabIndex]]" aria-label$="Select/Deselect [[item.name]]" class$="[[_computedClass(selected)]]">
                 <div >
-                  <!--img class="avatar" src="[[item.image]]"-->
                   <div class="pad">
                     <div class="primary">
                       [[item.name]]
                     </div>
-                    <!--div class="secondary dim">[[item.shortText]]</div-->
                   </div>
                   <iron-icon icon$="[[iconForItem(selected)]]" class="star"></iron-icon>
                 </div>
@@ -259,7 +257,7 @@
             return classes;
           },
           _unselect: function(e) {
-            this.$.itemsList.deselectItem(e.model.item);
+            this.$.nutrientIronList.deselectItem(e.model.item);
           },
           _getFormattedCount: function(count) {
             return count > 0 ? '(' + count + ')' : '';

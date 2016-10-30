@@ -2,6 +2,9 @@
 
 
 <!-- http://api.data.gov/docs/rate-limits/  with this api_key we can do 1000 requests in an hour. -->
+<!-- Purpose of this element: to provide an array, "foodNutrients", which is an array of 
+amounts of a parametrically provided list of nutrients for a parametrically provided food
+item number from the usda database    -->
 <dom-module id="nutrients-for-food-service">
     <style>
         :host {
@@ -10,7 +13,6 @@
     </style>
     <template>
         <iron-ajax 
-            auto
             id="ajaxNutrientsList"
             method="GET"
             url="https://api.nal.usda.gov/ndb/nutrients/"
@@ -38,19 +40,19 @@
             ajaxParams: {
                 type: Object,
                 value: function () {
+                    // The purpose of providing this default value is to document the expected structure of the object for this property.
                     return {"format":"json", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt", "nutrients": ["205", "204", "208", "269"], "ndbno": "01009"};
                 }
             },
             foodId : {
-                type: String,
-                observer:  'foodIdChanged'
+                type: String
             },
             theRequestUrl: {
                 type: String,
                 observer: 'theRequestUrlChanged'
             }
         },
-        observers: [ 'nutrientsOfInterestChanged(nutrientsOfInterest.*)'],
+        observers: [ 'nutrientsOfInterestAndFoodIdChanged(nutrientsOfInterest.*, foodId)'],
         attached: function () {
             this.foodNutrients = [];
         },
@@ -58,13 +60,11 @@
             this.foodNutrients = data.detail.response.report.foods;
             console.log('nutrients-for-food-service came back with ' + data.detail.response);
         },
-        nutrientsOfInterestChanged: function(changeRecord) {
+        nutrientsOfInterestAndFoodIdChanged: function(changeRecord, newFoodId) {
             console.log('in nutrients-for-food-service looking at nutrients of interest changed: ' + changeRecord);
             this.set('ajaxParams.nutrients', generateNutrientIdsOfInterest(changeRecord.base));
-
-        },
-        foodIdChanged:  function(newFoodId, oldFoodId) {
             this.set('ajaxParams.ndbno', newFoodId);
+            this.$.ajaxNutrientsList.generateRequest();
         },
         theRequestUrlChanged:  function (newRequestUrl, oldRequestUrl) {
             console.log(newRequestUrl);

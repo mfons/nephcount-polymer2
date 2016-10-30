@@ -159,7 +159,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             }
         },
         observers: [ 'foodsChanged(foods.*)', 'consumptionChanged(consumption.*)',
-                     'foodNutrientsChanged(foodNutrients.*)'],
+                     'foodNutrientsChanged(foodNutrients.*)',
+                     'foodIdChanged(foodId)'],
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit'
@@ -212,11 +213,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
            console.log("consumption change fired" + changeRecord);
         },
         foodNutrientsChanged: function(changeRecord) {
-            this.set('measure', changeRecord.base[0].measure);
-            this.set('weight', changeRecord.base[0].weight)
+            if (changeRecord.base.length > 0) {
+                this.set('measure', changeRecord.base[0].measure);
+                this.set('weight', changeRecord.base[0].weight);
+            }
         },
         calculateConsumedGrams: function(weight, multiplier) {
             return weight * multiplier;
+        },
+        foodIdChanged: function(newObject, oldObject) {
+            console.log("foodIdChanged fired...");
         }
     });
 

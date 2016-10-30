@@ -21,6 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="my-view1.html">
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
@@ -107,7 +108,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             role="main">
           <my-view1 name="view1" selected-items="{{nutrientsOfInterest}}" ></my-view1>
           <my-view2 name="view2" nutrients-of-interest="[[nutrientsOfInterest]]"></my-view2>
-          <my-view3 name="view3"></my-view3>
+          <my-view3 name="view3" active="[[view3BecomingActive(page)]]"></my-view3>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -144,7 +145,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
-
+      view3BecomingActive: function(pg) {
+        var view3Active = false; 
+        if (pg === 'view3') {
+            view3Active = true;
+        }
+        return view3Active;  
+      },
       _showPage404: function() {
         this.page = 'view404';
       }
