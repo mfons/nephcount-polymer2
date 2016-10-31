@@ -12,6 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shared-styles.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
   <link rel="import" href="summary-item.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 
 <dom-module id="my-view3">
@@ -22,6 +23,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+       .pad {
+          padding: 0 16px;
+          @apply(--layout-flex);
+          @apply(--layout-horizontal);
+        }
     </style>
     
 
@@ -40,8 +46,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
     <div class="card">
       <h1>Report</h1>
-      <h2>TODAY</h2>
-        <div>[[printArrayAsJson(todaysNutrients.*)]]</div>
+      <h2>Today's totals</h2>
+        <!--div>[[printArrayAsJson(todaysNutrients.*)]]</div-->
+        <template is="dom-repeat" items="[[todaysNutrients]]">
+            <div class="pad">
+                <div>[[item.name]]:&nbsp;&nbsp;</div>
+                <div>[[item.total]]&nbsp;</div>
+                <div>[[item.unit]]</div>
+            </div>
+        </template>
         <br /><hr />
         <template is="dom-repeat" items="[[consumption]]">
             <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
