@@ -21,6 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="my-view1.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="na-login.html">
@@ -66,6 +67,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
+  <firebase-app
+      name="nephcount"
+      api-key="AIzaSyBJ1n9BY1f-KVIR2v-yGOzS9nEW-fWHK-s"
+      auth-domain="nephcount.firebaseapp.com"
+      database-url="https://nephcount.firebaseio.com">
+  </firebase-app>
     <!--na-login
         on-sign-in="signIn"
         signed-in="[[signedIn]]"
