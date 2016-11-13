@@ -1,6 +1,4 @@
 {
-  "users" : [{"sandra": {"nutrientsOfInterest": [{"test": "test"}],"consumption": [{"test":"test"}]}},
-             {"michael": {"nutrientsOfInterest": [{"test":"test"}],"consumption": [{"test": "test"}]}}],
   "consumption" : [ {
     "consumedDate" : "2016-10-10T10:21:30.900Z",
     "consumedGrams" : 26,
@@ -1707,6 +1705,240 @@
       "value" : "200"
     } ],
     "weight" : 225
+  }, {
+    "consumedDate" : "2016-11-12T21:15:36.707Z",
+    "consumedGrams" : 248,
+    "measure" : "1.0 cup",
+    "multiplier" : "1",
+    "name" : "Beverages, coffee, brewed, breakfast blend",
+    "ndbid" : "14180",
+    "nutrientsOfInterest" : [ {
+      "gm" : 50,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "124"
+    }, {
+      "gm" : 0.3,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "0.74"
+    }, {
+      "gm" : 3,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "7"
+    }, {
+      "gm" : 1,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "2"
+    }, {
+      "gm" : 2,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "5"
+    } ],
+    "weight" : 248
+  }, {
+    "consumedDate" : "2016-11-12T21:18:09.850Z",
+    "consumedGrams" : 486,
+    "measure" : "1.0 cup",
+    "multiplier" : "2",
+    "name" : "SILK Chai, soymilk",
+    "ndbid" : "16247",
+    "nutrientsOfInterest" : [ {
+      "gm" : 123,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "299"
+    }, {
+      "gm" : 2.47,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "6.00"
+    }, {
+      "gm" : "--",
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "--"
+    }, {
+      "gm" : 41,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "100"
+    }, {
+      "gm" : 53,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "129"
+    } ],
+    "weight" : 243
+  }, {
+    "consumedDate" : "2016-11-12T21:18:13.437Z",
+    "consumedGrams" : 486,
+    "measure" : "1.0 cup",
+    "multiplier" : "2",
+    "name" : "SILK Chai, soymilk",
+    "ndbid" : "16247",
+    "nutrientsOfInterest" : [ {
+      "gm" : 123,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "299"
+    }, {
+      "gm" : 2.47,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "6.00"
+    }, {
+      "gm" : "--",
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "--"
+    }, {
+      "gm" : 41,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "100"
+    }, {
+      "gm" : 53,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "129"
+    } ],
+    "weight" : 243
+  }, {
+    "consumedDate" : "2016-11-13T02:26:01.093Z",
+    "consumedGrams" : 48.75,
+    "measure" : "1.0 cup, sections",
+    "multiplier" : ".25",
+    "name" : "Tangerines, (mandarin oranges), raw",
+    "ndbid" : "09218",
+    "nutrientsOfInterest" : [ {
+      "gm" : 166,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "324"
+    }, {
+      "gm" : 0.81,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "1.58"
+    }, {
+      "gm" : 20,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "39"
+    }, {
+      "gm" : 2,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "4"
+    }, {
+      "gm" : 53,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "103"
+    } ],
+    "weight" : 195
+  }, {
+    "consumedDate" : "2016-11-13T03:03:15.610Z",
+    "consumedGrams" : 105.5,
+    "measure" : "1.0 item",
+    "multiplier" : ".5",
+    "name" : "Fast foods, cheeseburger; single, large patty; with condiments and bacon",
+    "ndbid" : "21097",
+    "nutrientsOfInterest" : [ {
+      "gm" : 238,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "502"
+    }, {
+      "gm" : 15.78,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "33.30"
+    }, {
+      "gm" : 181,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "382"
+    }, {
+      "gm" : 674,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "1422"
+    }, {
+      "gm" : 282,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "595"
+    } ],
+    "weight" : 211
+  }, {
+    "consumedDate" : "2016-11-13T03:21:57.113Z",
+    "consumedGrams" : 50,
+    "measure" : "10.0 strips",
+    "multiplier" : "1",
+    "name" : "Potatoes, frozen, french fried, par fried, extruded, prepared, heated in oven, without salt",
+    "ndbid" : "11409",
+    "nutrientsOfInterest" : [ {
+      "gm" : 539,
+      "nutrient" : "Potassium, K",
+      "nutrient_id" : "306",
+      "unit" : "mg",
+      "value" : "270"
+    }, {
+      "gm" : 3.55,
+      "nutrient" : "Protein",
+      "nutrient_id" : "203",
+      "unit" : "g",
+      "value" : "1.78"
+    }, {
+      "gm" : 96,
+      "nutrient" : "Phosphorus, P",
+      "nutrient_id" : "305",
+      "unit" : "mg",
+      "value" : "48"
+    }, {
+      "gm" : 613,
+      "nutrient" : "Sodium, Na",
+      "nutrient_id" : "307",
+      "unit" : "mg",
+      "value" : "306"
+    }, {
+      "gm" : 333,
+      "nutrient" : "Energy",
+      "nutrient_id" : "208",
+      "unit" : "kcal",
+      "value" : "166"
+    } ],
+    "weight" : 50
   } ],
   "nutrients" : [ {
     "id" : "749",
@@ -2471,23 +2703,52 @@
   } ],
   "nutrientsOfInterest" : [ {
     "id" : "208",
+    "maxAllowedDaily" : 1900,
+    "maxAllowedDailyUnit" : "kcal",
     "name" : "Energy",
     "offset" : 84
   }, {
     "id" : "305",
+    "maxAllowedDaily" : 1000,
+    "maxAllowedDailyUnit" : "mg",
     "name" : "Phosphorus, P",
     "offset" : 134
   }, {
     "id" : "306",
+    "maxAllowedDaily" : 2500,
+    "maxAllowedDailyUnit" : "mg",
     "name" : "Potassium, K",
     "offset" : 136
   }, {
     "id" : "203",
+    "maxAllowedDaily" : 100,
+    "maxAllowedDailyUnit" : "g",
     "name" : "Protein",
     "offset" : 144
   }, {
     "id" : "307",
+    "maxAllowedDaily" : 1500,
+    "maxAllowedDailyUnit" : "mg",
     "name" : "Sodium, Na",
     "offset" : 150
+  } ],
+  "users" : [ {
+    "sandra" : {
+      "consumption" : [ {
+        "test" : "test"
+      } ],
+      "nutrientsOfInterest" : [ {
+        "test" : "test"
+      } ]
+    }
+  }, {
+    "michael" : {
+      "consumption" : [ {
+        "test" : "test"
+      } ],
+      "nutrientsOfInterest" : [ {
+        "test" : "test"
+      } ]
+    }
   } ]
 }
