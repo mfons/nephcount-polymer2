@@ -1,13 +1,27 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="summary-item">
     <style>
         :host {
              display: block;
         }
+       .pad {
+          padding: 0 16px;
+          @apply(--layout-flex);
+          @apply(--layout-horizontal);
+        }
     </style>
     <template>
-       <div>[[printAsJsonIfToday(inputItem, matchString)]]</div>
+        <div class="card">
+            <div class="pad">
+                <div>For [[inputItem.consumedDate]]:&nbsp;&nbsp;[[inputItem.measure]]&nbsp;of [[inputItem.name]]</div>
+                <template is="dom-repeat" items="[[inputItem.nutrientsOfInterest]]">
+                    ** [[item.nutrient]]:&nbsp;&nbsp; [[item.value]]&nbsp;[[item.unit]] **
+                </template>
+            </div>
+        </div>
+       <div>[[_displayIfToday(inputItem, matchString)]]</div>
     </template>
 </dom-module>
 
@@ -20,11 +34,12 @@
                 type: String
             }
         },
-        printAsJsonIfToday: function(obj, match) {
-            if (obj.consumedDate.substring(0, 10) === match) {
-                return JSON.stringify(obj);               
+        _displayIfToday: function(obj, match) {
+            if (obj.consumedDate.substring(0, 10) !== match) {
+                this.style.display = 'none';
+                //return JSON.stringify(obj);               
             }
-            return "";
+            //return "";
          }
     });
 

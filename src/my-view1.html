@@ -234,7 +234,8 @@
                      observer: 'dataChanged'
                  },
                  savedSelectedItems: {
-                     type: Array
+                     type: Array,
+                     notify: true
                  }
             },
             ready: function() {
@@ -292,7 +293,9 @@
                           // binding selectedItems to firebase-document value seems to cause an 
                           // error because of the "$key" property which is in selecteditems for 
                           // some reason.
-                          this.push('savedSelectedItems', {"id":  this.selectedItems[i].id, "name": this.selectedItems[i].name, "offset": this.selectedItems[i].offset });
+                          this.push('savedSelectedItems', {"id":  this.selectedItems[i].id, "name": this.selectedItems[i].name, "offset": this.selectedItems[i].offset,
+                          "maxAllowedDaily": "234",
+                          "maxAllowedDailyUnit": "mg"});
                       }
                   }
                   

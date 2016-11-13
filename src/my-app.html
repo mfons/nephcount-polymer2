@@ -23,6 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="my-view1.html">
+<link rel="import" href="../bower_components/polymerfire/polymerfire.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="na-login.html">
 
@@ -73,13 +74,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       auth-domain="nephcount.firebaseapp.com"
       database-url="https://nephcount.firebaseio.com">
   </firebase-app>
+      
     <!--na-login
         on-sign-in="signIn"
         signed-in="[[signedIn]]"
         disabled="[[!online]]">
-    </na-login-->
+    </na-login>
 
-    <!--firebase-auth
+    <firebase-auth
         id="auth"
         app-name="nephcount"
         provider="google"
@@ -100,7 +102,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">Select Nutrients to Track[[signedIn]]</a>
+          <a name="view1" href="/view1">Select Nutrients to Track</a>
           <a name="view2" href="/view2">Enter Food/Fluid</a>
           <a name="view3" href="/view3">Report Totals</a>
         </iron-selector>
@@ -121,9 +123,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <my-view1 name="view1" selected-items="{{nutrientsOfInterest}}" ></my-view1>
+          <my-view1 name="view1" selected-items="{{nutrientsOfInterest}}"
+                    saved-selected-items="{{savedNutrientsOfInterest}}"></my-view1>
           <my-view2 name="view2" nutrients-of-interest="[[nutrientsOfInterest]]"></my-view2>
-          <my-view3 name="view3" active="[[view3BecomingActive(page)]]"></my-view3>
+          <my-view3 name="view3" active="[[view3BecomingActive(page)]]"
+                 nutrients-of-interest="[[savedNutrientsOfInterest]]"></my-view3>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -142,11 +146,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         nutrientsOfInterest: {
             type: Array
-        }
+        },
+        online: Boolean,
+        signedIn: Boolean
       },
 
       observers: [
-        '_routePageChanged(routeData.page)', 'nutrientsOfInterestChanged(nutrientsOfInterest.*)'
+        '_routePageChanged(routeData.page)', 'nutrientsOfInterestChanged(nutrientsOfInterest.*)',
+          'onlineChanged(online)', 'signedInChanged(signedIn)'
       ],
       nutrientsOfInterestChanged: function(changeRecord) {
           console.log(' in my-app, the chosen nutrients are ' + changeRecord.base);
@@ -172,6 +179,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
         signIn: function() {
           this.$.auth.signInWithPopup();
+        },
+        onlineChanged : function(newValue, oldValue) {
+            console.log("online changed from " + oldValue + " to " + newValue);
+        },
+        signedInChanged : function(newValue, oldValue) {
+            console.log("signedIn changed from " + oldValue + " to " + newValue);
         }
 
     });
