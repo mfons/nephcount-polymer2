@@ -89,7 +89,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             todayString: {
                 type: String,
-                value: (new Date()).toISOString().substring(0, 10)
+                value: formatLocalDate().substring(0, 10)
             },
             active: {
                 type: Boolean
@@ -138,17 +138,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     var noiFound = false;
                     for (var k = 0; k < this.todaysNutrients.length; k++) {
                         if (this.todaysNutrients[k].name === nutrientsOfInterest[j].nutrient) {
-                            this.set('todaysNutrients.' + k + '.total', this.todaysNutrients[k].total + nutrientsOfInterest[j].value * changeRecord.base[i].multiplier);
+                            this.set('todaysNutrients.' + k + '.total', this.todaysNutrients[k].total + getUnavailableValue(nutrientsOfInterest[j].value) * changeRecord.base[i].multiplier);
                             noiFound = true;
                             break;
                         }
                     }
                     if (!noiFound && typeof nutrientsOfInterest[j].nutrient != 'undefined') {
-                        this.push('todaysNutrients', {"name": nutrientsOfInterest[j].nutrient, "total" : nutrientsOfInterest[j].value * changeRecord.base[i].multiplier, "unit" : nutrientsOfInterest[j].unit});
+                        this.push('todaysNutrients', {"name": nutrientsOfInterest[j].nutrient, "total" : getUnavailableValue(nutrientsOfInterest[j].value) * changeRecord.base[i].multiplier, "unit" : nutrientsOfInterest[j].unit});
                     }
                 }          
             }
         }
     });
+      
+             function formatLocalDate() {
+        var now = new Date(),
+            tzo = -now.getTimezoneOffset(),
+            dif = tzo >= 0 ? '+' : '-',
+            pad = function(num) {
+                var norm = Math.abs(Math.floor(num));
+                return (norm < 10 ? '0' : '') + norm;
+            };
+        return now.getFullYear() 
+            + '-' + pad(now.getMonth()+1)
+            + '-' + pad(now.getDate())
+            + 'T' + pad(now.getHours())
+            + ':' + pad(now.getMinutes()) 
+            + ':' + pad(now.getSeconds()) 
+            + dif + pad(tzo / 60) 
+            + ':' + pad(tzo % 60);
+       };
+      function getUnavailableValue(value) {
+          if (value === "--") {
+              return 0;
+          }
+          else {
+              return value;
+          }
+      }
+
   </script>
 </dom-module>

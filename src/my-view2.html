@@ -206,7 +206,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             newObject.weight = this.weight;
             newObject.multiplier = this.multiplier;
             newObject.consumedGrams = this.consumedGrams;
-            newObject.consumedDate = (new Date()).toISOString();
+            newObject.consumedDate = formatLocalDate();
             newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
             this.push('consumption', newObject);
             //this.set('consumption.' + this.consumption.length + 'nutrientsOfInterest', new Array);
@@ -233,6 +233,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             if (changeRecord.base.length > 0) {
                 this.set('measure', changeRecord.base[0].measure);
                 this.set('weight', changeRecord.base[0].weight);
+                // TODO create "no-data" 
             }
         },
         calculateConsumedGrams: function(weight, multiplier) {
@@ -242,6 +243,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             console.log("foodIdChanged fired...");
         },
         _applyMultiplier:  function(nutrientValue, multiplier) {
+            if (nutrientValue === "--") {
+                return "[Value Not Available]";
+            }
             return nutrientValue * multiplier;
         }
     });
@@ -256,6 +260,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             form.querySelector('.output').innerHTML = '';
            console.log("_reset() function executed");
         };
+       function formatLocalDate() {
+        var now = new Date(),
+            tzo = -now.getTimezoneOffset(),
+            dif = tzo >= 0 ? '+' : '-',
+            pad = function(num) {
+                var norm = Math.abs(Math.floor(num));
+                return (norm < 10 ? '0' : '') + norm;
+            };
+        return now.getFullYear() 
+            + '-' + pad(now.getMonth()+1)
+            + '-' + pad(now.getDate())
+            + 'T' + pad(now.getHours())
+            + ':' + pad(now.getMinutes()) 
+            + ':' + pad(now.getSeconds()) 
+            + dif + pad(tzo / 60) 
+            + ':' + pad(tzo % 60);
+       };
 
 
 </script>
