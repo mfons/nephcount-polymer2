@@ -14,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="summary-item.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
 
 
 <dom-module id="my-view3">
@@ -51,7 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <template is="dom-repeat" items="[[todaysNutrients]]">
             <div class="pad">
                 <div>[[item.name]]:&nbsp;&nbsp;</div>
-                <div>[[item.total]]&nbsp;</div>
+                <div>[[_formatNumber(item.total)]]&nbsp;</div>
                 <div>[[item.unit]]</div>
                 <paper-slider value="[[_calculatePercent(item.name,item.total, nutrientsOfInterest)]]"></paper-slider>
                  ([[_displayedAmountLeft(item.name, item.total, nutrientsOfInterest)]] left)
@@ -61,7 +62,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <br /><hr />
       <h2>Consumed Today</h2>
         <template is="dom-repeat" items="[[consumption]]">
-            <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
+            <paper-material elevation="2">
+                <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
+            </paper-material>
         </template>
       <!--h2>YESTERDAY</h2>
         <div></div-->
@@ -109,10 +112,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             for(var i = 0; i < nutrientsOfInterest.length; i++) {
                 if (nutrientsOfInterest[i].name === name) {
                     var num = nutrientsOfInterest[i].maxAllowedDaily - total;
-                    return num.toString() + " " + nutrientsOfInterest[i].maxAllowedDailyUnit;
+                    return num.toFixed(2) + " " + nutrientsOfInterest[i].maxAllowedDailyUnit;
                 }
             }
             return "n/a";
+        },
+        _formatNumber: function(num) {
+            return num.toFixed(2);
         },
         printArrayAsJson: function(changeRecord) {
             return JSON.stringify(changeRecord.base);

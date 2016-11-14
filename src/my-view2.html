@@ -246,7 +246,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             if (nutrientValue === "--") {
                 return "[Value Not Available]";
             }
-            return nutrientValue * multiplier;
+            return (nutrientValue * multiplier).toFixed(2);
         }
     });
 
