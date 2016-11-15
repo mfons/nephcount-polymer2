@@ -23,7 +23,7 @@
 
 <dom-module id="my-view1">
     <template>
-     <style>
+     <style is="custom-style">
         :host {
           display: block;
           @apply(--paper-font-common-base);
@@ -144,6 +144,10 @@
              bottom 0px;
              right:0px;
          }
+          paper-fab.blue {
+            --paper-fab-background: var(--paper-blue-500);
+            --paper-fab-keyboard-focus-background: var(--paper-blue-900);
+          }
       </style>
 
     <!--ajax-nutrients-service nutrients="{{nutrients}}"></ajax-nutrients-service-->
@@ -215,7 +219,7 @@
         </app-drawer>
       </app-drawer-layout>
 
-<paper-fab icon="favorite" id="saveSelectedItemsFab" title="Save selected nutrients of interest."></paper-fab>
+<paper-fab class="blue" icon="favorite" id="saveSelectedItemsFab" title="Save selected nutrients of interest."></paper-fab>
         
         
     </template>
