@@ -89,7 +89,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         online="{{online}}"
         user="{{user}}">
     </firebase-auth-->
-
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
@@ -124,10 +123,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             fallback-selection="view404"
             role="main">
           <my-view1 name="view1" selected-items="{{nutrientsOfInterest}}"
-                    saved-selected-items="{{savedNutrientsOfInterest}}"></my-view1>
-          <my-view2 name="view2" nutrients-of-interest="[[nutrientsOfInterest]]"></my-view2>
+                    saved-selected-items="{{savedNutrientsOfInterest}}"
+                    user="[[user]]"></my-view1>
+          <my-view2 name="view2" nutrients-of-interest="[[nutrientsOfInterest]]"
+                    user="[[user]]"></my-view2>
           <my-view3 name="view3" active="[[view3BecomingActive(page)]]"
-                 nutrients-of-interest="[[savedNutrientsOfInterest]]"></my-view3>
+                 nutrients-of-interest="[[savedNutrientsOfInterest]]"
+                    user="[[user]]"></my-view3>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -148,12 +150,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             type: Array
         },
         online: Boolean,
-        signedIn: Boolean
+        signedIn: Boolean,
+          user: {
+              type: Object,
+              value: function () {
+                  return { "id" : "sandra" }
+              }
+          }
       },
 
       observers: [
         '_routePageChanged(routeData.page)', 'nutrientsOfInterestChanged(nutrientsOfInterest.*)',
-          'onlineChanged(online)', 'signedInChanged(signedIn)'
+          'onlineChanged(online)', 'signedInChanged(signedIn)',
+          '_usersChanged(users.*)'
       ],
       nutrientsOfInterestChanged: function(changeRecord) {
           console.log(' in my-app, the chosen nutrients are ' + changeRecord.base);
@@ -186,7 +195,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         signedInChanged : function(newValue, oldValue) {
             console.log("signedIn changed from " + oldValue + " to " + newValue);
         }
-
     });
   </script>
     
