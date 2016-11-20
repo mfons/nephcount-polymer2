@@ -20,12 +20,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="my-view1.html">
-<link rel="import" href="../bower_components/polymerfire/polymerfire.html">
 <link rel="import" href="my-icons.html">
-<link rel="import" href="na-login.html">
+<link rel="import" href="nephcount-login.html">
+<!--link rel="import" href="na-login.html"-->
 
 <dom-module id="my-app">
   <template>
@@ -69,26 +68,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
 
   <firebase-app
-      name="nephcount"
+      id="firebase"
       api-key="AIzaSyBJ1n9BY1f-KVIR2v-yGOzS9nEW-fWHK-s"
       auth-domain="nephcount.firebaseapp.com"
       database-url="https://nephcount.firebaseio.com">
   </firebase-app>
       
-    <!--na-login
-        on-sign-in="signIn"
-        signed-in="[[signedIn]]"
-        disabled="[[!online]]">
-    </na-login>
+              <!--nephcount-login></nephcount-login-->
 
-    <firebase-auth
-        id="auth"
-        app-name="nephcount"
-        provider="google"
-        signed-in="{{signedIn}}"
-        online="{{online}}"
-        user="{{user}}">
-    </firebase-auth-->
+      
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
@@ -97,9 +85,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         tail="{{subroute}}"></app-route>
 
     <app-drawer-layout responsive-width="1200px" fullbleed>
-      <!-- Drawer content -->
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
+          
+        <nephcount-login></nephcount-login>
+
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="view1" href="/view1">Select Nutrients to Track</a>
           <a name="view2" href="/view2">Enter Food/Fluid</a>
@@ -107,7 +97,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-selector>
       </app-drawer>
 
-      <!-- Main content -->
       <app-header-layout has-scrolling-region>
 
         <app-header condenses reveals effects="waterfall">
