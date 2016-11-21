@@ -29,11 +29,21 @@
                   type: Object
               }
           },
+          observers: ['statusKnownChanged(statusKnown)'],
           login:  function() {
-              this.$.auth.signInWithPopup();
+              this.$.auth.signInWithPopup()
+                  .then(function(response) { 
+                  console.log("login succeeded.");
+              })
+                  .catch(function(error) { 
+                  console.log("login failed...");
+              });;
           },
           logout: function() {
               this.$.auth.signOut();
+          },
+          statusKnown:  function(newValue, oldValue) {
+              console.log("status known changed " + newValue);
           }
       });
     </script>

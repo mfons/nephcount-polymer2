@@ -1,0 +1,76 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+  <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+ 
+
+<dom-module id="my-custom-food">
+  <template>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+    form > paper-button {
+      width: 45%;
+      margin-top: 20px;
+    }
+    form > paper-button:not([disabled]) {
+      background: var(--paper-light-blue-500);
+      color: white;
+    }
+        paper-card {
+            width:100%;
+        }
+    button {
+      margin-top: 20px;
+    }
+       .pad {
+          padding: 0 16px;
+          @apply(--layout-flex);
+          @apply(--layout-horizontal);
+        }
+    </style>
+
+
+    <div class="vertical-section-container centered">
+     <h1>Define Custom Food Items</h1>
+       <form is="iron-form" method="get" action="/" id="presubmit">
+          <paper-input name="name" label="Name" value="{{foodName}}" required></paper-input>
+          <paper-input name="measure" label="Serving size" required="true" value="{{measure}}"></paper-input>
+          <paper-input name="weight" label="Weight in grams" value="{{weight}}"></paper-input>
+           <paper-card heading="Nutrients">
+                <div class="card-content">
+                    <paper-input value="{{rowNutrient}}" label="Nutrient Name" required="true"></paper-input>
+                    <paper-input value="{{rowNutrientId}}" label="Id" read-only="true"></paper-input>
+                    <paper-input value="{{rowValue}}" label="Value" required="true"></paper-input>
+                    <paper-input value="{{rowUnit}}" label="Unit of Measure" required="true"></paper-input>
+               </div>
+                <div class="card-actions">
+                   <paper-button raised>Add</paper-button>
+               </div>
+           </paper-card>
+          <paper-button raised onclick="_submit(event)">Done</paper-button>
+          <paper-button raised onclick="_reset(event)">Reset</paper-button>          
+        </form>
+
+      </div>
+
+    
+    </template>
+  
+  <script>
+    Polymer({
+      is: 'my-custom-food',
+        properties: {
+            nutrientsOfInterest: {
+                type: Array
+            }
+        }
+    });
+  </script>
+</dom-module>

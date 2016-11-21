@@ -24,6 +24,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="my-view1.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="nephcount-login.html">
+<link rel="import" href="my-custom-food.html">
 <!--link rel="import" href="na-login.html"-->
 
 <dom-module id="my-app">
@@ -74,9 +75,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       database-url="https://nephcount.firebaseio.com">
   </firebase-app>
       
-              <!--nephcount-login></nephcount-login-->
+    <!--nephcount-login></nephcount-login-->
 
-      
     <app-location route="{{route}}"></app-location>
     <app-route
         route="{{route}}"
@@ -94,6 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="view1" href="/view1">Select Nutrients to Track</a>
           <a name="view2" href="/view2">Enter Food/Fluid</a>
           <a name="view3" href="/view3">Report Totals</a>
+          <a name="custom-food" href="/custom-food">Define Custom Food</a>
         </iron-selector>
       </app-drawer>
 
@@ -119,6 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <my-view3 name="view3" active="[[view3BecomingActive(page)]]"
                  nutrients-of-interest="[[savedNutrientsOfInterest]]"
                     user="[[user]]"></my-view3>
+          <my-custom-food name="custom-food" user="[[user]]"></my-custom-food>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>

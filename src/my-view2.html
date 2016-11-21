@@ -94,7 +94,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </firebase-document>
 
       <div class="vertical-section-container centered">
-        <form is="iron-form" method="get" action="/" id="presubmit">
+     <h1>Enter Food/Fluid</h1>
+       <form is="iron-form" method="get" action="/" id="presubmit">
           <paper-input name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required></paper-input>
           <paper-dropdown-menu required label="Food/Fluid">
             <paper-listbox class="dropdown-content" selected="{{selectedFood}}">
@@ -114,7 +115,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-button raised onclick="_reset(event)">Reset</paper-button>
             
     <div class="card">
-      <h1>Nutrients Of Interest</h1>
+      <h2>Nutrients Of Interest</h2>
        <template is="dom-repeat" items="[[foodNutrients.0.nutrients]]">
             <div class="pad">
                 <div>[[item.nutrient]]:&nbsp;&nbsp;</div>
