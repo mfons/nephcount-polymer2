@@ -42,6 +42,13 @@
         }
     </style>
 
+    <firebase-query
+    id="query"
+    app-name="nephcount"
+    path="/nutrients"
+    data="{{possibleNutrients}}">
+    </firebase-query>
+      
       <firebase-document id="fbdoc"
           app-name="nephcount"
          path="/users/[[user.id]]/customFood"
@@ -140,28 +147,7 @@
                            ];
                 }
             },
-            possibleNutrients: {
-                type: Object,
-                value: function() {
-                    return [
-                        {
-                            "offset": 58,
-                            "id": "257",
-                            "name": "Adjusted Protein"
-                        },
-                        {
-                            "offset": 59,
-                            "id": "513",
-                            "name": "Alanine"
-                        },
-                        {
-                            "offset": 60,
-                            "id": "221",
-                            "name": "Alcohol, ethyl"
-                        }
-                    ]
-                }
-            }
+            possibleNutrients: Object
         },
                 listeners: {
                     'theForm.iron-form-presubmit': '_myPreSubmit',
