@@ -187,20 +187,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             event.preventDefault;
              console.log("myPreSubmit() function executed");
             var newObject = {
-    "name" : "example food3",
-    "ndbid" : "00002",
-    "nutrientsOfInterest" : [{
-      "value" : 0,
-      "name" : "example nutrient",
-      "nutrientId" : 0,
-      "uofm" : "oz"
-    }],
-    "measure" : "1 serving size",
-    "weight" : 15,
-    "multiplier" : 1,
-    "consumedGrams" : 15,
-    "consumedDate" : null
-  };
+                "name" : "example food3",
+                "ndbid" : "00002",
+                "nutrientsOfInterest" : [{
+                  "value" : 0,
+                  "name" : "example nutrient",
+                  "nutrientId" : 0,
+                  "uofm" : "oz"
+                }],
+                "measure" : "1 serving size",
+                "weight" : 15,
+                "multiplier" : 1,
+                "consumedGrams" : 15,
+                "consumedDate" : null
+              };
             newObject.name = this.foodItems[this.selectedFood].name;
             newObject.ndbid = this.foodItems[this.selectedFood].ndbno;
             newObject.measure = this.measure;

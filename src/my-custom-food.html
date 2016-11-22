@@ -1,11 +1,17 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animations.html">
 <link rel="import" href="shared-styles.html">
   <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../bower_components/paper-button/paper-button.html">
-<link rel="import" href="../bower_components/paper-card/paper-card.html">
- 
+<link rel="import" href="../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-document.html">
 
 <dom-module id="my-custom-food">
   <template>
@@ -36,27 +42,58 @@
         }
     </style>
 
-
+<!--
+      <firebase-document id="fbdoc"
+          app-name="nephcount"
+         path="/users/[[user.id]]"
+          data="{{theFBUserNode}}">
+      </firebase-document>
+-->
+      
     <div class="vertical-section-container centered">
      <h1>Define Custom Food Items</h1>
-       <form is="iron-form" method="get" action="/" id="presubmit">
+       <form is="iron-form" method="get" action="/" id="theForm">
           <paper-input name="name" label="Name" value="{{foodName}}" required></paper-input>
-          <paper-input name="measure" label="Serving size" required="true" value="{{measure}}"></paper-input>
+          <paper-input name="measure" label="Serving size" required value="{{measure}}"></paper-input>
           <paper-input name="weight" label="Weight in grams" value="{{weight}}"></paper-input>
-           <paper-card heading="Nutrients">
-                <div class="card-content">
-                    <paper-input value="{{rowNutrient}}" label="Nutrient Name" required="true"></paper-input>
-                    <paper-input value="{{rowNutrientId}}" label="Id" read-only="true"></paper-input>
-                    <paper-input value="{{rowValue}}" label="Value" required="true"></paper-input>
-                    <paper-input value="{{rowUnit}}" label="Unit of Measure" required="true"></paper-input>
-               </div>
-                <div class="card-actions">
-                   <paper-button raised>Add</paper-button>
-               </div>
-           </paper-card>
+           
+        <template is="dom-repeat" items="[[foodNutrients]]">
+            <paper-material elevation="2">
+                [[_formatFoodNutrientsItem(item)]]
+            </paper-material>
+        </template>
+           
+           <paper-button raised on-tap="_openAddNutrientDialog">Add A Nutrient</paper-button>
+           <hr/>     
           <paper-button raised onclick="_submit(event)">Done</paper-button>
-          <paper-button raised onclick="_reset(event)">Reset</paper-button>          
+<!--          <paper-button raised onclick="_reset(event)">Reset</paper-button>          -->
         </form>
+        
+        <paper-dialog id="addNutrientDialog"> <!-- last three attributes can be just "modal" if the animation is too much for phones -->
+            <h2>Nutrients</h2>
+                  <paper-dropdown-menu required label="Nutrient">
+                    <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
+                     <template is="dom-repeat" items='[[possibleNutrients]]' as="possibleNutrient">
+                        <paper-item>[[possibleNutrient.name]]</paper-item>
+                      </template>
+                    </paper-listbox>
+                  </paper-dropdown-menu>
+
+                    <paper-input value="{{rowValue}}" label="Value" required></paper-input>
+                    
+                  <paper-dropdown-menu required label="Unit of Measure">
+                    <paper-listbox class="dropdown-content" selected="{{rowSelectedUnit}}" >
+                     <template is="dom-repeat" items='[[possibleUnits]]' as="possibleUnit">
+                        <paper-item>[[possibleUnit.name]]</paper-item>
+                      </template>
+                    </paper-listbox>
+                  </paper-dropdown-menu>
+
+                  <div class="buttons">
+                    <paper-button dialog-dismiss>Cancel</paper-button>
+                    <paper-button dialog-confirm autofocus>Add Nutrient</paper-button>
+                  </div>
+        </paper-dialog>
 
       </div>
 
@@ -67,10 +104,154 @@
     Polymer({
       is: 'my-custom-food',
         properties: {
-            nutrientsOfInterest: {
-                type: Array
+            user: Object,
+//            theFBUserNode: Object,
+            customFood: {
+                type: Array,
+                value: []
+            },
+            ndbno: {
+                type: String,
+                value: "-1"
+            },
+            foodName: String,
+            measure: String,
+            weight: Number,
+            foodNutrients: {
+                type: Array,
+                value: []
+            },
+            rowSelectedNutrient: {
+                type: Number
+            },
+            rowUnit: String,
+            rowSelectedUnit: Number,
+            rowValue: String,
+            rowGm: {
+                type: Number,
+                value: -1
+            },
+            possibleUnits : {
+                type: Object,
+                value: function () {
+                    return [
+                        {"name": "milligrams", "abbrev" : "mg"},
+                        {"name": "grams", "abbrev" : "g"},
+                        {"name": "Calories", "abbrev" : "kcal"},
+                        {"name": "liters", "abbrev" : "l"},
+                        {"name": "milliliters", "abbrev" : "ml"}
+                           ];
+                }
+            },
+            possibleNutrients: {
+                type: Object,
+                value: function() {
+                    return [
+                        {
+                            "offset": 58,
+                            "id": "257",
+                            "name": "Adjusted Protein"
+                        },
+                        {
+                            "offset": 59,
+                            "id": "513",
+                            "name": "Alanine"
+                        },
+                        {
+                            "offset": 60,
+                            "id": "221",
+                            "name": "Alcohol, ethyl"
+                        }
+                    ]
+                }
             }
+        },
+                listeners: {
+                    'theForm.iron-form-presubmit': '_myPreSubmit',
+                    'theForm.iron-form-submit': '_mySubmit',
+                    'addNutrientDialog.iron-overlay-closed': '_addDialogClosed'
+                },
+//                observers: [ '_theFBUserNodeChanged(theFBUserNode.*)' ],
+        _myPreSubmit : function(event) {
+            event.preventDefault;
+            var newObject = {
+                "ndbno": "01131",
+                "name": "Egg, whole, cooked, poached",
+                "weight": 50.0,
+                "measure": "1.0 large",
+                "nutrients": [
+//                    {
+//                        "nutrient_id": "306",
+//                        "nutrient": "Potassium, K",
+//                        "unit": "mg",
+//                        "value": "69",
+//                        "gm": 138.0
+//                    },
+//                    {
+//                        "nutrient_id": "305",
+//                        "nutrient": "Phosphorus, P",
+//                        "unit": "mg",
+//                        "value": "98",
+//                        "gm": 197.0
+//                    }                
+                ]
+            };
+            newObject.name = this.foodName;
+            newObject.ndbno = this.ndbno;
+            newObject.measure = this.measure;
+            newObject.weight = this.weight;
+            newObject.nutrients = newObject.nutrients.concat(this.foodNutrients);
+            console.log("done constructing new Object...");
+            this.push('customFood', newObject);
+            this.foodName = null;
+            this.ndbno = null;
+            this.measure = null;
+            this.weight = null;
+            this.foodNutrients = [];
+          },
+        _mySubmit : function(event) {
+          },
+        _addDialogClosed: function(event) {
+            if (event.detail.confirmed) {
+                var foodNutrientObject = {};
+                foodNutrientObject.nutrient_id = this.possibleNutrients[this.rowSelectedNutrient].id;
+                foodNutrientObject.nutrient = this.possibleNutrients[this.rowSelectedNutrient].name;
+                foodNutrientObject.unit = this.possibleUnits[this.rowSelectedUnit].abbrev;
+                foodNutrientObject.value = this.rowValue;
+                this.push('foodNutrients', foodNutrientObject);
+                this.rowSelectedNutrient = {};
+                this.rowSelectedUnit = {};
+                this.rowValue = null;   
+            }
+            else if (event.detail.cancelled) {
+                this.rowSelectedNutrient = {};
+                this.rowSelectedUnit = {};
+                this.rowValue = null;   
+            }
+        },
+        _openAddNutrientDialog: function(event) {
+            this.$.addNutrientDialog.open();
+        },
+        _formatFoodNutrientsItem: function (item) {
+            return item.nutrient + " " + item.value + " " + item.unit;
         }
+//        ,
+//        _theFBUserNodeChanged: function(changeRecord) {
+//            if (typeof changeRecord.base.customFood === 'undefined') {
+//                this.set('theFBUserNode.customFood', [{"test" : "test"}]);
+//            }
+//        }
     });
+      
+      
+        function _submit  (event) {
+           Polymer.dom(event).localTarget.parentElement.submit();
+        };
+       function _reset (event) {
+            var form = Polymer.dom(event).localTarget.parentElement
+            form.reset();
+            form.querySelector('.output').innerHTML = '';
+        };
+
   </script>
 </dom-module>
