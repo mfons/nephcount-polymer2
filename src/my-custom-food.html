@@ -42,13 +42,11 @@
         }
     </style>
 
-<!--
       <firebase-document id="fbdoc"
           app-name="nephcount"
-         path="/users/[[user.id]]"
-          data="{{theFBUserNode}}">
+         path="/users/[[user.id]]/customFood"
+          data="{{customFood}}">
       </firebase-document>
--->
       
     <div class="vertical-section-container centered">
      <h1>Define Custom Food Items</h1>
@@ -105,7 +103,6 @@
       is: 'my-custom-food',
         properties: {
             user: Object,
-//            theFBUserNode: Object,
             customFood: {
                 type: Array,
                 value: []
@@ -235,12 +232,6 @@
         _formatFoodNutrientsItem: function (item) {
             return item.nutrient + " " + item.value + " " + item.unit;
         }
-//        ,
-//        _theFBUserNodeChanged: function(changeRecord) {
-//            if (typeof changeRecord.base.customFood === 'undefined') {
-//                this.set('theFBUserNode.customFood', [{"test" : "test"}]);
-//            }
-//        }
     });
       
       
