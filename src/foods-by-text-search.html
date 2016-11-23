@@ -1,5 +1,5 @@
 <link rel="import" href="../bower_components/iron-ajax/iron-ajax.html">
-
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
 <dom-module id="foods-by-text-search">
     <style>
         :host {
@@ -16,6 +16,13 @@
             params="[[ajaxParams]]"
             on-response="tasksLoaded">
         </iron-ajax>
+        
+    <firebase-query
+    id="query"
+    app-name="nephcount"
+    path="/users/[[user.id]]/customFood"
+    data="{{customFoods}}">
+    </firebase-query>        
     </template>
 </dom-module>
 
@@ -23,6 +30,10 @@
     Polymer({
         is: "foods-by-text-search",
         properties: {
+            customFoods: {
+                type: Array,
+                notify: true
+            },
             foods: {
                 type: Array,
                 reflectToAttribute: true,
@@ -50,6 +61,24 @@
         },
         textSearchChanged: function(newTextSearch, oldTextSearch) {
             this.set('ajaxParams.q', newTextSearch);
+        }
+           ,
+        mergeCustomAndUSDAFoods: function() {
+            console.log("customFoods has changed...");
+            if (this.customFoods.length > 0 &&
+               this.foods.length > 0 &&
+               this.textSearch.length > 0) {
+                while (this.foods[0].ndbno === "-1") {
+                    this.shift('foods');
+                   // this.notifyPath('foods');
+                }
+                for (var i = 0; i < this.customFoods.length; i++) {
+                    if (this.customFoods[i].name.toUpperCase().indexOf(this.textSearch.toUpperCase()) > -1){
+                        this.unshift('foods', this.customFoods[i]);
+                       // this.notifyPath('foods');
+                    }
+                }
+            }
         }
     });
 

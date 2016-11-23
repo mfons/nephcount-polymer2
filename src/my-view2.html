@@ -83,9 +83,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
      </style>
       
-     <nutrients-for-food-service food-id="[[foodId]]" nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}"></nutrients-for-food-service>
+     <nutrients-for-food-service food-id="[[foodId]]" nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}">
+      </nutrients-for-food-service>
       
-      <foods-by-text-search text-search="[[textSearch]]" foods="{{foods}}"></foods-by-text-search>
+      <foods-by-text-search text-search="[[textSearch]]" foods="{{foods}}"
+                            user="[[user]]" id="foodsByTextSearch">
+      </foods-by-text-search>
       
       <firebase-document id="fbdoc"
           app-name="nephcount"
@@ -97,9 +100,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      <h1>Enter Food/Fluid</h1>
        <form is="iron-form" method="get" action="/" id="presubmit">
           <paper-input name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required></paper-input>
-          <paper-dropdown-menu required label="Food/Fluid">
-            <paper-listbox class="dropdown-content" selected="{{selectedFood}}">
-             <template is="dom-repeat" items='[[foodItems]]' as="foodItem">
+          <paper-dropdown-menu required label="Food/Fluid" id="foodSelectionMenu">
+            <paper-listbox class="dropdown-content" selected="{{selectedFood}}" id="foodSelectionListbox">
+             <template is="dom-repeat" items='[[foods]]' as="foodItem">
                 <paper-item>[[foodItem.name]]</paper-item>
               </template>
             </paper-listbox>
@@ -146,7 +149,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             foodNutrients: {
                 type: Object
             },
-            foodItems: {
+            foodItems: {  // TODO can probably be swapped for "foods" and deleted.
                 type: Array,
                 value: function () {
                     return [{ name: "cashews"}, {name: "salsa"}, {name: "orange"}];
@@ -181,7 +184,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                      'foodIdChanged(foodId)'],
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
-            'presubmit.iron-form-submit': 'mySubmit'
+            'presubmit.iron-form-submit': 'mySubmit',
+            'foodSelectionMenu.tap' : '_foodSelectionMenuTap'
         },
         myPreSubmit : function(event) {
             event.preventDefault;
@@ -248,6 +252,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 return "[Value Not Available]";
             }
             return (nutrientValue * multiplier).toFixed(2);
+        },
+        _foodSelectionMenuTap: function(event) {
+            console.log('foodSelectionMenu focus occurred...');
+            this.$.foodsByTextSearch.mergeCustomAndUSDAFoods();
+            this.$.foodSelectionMenu.open();
         }
     });
 
