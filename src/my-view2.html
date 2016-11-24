@@ -28,6 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="simple-element.html">
   <link rel="import" href="nutrients-for-food-service.html">
   <link rel="import" href="foods-by-text-search.html">
+  <link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -91,7 +92,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
       <foods-by-text-search text-search="[[textSearch]]" foods="{{foods}}"
                             user="[[user]]" id="foodsByTextSearch"
-                            custom-foods="{{customFoods}}">
+                            custom-foods="{{customFoods}}" is-standard-reference="[[isStandardReference]]">
       </foods-by-text-search>
       
       <firebase-document id="fbdoc"
@@ -103,6 +104,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="vertical-section-container centered">
      <h1>Enter Food/Fluid</h1>
        <form is="iron-form" method="get" action="/" id="presubmit">
+          <paper-toggle-button checked="{{isStandardReference}}">
+              Use Standard Reference
+           </paper-toggle-button>
           <paper-input name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required></paper-input>
           <paper-dropdown-menu required label="Food/Fluid" id="foodSelectionMenu">
             <paper-listbox class="dropdown-content" selected="{{selectedFood}}" id="foodSelectionListbox">
@@ -144,6 +148,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer({
       is: 'my-view2',
         properties: {
+            isStandardReference: {
+                type: Boolean,
+                value: true
+            },
             consumption: {
                 type: Array
             },
@@ -186,7 +194,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         observers: [ 'foodsChanged(foods.*)', 'consumptionChanged(consumption.*)',
                      'foodNutrientsChanged(foodNutrients.*)',
-                     'foodIdChanged(foodId)'],
+                     'foodIdChanged(foodId)',
+                     '_isStandardReferenceChanged(isStandardReference)'],
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit',
@@ -263,6 +272,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             console.log('foodSelectionMenu focus occurred...');
             this.$.foodsByTextSearch.mergeCustomAndUSDAFoods();
             this.$.foodSelectionMenu.open();
+        },
+        _isStandardReferenceChanged : function(newValue, oldValue) {
+            console.log("isStandardReference value change from " + oldValue + " to " + newValue);
         }
     });
 

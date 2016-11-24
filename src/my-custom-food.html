@@ -58,9 +58,9 @@
     <div class="vertical-section-container centered">
      <h1>Define Custom Food Items</h1>
        <form is="iron-form" method="get" action="/" id="theForm">
-          <paper-input name="name" label="Name" value="{{foodName}}" required></paper-input>
-          <paper-input name="measure" label="Serving size" required value="{{measure}}"></paper-input>
-          <paper-input name="weight" label="Weight in grams" value="{{weight}}"></paper-input>
+          <paper-input name="name" label="Name" value="{{foodName}}" required always-float-label></paper-input>
+          <paper-input name="measure" label="Serving size" required value="{{measure}}" always-float-label></paper-input>
+          <paper-input name="weight" label="Weight in grams" value="{{weight}}" always-float-label></paper-input>
            
         <template is="dom-repeat" items="[[foodNutrients]]">
             <paper-material elevation="2">
@@ -76,7 +76,7 @@
         
         <paper-dialog id="addNutrientDialog"> <!-- last three attributes can be just "modal" if the animation is too much for phones -->
             <h2>Nutrients</h2>
-                  <paper-dropdown-menu required label="Nutrient">
+                  <paper-dropdown-menu required label="Nutrient" always-float-label>
                     <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
                      <template is="dom-repeat" items='[[possibleNutrients]]' as="possibleNutrient">
                         <paper-item>[[possibleNutrient.name]]</paper-item>
@@ -84,9 +84,9 @@
                     </paper-listbox>
                   </paper-dropdown-menu>
 
-                    <paper-input value="{{rowValue}}" label="Value" required></paper-input>
+                    <paper-input value="{{rowValue}}" label="Value" required always-float-label></paper-input>
                     
-                  <paper-dropdown-menu required label="Unit of Measure">
+                  <paper-dropdown-menu required label="Unit of Measure" always-float-label>
                     <paper-listbox class="dropdown-content" selected="{{rowSelectedUnit}}" >
                      <template is="dom-repeat" items='[[possibleUnits]]' as="possibleUnit">
                         <paper-item>[[possibleUnit.name]]</paper-item>

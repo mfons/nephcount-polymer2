@@ -30,6 +30,13 @@
     Polymer({
         is: "foods-by-text-search",
         properties: {
+            // ds=Standard+Referece limits to just a basic set of foods 
+            // that the USDA has a full set of nutrient information
+            // on.  Without ds param set like this, you get lots of 
+            // brand name foods, most of which do not have nutrient information
+            // against them.  Some do however, so you may want to opt in
+            // occasionally...hence this boolean control.
+            isStandardReference: Boolean,
             customFoods: {
                 type: Array,
                 notify: true
@@ -46,20 +53,22 @@
             ajaxParams: {
                 type: Object,
                 value: function () {
-                    return {"format":"json", "q":"butter", "sort":"n", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt"};
-                    // TODO add a checkbox to control this:
-                    // , "ds": "Standard Reference" -- adding this 
-                    // reduces the number of brand names, which is mostly
-                    // fine because lots of these have no nutritional 
-                    // of interest.  ds should be default probably.
+                    var paramsObject = {"format":"json", "q":"butter", "sort":"n", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt",
+                    "ds" : "Standard Reference"};
+                                        
+                    return paramsObject;
                 }
             }
         },
+        observers: ['_isStandardReferenceChanged(isStandardReference)'],
         attached: function () {
             this.foods = [];
         },
         tasksLoaded: function (data) {
-            this.foods = data.detail.response.list.item;
+            if (typeof data.detail.response.list !== 'undefined' &&
+                typeof data.detail.response.list.item !== 'undefined') {
+                this.foods = data.detail.response.list.item;
+            }
             console.log('===>>>foods-by-text-search came back with ' + data.detail.response);
         },
         textSearchChanged: function(newTextSearch, oldTextSearch) {
@@ -79,6 +88,14 @@
                         this.unshift('foods', this.customFoods[i]);
                     }
                 }
+            }
+        },
+        _isStandardReferenceChanged:  function(newValue, oldValue) {
+            if (newValue) {
+                this.set('ajaxParams.ds', 'Standard Reference');
+            }
+            else {
+                this.set('ajaxParams.ds', '');
             }
         }
     });
