@@ -18,7 +18,7 @@ item number from the usda database    -->
             url="https://api.nal.usda.gov/ndb/nutrients/"
             handle-as="json"
             params="[[ajaxParams]]"
-            requestUrl="{{theRequestUrl}}"
+            requestUrl="[[theRequestUrl]]"
             on-response="tasksLoaded">
         </iron-ajax>
     </template>
@@ -31,11 +31,39 @@ item number from the usda database    -->
             nutrientsOfInterest: {
                 type: Array
             },
+            customFoods: Array,
             nutrientIdsOfInterest: Array,
             foodNutrients: {
                 type: Array,
                 reflectToAttribute: true,
-                notify: true
+                notify: true,
+                value:  function() {
+                    return [
+//example json
+//                        {
+//                            "ndbno": "45090566",
+//                            "name": "CLIF, BUILDER'S, PROTEIN BAR, CHOCOLATE MINT, UPC: 722252168528",
+//                            "weight": 68.0,
+//                            "measure": "68.0 g",
+//                            "nutrients": [
+//                                {
+//                                    "nutrient_id": "306",
+//                                    "nutrient": "Potassium, K",
+//                                    "unit": "mg",
+//                                    "value": "190",
+//                                    "gm": 279.0
+//                                },
+//                                {
+//                                    "nutrient_id": "305",
+//                                    "nutrient": "Phosphorus, P",
+//                                    "unit": "mg",
+//                                    "value": "--",
+//                                    "gm": "--"
+//                                }
+//                            ]
+//                        }
+                    ];
+                }
             },
             ajaxParams: {
                 type: Object,
@@ -44,15 +72,14 @@ item number from the usda database    -->
                     return {"format":"json", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt", "nutrients": ["205", "204", "208", "269"], "ndbno": "01009"};
                 }
             },
-            foodId : {
-                type: String
-            },
+            foodId : String,
+            foodName: String,
             theRequestUrl: {
                 type: String,
                 observer: 'theRequestUrlChanged'
             }
         },
-        observers: [ 'nutrientsOfInterestAndFoodIdChanged(nutrientsOfInterest.*, foodId)'],
+        observers: [ 'nutrientsOfInterestAndFoodIdChanged(nutrientsOfInterest.*, foodId, foodName)'],
         attached: function () {
             this.foodNutrients = [];
         },
@@ -60,15 +87,27 @@ item number from the usda database    -->
             this.foodNutrients = data.detail.response.report.foods;
             console.log('nutrients-for-food-service came back with ' + data.detail.response);
         },
-        nutrientsOfInterestAndFoodIdChanged: function(changeRecord, newFoodId) {
-            console.log('in nutrients-for-food-service looking at nutrients of interest changed: ' + changeRecord);
-            this.set('ajaxParams.nutrients', generateNutrientIdsOfInterest(changeRecord.base));
-            this.set('ajaxParams.ndbno', newFoodId);
-            this.$.ajaxNutrientsList.generateRequest();
+        nutrientsOfInterestAndFoodIdChanged: function(changeRecord, newFoodId, newFoodName) {
+            if (_isCustomFood(newFoodId)) {
+                console.log("do this when there is custom food passed in...");
+                this.foodNutrients = [];
+                for (var i = 0; i < this.customFoods.length; i++) {
+                    if (this.foodName === this.customFoods[i].name) {
+                        this.push('foodNutrients', this.customFoods[i]);
+                    }
+                }
+            }
+            else {
+                this.set('ajaxParams.nutrients',
+                         generateNutrientIdsOfInterest(changeRecord.base));
+                this.set('ajaxParams.ndbno', newFoodId);
+                this.$.ajaxNutrientsList.generateRequest();
+            }
         },
         theRequestUrlChanged:  function (newRequestUrl, oldRequestUrl) {
             console.log(newRequestUrl);
         }
+
     });
         function generateNutrientIdsOfInterest(detailArray) {
             var returnArray = new Array();
@@ -78,5 +117,10 @@ item number from the usda database    -->
             }
             return returnArray;
         }
+    
+        function _isCustomFood (foodId) {
+            return foodId === "-1";
+        }
+
 
 </script>

@@ -83,11 +83,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
      </style>
       
-     <nutrients-for-food-service food-id="[[foodId]]" nutrients-of-interest="[[nutrientsOfInterest]]" food-nutrients="{{foodNutrients}}">
+     <nutrients-for-food-service food-id="[[foodId]]" food-name="[[foodName]]"
+            nutrients-of-interest="[[nutrientsOfInterest]]" 
+            food-nutrients="{{foodNutrients}}"
+            custom-foods="[[customFoods]]">
       </nutrients-for-food-service>
       
       <foods-by-text-search text-search="[[textSearch]]" foods="{{foods}}"
-                            user="[[user]]" id="foodsByTextSearch">
+                            user="[[user]]" id="foodsByTextSearch"
+                            custom-foods="{{customFoods}}">
       </foods-by-text-search>
       
       <firebase-document id="fbdoc"
@@ -171,6 +175,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 observer: 'foodFluidSearchStringChanged'
             },
             foodId: String,
+            foodName: String,
             measure: String,
             weight: Number,
             multiplier: Number,
@@ -224,6 +229,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         selectedFoodChanged: function(newObject,oldObject) {
             console.log("my-view2:  selectedFood has changed: " + newObject);
             this.set('foodId',this.foodItems[newObject].ndbno);
+            this.set('foodName', this.foodItems[newObject].name);
         },
         foodFluidSearchStringChanged:  function (newString, oldString) {
             this.set('textSearch', newString);
@@ -267,7 +273,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        function _reset (event) {
             var form = Polymer.dom(event).localTarget.parentElement
             form.reset();
-            form.querySelector('.output').innerHTML = '';
+            //form.querySelector('.output').innerHTML = '';
            console.log("_reset() function executed");
         };
        function formatLocalDate() {

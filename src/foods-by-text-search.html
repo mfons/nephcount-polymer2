@@ -47,8 +47,11 @@
                 type: Object,
                 value: function () {
                     return {"format":"json", "q":"butter", "sort":"n", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt"};
-                    // This seems to limit the list somehow
-                    // , "ds": "Standard Reference"
+                    // TODO add a checkbox to control this:
+                    // , "ds": "Standard Reference" -- adding this 
+                    // reduces the number of brand names, which is mostly
+                    // fine because lots of these have no nutritional 
+                    // of interest.  ds should be default probably.
                 }
             }
         },
@@ -70,12 +73,10 @@
                this.textSearch.length > 0) {
                 while (this.foods[0].ndbno === "-1") {
                     this.shift('foods');
-                   // this.notifyPath('foods');
                 }
                 for (var i = 0; i < this.customFoods.length; i++) {
                     if (this.customFoods[i].name.toUpperCase().indexOf(this.textSearch.toUpperCase()) > -1){
                         this.unshift('foods', this.customFoods[i]);
-                       // this.notifyPath('foods');
                     }
                 }
             }
