@@ -97,7 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       
       <firebase-document id="fbdoc"
           app-name="nephcount"
-         path="/users/[[user.id]]/consumption"
+         path="/users/[[user.uid]]/consumption"
           data="{{consumption}}">
       </firebase-document>
 
@@ -161,12 +161,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             foodNutrients: {
                 type: Object
             },
-            foodItems: {  // TODO can probably be swapped for "foods" and deleted.
-                type: Array,
-                value: function () {
-                    return [{ name: "cashews"}, {name: "salsa"}, {name: "orange"}];
-                }
-            },
+//            foodItems: {  // TODO can probably be swapped for "foods" and deleted.
+//                type: Array,
+//                value: function () {
+//                    return [{ name: "cashews"}, {name: "salsa"}, {name: "orange"}];
+//                }
+//            },
             textSearch: {
                 type: String,
                 value: "butter"
@@ -192,10 +192,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 computed: 'calculateConsumedGrams(weight, multiplier)'
             }
         },
-        observers: [ 'foodsChanged(foods.*)', 'consumptionChanged(consumption.*)',
-                     'foodNutrientsChanged(foodNutrients.*)',
-                     'foodIdChanged(foodId)',
-                     '_isStandardReferenceChanged(isStandardReference)'],
+        observers: [ 
+//        'foodsChanged(foods.*)', 
+            'consumptionChanged(consumption.*)',
+             'foodNutrientsChanged(foodNutrients.*)',
+             'foodIdChanged(foodId)',
+             '_isStandardReferenceChanged(isStandardReference)'],
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit',
@@ -219,8 +221,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 "consumedGrams" : 15,
                 "consumedDate" : null
               };
-            newObject.name = this.foodItems[this.selectedFood].name;
-            newObject.ndbid = this.foodItems[this.selectedFood].ndbno;
+            //newObject.name = this.foodItems[this.selectedFood].name;
+            newObject.name = this.foods[this.selectedFood].name;
+            //newObject.ndbid = this.foodItems[this.selectedFood].ndbno;
+            newObject.ndbid = this.foods[this.selectedFood].ndbno;
             newObject.measure = this.measure;
             newObject.weight = this.weight;
             newObject.multiplier = this.multiplier;
@@ -237,15 +241,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         selectedFoodChanged: function(newObject,oldObject) {
             console.log("my-view2:  selectedFood has changed: " + newObject);
-            this.set('foodId',this.foodItems[newObject].ndbno);
-            this.set('foodName', this.foodItems[newObject].name);
+//            this.set('foodId',this.foodItems[newObject].ndbno);
+//            this.set('foodName', this.foodItems[newObject].name);
+            this.set('foodId',this.foods[newObject].ndbno);
+            this.set('foodName', this.foods[newObject].name);
         },
         foodFluidSearchStringChanged:  function (newString, oldString) {
             this.set('textSearch', newString);
         },
-        foodsChanged:  function (changeRecord) {
-            this.set('foodItems', changeRecord.base);
-        },
+//        foodsChanged:  function (changeRecord) {
+//            this.set('foodItems', changeRecord.base);
+//        },
         consumptionChanged: function(changeRecord) {
            console.log("consumption change fired" + changeRecord);
         },

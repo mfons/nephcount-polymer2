@@ -23,13 +23,15 @@
           is: 'nephcount-login',
           properties: {
               user: {
-                  type: Object
+                  type: Object,
+                  notify: true
               },
               statusKnown: {
                   type: Object
               }
           },
-          observers: ['statusKnownChanged(statusKnown)'],
+          observers: ['_statusKnownChanged(statusKnown)',
+                      '_userChanged(user.*)'],
           login:  function() {
               this.$.auth.signInWithPopup()
                   .then(function(response) { 
@@ -44,6 +46,12 @@
           },
           statusKnown:  function(newValue, oldValue) {
               console.log("status known changed " + newValue);
+          },
+          _statusKnownChanged: function(newValue, oldValue) {
+              console.log("statusKnown is now " + newValue);
+          },
+          _userChanged:  function(changeRecord) {
+              console.log("user has changed...");
           }
       });
     </script>

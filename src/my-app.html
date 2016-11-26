@@ -21,10 +21,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
-<link rel="import" href="my-view1.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="nephcount-login.html">
 <link rel="import" href="my-custom-food.html">
+<link rel="import" href="my-view1.html">
 <!--link rel="import" href="na-login.html"-->
 
 <dom-module id="my-app">
@@ -88,7 +88,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer>
         <app-toolbar>Menu</app-toolbar>
           
-<!--        <nephcount-login></nephcount-login>-->
+      <nephcount-login user="{{user}}"></nephcount-login>
 
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="view1" href="/view1">Select Nutrients to Track</a>
@@ -143,10 +143,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         online: Boolean,
         signedIn: Boolean,
           user: {
-              type: Object,
-              value: function () {
-                  return { "id" : "sandra" }
-              }
+              type: Object
+//              ,
+//              value: function () {
+//                  return { "uid" : "sandra" }
+//              }
           }
       },
 

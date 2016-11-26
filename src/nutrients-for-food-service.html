@@ -35,7 +35,7 @@ item number from the usda database    -->
             nutrientIdsOfInterest: Array,
             foodNutrients: {
                 type: Array,
-                reflectToAttribute: true,
+                //reflectToAttribute: true,
                 notify: true,
                 value:  function() {
                     return [
@@ -79,15 +79,17 @@ item number from the usda database    -->
                 observer: 'theRequestUrlChanged'
             }
         },
-        observers: [ 'nutrientsOfInterestAndFoodIdChanged(nutrientsOfInterest.*, foodId, foodName)'],
-        attached: function () {
-            this.foodNutrients = [];
-        },
+        observers: [ 'nutrientsOfInterestAndFoodIdChanged(nutrientsOfInterest.*, foodId, foodName)',
+        '_foodIdChanged(foodId)'],
+//        attached: function () {
+//            this.foodNutrients = [];
+//        },
         tasksLoaded: function (data) {
             this.foodNutrients = data.detail.response.report.foods;
             console.log('nutrients-for-food-service came back with ' + data.detail.response);
         },
         nutrientsOfInterestAndFoodIdChanged: function(changeRecord, newFoodId, newFoodName) {
+            console.log('nutrientsOfInterestAndFoodIdChanged fired...');
             if (_isCustomFood(newFoodId)) {
                 console.log("do this when there is custom food passed in...");
                 this.foodNutrients = [];
@@ -106,6 +108,9 @@ item number from the usda database    -->
         },
         theRequestUrlChanged:  function (newRequestUrl, oldRequestUrl) {
             console.log(newRequestUrl);
+        },
+        _foodIdChanged: function(newValue, oldValue) {
+            console.log("foodId has changed in nffs..." + newValue);
         }
 
     });

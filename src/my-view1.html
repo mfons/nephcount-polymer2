@@ -162,7 +162,7 @@
                 
      <firebase-document id="fbdoc"
           app-name="nephcount"
-          path="/users/[[user.id]]/nutrientsOfInterest"
+          path="/users/[[user.uid]]/nutrientsOfInterest"
           data="{{savedSelectedItems}}">
       </firebase-document>
         
@@ -231,7 +231,7 @@
             properties: {
                  selectedItems: {
                        type: Array,
-                       reflectToAttribute: true,
+                       //reflectToAttribute: true,
                        notify: true
                  },
                  nutrients: {

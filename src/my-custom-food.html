@@ -51,16 +51,16 @@
       
       <firebase-document id="fbdoc"
           app-name="nephcount"
-         path="/users/[[user.id]]/customFood"
+         path="/users/[[user.uid]]/customFood"
           data="{{customFood}}">
       </firebase-document>
       
     <div class="vertical-section-container centered">
      <h1>Define Custom Food Items</h1>
        <form is="iron-form" method="get" action="/" id="theForm">
-          <paper-input name="name" label="Name" value="{{foodName}}" required always-float-label></paper-input>
-          <paper-input name="measure" label="Serving size" required value="{{measure}}" always-float-label></paper-input>
-          <paper-input name="weight" label="Weight in grams" value="{{weight}}" always-float-label></paper-input>
+          <paper-input name="name" label="Name" value="{{foodName}}" required ></paper-input>
+          <paper-input name="measure" label="Serving size" required value="{{measure}}" ></paper-input>
+          <paper-input name="weight" label="Weight in grams" value="{{weight}}" ></paper-input>
            
         <template is="dom-repeat" items="[[foodNutrients]]">
             <paper-material elevation="2">
@@ -76,7 +76,7 @@
         
         <paper-dialog id="addNutrientDialog"> <!-- last three attributes can be just "modal" if the animation is too much for phones -->
             <h2>Nutrients</h2>
-                  <paper-dropdown-menu required label="Nutrient" always-float-label>
+                  <paper-dropdown-menu required label="Nutrient" >
                     <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
                      <template is="dom-repeat" items='[[possibleNutrients]]' as="possibleNutrient">
                         <paper-item>[[possibleNutrient.name]]</paper-item>
@@ -84,9 +84,9 @@
                     </paper-listbox>
                   </paper-dropdown-menu>
 
-                    <paper-input value="{{rowValue}}" label="Value" required always-float-label></paper-input>
+                    <paper-input value="{{rowValue}}" label="Value" required></paper-input>
                     
-                  <paper-dropdown-menu required label="Unit of Measure" always-float-label>
+                  <paper-dropdown-menu required label="Unit of Measure" >
                     <paper-listbox class="dropdown-content" selected="{{rowSelectedUnit}}" >
                      <template is="dom-repeat" items='[[possibleUnits]]' as="possibleUnit">
                         <paper-item>[[possibleUnit.name]]</paper-item>
@@ -154,7 +154,8 @@
                     'theForm.iron-form-submit': '_mySubmit',
                     'addNutrientDialog.iron-overlay-closed': '_addDialogClosed'
                 },
-//                observers: [ '_theFBUserNodeChanged(theFBUserNode.*)' ],
+                observers: [ '_possibleNutrientsChanged(possibleNutrients.*)',
+                             '_userChanged(user.*)'],
         _myPreSubmit : function(event) {
             event.preventDefault;
             var newObject = {
@@ -217,6 +218,12 @@
         },
         _formatFoodNutrientsItem: function (item) {
             return item.nutrient + " " + item.value + " " + item.unit;
+        },
+        _possibleNutrientsChanged:  function(changeRecord) {
+            console.log("possible nutrients changed...");
+        },
+        _userChanged: function(changeRecord) {
+            console.log("user changed...");
         }
     });
       
