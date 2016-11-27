@@ -1,7 +1,18 @@
 <link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-styles/demo-pages.html">
 <dom-module id="nephcount-login">
 <template>
+    <style is="custom-style">
+        paper-button {
+      width: 45%;
+      margin-top: 20px;
+    }
+    paper-button:not([disabled]) {
+      background: var(--paper-light-blue-500);
+      color: white;
+    }
+    </style>
     <firebase-auth
        app-name="nephcount"
        id="auth" 
