@@ -36,11 +36,12 @@
         },
         observers: ['_inputItemChanged(inputItem)'],
         _displayIfToday: function(obj, match) {
-            if (obj.consumedDate.substring(0, 10) !== match) {
-                this.style.display = 'none';
-                //return JSON.stringify(obj);               
+            if (obj.consumedDate.substring(0, 10) === match) {
+                this.style.display = 'block';
             }
-            //return "";
+            else {
+                this.style.display = 'none';
+            }
          },
         _inputItemChanged: function(inputItem) {
             console.log("inputItemChanged called...");

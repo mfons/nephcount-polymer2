@@ -15,11 +15,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-slider/paper-slider.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../bower_components/paper-date-picker/paper-date-picker.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-styles/demo-pages.html">
+  <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
 
 
 <dom-module id="my-view3">
   <template>
-    <style include="shared-styles">
+    <style is="custom-style" include="shared-styles paper-date-picker-dialog-style">
       :host {
         display: block;
 
@@ -47,8 +52,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       
     <div class="card">
-        <h1>Today's totals</h1>
-        <template is="dom-repeat" items="[[todaysNutrients]]">
+       <paper-input value="[[todayString]]" label="Report Date" placeholder="YYYY-MM-DD"></paper-input>
+      <paper-button class="btn" on-tap="_showDialog" raised>Change Date</paper-button>
+      <paper-dialog id="dialog" class="paper-date-picker-dialog" on-iron-overlay-closed="_dismissDialog">
+        <paper-date-picker id="picker" date="{{selectedDate}}"></paper-date-picker>
+        <div class="buttons">
+          <paper-button dialog-dismiss>Cancel</paper-button>
+          <paper-button dialog-confirm>OK</paper-button>
+        </div>
+      </paper-dialog>
+        
+        <h1>Report Date Totals</h1>
+        <template is="dom-repeat" items="[[_todaysNutrientsOrDateStringChanged(todaysNutrients.*, todayString)]]">
             <div class="pad">
                 <div>[[item.name]]:&nbsp;&nbsp;</div>
                 <div>[[_formatNumber(item.total)]]&nbsp;</div>
@@ -59,8 +74,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </template>
         
         <br /><hr />
-      <h2>Consumed Today</h2>
-        <template is="dom-repeat" items="[[consumption]]">
+      <h2>Consumed on Report Date</h2>
+        <template is="dom-repeat" items="[[_consumptionOrDateChanged(consumption.*, todayString)]]">
             <paper-material elevation="2">
                 <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
             </paper-material>
@@ -74,6 +89,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     Polymer({
       is: 'my-view3',
         properties: {
+            selectedDate: {
+                type: Date
+            },
             nutrientsOfInterest: {
                 type: Array
             },
@@ -91,14 +109,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             todayString: {
                 type: String,
-                value: formatLocalDate().substring(0, 10)
+                value: formatLocalDate(new Date()).substring(0, 10)
             },
             active: {
                 type: Boolean
             }
         },
-        observers:[ 'consumptionChanged(consumption.*)',
-                    'todaysNutrientsChanged(todaysNutrients.*)'],
+        observers:[ 'consumptionChanged(consumption.*, todayString)',
+                    'todaysNutrientsChanged(todaysNutrients.*)',
+                    '_selectedDateChanged(selectedDate)',
+                    '_todayStringChanged()'],
         _calculatePercent: function(name, total, nutrientsOfInterest) {
             console.log("_calculatePercent executed...");
             for(var i = 0; i < nutrientsOfInterest.length; i++) {
@@ -127,18 +147,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         todaysNutrientsChanged: function(changeRecord) {
             console.log("todaysNutrients array changed...");
         },
-        consumptionChanged:function(changeRecord) {
+        consumptionChanged:function(changeRecord, dateString) {
             console.log("consumption changed: ");
-            if (changeRecord.base.length === 0) {
+            this.splice('todaysNutrients', 0, this.todaysNutrients.length);
+            if (changeRecord.base.length === 0 || dateString.length === 0) {
                 return;
             }
-            for(var i = changeRecord.base.length - 1; i < changeRecord.base.length && changeRecord.base[i].consumedDate.substring(0, 10) === this.todayString; i++) {
-                if (typeof this.consumptionVisited[changeRecord.base[i].$key] == 'undefined') { // only visit each consumption node once
-                     this.consumptionVisited[changeRecord.base[i].$key] = true;
+//            for(var i = changeRecord.base.length - 1; i < changeRecord.base.length && changeRecord.base[i].consumedDate.substring(0, 10) === this.todayString; i++) {
+            for(var i = 0; i < changeRecord.base.length; i++) {
+                if (changeRecord.base[i].consumedDate.substring(0, 10) !== this.todayString) {
+                    continue;
                 }
-                else {
-                    return;
-                }
+//                if (typeof this.consumptionVisited[changeRecord.base[i].$key] == 'undefined') { // only visit each consumption node once
+//                     this.consumptionVisited[changeRecord.base[i].$key] = true;
+//                }
+//                else {
+//                    return;
+//                }
                 
                 var nutrientsOfInterest= changeRecord.base[i].nutrientsOfInterest;
                 for(var j = 0; j < nutrientsOfInterest.length; j++) {
@@ -155,11 +180,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     }
                 }          
             }
+        },
+        _selectedDateChanged: function(selectedDate) {
+            console.log("selected date changed to " + selectedDate);
+        },
+        _showDialog: function() {
+            this.$.dialog.toggle();
+        },
+        _dismissDialog : function(event) {
+            if (event.detail.confirmed) {
+              this.todayString = formatLocalDate(this.$.picker.date).substring(0, 10);
+            }
+        },
+        _todayStringChanged:  function(dateString) {
+        },
+        _consumptionOrDateChanged: function(changeRecord, dateString) {
+            if (changeRecord.base.length > 0 &&
+                dateString.length > 0) {
+                return changeRecord.base;
+            }
+        },
+        _todaysNutrientsOrDateStringChanged: function(changeRecord, dateString) {
+            if (changeRecord.base.length > 0 &&
+                dateString.length > 0) {
+                return changeRecord.base;
+            }
+
         }
     });
       
-             function formatLocalDate() {
-        var now = new Date(),
+    function formatLocalDate(theDate) {
+        var now = theDate,
             tzo = -now.getTimezoneOffset(),
             dif = tzo >= 0 ? '+' : '-',
             pad = function(num) {
