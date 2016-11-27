@@ -17,7 +17,7 @@
             <div class="pad">
                 <div>For [[inputItem.consumedDate]]:&nbsp;&nbsp;qty [[inputItem.multiplier]] of [[inputItem.measure]]&nbsp;of [[inputItem.name]] </div>
                 <template is="dom-repeat" items="[[inputItem.nutrientsOfInterest]]">
-                    ** [[item.nutrient]]:&nbsp;&nbsp; [[item.value]]&nbsp;[[item.unit]] **
+                    ** [[item.nutrient]]:&nbsp;&nbsp; [[_multiplyItOut(item.value, inputItem.multiplier)]]&nbsp;[[item.unit]] **
                 </template>
             </div>
         </div>
@@ -45,6 +45,9 @@
          },
         _inputItemChanged: function(inputItem) {
             console.log("inputItemChanged called...");
+        },
+        _multiplyItOut: function(val, mult) {
+            return val * mult;
         }
     });
 
