@@ -1572,6 +1572,141 @@
           "value" : "134"
         } ],
         "weight" : 28.35
+      }, {
+        "consumedDate" : "2016-11-27T10:59:36-07:00",
+        "consumedGrams" : 86,
+        "measure" : "3.0 scoop",
+        "multiplier" : "1",
+        "name" : "Beverages, Whey protein powder isolate",
+        "ndbid" : "14058",
+        "nutrientsOfInterest" : [ {
+          "gm" : 872,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "750"
+        }, {
+          "gm" : 58.14,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "50.00"
+        }, {
+          "gm" : 372,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "320"
+        }, {
+          "gm" : 698,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "600"
+        }, {
+          "gm" : 233,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "gm" : 359,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "309"
+        } ],
+        "weight" : 86
+      }, {
+        "consumedDate" : "2016-11-27T11:00:27-07:00",
+        "consumedGrams" : 15.100000000000001,
+        "measure" : "1.0 cup",
+        "multiplier" : ".1",
+        "name" : "Grapes, red or green (European type, such as Thompson seedless), raw",
+        "ndbid" : "09132",
+        "nutrientsOfInterest" : [ {
+          "gm" : 191,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "288"
+        }, {
+          "gm" : 0.72,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.09"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "3"
+        }, {
+          "gm" : 10,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "15"
+        }, {
+          "gm" : 7,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "11"
+        }, {
+          "gm" : 69,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "104"
+        } ],
+        "weight" : 151
+      }, {
+        "consumedDate" : "2016-11-27T11:03:38-07:00",
+        "consumedGrams" : 7.5,
+        "measure" : "1.0 cup, chopped",
+        "multiplier" : ".06",
+        "name" : "Nuts, walnuts, black, dried",
+        "ndbid" : "12154",
+        "nutrientsOfInterest" : [ {
+          "gm" : 523,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "654"
+        }, {
+          "gm" : 24.06,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "30.08"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 61,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "76"
+        }, {
+          "gm" : 201,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "251"
+        }, {
+          "gm" : 619,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "774"
+        } ],
+        "weight" : 125
       } ],
       "customFood" : [ {
         "measure" : "1 bar",
@@ -4691,6 +4826,80 @@
           "value" : "118"
         } ],
         "weight" : 28.35
+      }, {
+        "consumedDate" : "2016-11-27T11:13:02-07:00",
+        "consumedGrams" : 125,
+        "measure" : "1.0 cup, quartered or chopped",
+        "multiplier" : "1",
+        "name" : "Apples, raw, with skin",
+        "ndbid" : "09003",
+        "nutrientsOfInterest" : [ {
+          "gm" : 107,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "134"
+        }, {
+          "gm" : 0.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.32"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "14"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "8"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "65"
+        } ],
+        "weight" : 125
+      }, {
+        "consumedDate" : "2016-11-27T11:43:23-07:00",
+        "consumedGrams" : 70,
+        "measure" : "1 Bar",
+        "multiplier" : "1",
+        "name" : "Pro Bar Base,peanut butter chocolate",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "290"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "380"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "20"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "60"
+        } ],
+        "weight" : "70"
       } ],
       "customFood" : [ {
         "measure" : "1 bar",
@@ -4718,6 +4927,67 @@
           "value" : "14"
         } ],
         "weight" : "50"
+      }, {
+        "measure" : "1 Bar",
+        "name" : "Pro Bar Base,peanut butter chocolate",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "290"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "380"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "20"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "60"
+        } ],
+        "weight" : "70"
+      }, {
+        "measure" : "1 can 8 oz.",
+        "name" : "Nepro Butter Pecan Flavor",
+        "nutrients" : [ {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "425"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "170"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "19.1"
+        } ],
+        "weight" : "227"
       } ],
       "nutrientsOfInterest" : [ {
         "id" : "203",
