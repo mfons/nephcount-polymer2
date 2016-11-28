@@ -43,6 +43,13 @@
     </style>
 
     <firebase-query
+    id="noiQuery"
+    app-name="nephcount"
+    path="/users/[[user.uid]]/nutrientsOfInterest"
+    data="{{nutrientsOfInterest}}">
+    </firebase-query>
+      
+    <firebase-query
     id="query"
     app-name="nephcount"
     path="/nutrients"
@@ -78,7 +85,7 @@
             <h2>Nutrients</h2>
                   <paper-dropdown-menu required label="Nutrient" >
                     <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
-                     <template is="dom-repeat" items='[[possibleNutrients]]' as="possibleNutrient">
+                     <template is="dom-repeat" items='[[_concatNOIWithPossibleNutrients(nutrientsOfInterest.*, possibleNutrients.*)]]' as="possibleNutrient">
                         <paper-item>[[possibleNutrient.name]]</paper-item>
                       </template>
                     </paper-listbox>
@@ -224,6 +231,9 @@
         },
         _userChanged: function(changeRecord) {
             console.log("user changed...");
+        },
+        _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {
+            return noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
         }
     });
       
