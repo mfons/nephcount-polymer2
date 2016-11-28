@@ -143,7 +143,7 @@
                 value: -1
             },
             possibleUnits : {
-                type: Object,
+                type: Array,
                 value: function () {
                     return [
                         {"name": "milligrams", "abbrev" : "mg"},
@@ -154,7 +154,8 @@
                            ];
                 }
             },
-            possibleNutrients: Object
+            possibleNutrients: Array,
+            noiConcatPossibleNutrients: Array
         },
                 listeners: {
                     'theForm.iron-form-presubmit': '_myPreSubmit',
@@ -205,8 +206,8 @@
         _addDialogClosed: function(event) {
             if (event.detail.confirmed) {
                 var foodNutrientObject = {};
-                foodNutrientObject.nutrient_id = this.possibleNutrients[this.rowSelectedNutrient].id;
-                foodNutrientObject.nutrient = this.possibleNutrients[this.rowSelectedNutrient].name;
+                foodNutrientObject.nutrient_id = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].id;
+                foodNutrientObject.nutrient = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].name;
                 foodNutrientObject.unit = this.possibleUnits[this.rowSelectedUnit].abbrev;
                 foodNutrientObject.value = this.rowValue;
                 this.push('foodNutrients', foodNutrientObject);
@@ -233,7 +234,8 @@
             console.log("user changed...");
         },
         _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {
-            return noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
+            this.noiConcatPossibleNutrients =  noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
+            return this.noiConcatPossibleNutrients; // TODO? there may be a side effect here.  The first time Sandra and I tried to use the list was not forthcoming.  Then after we refreshed it was fine.  
         }
     });
       
