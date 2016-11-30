@@ -20,6 +20,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-styles/demo-pages.html">
   <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 
 
 <dom-module id="my-view3">
@@ -43,7 +46,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       background: var(--paper-light-blue-500);
       color: white;
     }
-    </style>
+    .iron-selected {
+      background: #eee;
+    }
+
+      </style>
     
 
       
@@ -83,14 +90,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         
         <br /><hr />
       <h2>Consumed on Report Date</h2>
-        <template is="dom-repeat" items="[[_consumptionOrDateChanged(consumption.*, todayString)]]">
-            <paper-material elevation="2">
-                <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
-            </paper-material>
-        </template>
-      <!--h2>YESTERDAY</h2>
-        <div></div-->
-    </div>
+<paper-toolbar>
+  <span class="title">Actions</span>
+  <paper-icon-button on-tap="_createCompositeCustomFood" icon="favorite"></paper-icon-button>
+</paper-toolbar>
+        <iron-selector multi selected-values="{{selectedConsumedValues}}">
+            <template is="dom-repeat" items="[[_consumptionOrDateChanged(consumption.*, todayString)]]">
+                <paper-material elevation="2">
+                    <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
+                </paper-material>
+            </template>
+        </iron-selector>
+<paper-toolbar>
+  <span class="title">Actions</span>
+  <paper-icon-button on-tap="_createCompositeCustomFood" icon="favorite"></paper-icon-button>
+</paper-toolbar>
+      </div>
   </template>
 
   <script>
@@ -121,12 +136,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             },
             active: {
                 type: Boolean
-            }
+            },
+            selectedConsumedItems: Array
         },
         observers:[ 'consumptionChanged(consumption.*, todayString)',
                     'todaysNutrientsChanged(todaysNutrients.*)',
                     '_selectedDateChanged(selectedDate)',
-                    '_todayStringChanged()'],
+                    '_todayStringChanged()',
+                    '_selectedConsumedValuesChanged(selectedConsumedValues.*)'],
         _calculatePercent: function(name, total, nutrientsOfInterest) {
             console.log("_calculatePercent executed...");
             for(var i = 0; i < nutrientsOfInterest.length; i++) {
@@ -214,6 +231,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 return changeRecord.base;
             }
 
+        },
+        _selectedConsumedValuesChanged: function(changeRecord) {
+            console.log("selected consumed Values changed...");
+        },
+        _createCompositeCustomFood: function(event) {
+            console.log("request to create composite custom food...");
         }
     });
       
