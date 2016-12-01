@@ -251,6 +251,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         _openCompositeCustomFoodDialog: function(event) {
             this.$.compositeCustomFoodDialog.toggle();
+            // calculate weight
+            this.compositeCustomFoodWeight = 0; 
+            for (var i = 0; i < this.selectedConsumedValues.length; i++) {
+                this.compositeCustomFoodWeight += this.consumption[this.selectedConsumedValues[i]].weight;
+            }
         },
         _dismissCompositeCustomFoodDialog: function(event) {
             if (event.detail.confirmed) {
@@ -264,8 +269,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 newObject.name = this.compositeCustomFoodName;
                 newObject.ndbno = "-1";
                 newObject.measure = this.compositeCustomFoodMeasure;
-//                newObject.weight = this.compositeCustomFoodWeight;
-//                newObject.nutrients = newObject.nutrients.concat(this.foodNutrients);
+                newObject.weight = this.compositeCustomFoodWeight;
+
+                var nutrientsArray = [];
+                for (var i = 0; i < this.selectedConsumedValues.length; i++) {
+                    var currentNutrients = this.consumption[this.selectedConsumedValues[i]].nutrientsOfInterest;
+                    for(var j = 0; j < currentNutrients.length; j++) {
+                        if (i === 0) {
+                            var currentValue = currentNutrients[j].value * this.consumption[this.selectedConsumedValues[i]].multiplier;
+                            currentNutrients[j].value = currentValue;
+                            nutrientsArray.push(currentNutrients[j]);
+                        }
+                        else {
+                            // TODO add/sum in the other nutrients
+                        }
+                    }
+                }
+                newObject.nutrients = nutrientsArray;
                 console.log("done constructing new Object...");
                 this.push('customFood', newObject);
                 this.foodName = null;
