@@ -21,7 +21,7 @@
                 </template>
             </div>
         </div>
-       <div>[[_displayIfToday(inputItem, matchString)]]</div>
+       <!--div>[[_displayIfToday(inputItem, matchString)]]</div-->
     </template>
 </dom-module>
 
@@ -35,14 +35,14 @@
             }
         },
         observers: ['_inputItemChanged(inputItem)'],
-        _displayIfToday: function(obj, match) {
-            if (obj.consumedDate.substring(0, 10) === match) {
-                this.style.display = 'block';
-            }
-            else {
-                this.style.display = 'none';
-            }
-         },
+//        _displayIfToday: function(obj, match) {
+//            if (obj.consumedDate.substring(0, 10) === match) {
+//                this.style.display = 'block';
+//            }
+//            else {
+//                this.style.display = 'none';
+//            }
+//         },
         _inputItemChanged: function(inputItem) {
             console.log("inputItemChanged called...");
         },

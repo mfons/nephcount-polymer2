@@ -57,6 +57,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <firebase-query
     id="query"
     order-by-child="consumedDate"
+    start-at="[[todayStringStart]]"
+    end-at="[[todayStringEnd]]"
     app-name="nephcount"
     path="/users/[[user.uid]]/consumption"
     data="{{consumption}}">
@@ -64,6 +66,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!--start-at="2016-10-15"
     end-at="2016-10-16"-->
+
+    <firebase-document id="fbdoc"
+          app-name="nephcount"
+         path="/users/[[user.uid]]/customFood"
+          data="{{customFood}}">
+      </firebase-document>
 
       
     <div class="card">
@@ -90,10 +98,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         
         <br /><hr />
       <h2>Consumed on Report Date</h2>
-<paper-toolbar>
-  <span class="title">Actions</span>
-  <paper-icon-button on-tap="_createCompositeCustomFood" icon="favorite"></paper-icon-button>
-</paper-toolbar>
         <iron-selector multi selected-values="{{selectedConsumedValues}}">
             <template is="dom-repeat" items="[[_consumptionOrDateChanged(consumption.*, todayString)]]">
                 <paper-material elevation="2">
@@ -103,8 +107,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </iron-selector>
 <paper-toolbar>
   <span class="title">Actions</span>
-  <paper-icon-button on-tap="_createCompositeCustomFood" icon="favorite"></paper-icon-button>
+  <paper-icon-button on-tap="_openCompositeCustomFoodDialog" icon="favorite"></paper-icon-button>
 </paper-toolbar>
+
+      <paper-dialog id="compositeCustomFoodDialog" on-iron-overlay-closed="_dismissCompositeCustomFoodDialog">
+          <h2>Composite Custom Food</h2>
+        <paper-input value="{{compositeCustomFoodName}}" label="Name" required></paper-input>
+        <paper-input value="{{compositeCustomFoodMeasure}}" label="Measure" required></paper-input>
+        <paper-input value="[[compositeCustomFoodWeight]]" label="Weight in grams" read-only></paper-input>          
+        <div class="buttons">
+          <paper-button dialog-dismiss>Cancel</paper-button>
+          <paper-button dialog-confirm>OK</paper-button>
+        </div>
+      </paper-dialog>      
+      
       </div>
   </template>
 
@@ -134,16 +150,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 type: String,
                 value: formatLocalDate(new Date()).substring(0, 10)
             },
+            todayStringStart: {
+                type: String,
+                value: formatLocalDate(new Date()).substring(0, 10) + "T00:00:00"
+            },
+            todayStringEnd: {
+                type: String,
+                value: formatLocalDate(new Date()).substring(0, 10) + "T23:59:59"
+            },
             active: {
                 type: Boolean
             },
-            selectedConsumedItems: Array
+            selectedConsumedValues: Array,
+            compositeCustomFoodName: String,
+            compositeCustomFoodMeasure: String,
+            compositeCustomFoodWeight: Number
         },
         observers:[ 'consumptionChanged(consumption.*, todayString)',
-                    'todaysNutrientsChanged(todaysNutrients.*)',
                     '_selectedDateChanged(selectedDate)',
-                    '_todayStringChanged()',
-                    '_selectedConsumedValuesChanged(selectedConsumedValues.*)'],
+                 '_selectedConsumedValuesChanged(selectedConsumedValues.*)'],
         _calculatePercent: function(name, total, nutrientsOfInterest) {
             console.log("_calculatePercent executed...");
             for(var i = 0; i < nutrientsOfInterest.length; i++) {
@@ -169,27 +194,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         printArrayAsJson: function(changeRecord) {
             return JSON.stringify(changeRecord.base);
         },
-        todaysNutrientsChanged: function(changeRecord) {
-            console.log("todaysNutrients array changed...");
-        },
         consumptionChanged:function(changeRecord, dateString) {
             console.log("consumption changed: ");
             this.splice('todaysNutrients', 0, this.todaysNutrients.length);
             if (changeRecord.base.length === 0 || dateString.length === 0) {
                 return;
             }
-//            for(var i = changeRecord.base.length - 1; i < changeRecord.base.length && changeRecord.base[i].consumedDate.substring(0, 10) === this.todayString; i++) {
             for(var i = 0; i < changeRecord.base.length; i++) {
                 if (changeRecord.base[i].consumedDate.substring(0, 10) !== this.todayString) {
                     continue;
-                }
-//                if (typeof this.consumptionVisited[changeRecord.base[i].$key] == 'undefined') { // only visit each consumption node once
-//                     this.consumptionVisited[changeRecord.base[i].$key] = true;
-//                }
-//                else {
-//                    return;
-//                }
-                
+                }                
                 var nutrientsOfInterest= changeRecord.base[i].nutrientsOfInterest;
                 for(var j = 0; j < nutrientsOfInterest.length; j++) {
                     var noiFound = false;
@@ -215,9 +229,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         _dismissDialog : function(event) {
             if (event.detail.confirmed) {
               this.todayString = formatLocalDate(this.$.picker.date).substring(0, 10);
+              this.todayStringStart = this.todayString + "T00:00:00";
+              this.todayStringEnd = this.todayString + "T23:59:59";
             }
-        },
-        _todayStringChanged:  function(dateString) {
         },
         _consumptionOrDateChanged: function(changeRecord, dateString) {
             if (changeRecord.base.length > 0 &&
@@ -233,10 +247,33 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         },
         _selectedConsumedValuesChanged: function(changeRecord) {
-            console.log("selected consumed Values changed...");
+            console.log("selected consumed values changed...");
         },
-        _createCompositeCustomFood: function(event) {
-            console.log("request to create composite custom food...");
+        _openCompositeCustomFoodDialog: function(event) {
+            this.$.compositeCustomFoodDialog.toggle();
+        },
+        _dismissCompositeCustomFoodDialog: function(event) {
+            if (event.detail.confirmed) {
+                var newObject = {
+                    "ndbno": "01131",
+                    "name": "Egg, whole, cooked, poached",
+                    "weight": 50.0,
+                    "measure": "1.0 large",
+                    "nutrients": []
+                };
+                newObject.name = this.compositeCustomFoodName;
+                newObject.ndbno = "-1";
+                newObject.measure = this.compositeCustomFoodMeasure;
+//                newObject.weight = this.compositeCustomFoodWeight;
+//                newObject.nutrients = newObject.nutrients.concat(this.foodNutrients);
+                console.log("done constructing new Object...");
+                this.push('customFood', newObject);
+                this.foodName = null;
+                this.ndbno = null;
+                this.measure = null;
+                this.weight = null;
+                this.foodNutrients = [];
+            }
         }
     });
       
