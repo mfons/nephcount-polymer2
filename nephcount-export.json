@@ -4027,159 +4027,6 @@
         } ],
         "weight" : 151
       } ],
-      "customFood" : [ {
-        "measure" : "1 bar",
-        "name" : "zone perfect fudge graham",
-        "ndbno" : "-1",
-        "nutrients" : [ {
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "210"
-        }, {
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "200"
-        }, {
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "90"
-        }, {
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "14"
-        } ],
-        "weight" : "50"
-      }, {
-        "measure" : "1 rrr",
-        "name" : "ttt",
-        "ndbno" : "-1",
-        "nutrients" : [ {
-          "gm" : 733,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "1048"
-        }, {
-          "gm" : 21.15,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "30.24"
-        }, {
-          "gm" : 1,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "1"
-        }, {
-          "gm" : 269,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "385"
-        }, {
-          "gm" : 270,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "386"
-        }, {
-          "gm" : 579,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "828"
-        } ],
-        "weight" : 294
-      }, {
-        "measure" : "1 rrrddd",
-        "name" : "qqq",
-        "ndbno" : "-1",
-        "nutrients" : [ {
-          "gm" : 576,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "92"
-        }, {
-          "gm" : 17.28,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "2.76"
-        }, {
-          "gm" : 331,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "53"
-        }, {
-          "gm" : 64,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "10"
-        }, {
-          "gm" : 311,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "50"
-        }, {
-          "gm" : 617,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "99"
-        } ],
-        "weight" : 54
-      }, {
-        "measure" : "1 smootch",
-        "name" : "oink",
-        "ndbno" : "-1",
-        "nutrients" : [ {
-          "gm" : 138,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : 146.5
-        }, {
-          "gm" : 1.1,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : 1.165
-        }, {
-          "gm" : 2,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : 2
-        }, {
-          "gm" : 26,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : 27.5
-        }, {
-          "gm" : 8,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : 8.5
-        }, {
-          "gm" : 29,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : 30.5
-        } ],
-        "weight" : 298
-      } ],
       "nutrientsOfInterest" : [ {
         "id" : "301",
         "maxAllowedDaily" : "1000",
@@ -9106,6 +8953,276 @@
           "value" : "270"
         } ],
         "weight" : 68
+      }, {
+        "consumedDate" : "2016-12-01T18:29:35-07:00",
+        "consumedGrams" : 14.2,
+        "measure" : "0.5 oz",
+        "multiplier" : "1",
+        "name" : "Crackers, cheese, regular",
+        "ndbid" : "18214",
+        "nutrientsOfInterest" : [ {
+          "gm" : 156,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "22"
+        }, {
+          "gm" : 10.93,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.55"
+        }, {
+          "gm" : 200,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "28"
+        }, {
+          "gm" : 973,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "138"
+        }, {
+          "gm" : 136,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "19"
+        }, {
+          "gm" : 489,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "69"
+        } ],
+        "weight" : 14.2
+      }, {
+        "consumedDate" : "2016-12-01T18:34:02-07:00",
+        "consumedGrams" : 85,
+        "measure" : "3.0 oz",
+        "multiplier" : "1",
+        "name" : "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, grilled",
+        "ndbid" : "05747",
+        "nutrientsOfInterest" : [ {
+          "gm" : 391,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "332"
+        }, {
+          "gm" : 30.54,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "25.96"
+        }, {
+          "gm" : 258,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "219"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "44"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "4"
+        }, {
+          "gm" : 151,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "128"
+        } ],
+        "weight" : 85
+      }, {
+        "consumedDate" : "2016-12-01T18:35:24-07:00",
+        "consumedGrams" : 205,
+        "measure" : "1.0 cup",
+        "multiplier" : "1",
+        "name" : "Rice, white, short-grain, cooked, unenriched",
+        "ndbid" : "20453",
+        "nutrientsOfInterest" : [ {
+          "gm" : 26,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "53"
+        }, {
+          "gm" : 2.36,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "4.84"
+        }, {
+          "gm" : 33,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "68"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 130,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "266"
+        } ],
+        "weight" : 205
+      }, {
+        "consumedDate" : "2016-12-01T18:37:50-07:00",
+        "consumedGrams" : 54,
+        "measure" : "1.0 tbsp",
+        "multiplier" : "3",
+        "name" : "Sauce, teriyaki, ready-to-serve",
+        "ndbid" : "06112",
+        "nutrientsOfInterest" : [ {
+          "gm" : 225,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "gm" : 5.93,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.07"
+        }, {
+          "gm" : 154,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "28"
+        }, {
+          "gm" : 3833,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "690"
+        }, {
+          "gm" : 25,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "4"
+        }, {
+          "gm" : 89,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "16"
+        } ],
+        "weight" : 18
+      }, {
+        "consumedDate" : "2016-12-01T19:24:58-07:00",
+        "consumedGrams" : 56.7,
+        "measure" : "1.0 oz",
+        "multiplier" : "2",
+        "name" : "Pie, pumpkin, commercially prepared",
+        "ndbid" : "18326",
+        "nutrientsOfInterest" : [ {
+          "gm" : 167,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "47"
+        }, {
+          "gm" : 3.9,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.11"
+        }, {
+          "gm" : 81,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "23"
+        }, {
+          "gm" : 239,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "68"
+        }, {
+          "gm" : 64,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "18"
+        }, {
+          "gm" : 243,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "69"
+        } ],
+        "weight" : 28.35
+      }, {
+        "consumedDate" : "2016-12-01T19:26:15-07:00",
+        "consumedGrams" : 250,
+        "measure" : "1.0 cup, quartered or chopped",
+        "multiplier" : "2",
+        "name" : "Apples, raw, with skin",
+        "ndbid" : "09003",
+        "nutrientsOfInterest" : [ {
+          "gm" : 107,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "134"
+        }, {
+          "gm" : 0.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.32"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "14"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "8"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "65"
+        } ],
+        "weight" : 125
       } ],
       "customFood" : [ {
         "measure" : "1 bar",
@@ -9226,6 +9343,65 @@
           "value" : "310"
         } ],
         "weight" : "68"
+      }, {
+        "measure" : "9oz",
+        "name" : "Toyko Joe's White Rice ",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "330"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "6"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "0"
+        } ],
+        "weight" : "0"
+      }, {
+        "measure" : "3oz",
+        "name" : "Toyko Joe's White Chicken Regular size ",
+        "nutrients" : [ {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "110"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "330"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "22"
+        } ]
+      }, {
+        "measure" : "2.5 oz",
+        "name" : "Toyko Joe's Teriyaki Sauce",
+        "nutrients" : [ {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "130"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1250"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "5"
+        } ]
       } ],
       "nutrientsOfInterest" : [ {
         "id" : "203",
