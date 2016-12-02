@@ -4053,6 +4053,132 @@
           "value" : "14"
         } ],
         "weight" : "50"
+      }, {
+        "measure" : "1 rrr",
+        "name" : "ttt",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "gm" : 733,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "1048"
+        }, {
+          "gm" : 21.15,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "30.24"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 269,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "385"
+        }, {
+          "gm" : 270,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "386"
+        }, {
+          "gm" : 579,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "828"
+        } ],
+        "weight" : 294
+      }, {
+        "measure" : "1 rrrddd",
+        "name" : "qqq",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "gm" : 576,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "92"
+        }, {
+          "gm" : 17.28,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.76"
+        }, {
+          "gm" : 331,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "53"
+        }, {
+          "gm" : 64,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "10"
+        }, {
+          "gm" : 311,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "50"
+        }, {
+          "gm" : 617,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "99"
+        } ],
+        "weight" : 54
+      }, {
+        "measure" : "1 smootch",
+        "name" : "oink",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "gm" : 138,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 146.5
+        }, {
+          "gm" : 1.1,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 1.165
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 2
+        }, {
+          "gm" : 26,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 27.5
+        }, {
+          "gm" : 8,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 8.5
+        }, {
+          "gm" : 29,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 30.5
+        } ],
+        "weight" : 298
       } ],
       "nutrientsOfInterest" : [ {
         "id" : "301",
@@ -8588,6 +8714,360 @@
         "multiplier" : "1",
         "name" : "CLIF, BUILDER'S, PROTEIN BAR, CHOCOLATE MINT, UPC: 722252168528",
         "ndbid" : "45090566",
+        "nutrientsOfInterest" : [ {
+          "gm" : 279,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "190"
+        }, {
+          "gm" : 29.41,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "20.00"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : 294,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "gm" : 441,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "300"
+        }, {
+          "gm" : 397,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "270"
+        } ],
+        "weight" : 68
+      }, {
+        "consumedDate" : "2016-11-30T20:08:52-07:00",
+        "consumedGrams" : 122,
+        "measure" : "1.0 large",
+        "multiplier" : "2",
+        "name" : "Egg, whole, cooked, scrambled",
+        "ndbid" : "01132",
+        "nutrientsOfInterest" : [ {
+          "gm" : 132,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "81"
+        }, {
+          "gm" : 9.99,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "6.09"
+        }, {
+          "gm" : 165,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "101"
+        }, {
+          "gm" : 145,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "88"
+        }, {
+          "gm" : 66,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "gm" : 149,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "91"
+        } ],
+        "weight" : 61
+      }, {
+        "consumedDate" : "2016-11-30T20:09:25-07:00",
+        "consumedGrams" : 48,
+        "measure" : "1.0 tortilla",
+        "multiplier" : "1",
+        "name" : "Tortillas, ready-to-bake or -fry, flour, refrigerated",
+        "ndbid" : "18364",
+        "nutrientsOfInterest" : [ {
+          "gm" : 125,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "60"
+        }, {
+          "gm" : 8.2,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.94"
+        }, {
+          "gm" : 206,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "99"
+        }, {
+          "gm" : 736,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "353"
+        }, {
+          "gm" : 146,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "70"
+        }, {
+          "gm" : 306,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "147"
+        } ],
+        "weight" : 48
+      }, {
+        "consumedDate" : "2016-11-30T20:09:47-07:00",
+        "consumedGrams" : 227,
+        "measure" : "1 can 8 oz.",
+        "multiplier" : "1",
+        "name" : "Nepro Butter Pecan Flavor",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "425"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "170"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "19.1"
+        } ],
+        "weight" : "227"
+      }, {
+        "consumedDate" : "2016-11-30T20:10:35-07:00",
+        "consumedGrams" : 58,
+        "measure" : "1.0 slice",
+        "multiplier" : "2",
+        "name" : "Bread, white, commercially prepared (includes soft bread crumbs)",
+        "ndbid" : "18069",
+        "nutrientsOfInterest" : [ {
+          "gm" : 126,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "37"
+        }, {
+          "gm" : 8.85,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.57"
+        }, {
+          "gm" : 98,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "28"
+        }, {
+          "gm" : 490,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "142"
+        }, {
+          "gm" : 144,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 266,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "77"
+        } ],
+        "weight" : 29
+      }, {
+        "consumedDate" : "2016-11-30T20:11:36-07:00",
+        "consumedGrams" : 32,
+        "measure" : "2.0 tbsp",
+        "multiplier" : "1",
+        "name" : "Peanut butter, smooth style, with salt",
+        "ndbid" : "16098",
+        "nutrientsOfInterest" : [ {
+          "gm" : 558,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "179"
+        }, {
+          "gm" : 22.21,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "7.11"
+        }, {
+          "gm" : 335,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "107"
+        }, {
+          "gm" : 426,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "136"
+        }, {
+          "gm" : 49,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "16"
+        }, {
+          "gm" : 598,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "191"
+        } ],
+        "weight" : 32
+      }, {
+        "consumedDate" : "2016-11-30T20:12:21-07:00",
+        "consumedGrams" : 245,
+        "measure" : "1.0 cup",
+        "multiplier" : "1",
+        "name" : "Milk, nonfat, fluid, with added vitamin A and vitamin D (fat free or skim)",
+        "ndbid" : "01085",
+        "nutrientsOfInterest" : [ {
+          "gm" : 156,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "382"
+        }, {
+          "gm" : 3.37,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "8.26"
+        }, {
+          "gm" : 101,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "247"
+        }, {
+          "gm" : 42,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "103"
+        }, {
+          "gm" : 122,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "299"
+        }, {
+          "gm" : 34,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "83"
+        } ],
+        "weight" : 245
+      }, {
+        "consumedDate" : "2016-11-30T20:12:57-07:00",
+        "consumedGrams" : 187.5,
+        "measure" : "1.0 cup, quartered or chopped",
+        "multiplier" : "1.5",
+        "name" : "Apples, raw, with skin",
+        "ndbid" : "09003",
+        "nutrientsOfInterest" : [ {
+          "gm" : 107,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "134"
+        }, {
+          "gm" : 0.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.32"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "14"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "8"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "65"
+        } ],
+        "weight" : 125
+      }, {
+        "consumedDate" : "2016-11-30T20:50:36-07:00",
+        "consumedGrams" : 68,
+        "measure" : "68.0 g",
+        "multiplier" : "1",
+        "name" : "CLIF, BUILDER'S, PROTEIN BAR, CHOCOLATE MINT, UPC: 722252600448",
+        "ndbid" : "45090569",
         "nutrientsOfInterest" : [ {
           "gm" : 279,
           "nutrient" : "Potassium, K",
