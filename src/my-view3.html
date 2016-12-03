@@ -272,14 +272,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 newObject.measure = this.compositeCustomFoodMeasure;
                 newObject.weight = this.compositeCustomFoodWeight;
 
-                var nutrientsArray = [];
-                for (var i = 0; i < this.selectedConsumedValues.length; i++) {
-                    // TODO this components push cannot contain $key in it, so 
-                    // copy it removing this property.
-//                    newObject.components.push(this.consumption[this.selectedConsumedValues[i]]);
-                    var currentNutrients = this.consumption[this.selectedConsumedValues[i]].nutrientsOfInterest;
+                newObject.components = this._getSelectedListFromConsumed();
+                var nutrientsArray = [];   
+                for (var i = 0; i < newObject.components.length; i++) {
+                    var currentNutrients = newObject.components[i].nutrientsOfInterest;
                     for(var j = 0; j < currentNutrients.length; j++) {
-                        var currentValue = currentNutrients[j].value * this.consumption[this.selectedConsumedValues[i]].multiplier;
+                        var currentValue = currentNutrients[j].value * newObject.components[i].multiplier;
                         if (i === 0) {
                             currentNutrients[j].value = currentValue;
                             nutrientsArray.push(currentNutrients[j]);
@@ -294,6 +292,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         }
                     }
                 }
+
+                
                 newObject.nutrients = nutrientsArray;
                 console.log("done constructing new Object...");
                 this.push('customFood', newObject);
@@ -303,7 +303,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 this.weight = null;
                 this.foodNutrients = [];
             }
+        },
+        _getSelectedListFromConsumed: function () {
+            console.log("_getSelectedListFromConsumed...");
+            var newSelectedList = [];
+            for (var i = 0; i < this.selectedConsumedValues.length; i++) {
+                clone = this.consumption.slice(0);
+                delete clone[this.selectedConsumedValues[i]].$key; 
+                newSelectedList.push(clone[this.selectedConsumedValues[i]]);
+            }
+            return newSelectedList;
         }
+        
     });
       
     function formatLocalDate(theDate) {

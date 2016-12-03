@@ -107,6 +107,42 @@
                   </div>
         </paper-dialog>
 
+        <br/>
+        <template is="dom-repeat" items="[[customFood]]">
+            <paper-material elevation="2">
+                [[_formatCustomFoodItem(item)]]
+                <ul>
+                <template is="dom-repeat" items="[[_lookAtCustomFoodNutrients(item.nutrients)]]" as="cfnItem">
+                    <li>[[_formatCustomFoodNutrientItem(cfnItem)]]</li>
+                </template>
+                    <template is="dom-if" if="{{!_isEmptyArray(item.components)}}">
+                        <hr/>
+                        <div>made up of...</div>
+                    </template>
+                <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
+                    <li>
+                        [[_formatCustomFoodComponentItem(cfcItem)]]
+<!--
+                        <ul>
+                            <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
+                                <li>
+                                    [[_formatCustomFoodComponentItem(cfcItem)]]
+                                    <ul>
+
+                                    </ul>
+                                </li>
+                            </template>
+                            
+                        </ul>
+-->
+                    </li>
+                </template>
+                
+                </ul>
+            </paper-material>
+        </template>
+
+        
       </div>
 
     
@@ -196,7 +232,7 @@
             console.log("done constructing new Object...");
             this.push('customFood', newObject);
             this.foodName = null;
-            this.ndbno = null;
+            //this.ndbno = null;
             this.measure = null;
             this.weight = null;
             this.foodNutrients = [];
@@ -227,6 +263,18 @@
         _formatFoodNutrientsItem: function (item) {
             return item.nutrient + " " + item.value + " " + item.unit;
         },
+        _formatCustomFoodItem: function(item) {
+            return item.measure + " of " + item.name + " weighing " + item.weight + " gm";
+        },
+        _formatCustomFoodNutrientItem: function(item) {
+            return item.nutrient + ", " + item.value + " " + item.unit;
+        },
+        _formatCustomFoodComponentItem: function(item) {
+            return "qty " + item.multiplier + " of " + item.measure + " of "+ item.name + " weighing " + item.consumedGrams + " gm";  
+        },
+        _lookAtCustomFoodNutrients: function(items) {
+            return items;
+        },
 //        _possibleNutrientsChanged:  function(changeRecord) {
 //            console.log("possible nutrients changed...");
 //        },
@@ -236,6 +284,9 @@
         _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {
             this.noiConcatPossibleNutrients =  noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
             return this.noiConcatPossibleNutrients; // TODO? there may be a side effect here.  The first time Sandra and I tried to use the list was not forthcoming.  Then after we refreshed it was fine.  
+        },
+        _isEmptyArray: function(theArray) {
+            return typeof theArray === "undefined" || theArray.length === 0;
         }
     });
       
