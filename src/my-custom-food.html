@@ -81,7 +81,7 @@
           <paper-button raised onclick="_reset(event)">Reset</paper-button>          
         </form>
         
-        <paper-dialog id="addNutrientDialog">  <!--last three attributes can be just "modal" if the animation is too much for phones -->
+        <paper-dialog id="addNutrientDialog">  
             <h2>Nutrients</h2>
                   <paper-dropdown-menu required label="Nutrient" >
                     <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
@@ -122,19 +122,6 @@
                 <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
                     <li>
                         [[_formatCustomFoodComponentItem(cfcItem)]]
-<!--
-                        <ul>
-                            <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
-                                <li>
-                                    [[_formatCustomFoodComponentItem(cfcItem)]]
-                                    <ul>
-
-                                    </ul>
-                                </li>
-                            </template>
-                            
-                        </ul>
--->
                     </li>
                 </template>
                 
@@ -152,7 +139,7 @@
     Polymer({
       is: 'my-custom-food',
         properties: {
-            user: Object,
+            user: Object ,
             customFood: {
                 type: Array,
                 value: []
@@ -192,7 +179,7 @@
             },
             possibleNutrients: Array,
             noiConcatPossibleNutrients: Array
-        },
+        } ,
                 listeners: {
                     'theForm.iron-form-presubmit': '_myPreSubmit',
                     'theForm.iron-form-submit': '_mySubmit',
@@ -208,20 +195,6 @@
                 "weight": 50.0,
                 "measure": "1.0 large",
                 "nutrients": [
-//                    {
-//                        "nutrient_id": "306",
-//                        "nutrient": "Potassium, K",
-//                        "unit": "mg",
-//                        "value": "69",
-//                        "gm": 138.0
-//                    },
-//                    {
-//                        "nutrient_id": "305",
-//                        "nutrient": "Phosphorus, P",
-//                        "unit": "mg",
-//                        "value": "98",
-//                        "gm": 197.0
-//                    }                
                 ]
             };
             newObject.name = this.foodName;
@@ -275,15 +248,12 @@
         _lookAtCustomFoodNutrients: function(items) {
             return items;
         },
-//        _possibleNutrientsChanged:  function(changeRecord) {
-//            console.log("possible nutrients changed...");
-//        },
         _userChanged: function(changeRecord) {
             console.log("user changed...");
         },
         _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {
             this.noiConcatPossibleNutrients =  noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
-            return this.noiConcatPossibleNutrients; // TODO? there may be a side effect here.  The first time Sandra and I tried to use the list was not forthcoming.  Then after we refreshed it was fine.  
+            return this.noiConcatPossibleNutrients; 
         },
         _isEmptyArray: function(theArray) {
             return typeof theArray === "undefined" || theArray.length === 0;
