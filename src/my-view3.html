@@ -277,7 +277,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 for (var i = 0; i < newObject.components.length; i++) {
                     var currentNutrients = newObject.components[i].nutrientsOfInterest;
                     for(var j = 0; j < currentNutrients.length; j++) {
-                        var currentValue = currentNutrients[j].value * newObject.components[i].multiplier;
+                        var currentValue = getUnavailableValue(currentNutrients[j].value) * newObject.components[i].multiplier;
                         if (i === 0) {
                             currentNutrients[j].value = currentValue;
                             nutrientsArray.push(currentNutrients[j]);
