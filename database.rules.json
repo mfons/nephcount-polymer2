@@ -1,6 +1,14 @@
 {
   "rules": {
     ".read": "true",
-    ".write": "true"
+    ".write": "true",
+      "users" : {
+          "$user" : {
+              "consumption" : {
+                    ".indexOn": "consumedDate"
+                  
+              }
+          }
+      }
   }
 }

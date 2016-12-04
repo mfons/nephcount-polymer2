@@ -297,11 +297,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 newObject.nutrients = nutrientsArray;
                 console.log("done constructing new Object...");
                 this.push('customFood', newObject);
+                
+                // clear the dialog
                 this.foodName = null;
                 this.ndbno = null;
                 this.measure = null;
                 this.weight = null;
                 this.foodNutrients = [];
+                this.compositeCustomFoodName = "";
+                this.compositeCustomFoodMeasure = "";
+                this.compositeCustomFoodWeight = 0;
             }
         },
         _getSelectedListFromConsumed: function () {
