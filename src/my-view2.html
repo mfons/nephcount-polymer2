@@ -107,7 +107,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-toggle-button checked="{{isStandardReference}}">
               Use Standard Reference
            </paper-toggle-button>
-          <paper-input name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required></paper-input>
+          <paper-input id="foodFluidSearchStringId" name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required></paper-input>
           <paper-dropdown-menu required label="Food/Fluid" id="foodSelectionMenu">
             <paper-listbox class="dropdown-content" selected="{{selectedFood}}" id="foodSelectionListbox">
              <template is="dom-repeat" items='[[foods]]' as="foodItem">
@@ -201,7 +201,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit',
-            'foodSelectionMenu.tap' : '_foodSelectionMenuTap'
+            'foodSelectionMenu.tap' : '_foodSelectionMenuTap',
+            'foodFluidSearchStringId.blur' : '_foodFluidSearchStringBlur'
         },
         myPreSubmit : function(event) {
             event.preventDefault;
@@ -247,7 +248,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             this.set('foodName', this.foods[newObject].name);
         },
         foodFluidSearchStringChanged:  function (newString, oldString) {
-            this.set('textSearch', newString);
+            //this.set('textSearch', newString);
         },
 //        foodsChanged:  function (changeRecord) {
 //            this.set('foodItems', changeRecord.base);
@@ -278,6 +279,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             console.log('foodSelectionMenu focus occurred...');
             this.$.foodsByTextSearch.mergeCustomAndUSDAFoods();
             this.$.foodSelectionMenu.open();
+        },
+        _foodFluidSearchStringBlur(event) {
+            console.log("_foodFluidSearchStringBlur ...");
+            this.textSearch = this.foodFluidSearchString;
         },
         _isStandardReferenceChanged : function(newValue, oldValue) {
             console.log("isStandardReference value change from " + oldValue + " to " + newValue);
