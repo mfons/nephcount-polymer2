@@ -161,12 +161,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             foodNutrients: {
                 type: Object
             },
-//            foodItems: {  // TODO can probably be swapped for "foods" and deleted.
-//                type: Array,
-//                value: function () {
-//                    return [{ name: "cashews"}, {name: "salsa"}, {name: "orange"}];
-//                }
-//            },
             textSearch: {
                 type: String,
                 value: "butter"
@@ -201,8 +195,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit',
-            'foodSelectionMenu.tap' : '_foodSelectionMenuTap',
-            'foodFluidSearchStringId.blur' : '_foodFluidSearchStringBlur'
+            'foodSelectionMenu.tap' : '_foodSelectionMenuTap'
+//            ,
+//            'foodFluidSearchStringId.blur' : '_foodFluidSearchStringBlur'
         },
         myPreSubmit : function(event) {
             event.preventDefault;
@@ -242,17 +237,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         selectedFoodChanged: function(newObject,oldObject) {
             console.log("my-view2:  selectedFood has changed: " + newObject);
-//            this.set('foodId',this.foodItems[newObject].ndbno);
-//            this.set('foodName', this.foodItems[newObject].name);
             this.set('foodId',this.foods[newObject].ndbno);
             this.set('foodName', this.foods[newObject].name);
         },
         foodFluidSearchStringChanged:  function (newString, oldString) {
-            //this.set('textSearch', newString);
+            this.set('textSearch', newString);
         },
-//        foodsChanged:  function (changeRecord) {
-//            this.set('foodItems', changeRecord.base);
-//        },
         consumptionChanged: function(changeRecord) {
            console.log("consumption change fired" + changeRecord);
         },
@@ -280,10 +270,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             this.$.foodsByTextSearch.mergeCustomAndUSDAFoods();
             this.$.foodSelectionMenu.open();
         },
-        _foodFluidSearchStringBlur: function (event) {
-            console.log("_foodFluidSearchStringBlur ...");
-            this.textSearch = this.foodFluidSearchString;
-        },
+//        _foodFluidSearchStringBlur: function (event) {
+//            console.log("_foodFluidSearchStringBlur ...");
+//            this.textSearch = this.foodFluidSearchString;
+//        },
         _isStandardReferenceChanged : function(newValue, oldValue) {
             console.log("isStandardReference value change from " + oldValue + " to " + newValue);
         }
