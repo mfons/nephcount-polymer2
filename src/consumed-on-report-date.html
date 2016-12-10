@@ -8,6 +8,7 @@
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 
 <!--
   <link rel="import" href="../bower_components/paper-styles/color.html">
@@ -87,9 +88,11 @@ This element provides a list of consumed  items and relevant information thereab
           <paper-button dialog-dismiss>Cancel</paper-button>
           <paper-button dialog-confirm>OK</paper-button>
         </div>
-      </paper-dialog>      
+      </paper-dialog>
+      
+      <paper-toast id="deleteToast" text="Refresh browser to see delete change...(sorry)"></paper-toast>
   </template>
-
+    
   <script>
     Polymer({
 
@@ -185,7 +188,9 @@ This element provides a list of consumed  items and relevant information thereab
         for (var i = this.selectedConsumedValues.length - 1; i >= 0 ; i--) {
             this.splice('editableConsumption', 
                         this.selectedConsumedValues[i] + baseIndex, 1);
-        }            
+        } 
+        
+        this.$.deleteToast.opened = true;
     },
     _getSelectedListFromConsumed: function () {
         console.log("_getSelectedListFromConsumed...");
@@ -200,7 +205,8 @@ This element provides a list of consumed  items and relevant information thereab
     _getBaseIndexForCurrentDateInConsumptions: function() {
         var findThisConsumedDate = this.consumption[0].consumedDate;
         for(var i = 0; i < this.editableConsumption.length; i++) {
-            if (findThisConsumedDate === this.editableConsumption[i].consumedDate) {
+            if (typeof this.editableConsumption[i] != 'undefined' &&
+                findThisConsumedDate === this.editableConsumption[i].consumedDate) {
                 return i;
             }
         }

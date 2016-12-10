@@ -763,96 +763,6 @@
   "users" : {
     "KqKehrETdmdBvZuV8W4yU63OXCU2" : {
       "consumption" : [ {
-        "consumedDate" : "2016-11-19T21:22:22-07:00",
-        "consumedGrams" : 113.4,
-        "measure" : "1.0 oz",
-        "multiplier" : "4",
-        "name" : "Bagels, plain, unenriched, without calcium propionate(includes onion, poppy, sesame)",
-        "ndbid" : "18408",
-        "nutrientsOfInterest" : [ {
-          "gm" : 101,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "29"
-        }, {
-          "gm" : 10.5,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "2.98"
-        }, {
-          "gm" : 96,
-          "nutrient" : "Phosphorus, P",
-          "nutrient_id" : "305",
-          "unit" : "mg",
-          "value" : "27"
-        }, {
-          "gm" : 534,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "151"
-        }, {
-          "gm" : 18,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "5"
-        }, {
-          "gm" : 275,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "78"
-        } ],
-        "weight" : 28.35
-      }, {
-        "consumedDate" : "2016-11-26T18:58:01-07:00",
-        "consumedGrams" : 57,
-        "measure" : "4.0 oz",
-        "multiplier" : ".5",
-        "name" : "Turkey, back from whole bird, meat only, raw",
-        "ndbid" : "05215",
-        "nutrientsOfInterest" : [ {
-          "gm" : 226,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "258"
-        }, {
-          "gm" : 21.28,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "24.26"
-        }, {
-          "gm" : 124,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "141"
-        }, {
-          "gm" : 11,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "13"
-        }, {
-          "gm" : 25,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "28"
-        }, {
-          "gm" : 113,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "129"
-        } ],
-        "weight" : 114
-      }, {
         "consumedDate" : "2016-11-26T18:58:53-07:00",
         "consumedGrams" : 113.4,
         "measure" : "1.0 oz",
@@ -1573,51 +1483,6 @@
         } ],
         "weight" : 28.35
       }, {
-        "consumedDate" : "2016-11-27T10:59:36-07:00",
-        "consumedGrams" : 86,
-        "measure" : "3.0 scoop",
-        "multiplier" : "1",
-        "name" : "Beverages, Whey protein powder isolate",
-        "ndbid" : "14058",
-        "nutrientsOfInterest" : [ {
-          "gm" : 872,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "750"
-        }, {
-          "gm" : 58.14,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "50.00"
-        }, {
-          "gm" : 372,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "320"
-        }, {
-          "gm" : 698,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "600"
-        }, {
-          "gm" : 233,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "200"
-        }, {
-          "gm" : 359,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "309"
-        } ],
-        "weight" : 86
-      }, {
         "consumedDate" : "2016-11-27T11:00:27-07:00",
         "consumedGrams" : 15.100000000000001,
         "measure" : "1.0 cup",
@@ -1662,51 +1527,6 @@
           "value" : "104"
         } ],
         "weight" : 151
-      }, {
-        "consumedDate" : "2016-11-27T11:03:38-07:00",
-        "consumedGrams" : 7.5,
-        "measure" : "1.0 cup, chopped",
-        "multiplier" : ".06",
-        "name" : "Nuts, walnuts, black, dried",
-        "ndbid" : "12154",
-        "nutrientsOfInterest" : [ {
-          "gm" : 523,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "654"
-        }, {
-          "gm" : 24.06,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "30.08"
-        }, {
-          "gm" : 2,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "2"
-        }, {
-          "gm" : 61,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "76"
-        }, {
-          "gm" : 201,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "251"
-        }, {
-          "gm" : 619,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "774"
-        } ],
-        "weight" : 125
       }, {
         "consumedDate" : "2016-11-27T13:00:26-07:00",
         "consumedGrams" : 80,
@@ -4567,51 +4387,6 @@
         } ],
         "weight" : 29.7
       }, {
-        "consumedDate" : "2016-12-03T21:57:44-07:00",
-        "consumedGrams" : 1480,
-        "measure" : "1.0 fl oz",
-        "multiplier" : "50",
-        "name" : "Beverages, carbonated, low calorie, cola or pepper-type, with aspartame, contains caffeine",
-        "ndbid" : "14416",
-        "nutrientsOfInterest" : [ {
-          "gm" : 8,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "2"
-        }, {
-          "gm" : 0.11,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "0.03"
-        }, {
-          "gm" : "--",
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "--"
-        }, {
-          "gm" : 3,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "1"
-        }, {
-          "gm" : 1,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "0"
-        }, {
-          "gm" : 2,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "1"
-        } ],
-        "weight" : 29.6
-      }, {
         "consumedDate" : "2016-12-03T21:58:53-07:00",
         "consumedGrams" : 170,
         "measure" : "1.0 container",
@@ -4656,321 +4431,6 @@
           "value" : "100"
         } ],
         "weight" : 170
-      }, {
-        "consumedDate" : "2016-12-03T21:59:46-07:00",
-        "consumedGrams" : 220,
-        "measure" : "1.0 cup, chopped",
-        "multiplier" : "2",
-        "name" : "Cranberries, raw",
-        "ndbid" : "09078",
-        "nutrientsOfInterest" : [ {
-          "gm" : 80,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "88"
-        }, {
-          "gm" : 0.46,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "0.51"
-        }, {
-          "gm" : 2,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "2"
-        }, {
-          "gm" : 8,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "9"
-        }, {
-          "gm" : 6,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "7"
-        }, {
-          "gm" : 46,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "51"
-        } ],
-        "weight" : 110
-      }, {
-        "consumedDate" : "2016-12-03T22:00:29-07:00",
-        "consumedGrams" : 37,
-        "measure" : "1.0 cup sections, without membranes",
-        "multiplier" : ".2",
-        "name" : "Oranges, raw, Florida",
-        "ndbid" : "09203",
-        "nutrientsOfInterest" : [ {
-          "gm" : 169,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "313"
-        }, {
-          "gm" : 0.7,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "1.30"
-        }, {
-          "gm" : 0,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "0"
-        }, {
-          "gm" : 43,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "80"
-        }, {
-          "gm" : 10,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "18"
-        }, {
-          "gm" : 46,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "85"
-        } ],
-        "weight" : 185
-      }, {
-        "consumedDate" : "2016-12-03T22:00:57-07:00",
-        "consumedGrams" : 6.54,
-        "measure" : "1.0 cup, chopped",
-        "multiplier" : ".06",
-        "name" : "Nuts, pecans",
-        "ndbid" : "12142",
-        "nutrientsOfInterest" : [ {
-          "gm" : 410,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "447"
-        }, {
-          "gm" : 9.17,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "10.00"
-        }, {
-          "gm" : 0,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "0"
-        }, {
-          "gm" : 70,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "76"
-        }, {
-          "gm" : 121,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "132"
-        }, {
-          "gm" : 691,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "753"
-        } ],
-        "weight" : 109
-      }, {
-        "consumedDate" : "2016-12-03T22:04:40-07:00",
-        "consumedGrams" : 70,
-        "measure" : "1.0 cup, chopped or diced",
-        "multiplier" : ".5",
-        "name" : "Chicken, broilers or fryers, meat only, roasted",
-        "ndbid" : "05013",
-        "nutrientsOfInterest" : [ {
-          "gm" : 243,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "340"
-        }, {
-          "gm" : 28.93,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "40.50"
-        }, {
-          "gm" : 86,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "120"
-        }, {
-          "gm" : 15,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "21"
-        }, {
-          "gm" : 25,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "35"
-        }, {
-          "gm" : 190,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "266"
-        } ],
-        "weight" : 140
-      }, {
-        "consumedDate" : "2016-12-03T22:09:22-07:00",
-        "consumedGrams" : 1113.6999999999998,
-        "measure" : "1 bowl",
-        "multiplier" : ".7",
-        "name" : "big breakfast bowl, revised",
-        "ndbid" : "-1",
-        "nutrientsOfInterest" : [ {
-          "gm" : 93,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : 5186.099999999999
-        }, {
-          "gm" : 2.26,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : 74.85220000000001
-        }, {
-          "gm" : 3,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : 548.89
-        }, {
-          "gm" : 11,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : 722.0999999999999
-        }, {
-          "gm" : 22,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : 504.73
-        }, {
-          "gm" : 123,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : 1726.29
-        } ],
-        "weight" : 1591
-      }, {
-        "consumedDate" : "2016-12-03T22:13:12-07:00",
-        "consumedGrams" : 109,
-        "measure" : "1.0 cup, sliced",
-        "multiplier" : "1",
-        "name" : "Apples, raw, fuji, with skin",
-        "ndbid" : "09504",
-        "nutrientsOfInterest" : [ {
-          "gm" : 109,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "119"
-        }, {
-          "gm" : 0.2,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "0.22"
-        }, {
-          "gm" : 1,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "1"
-        }, {
-          "gm" : 7,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "8"
-        }, {
-          "gm" : 5,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "5"
-        }, {
-          "gm" : 63,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "69"
-        } ],
-        "weight" : 109
-      }, {
-        "consumedDate" : "2016-12-03T22:13:53-07:00",
-        "consumedGrams" : 68,
-        "measure" : "68.0 g",
-        "multiplier" : "1",
-        "name" : "CLIF, BUILDER'S, PROTEIN BAR, CHOCOLATE HAZELNUT, UPC: 722252603500",
-        "ndbid" : "45090576",
-        "nutrientsOfInterest" : [ {
-          "gm" : 279,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "190"
-        }, {
-          "gm" : 29.41,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "20.00"
-        }, {
-          "gm" : 456,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "310"
-        }, {
-          "gm" : 441,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "300"
-        }, {
-          "gm" : 88,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "60"
-        }, {
-          "gm" : 412,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "280"
-        } ],
-        "weight" : 68
       }, {
         "consumedDate" : "2016-12-04T18:10:25-07:00",
         "consumedGrams" : 86,
@@ -5962,96 +5422,6 @@
         } ],
         "weight" : 230
       }, {
-        "consumedDate" : "2016-12-05T20:00:35-07:00",
-        "consumedGrams" : 80,
-        "measure" : "1.0 cup, chopped",
-        "multiplier" : ".5",
-        "name" : "Onions, raw",
-        "ndbid" : "11282",
-        "nutrientsOfInterest" : [ {
-          "gm" : 146,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "234"
-        }, {
-          "gm" : 1.1,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "1.76"
-        }, {
-          "gm" : 4,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "6"
-        }, {
-          "gm" : 23,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "37"
-        }, {
-          "gm" : 10,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "16"
-        }, {
-          "gm" : 40,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "64"
-        } ],
-        "weight" : 160
-      }, {
-        "consumedDate" : "2016-12-05T20:01:05-07:00",
-        "consumedGrams" : 68,
-        "measure" : "34.0 g",
-        "multiplier" : "2",
-        "name" : "FOOD FOR LIFE, EZEKIEL 4:9, SPROUTED 100% WHOLE GRAIN BREAD, CINNAMON RAISIN, UPC: 073472001318",
-        "ndbid" : "45033099",
-        "nutrientsOfInterest" : [ {
-          "gm" : 353,
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "120"
-        }, {
-          "gm" : 8.82,
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "3.00"
-        }, {
-          "gm" : 191,
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "65"
-        }, {
-          "gm" : 0,
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "0"
-        }, {
-          "gm" : 71,
-          "nutrient" : "Magnesium, Mg",
-          "nutrient_id" : "304",
-          "unit" : "mg",
-          "value" : "24"
-        }, {
-          "gm" : 235,
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "80"
-        } ],
-        "weight" : 34
-      }, {
         "consumedDate" : "2016-12-05T20:01:26-07:00",
         "consumedGrams" : 30,
         "measure" : "1.0 tbsp",
@@ -6096,6 +5466,2240 @@
           "value" : "25"
         } ],
         "weight" : 15
+      }, {
+        "consumedDate" : "2016-12-06T12:51:51-07:00",
+        "consumedGrams" : 1431.9,
+        "measure" : "1 bowl",
+        "multiplier" : ".9",
+        "name" : "big breakfast bowl, revised",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 93,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 5186.099999999999
+        }, {
+          "gm" : 2.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 74.85220000000001
+        }, {
+          "gm" : 3,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 548.89
+        }, {
+          "gm" : 11,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 722.0999999999999
+        }, {
+          "gm" : 22,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 504.73
+        }, {
+          "gm" : 123,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 1726.29
+        } ],
+        "weight" : 1591
+      }, {
+        "consumedDate" : "2016-12-06T12:52:13-07:00",
+        "consumedGrams" : 388,
+        "measure" : "1 bag",
+        "multiplier" : "1",
+        "name" : "big bag of veggies",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 491,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 2077.56
+        }, {
+          "gm" : 4.28,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 8.6174
+        }, {
+          "gm" : 38,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 320.22
+        }, {
+          "gm" : 150,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 294.39
+        }, {
+          "gm" : 47,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 107.9
+        }, {
+          "gm" : 49,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 242.26
+        } ],
+        "weight" : 388
+      }, {
+        "consumedDate" : "2016-12-06T13:01:56-07:00",
+        "consumedGrams" : 30,
+        "measure" : "1.0 tbsp",
+        "multiplier" : "2",
+        "name" : "Hummus, commercial",
+        "ndbid" : "16158",
+        "nutrientsOfInterest" : [ {
+          "gm" : 228,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "34"
+        }, {
+          "gm" : 7.9,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.18"
+        }, {
+          "gm" : 379,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "57"
+        }, {
+          "gm" : 38,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "6"
+        }, {
+          "gm" : 71,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "11"
+        }, {
+          "gm" : 166,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "25"
+        } ],
+        "weight" : 15
+      }, {
+        "consumedDate" : "2016-12-06T13:07:36-07:00",
+        "consumedGrams" : 53,
+        "measure" : "1.0 cup, sections",
+        "multiplier" : ".25",
+        "name" : "Lemons, raw, without peel",
+        "ndbid" : "09150",
+        "nutrientsOfInterest" : [ {
+          "gm" : 138,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "293"
+        }, {
+          "gm" : 1.1,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.33"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "4"
+        }, {
+          "gm" : 26,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "55"
+        }, {
+          "gm" : 8,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "17"
+        }, {
+          "gm" : 29,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "61"
+        } ],
+        "weight" : 212
+      }, {
+        "consumedDate" : "2016-12-06T17:46:53-07:00",
+        "consumedGrams" : 352,
+        "measure" : "1.0 fillet",
+        "multiplier" : "4",
+        "name" : "Fish, mackerel, Atlantic, cooked, dry heat",
+        "ndbid" : "15047",
+        "nutrientsOfInterest" : [ {
+          "gm" : 401,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "353"
+        }, {
+          "gm" : 23.85,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "20.99"
+        }, {
+          "gm" : 83,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "73"
+        }, {
+          "gm" : 15,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "13"
+        }, {
+          "gm" : 97,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "85"
+        }, {
+          "gm" : 262,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "231"
+        } ],
+        "weight" : 88
+      }, {
+        "consumedDate" : "2016-12-06T17:52:34-07:00",
+        "consumedGrams" : 80,
+        "measure" : "1.0 cup, chopped",
+        "multiplier" : ".5",
+        "name" : "Onions, raw",
+        "ndbid" : "11282",
+        "nutrientsOfInterest" : [ {
+          "gm" : 146,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "234"
+        }, {
+          "gm" : 1.1,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.76"
+        }, {
+          "gm" : 4,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "6"
+        }, {
+          "gm" : 23,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "37"
+        }, {
+          "gm" : 10,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "16"
+        }, {
+          "gm" : 40,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "64"
+        } ],
+        "weight" : 160
+      }, {
+        "consumedDate" : "2016-12-06T17:56:29-07:00",
+        "consumedGrams" : 277,
+        "measure" : "1.0 can drained solids",
+        "multiplier" : "1",
+        "name" : "Beans, pinto, canned, drained solids",
+        "ndbid" : "16146",
+        "nutrientsOfInterest" : [ {
+          "gm" : 274,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "759"
+        }, {
+          "gm" : 6.99,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "19.36"
+        }, {
+          "gm" : 239,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "662"
+        }, {
+          "gm" : 63,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "175"
+        }, {
+          "gm" : 32,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "89"
+        }, {
+          "gm" : 114,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "316"
+        } ],
+        "weight" : 277
+      }, {
+        "consumedDate" : "2016-12-06T19:19:39-07:00",
+        "consumedGrams" : 157,
+        "measure" : "1.0 cup",
+        "multiplier" : "1",
+        "name" : "Barley, pearled, cooked",
+        "ndbid" : "20006",
+        "nutrientsOfInterest" : [ {
+          "gm" : 93,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "146"
+        }, {
+          "gm" : 2.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.55"
+        }, {
+          "gm" : 3,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "5"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "17"
+        }, {
+          "gm" : 22,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "35"
+        }, {
+          "gm" : 123,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "193"
+        } ],
+        "weight" : 157
+      }, {
+        "consumedDate" : "2016-12-06T19:49:38-07:00",
+        "consumedGrams" : 68,
+        "measure" : "34.0 g",
+        "multiplier" : "2",
+        "name" : "FOOD FOR LIFE, EZEKIEL 4:9, SPROUTED 100% WHOLE GRAIN BREAD, CINNAMON RAISIN, UPC: 073472001318",
+        "ndbid" : "45033099",
+        "nutrientsOfInterest" : [ {
+          "gm" : 353,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "120"
+        }, {
+          "gm" : 8.82,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.00"
+        }, {
+          "gm" : 191,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "65"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 71,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "24"
+        }, {
+          "gm" : 235,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "80"
+        } ],
+        "weight" : 34
+      }, {
+        "consumedDate" : "2016-12-06T19:50:42-07:00",
+        "consumedGrams" : 140,
+        "measure" : "1.0 cup, chopped or diced",
+        "multiplier" : "1",
+        "name" : "Chicken, broilers or fryers, breast, meat only, cooked, stewed",
+        "ndbid" : "05065",
+        "nutrientsOfInterest" : [ {
+          "gm" : 187,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "262"
+        }, {
+          "gm" : 28.98,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "40.57"
+        }, {
+          "gm" : 63,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "88"
+        }, {
+          "gm" : 13,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "18"
+        }, {
+          "gm" : 24,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "34"
+        }, {
+          "gm" : 151,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "211"
+        } ],
+        "weight" : 140
+      }, {
+        "consumedDate" : "2016-12-06T19:55:53-07:00",
+        "consumedGrams" : 200,
+        "measure" : "1 sausage",
+        "multiplier" : "2",
+        "name" : "tofurkey artisan sausage chick'n and apple",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "540"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "400"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "26"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        } ],
+        "weight" : "100"
+      }, {
+        "consumedDate" : "2016-12-07T08:50:20-07:00",
+        "consumedGrams" : 954.5999999999999,
+        "measure" : "1 bowl",
+        "multiplier" : ".6",
+        "name" : "big breakfast bowl, revised",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 93,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 5186.099999999999
+        }, {
+          "gm" : 2.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 74.85220000000001
+        }, {
+          "gm" : 3,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 548.89
+        }, {
+          "gm" : 11,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 722.0999999999999
+        }, {
+          "gm" : 22,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 504.73
+        }, {
+          "gm" : 123,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 1726.29
+        } ],
+        "weight" : 1591
+      }, {
+        "consumedDate" : "2016-12-07T08:52:23-07:00",
+        "consumedGrams" : 70,
+        "measure" : "1.0 cup, chopped or diced",
+        "multiplier" : ".5",
+        "name" : "Chicken, broilers or fryers, meat only, stewed",
+        "ndbid" : "05014",
+        "nutrientsOfInterest" : [ {
+          "gm" : 180,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "252"
+        }, {
+          "gm" : 27.29,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "38.21"
+        }, {
+          "gm" : 70,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "98"
+        }, {
+          "gm" : 14,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "20"
+        }, {
+          "gm" : 21,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "29"
+        }, {
+          "gm" : 177,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "248"
+        } ],
+        "weight" : 140
+      }, {
+        "consumedDate" : "2016-12-07T11:09:00-07:00",
+        "consumedGrams" : 310.40000000000003,
+        "measure" : "1 bag",
+        "multiplier" : ".8",
+        "name" : "big bag of veggies",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 491,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 2077.56
+        }, {
+          "gm" : 4.28,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 8.6174
+        }, {
+          "gm" : 38,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 320.22
+        }, {
+          "gm" : 150,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 294.39
+        }, {
+          "gm" : 47,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 107.9
+        }, {
+          "gm" : 49,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 242.26
+        } ],
+        "weight" : 388
+      }, {
+        "consumedDate" : "2016-12-07T11:45:40-07:00",
+        "consumedGrams" : 64.35000000000001,
+        "measure" : "1.0 cup, sections",
+        "multiplier" : ".33",
+        "name" : "Tangerines, (mandarin oranges), raw",
+        "ndbid" : "09218",
+        "nutrientsOfInterest" : [ {
+          "gm" : 166,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "324"
+        }, {
+          "gm" : 0.81,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.58"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "4"
+        }, {
+          "gm" : 37,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "72"
+        }, {
+          "gm" : 12,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "23"
+        }, {
+          "gm" : 53,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "103"
+        } ],
+        "weight" : 195
+      }, {
+        "consumedDate" : "2016-12-07T13:39:43-07:00",
+        "consumedGrams" : 202.39999999999998,
+        "measure" : "1.0 fillet",
+        "multiplier" : "2.3",
+        "name" : "Fish, mackerel, Atlantic, cooked, dry heat",
+        "ndbid" : "15047",
+        "nutrientsOfInterest" : [ {
+          "gm" : 401,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "353"
+        }, {
+          "gm" : 23.85,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "20.99"
+        }, {
+          "gm" : 83,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "73"
+        }, {
+          "gm" : 15,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "13"
+        }, {
+          "gm" : 97,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "85"
+        }, {
+          "gm" : 262,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "231"
+        } ],
+        "weight" : 88
+      }, {
+        "consumedDate" : "2016-12-07T13:41:17-07:00",
+        "consumedGrams" : 59.49999999999999,
+        "measure" : "3.0 oz",
+        "multiplier" : ".7",
+        "name" : "Chicken, broiler or fryers, breast, skinless, boneless, meat only, cooked, braised",
+        "ndbid" : "05746",
+        "nutrientsOfInterest" : [ {
+          "gm" : 343,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "292"
+        }, {
+          "gm" : 32.06,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "27.25"
+        }, {
+          "gm" : 47,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "5"
+        }, {
+          "gm" : 32,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "27"
+        }, {
+          "gm" : 157,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "133"
+        } ],
+        "weight" : 85
+      }, {
+        "consumedDate" : "2016-12-07T13:42:07-07:00",
+        "consumedGrams" : 14.639999999999999,
+        "measure" : "1.0 cup",
+        "multiplier" : ".06",
+        "name" : "Lemon juice, raw",
+        "ndbid" : "09152",
+        "nutrientsOfInterest" : [ {
+          "gm" : 103,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "251"
+        }, {
+          "gm" : 0.35,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.85"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "15"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : 22,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "54"
+        } ],
+        "weight" : 244
+      }, {
+        "consumedDate" : "2016-12-07T13:43:17-07:00",
+        "consumedGrams" : 83.1,
+        "measure" : "1.0 can drained solids",
+        "multiplier" : ".3",
+        "name" : "Beans, pinto, canned, drained solids",
+        "ndbid" : "16146",
+        "nutrientsOfInterest" : [ {
+          "gm" : 274,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "759"
+        }, {
+          "gm" : 6.99,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "19.36"
+        }, {
+          "gm" : 239,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "662"
+        }, {
+          "gm" : 63,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "175"
+        }, {
+          "gm" : 32,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "89"
+        }, {
+          "gm" : 114,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "316"
+        } ],
+        "weight" : 277
+      }, {
+        "consumedDate" : "2016-12-07T13:43:34-07:00",
+        "consumedGrams" : 78.5,
+        "measure" : "1.0 cup",
+        "multiplier" : ".5",
+        "name" : "Barley, pearled, cooked",
+        "ndbid" : "20006",
+        "nutrientsOfInterest" : [ {
+          "gm" : 93,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "146"
+        }, {
+          "gm" : 2.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.55"
+        }, {
+          "gm" : 3,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "5"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "17"
+        }, {
+          "gm" : 22,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "35"
+        }, {
+          "gm" : 123,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "193"
+        } ],
+        "weight" : 157
+      }, {
+        "consumedDate" : "2016-12-07T13:44:06-07:00",
+        "consumedGrams" : 128,
+        "measure" : "1.0 cup, chopped",
+        "multiplier" : ".8",
+        "name" : "Onions, raw",
+        "ndbid" : "11282",
+        "nutrientsOfInterest" : [ {
+          "gm" : 146,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "234"
+        }, {
+          "gm" : 1.1,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.76"
+        }, {
+          "gm" : 4,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "6"
+        }, {
+          "gm" : 23,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "37"
+        }, {
+          "gm" : 10,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "16"
+        }, {
+          "gm" : 40,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "64"
+        } ],
+        "weight" : 160
+      }, {
+        "consumedDate" : "2016-12-07T13:44:29-07:00",
+        "consumedGrams" : 132,
+        "measure" : "1.0 serving 1/2 cup",
+        "multiplier" : "1",
+        "name" : "Sauce, pasta, spaghetti/marinara, ready-to-serve",
+        "ndbid" : "06931",
+        "nutrientsOfInterest" : [ {
+          "gm" : 320,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "422"
+        }, {
+          "gm" : 1.39,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.83"
+        }, {
+          "gm" : 437,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "577"
+        }, {
+          "gm" : 26,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "34"
+        }, {
+          "gm" : 18,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "24"
+        }, {
+          "gm" : 50,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "66"
+        } ],
+        "weight" : 132
+      }, {
+        "consumedDate" : "2016-12-07T13:45:14-07:00",
+        "consumedGrams" : 9.1,
+        "measure" : "1.0 cup, pieces or slices",
+        "multiplier" : ".13",
+        "name" : "Mushrooms, white, raw",
+        "ndbid" : "11260",
+        "nutrientsOfInterest" : [ {
+          "gm" : 318,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "223"
+        }, {
+          "gm" : 3.09,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.16"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "4"
+        }, {
+          "gm" : 3,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 9,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "6"
+        }, {
+          "gm" : 22,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "15"
+        } ],
+        "weight" : 70
+      }, {
+        "consumedDate" : "2016-12-07T19:29:04-07:00",
+        "consumedGrams" : 68,
+        "measure" : "34.0 g",
+        "multiplier" : "2",
+        "name" : "FOOD FOR LIFE, EZEKIEL 4:9, SPROUTED 100% WHOLE GRAIN BREAD, CINNAMON RAISIN, UPC: 073472001318",
+        "ndbid" : "45033099",
+        "nutrientsOfInterest" : [ {
+          "gm" : 353,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "120"
+        }, {
+          "gm" : 8.82,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.00"
+        }, {
+          "gm" : 191,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "65"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 71,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "24"
+        }, {
+          "gm" : 235,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "80"
+        } ],
+        "weight" : 34
+      }, {
+        "consumedDate" : "2016-12-07T19:29:29-07:00",
+        "consumedGrams" : 16,
+        "measure" : "1.0 tbsp",
+        "multiplier" : "1",
+        "name" : "Seeds, sunflower seed butter, with salt added",
+        "ndbid" : "12540",
+        "nutrientsOfInterest" : [ {
+          "gm" : 576,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "92"
+        }, {
+          "gm" : 17.28,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.76"
+        }, {
+          "gm" : 331,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "53"
+        }, {
+          "gm" : 64,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "10"
+        }, {
+          "gm" : 311,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "50"
+        }, {
+          "gm" : 617,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "99"
+        } ],
+        "weight" : 16
+      }, {
+        "consumedDate" : "2016-12-07T19:30:33-07:00",
+        "consumedGrams" : 56.25,
+        "measure" : "1.0 cup, mashed",
+        "multiplier" : ".25",
+        "name" : "Bananas, raw",
+        "ndbid" : "09040",
+        "nutrientsOfInterest" : [ {
+          "gm" : 358,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "806"
+        }, {
+          "gm" : 1.09,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.45"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "11"
+        }, {
+          "gm" : 27,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "61"
+        }, {
+          "gm" : 89,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "200"
+        } ],
+        "weight" : 225
+      }, {
+        "consumedDate" : "2016-12-07T19:31:54-07:00",
+        "consumedGrams" : 36,
+        "measure" : "1.0 cup",
+        "multiplier" : ".25",
+        "name" : "Blackberries, raw",
+        "ndbid" : "09042",
+        "nutrientsOfInterest" : [ {
+          "gm" : 162,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "233"
+        }, {
+          "gm" : 1.39,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.00"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 29,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 20,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "29"
+        }, {
+          "gm" : 43,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "62"
+        } ],
+        "weight" : 144
+      }, {
+        "consumedDate" : "2016-12-07T19:32:36-07:00",
+        "consumedGrams" : 255,
+        "measure" : "1.0 container",
+        "multiplier" : "1.5",
+        "name" : "Yogurt, Greek, plain, nonfat",
+        "ndbid" : "01256",
+        "nutrientsOfInterest" : [ {
+          "gm" : 141,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "240"
+        }, {
+          "gm" : 10.19,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "17.32"
+        }, {
+          "gm" : 36,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "61"
+        }, {
+          "gm" : 110,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "187"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "19"
+        }, {
+          "gm" : 59,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "100"
+        } ],
+        "weight" : 170
+      }, {
+        "consumedDate" : "2016-12-08T20:25:39-07:00",
+        "consumedGrams" : 1591,
+        "measure" : "1 bowl",
+        "multiplier" : "1",
+        "name" : "big breakfast bowl, revised",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 93,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 5186.099999999999
+        }, {
+          "gm" : 2.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 74.85220000000001
+        }, {
+          "gm" : 3,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 548.89
+        }, {
+          "gm" : 11,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 722.0999999999999
+        }, {
+          "gm" : 22,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 504.73
+        }, {
+          "gm" : 123,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 1726.29
+        } ],
+        "weight" : 1591
+      }, {
+        "consumedDate" : "2016-12-08T20:27:03-07:00",
+        "consumedGrams" : 388,
+        "measure" : "1 bag",
+        "multiplier" : "1",
+        "name" : "big bag of veggies",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 491,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 2077.56
+        }, {
+          "gm" : 4.28,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 8.6174
+        }, {
+          "gm" : 38,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 320.22
+        }, {
+          "gm" : 150,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 294.39
+        }, {
+          "gm" : 47,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 107.9
+        }, {
+          "gm" : 49,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 242.26
+        } ],
+        "weight" : 388
+      }, {
+        "consumedDate" : "2016-12-08T20:35:00-07:00",
+        "consumedGrams" : 1128,
+        "measure" : "1 bowl",
+        "multiplier" : "1",
+        "name" : "fish bowl lunch",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 318,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 1765.85
+        }, {
+          "gm" : 3.09,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 59.42979999999999
+        }, {
+          "gm" : 5,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 951.4399999999999
+        }, {
+          "gm" : 3,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 155.66
+        }, {
+          "gm" : 9,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 277.28
+        }, {
+          "gm" : 22,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 844.99
+        } ],
+        "weight" : 1128
+      }, {
+        "consumedDate" : "2016-12-09T06:08:28-07:00",
+        "consumedGrams" : 21.44,
+        "measure" : "0.33 cup",
+        "multiplier" : ".67",
+        "name" : "Beverages, Protein powder whey based",
+        "ndbid" : "14066",
+        "nutrientsOfInterest" : [ {
+          "gm" : 500,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "160"
+        }, {
+          "gm" : 78.13,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "25.00"
+        }, {
+          "gm" : 156,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "50"
+        }, {
+          "gm" : 469,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "150"
+        }, {
+          "gm" : 195,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "62"
+        }, {
+          "gm" : 352,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "113"
+        } ],
+        "weight" : 32
+      }, {
+        "consumedDate" : "2016-12-09T06:10:03-07:00",
+        "consumedGrams" : 8.58,
+        "measure" : "1.0 cup, whole",
+        "multiplier" : ".06",
+        "name" : "Nuts, almonds",
+        "ndbid" : "12061",
+        "nutrientsOfInterest" : [ {
+          "gm" : 733,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "1048"
+        }, {
+          "gm" : 21.15,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "30.24"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 269,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "385"
+        }, {
+          "gm" : 270,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "386"
+        }, {
+          "gm" : 579,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "828"
+        } ],
+        "weight" : 143
+      }, {
+        "consumedDate" : "2016-12-09T06:10:35-07:00",
+        "consumedGrams" : 7.5,
+        "measure" : "1.0 cup, chopped",
+        "multiplier" : ".06",
+        "name" : "Nuts, walnuts, black, dried",
+        "ndbid" : "12154",
+        "nutrientsOfInterest" : [ {
+          "gm" : 523,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "654"
+        }, {
+          "gm" : 24.06,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "30.08"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 61,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "76"
+        }, {
+          "gm" : 201,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "251"
+        }, {
+          "gm" : 619,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "774"
+        } ],
+        "weight" : 125
+      }, {
+        "consumedDate" : "2016-12-09T07:53:33-07:00",
+        "consumedGrams" : 68,
+        "measure" : "68.0 g",
+        "multiplier" : "1",
+        "name" : "CLIF, BUILDER'S, 20G PROTEIN BAR, VANILLA ALMOND, UPC: 722252168597",
+        "ndbid" : "45090575",
+        "nutrientsOfInterest" : [ {
+          "gm" : 250,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "170"
+        }, {
+          "gm" : 29.41,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "20.00"
+        }, {
+          "gm" : 353,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "240"
+        }, {
+          "gm" : 368,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "gm" : 147,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "100"
+        }, {
+          "gm" : 397,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "270"
+        } ],
+        "weight" : 68
+      }, {
+        "consumedDate" : "2016-12-09T08:07:32-07:00",
+        "consumedGrams" : 90,
+        "measure" : "1.0 cup, sections",
+        "multiplier" : ".5",
+        "name" : "Oranges, raw, all commercial varieties",
+        "ndbid" : "09200",
+        "nutrientsOfInterest" : [ {
+          "gm" : 181,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "326"
+        }, {
+          "gm" : 0.94,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.69"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 40,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "72"
+        }, {
+          "gm" : 10,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "18"
+        }, {
+          "gm" : 47,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "85"
+        } ],
+        "weight" : 180
+      }, {
+        "consumedDate" : "2016-12-09T10:08:33-07:00",
+        "consumedGrams" : 109,
+        "measure" : "1.0 cup, sliced",
+        "multiplier" : "1",
+        "name" : "Apples, raw, gala, with skin",
+        "ndbid" : "09503",
+        "nutrientsOfInterest" : [ {
+          "gm" : 108,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "118"
+        }, {
+          "gm" : 0.25,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.27"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 7,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "8"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "5"
+        }, {
+          "gm" : 57,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "62"
+        } ],
+        "weight" : 109
+      }, {
+        "consumedDate" : "2016-12-09T10:46:49-07:00",
+        "consumedGrams" : 271.59999999999997,
+        "measure" : "1 bag",
+        "multiplier" : ".7",
+        "name" : "big bag of veggies",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 491,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 2077.56
+        }, {
+          "gm" : 4.28,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 8.6174
+        }, {
+          "gm" : 38,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 320.22
+        }, {
+          "gm" : 150,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 294.39
+        }, {
+          "gm" : 47,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 107.9
+        }, {
+          "gm" : 49,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 242.26
+        } ],
+        "weight" : 388
+      }, {
+        "consumedDate" : "2016-12-09T13:15:54-07:00",
+        "consumedGrams" : 896,
+        "measure" : "1.0 cup",
+        "multiplier" : "3.5",
+        "name" : "Chili with beans, canned",
+        "ndbid" : "16059",
+        "nutrientsOfInterest" : [ {
+          "gm" : 365,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "934"
+        }, {
+          "gm" : 6.12,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "15.67"
+        }, {
+          "gm" : 423,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1083"
+        }, {
+          "gm" : 47,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "120"
+        }, {
+          "gm" : 45,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "115"
+        }, {
+          "gm" : 103,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "264"
+        } ],
+        "weight" : 256
+      }, {
+        "consumedDate" : "2016-12-09T13:16:20-07:00",
+        "consumedGrams" : 198.45000000000002,
+        "measure" : "1.0 oz",
+        "multiplier" : "7",
+        "name" : "Bread, cornbread, prepared from recipe, made with low fat (2%) milk",
+        "ndbid" : "18024",
+        "nutrientsOfInterest" : [ {
+          "gm" : 147,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 6.7,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.90"
+        }, {
+          "gm" : 658,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "187"
+        }, {
+          "gm" : 249,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "71"
+        }, {
+          "gm" : 25,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "7"
+        }, {
+          "gm" : 266,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "75"
+        } ],
+        "weight" : 28.35
+      }, {
+        "consumedDate" : "2016-12-09T13:17:05-07:00",
+        "consumedGrams" : 91.5,
+        "measure" : "0.5 cup",
+        "multiplier" : "1.5",
+        "name" : "Potatoes, baked, flesh, with salt",
+        "ndbid" : "11829",
+        "nutrientsOfInterest" : [ {
+          "gm" : 391,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "239"
+        }, {
+          "gm" : 1.96,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.20"
+        }, {
+          "gm" : 241,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "147"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "3"
+        }, {
+          "gm" : 25,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "15"
+        }, {
+          "gm" : 93,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "57"
+        } ],
+        "weight" : 61
+      }, {
+        "consumedDate" : "2016-12-09T13:17:41-07:00",
+        "consumedGrams" : 14.3,
+        "measure" : "1.0 cup, whole",
+        "multiplier" : ".1",
+        "name" : "Nuts, almonds",
+        "ndbid" : "12061",
+        "nutrientsOfInterest" : [ {
+          "gm" : 733,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "1048"
+        }, {
+          "gm" : 21.15,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "30.24"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 269,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "385"
+        }, {
+          "gm" : 270,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "386"
+        }, {
+          "gm" : 579,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "828"
+        } ],
+        "weight" : 143
+      }, {
+        "consumedDate" : "2016-12-09T13:18:11-07:00",
+        "consumedGrams" : 340,
+        "measure" : "1.0 container",
+        "multiplier" : "2",
+        "name" : "Yogurt, Greek, plain, nonfat",
+        "ndbid" : "01256",
+        "nutrientsOfInterest" : [ {
+          "gm" : 141,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "240"
+        }, {
+          "gm" : 10.19,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "17.32"
+        }, {
+          "gm" : 36,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "61"
+        }, {
+          "gm" : 110,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "187"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "19"
+        }, {
+          "gm" : 59,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "100"
+        } ],
+        "weight" : 170
+      }, {
+        "consumedDate" : "2016-12-09T20:29:21-07:00",
+        "consumedGrams" : 85,
+        "measure" : "3.0 oz",
+        "multiplier" : "1",
+        "name" : "Chicken, broiler or fryers, breast, skinless, boneless, meat only, with added solution, cooked, grilled",
+        "ndbid" : "05749",
+        "nutrientsOfInterest" : [ {
+          "gm" : 420,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "357"
+        }, {
+          "gm" : 29.5,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "25.08"
+        }, {
+          "gm" : 215,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "183"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "5"
+        }, {
+          "gm" : 31,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "26"
+        }, {
+          "gm" : 148,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "126"
+        } ],
+        "weight" : 85
+      }, {
+        "consumedDate" : "2016-12-09T20:32:38-07:00",
+        "consumedGrams" : 125,
+        "measure" : "1.0 cup, quartered or chopped",
+        "multiplier" : "1",
+        "name" : "Apples, raw, with skin",
+        "ndbid" : "09003",
+        "nutrientsOfInterest" : [ {
+          "gm" : 107,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "134"
+        }, {
+          "gm" : 0.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.32"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "8"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "6"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "65"
+        } ],
+        "weight" : 125
+      }, {
+        "consumedDate" : "2016-12-09T20:33:48-07:00",
+        "consumedGrams" : 68,
+        "measure" : "34.0 g",
+        "multiplier" : "2",
+        "name" : "FOOD FOR LIFE, EZEKIEL 4:9, SPROUTED 100% WHOLE GRAIN BREAD, CINNAMON RAISIN, UPC: 073472001318",
+        "ndbid" : "45033099",
+        "nutrientsOfInterest" : [ {
+          "gm" : 353,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "120"
+        }, {
+          "gm" : 8.82,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.00"
+        }, {
+          "gm" : 191,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "65"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 71,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "24"
+        }, {
+          "gm" : 235,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "80"
+        } ],
+        "weight" : 34
+      }, {
+        "consumedDate" : "2016-12-09T20:34:34-07:00",
+        "consumedGrams" : 13.5,
+        "measure" : "1.0 tablespoon",
+        "multiplier" : "1",
+        "name" : "Oil, olive, salad or cooking",
+        "ndbid" : "04053",
+        "nutrientsOfInterest" : [ {
+          "gm" : "--",
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.00"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : 884,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "119"
+        } ],
+        "weight" : 13.5
+      }, {
+        "consumedDate" : "2016-12-09T20:57:04-07:00",
+        "consumedGrams" : 160,
+        "measure" : "1.0 cup, chopped",
+        "multiplier" : "1",
+        "name" : "Onions, raw",
+        "ndbid" : "11282",
+        "nutrientsOfInterest" : [ {
+          "gm" : 146,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "234"
+        }, {
+          "gm" : 1.1,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.76"
+        }, {
+          "gm" : 4,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "6"
+        }, {
+          "gm" : 23,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "37"
+        }, {
+          "gm" : 10,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "16"
+        }, {
+          "gm" : 40,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "64"
+        } ],
+        "weight" : 160
+      }, {
+        "consumedDate" : "2016-12-09T20:57:33-07:00",
+        "consumedGrams" : 17.5,
+        "measure" : "1.0 cup, pieces or slices",
+        "multiplier" : ".25",
+        "name" : "Mushrooms, white, raw",
+        "ndbid" : "11260",
+        "nutrientsOfInterest" : [ {
+          "gm" : 318,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "223"
+        }, {
+          "gm" : 3.09,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.16"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "4"
+        }, {
+          "gm" : 3,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 9,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "6"
+        }, {
+          "gm" : 22,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "15"
+        } ],
+        "weight" : 70
+      }, {
+        "consumedDate" : "2016-12-10T11:32:55-07:00",
+        "consumedGrams" : 2390,
+        "measure" : "1.0 cup",
+        "multiplier" : "10",
+        "name" : "Apple juice, frozen concentrate, unsweetened, diluted with 3 volume water, with added ascorbic acid",
+        "ndbid" : "09411",
+        "nutrientsOfInterest" : [ {
+          "gm" : 126,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "301"
+        }, {
+          "gm" : 0.14,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.33"
+        }, {
+          "gm" : 7,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "17"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "14"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : "12"
+        }, {
+          "gm" : 47,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "112"
+        } ],
+        "weight" : 239
       } ],
       "customFood" : [ {
         "measure" : "1 bar",
@@ -7645,6 +9249,523 @@
           "value" : 622
         } ],
         "weight" : 408
+      }, {
+        "measure" : "1 sausage",
+        "name" : "tofurkey artisan sausage chick'n and apple",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "540"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "400"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "26"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        } ],
+        "weight" : "100"
+      }, {
+        "components" : [ {
+          "consumedDate" : "2016-12-07T13:45:14-07:00",
+          "consumedGrams" : 9.1,
+          "measure" : "1.0 cup, pieces or slices",
+          "multiplier" : ".13",
+          "name" : "Mushrooms, white, raw",
+          "ndbid" : "11260",
+          "nutrientsOfInterest" : [ {
+            "gm" : 318,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : 1765.85
+          }, {
+            "gm" : 3.09,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : 59.42979999999999
+          }, {
+            "gm" : 5,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : 951.4399999999999
+          }, {
+            "gm" : 3,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : 155.66
+          }, {
+            "gm" : 9,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : 277.28
+          }, {
+            "gm" : 22,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : 844.99
+          } ],
+          "weight" : 70
+        }, {
+          "consumedDate" : "2016-12-07T13:44:29-07:00",
+          "consumedGrams" : 132,
+          "measure" : "1.0 serving 1/2 cup",
+          "multiplier" : "1",
+          "name" : "Sauce, pasta, spaghetti/marinara, ready-to-serve",
+          "ndbid" : "06931",
+          "nutrientsOfInterest" : [ {
+            "gm" : 320,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "422"
+          }, {
+            "gm" : 1.39,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "1.83"
+          }, {
+            "gm" : 437,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "577"
+          }, {
+            "gm" : 26,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "34"
+          }, {
+            "gm" : 18,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : "24"
+          }, {
+            "gm" : 50,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "66"
+          } ],
+          "weight" : 132
+        }, {
+          "consumedDate" : "2016-12-07T13:44:06-07:00",
+          "consumedGrams" : 128,
+          "measure" : "1.0 cup, chopped",
+          "multiplier" : ".8",
+          "name" : "Onions, raw",
+          "ndbid" : "11282",
+          "nutrientsOfInterest" : [ {
+            "gm" : 146,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "234"
+          }, {
+            "gm" : 1.1,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "1.76"
+          }, {
+            "gm" : 4,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "6"
+          }, {
+            "gm" : 23,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "37"
+          }, {
+            "gm" : 10,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : "16"
+          }, {
+            "gm" : 40,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "64"
+          } ],
+          "weight" : 160
+        }, {
+          "consumedDate" : "2016-12-07T13:43:34-07:00",
+          "consumedGrams" : 78.5,
+          "measure" : "1.0 cup",
+          "multiplier" : ".5",
+          "name" : "Barley, pearled, cooked",
+          "ndbid" : "20006",
+          "nutrientsOfInterest" : [ {
+            "gm" : 93,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "146"
+          }, {
+            "gm" : 2.26,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "3.55"
+          }, {
+            "gm" : 3,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "5"
+          }, {
+            "gm" : 11,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "17"
+          }, {
+            "gm" : 22,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : "35"
+          }, {
+            "gm" : 123,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "193"
+          } ],
+          "weight" : 157
+        }, {
+          "consumedDate" : "2016-12-07T13:43:17-07:00",
+          "consumedGrams" : 83.1,
+          "measure" : "1.0 can drained solids",
+          "multiplier" : ".3",
+          "name" : "Beans, pinto, canned, drained solids",
+          "ndbid" : "16146",
+          "nutrientsOfInterest" : [ {
+            "gm" : 274,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "759"
+          }, {
+            "gm" : 6.99,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "19.36"
+          }, {
+            "gm" : 239,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "662"
+          }, {
+            "gm" : 63,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "175"
+          }, {
+            "gm" : 32,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : "89"
+          }, {
+            "gm" : 114,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "316"
+          } ],
+          "weight" : 277
+        }, {
+          "consumedDate" : "2016-12-07T13:42:07-07:00",
+          "consumedGrams" : 14.639999999999999,
+          "measure" : "1.0 cup",
+          "multiplier" : ".06",
+          "name" : "Lemon juice, raw",
+          "ndbid" : "09152",
+          "nutrientsOfInterest" : [ {
+            "gm" : 103,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "251"
+          }, {
+            "gm" : 0.35,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "0.85"
+          }, {
+            "gm" : 1,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "2"
+          }, {
+            "gm" : 6,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "15"
+          }, {
+            "gm" : "--",
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : "--"
+          }, {
+            "gm" : 22,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "54"
+          } ],
+          "weight" : 244
+        }, {
+          "consumedDate" : "2016-12-07T13:39:43-07:00",
+          "consumedGrams" : 202.39999999999998,
+          "measure" : "1.0 fillet",
+          "multiplier" : "2.3",
+          "name" : "Fish, mackerel, Atlantic, cooked, dry heat",
+          "ndbid" : "15047",
+          "nutrientsOfInterest" : [ {
+            "gm" : 401,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "353"
+          }, {
+            "gm" : 23.85,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "20.99"
+          }, {
+            "gm" : 83,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "73"
+          }, {
+            "gm" : 15,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "13"
+          }, {
+            "gm" : 97,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : "85"
+          }, {
+            "gm" : 262,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "231"
+          } ],
+          "weight" : 88
+        } ],
+        "measure" : "1 bowl",
+        "name" : "fish bowl lunch",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "gm" : 318,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 1765.85
+        }, {
+          "gm" : 3.09,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 59.42979999999999
+        }, {
+          "gm" : 5,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 951.4399999999999
+        }, {
+          "gm" : 3,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 155.66
+        }, {
+          "gm" : 9,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 277.28
+        }, {
+          "gm" : 22,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 844.99
+        } ],
+        "weight" : 1128
+      }, {
+        "components" : [ {
+          "consumedDate" : "2016-12-03T21:43:56-07:00",
+          "consumedGrams" : 75.9,
+          "measure" : "1.0 cup, pureed",
+          "multiplier" : ".33",
+          "name" : "Avocados, raw, California",
+          "ndbid" : "09038",
+          "nutrientsOfInterest" : [ {
+            "gm" : 507,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : 463.78000000000003
+          }, {
+            "gm" : 1.96,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : 2.1683
+          }, {
+            "gm" : 8,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : 11.940000000000001
+          }, {
+            "gm" : 13,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : 33.9
+          }, {
+            "gm" : 29,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : 30.11
+          }, {
+            "gm" : 167,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : 134.72
+          } ],
+          "weight" : 230
+        }, {
+          "consumedDate" : "2016-12-03T21:44:17-07:00",
+          "consumedGrams" : 16,
+          "measure" : "1.0 cup 1\" pieces, loosely packed",
+          "multiplier" : "1",
+          "name" : "Kale, raw",
+          "ndbid" : "11233",
+          "nutrientsOfInterest" : [ {
+            "gm" : 491,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "79"
+          }, {
+            "gm" : 4.28,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "0.68"
+          }, {
+            "gm" : 38,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "6"
+          }, {
+            "gm" : 150,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "24"
+          }, {
+            "gm" : 47,
+            "nutrient" : "Magnesium, Mg",
+            "nutrient_id" : "304",
+            "unit" : "mg",
+            "value" : "8"
+          }, {
+            "gm" : 49,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "8"
+          } ],
+          "weight" : 16
+        } ],
+        "measure" : "kittens",
+        "name" : "test 123",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "gm" : 507,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 463.78000000000003
+        }, {
+          "gm" : 1.96,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 2.1683
+        }, {
+          "gm" : 8,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 11.940000000000001
+        }, {
+          "gm" : 13,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 33.9
+        }, {
+          "gm" : 29,
+          "nutrient" : "Magnesium, Mg",
+          "nutrient_id" : "304",
+          "unit" : "mg",
+          "value" : 30.11
+        }, {
+          "gm" : 167,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 134.72
+        } ],
+        "weight" : 246
       } ],
       "nutrientsOfInterest" : [ {
         "id" : "301",
@@ -14711,6 +16832,2381 @@
           "value" : "191"
         } ],
         "weight" : 32
+      }, {
+        "consumedDate" : "2016-12-05T20:57:30-07:00",
+        "consumedGrams" : 50,
+        "measure" : "1 bar",
+        "multiplier" : "1",
+        "name" : "Zone Perfect Strawberry Yogurt bar",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "14"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "75"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "200"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "4"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "6"
+        } ],
+        "weight" : "50"
+      }, {
+        "consumedDate" : "2016-12-06T12:39:47-07:00",
+        "consumedGrams" : 122,
+        "measure" : "1.0 large",
+        "multiplier" : "2",
+        "name" : "Egg, whole, cooked, scrambled",
+        "ndbid" : "01132",
+        "nutrientsOfInterest" : [ {
+          "gm" : 9.99,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "6.09"
+        }, {
+          "gm" : 10.98,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "6.70"
+        }, {
+          "gm" : 66,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "gm" : 132,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "81"
+        }, {
+          "gm" : 165,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "101"
+        }, {
+          "gm" : 145,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "88"
+        }, {
+          "gm" : 3.331,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "2.032"
+        }, {
+          "gm" : 0.624,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.381"
+        }, {
+          "gm" : 149,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "91"
+        } ],
+        "weight" : 61
+      }, {
+        "consumedDate" : "2016-12-06T12:40:18-07:00",
+        "consumedGrams" : 27,
+        "measure" : "1.0 patty",
+        "multiplier" : "1",
+        "name" : "Pork sausage, link/patty, cooked, pan-fried",
+        "ndbid" : "07064",
+        "nutrientsOfInterest" : [ {
+          "gm" : 18.53,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "5.00"
+        }, {
+          "gm" : 27.25,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "7.36"
+        }, {
+          "gm" : 9,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 342,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "92"
+        }, {
+          "gm" : 149,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "gm" : 814,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "220"
+        }, {
+          "gm" : 8.826,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "2.383"
+        }, {
+          "gm" : 0.12,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.032"
+        }, {
+          "gm" : 325,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "88"
+        } ],
+        "weight" : 27
+      }, null, {
+        "consumedDate" : "2016-12-06T12:44:31-07:00",
+        "consumedGrams" : 56.7,
+        "measure" : "1.0 oz",
+        "multiplier" : "2",
+        "name" : "Pancakes, plain, prepared from recipe",
+        "ndbid" : "18293",
+        "nutrientsOfInterest" : [ {
+          "gm" : 6.4,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.81"
+        }, {
+          "gm" : 9.7,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "2.75"
+        }, {
+          "gm" : 219,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "62"
+        }, {
+          "gm" : 132,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "37"
+        }, {
+          "gm" : 159,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "45"
+        }, {
+          "gm" : 439,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "124"
+        }, {
+          "gm" : 2.122,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.602"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 227,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "64"
+        } ],
+        "weight" : 28.35
+      }, {
+        "consumedDate" : "2016-12-06T12:45:25-07:00",
+        "consumedGrams" : 60,
+        "measure" : "1.0 tbsp",
+        "multiplier" : "3",
+        "name" : "Syrups, maple",
+        "ndbid" : "19353",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.04,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.01"
+        }, {
+          "gm" : 0.06,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.01"
+        }, {
+          "gm" : 102,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "20"
+        }, {
+          "gm" : 212,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 12,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 0.007,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.001"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 260,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "52"
+        } ],
+        "weight" : 20
+      }, {
+        "consumedDate" : "2016-12-06T12:47:14-07:00",
+        "consumedGrams" : 22.625,
+        "measure" : "1.0 cup, chunks",
+        "multiplier" : ".125",
+        "name" : "Pineapple, canned, juice pack, drained",
+        "ndbid" : "09354",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.51,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.92"
+        }, {
+          "gm" : 0.11,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.20"
+        }, {
+          "gm" : 16,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "29"
+        }, {
+          "gm" : 124,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "224"
+        }, {
+          "gm" : 7,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "13"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 0.008,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.014"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 60,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "109"
+        } ],
+        "weight" : 181
+      }, {
+        "consumedDate" : "2016-12-06T12:48:32-07:00",
+        "consumedGrams" : 75,
+        "measure" : "1.0 cup prepared",
+        "multiplier" : ".5",
+        "name" : "Potatoes, hash brown, frozen, plain, prepared, pan fried in canola oil",
+        "ndbid" : "11391",
+        "nutrientsOfInterest" : [ {
+          "gm" : 2.65,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.98"
+        }, {
+          "gm" : 11.59,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "17.38"
+        }, {
+          "gm" : 17,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "26"
+        }, {
+          "gm" : 496,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "744"
+        }, {
+          "gm" : 79,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "118"
+        }, {
+          "gm" : 15,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "22"
+        }, {
+          "gm" : 0.934,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "1.401"
+        }, {
+          "gm" : 0.036,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.054"
+        }, {
+          "gm" : 219,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "328"
+        } ],
+        "weight" : 150
+      }, null, {
+        "consumedDate" : "2016-12-06T19:57:37-07:00",
+        "consumedGrams" : 105.86,
+        "measure" : "1.0 cup",
+        "multiplier" : ".67",
+        "name" : "Rice, white, long-grain, regular, unenriched, cooked without salt",
+        "ndbid" : "20445",
+        "nutrientsOfInterest" : [ {
+          "gm" : 2.69,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "4.25"
+        }, {
+          "gm" : 0.28,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.44"
+        }, {
+          "gm" : 10,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "16"
+        }, {
+          "gm" : 35,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "55"
+        }, {
+          "gm" : 43,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "68"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 0.077,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.122"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 130,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "205"
+        } ],
+        "weight" : 158
+      }, {
+        "consumedDate" : "2016-12-06T19:58:21-07:00",
+        "consumedGrams" : 85.76,
+        "measure" : "1.0 cup chopped",
+        "multiplier" : ".67",
+        "name" : "Carrots, raw",
+        "ndbid" : "11124",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.93,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.19"
+        }, {
+          "gm" : 0.24,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.31"
+        }, {
+          "gm" : 33,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 320,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "410"
+        }, {
+          "gm" : 35,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "45"
+        }, {
+          "gm" : 69,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "88"
+        }, {
+          "gm" : 0.037,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.047"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 41,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "52"
+        } ],
+        "weight" : 128
+      }, {
+        "consumedDate" : "2016-12-06T19:58:54-07:00",
+        "consumedGrams" : 89.11,
+        "measure" : "1.0 cup, pared, chopped",
+        "multiplier" : ".67",
+        "name" : "Cucumber, peeled, raw",
+        "ndbid" : "11206",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.59,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.78"
+        }, {
+          "gm" : 0.16,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.21"
+        }, {
+          "gm" : 14,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "19"
+        }, {
+          "gm" : 136,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "181"
+        }, {
+          "gm" : 21,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "28"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "3"
+        }, {
+          "gm" : 0.013,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.017"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 12,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "16"
+        } ],
+        "weight" : 133
+      }, {
+        "consumedDate" : "2016-12-06T19:59:24-07:00",
+        "consumedGrams" : 14,
+        "measure" : "1.0 tablespoon",
+        "multiplier" : "1",
+        "name" : "Oil, corn, peanut, and olive",
+        "ndbid" : "44005",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.00"
+        }, {
+          "gm" : 100,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "14.00"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : 14.367,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "2.011"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 884,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "124"
+        } ],
+        "weight" : 14
+      }, {
+        "consumedDate" : "2016-12-06T20:05:05-07:00",
+        "consumedGrams" : 93.80000000000001,
+        "measure" : "1.0 cup, chopped or diced",
+        "multiplier" : ".67",
+        "name" : "Chicken, broilers or fryers, breast, meat only, cooked, roasted",
+        "ndbid" : "05064",
+        "nutrientsOfInterest" : [ {
+          "gm" : 31.02,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "43.43"
+        }, {
+          "gm" : 3.57,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "5.00"
+        }, {
+          "gm" : 15,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "21"
+        }, {
+          "gm" : 256,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "358"
+        }, {
+          "gm" : 228,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "319"
+        }, {
+          "gm" : 74,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "104"
+        }, {
+          "gm" : 1.01,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "1.414"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 165,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "231"
+        } ],
+        "weight" : 140
+      }, {
+        "consumedDate" : "2016-12-07T11:59:33-07:00",
+        "consumedGrams" : 234,
+        "measure" : "1.0 cup",
+        "multiplier" : "1",
+        "name" : "Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt",
+        "ndbid" : "08121",
+        "nutrientsOfInterest" : [ {
+          "gm" : 2.54,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "5.94"
+        }, {
+          "gm" : 1.52,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "3.56"
+        }, {
+          "gm" : 9,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "21"
+        }, {
+          "gm" : 70,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "164"
+        }, {
+          "gm" : 77,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "180"
+        }, {
+          "gm" : 4,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "9"
+        }, {
+          "gm" : 0.31,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.725"
+        }, {
+          "gm" : 0.001,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.002"
+        }, {
+          "gm" : 71,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "166"
+        } ],
+        "weight" : 234
+      }, {
+        "consumedDate" : "2016-12-07T12:00:29-07:00",
+        "consumedGrams" : 6.6000000000000005,
+        "measure" : "1.0 tbsp",
+        "multiplier" : ".33",
+        "name" : "Syrups, maple",
+        "ndbid" : "19353",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.04,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.01"
+        }, {
+          "gm" : 0.06,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.01"
+        }, {
+          "gm" : 102,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "20"
+        }, {
+          "gm" : 212,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 2,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 12,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "2"
+        }, {
+          "gm" : 0.007,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.001"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 260,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "52"
+        } ],
+        "weight" : 20
+      }, null, {
+        "consumedDate" : "2016-12-07T12:02:59-07:00",
+        "consumedGrams" : 50,
+        "measure" : "1 bar",
+        "multiplier" : "1",
+        "name" : "Zone Perfect Strawberry Yogurt bar",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "14"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "75"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "200"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "4"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "6"
+        } ],
+        "weight" : "50"
+      }, {
+        "consumedDate" : "2016-12-07T12:10:00-07:00",
+        "consumedGrams" : 0,
+        "measure" : "1 can",
+        "multiplier" : "1",
+        "name" : "Nepro Butter Pecan revised",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "425"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "170"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "19"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "2"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "23"
+        } ],
+        "weight" : ""
+      }, {
+        "consumedDate" : "2016-12-07T19:34:40-07:00",
+        "consumedGrams" : 30.75,
+        "measure" : "1.0 cup",
+        "multiplier" : ".25",
+        "name" : "Raspberries, raw",
+        "ndbid" : "09302",
+        "nutrientsOfInterest" : [ {
+          "gm" : 1.2,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.48"
+        }, {
+          "gm" : 0.65,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.80"
+        }, {
+          "gm" : 25,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "31"
+        }, {
+          "gm" : 151,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "186"
+        }, {
+          "gm" : 29,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "36"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 0.019,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.023"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "64"
+        } ],
+        "weight" : 123
+      }, {
+        "consumedDate" : "2016-12-07T19:36:30-07:00",
+        "consumedGrams" : 36,
+        "measure" : "1.0 cup",
+        "multiplier" : ".25",
+        "name" : "Blackberries, raw",
+        "ndbid" : "09042",
+        "nutrientsOfInterest" : [ {
+          "gm" : 1.39,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.00"
+        }, {
+          "gm" : 0.49,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.71"
+        }, {
+          "gm" : 29,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 162,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "233"
+        }, {
+          "gm" : 22,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "32"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 0.014,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.020"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 43,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "62"
+        } ],
+        "weight" : 144
+      }, {
+        "consumedDate" : "2016-12-07T19:39:59-07:00",
+        "consumedGrams" : 149.51999999999998,
+        "measure" : "0.75 cup",
+        "multiplier" : "2.67",
+        "name" : "FOOD LION, ROTINI PASTA, UPC: 035826028709",
+        "ndbid" : "45005541",
+        "nutrientsOfInterest" : [ {
+          "gm" : 12.5,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "7.00"
+        }, {
+          "gm" : 1.79,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "1.00"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 375,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "210"
+        } ],
+        "weight" : 56
+      }, {
+        "consumedDate" : "2016-12-07T19:45:41-07:00",
+        "consumedGrams" : 396,
+        "measure" : "1.0 serving 1/2 cup",
+        "multiplier" : "3",
+        "name" : "Sauce, pasta, spaghetti/marinara, ready-to-serve",
+        "ndbid" : "06931",
+        "nutrientsOfInterest" : [ {
+          "gm" : 1.39,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.83"
+        }, {
+          "gm" : 1.61,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "2.13"
+        }, {
+          "gm" : 26,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "34"
+        }, {
+          "gm" : 320,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "422"
+        }, {
+          "gm" : 34,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "45"
+        }, {
+          "gm" : 437,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "577"
+        }, {
+          "gm" : 0.218,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.288"
+        }, {
+          "gm" : 0.007,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.009"
+        }, {
+          "gm" : 50,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "66"
+        } ],
+        "weight" : 132
+      }, {
+        "consumedDate" : "2016-12-07T19:46:32-07:00",
+        "consumedGrams" : 56,
+        "measure" : "1.0 roll (1 oz)",
+        "multiplier" : "2",
+        "name" : "Rolls, dinner, plain, commercially prepared (includes brown-and-serve)",
+        "ndbid" : "18342",
+        "nutrientsOfInterest" : [ {
+          "gm" : 10.86,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.04"
+        }, {
+          "gm" : 6.47,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "1.81"
+        }, {
+          "gm" : 178,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "50"
+        }, {
+          "gm" : 139,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "39"
+        }, {
+          "gm" : 122,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "34"
+        }, {
+          "gm" : 467,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "131"
+        }, {
+          "gm" : 1.375,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.385"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 310,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "87"
+        } ],
+        "weight" : 28
+      }, {
+        "consumedDate" : "2016-12-07T19:51:20-07:00",
+        "consumedGrams" : 4.62,
+        "measure" : "1.0 tbsp",
+        "multiplier" : ".33",
+        "name" : "Margarine-like spread, SMART BALANCE Light Buttery Spread",
+        "ndbid" : "04674",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.02,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.00"
+        }, {
+          "gm" : 36.41,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "5.10"
+        }, {
+          "gm" : 3,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 32,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "4"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : 580,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "81"
+        }, {
+          "gm" : 10.087,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "1.412"
+        }, {
+          "gm" : 0.611,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.086"
+        }, {
+          "gm" : 337,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "47"
+        } ],
+        "weight" : 14
+      }, {
+        "consumedDate" : "2016-12-08T12:26:07-07:00",
+        "consumedGrams" : 60,
+        "measure" : "60.0 g",
+        "multiplier" : "1",
+        "name" : "THINK THIN, BROWNIE CRUNCH HIGH PROTEIN BAR, UPC: 753656701271",
+        "ndbid" : "45039820",
+        "nutrientsOfInterest" : [ {
+          "gm" : 33.33,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "20.00"
+        }, {
+          "gm" : 13.33,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "8.00"
+        }, {
+          "gm" : 167,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "100"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : 350,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "210"
+        }, {
+          "gm" : 5,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "3.000"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 383,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "230"
+        } ],
+        "weight" : 60
+      }, {
+        "consumedDate" : "2016-12-08T12:26:26-07:00",
+        "consumedGrams" : 125,
+        "measure" : "1.0 cup, quartered or chopped",
+        "multiplier" : "1",
+        "name" : "Apples, raw, with skin",
+        "ndbid" : "09003",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.32"
+        }, {
+          "gm" : 0.17,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.21"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "8"
+        }, {
+          "gm" : 107,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "134"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "14"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 0.028,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.035"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "65"
+        } ],
+        "weight" : 125
+      }, {
+        "consumedDate" : "2016-12-08T19:31:22-07:00",
+        "consumedGrams" : 149.51999999999998,
+        "measure" : "0.75 cup",
+        "multiplier" : "2.67",
+        "name" : "FOOD LION, ROTINI PASTA, UPC: 035826028709",
+        "ndbid" : "45005541",
+        "nutrientsOfInterest" : [ {
+          "gm" : 12.5,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "7.00"
+        }, {
+          "gm" : 1.79,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "1.00"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "0"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : "--",
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "--"
+        }, {
+          "gm" : 375,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "210"
+        } ],
+        "weight" : 56
+      }, {
+        "consumedDate" : "2016-12-08T19:32:03-07:00",
+        "consumedGrams" : 360,
+        "measure" : "1.0 cup",
+        "multiplier" : "1.5",
+        "name" : "Tomatoes, red, ripe, canned, packed in tomato juice, no salt added",
+        "ndbid" : "11885",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.79,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.90"
+        }, {
+          "gm" : 0.25,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.60"
+        }, {
+          "gm" : 33,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "79"
+        }, {
+          "gm" : 191,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "458"
+        }, {
+          "gm" : 17,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "41"
+        }, {
+          "gm" : 10,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "24"
+        }, {
+          "gm" : 0.034,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.082"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 16,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "38"
+        } ],
+        "weight" : 240
+      }, {
+        "consumedDate" : "2016-12-08T19:32:31-07:00",
+        "consumedGrams" : 56,
+        "measure" : "1.0 roll (1 oz)",
+        "multiplier" : "2",
+        "name" : "Rolls, dinner, plain, commercially prepared (includes brown-and-serve)",
+        "ndbid" : "18342",
+        "nutrientsOfInterest" : [ {
+          "gm" : 10.86,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "3.04"
+        }, {
+          "gm" : 6.47,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "1.81"
+        }, {
+          "gm" : 178,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "50"
+        }, {
+          "gm" : 139,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "39"
+        }, {
+          "gm" : 122,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "34"
+        }, {
+          "gm" : 467,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "131"
+        }, {
+          "gm" : 1.375,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.385"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 310,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "87"
+        } ],
+        "weight" : 28
+      }, {
+        "consumedDate" : "2016-12-08T20:10:08-07:00",
+        "consumedGrams" : 50,
+        "measure" : "1 bar",
+        "multiplier" : "1",
+        "name" : "zone perfect fudge graham",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "210"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "90"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "14"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "4"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "7"
+        } ],
+        "weight" : "50"
+      }, {
+        "consumedDate" : "2016-12-09T14:30:28-07:00",
+        "consumedGrams" : 254,
+        "measure" : "1 cup",
+        "multiplier" : "1",
+        "name" : "Sandra Oatmeal ",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "gm" : 2.54,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 5.943300000000001
+        }, {
+          "gm" : 1.52,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : 3.5633
+        }, {
+          "gm" : 9,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 27.6
+        }, {
+          "gm" : 70,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 177.86
+        }, {
+          "gm" : 77,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : 180
+        }, {
+          "gm" : 4,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 9.66
+        }, {
+          "gm" : 0.31,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : 0.72533
+        }, {
+          "gm" : 0.001,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : 0.002
+        }, {
+          "gm" : 71,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 183.16
+        } ],
+        "weight" : 254
+      }, {
+        "consumedDate" : "2016-12-09T14:31:07-07:00",
+        "consumedGrams" : 0,
+        "measure" : "1 can",
+        "multiplier" : "1",
+        "name" : "Nepro Butter Pecan revised",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "425"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "170"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "19"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "2"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "23"
+        } ],
+        "weight" : ""
+      }, {
+        "consumedDate" : "2016-12-09T14:32:43-07:00",
+        "consumedGrams" : 69,
+        "measure" : "1.0 each taco",
+        "multiplier" : "1",
+        "name" : "Fast foods, taco with beef, cheese and lettuce, hard shell",
+        "ndbid" : "21082",
+        "nutrientsOfInterest" : [ {
+          "gm" : 8.86,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "6.11"
+        }, {
+          "gm" : 12.7,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "8.76"
+        }, {
+          "gm" : 89,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "61"
+        }, {
+          "gm" : 209,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "144"
+        }, {
+          "gm" : 178,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "123"
+        }, {
+          "gm" : 397,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "274"
+        }, {
+          "gm" : 4.384,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "3.025"
+        }, {
+          "gm" : 0.467,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.322"
+        }, {
+          "gm" : 226,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "156"
+        } ],
+        "weight" : 69
+      }, {
+        "consumedDate" : "2016-12-09T14:33:12-07:00",
+        "consumedGrams" : 142,
+        "measure" : "1.0 piece",
+        "multiplier" : "1",
+        "name" : "Restaurant, Latino, tamale, pork",
+        "ndbid" : "36412",
+        "nutrientsOfInterest" : [ {
+          "gm" : 7.35,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "10.44"
+        }, {
+          "gm" : 9.04,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "12.84"
+        }, {
+          "gm" : 75,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "106"
+        }, {
+          "gm" : 152,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "216"
+        }, {
+          "gm" : 120,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "170"
+        }, {
+          "gm" : 473,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "672"
+        }, {
+          "gm" : 2.692,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "3.823"
+        }, {
+          "gm" : 0.058,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.082"
+        }, {
+          "gm" : 174,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "247"
+        } ],
+        "weight" : 142
+      }, {
+        "consumedDate" : "2016-12-09T14:34:28-07:00",
+        "consumedGrams" : 30.75,
+        "measure" : "1.0 cup",
+        "multiplier" : ".25",
+        "name" : "Raspberries, raw",
+        "ndbid" : "09302",
+        "nutrientsOfInterest" : [ {
+          "gm" : 1.2,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.48"
+        }, {
+          "gm" : 0.65,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.80"
+        }, {
+          "gm" : 25,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "31"
+        }, {
+          "gm" : 151,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "186"
+        }, {
+          "gm" : 29,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "36"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 0.019,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.023"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "64"
+        } ],
+        "weight" : 123
+      }, {
+        "consumedDate" : "2016-12-09T14:35:22-07:00",
+        "consumedGrams" : 36,
+        "measure" : "1.0 cup",
+        "multiplier" : ".25",
+        "name" : "Blackberries, raw",
+        "ndbid" : "09042",
+        "nutrientsOfInterest" : [ {
+          "gm" : 1.39,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "2.00"
+        }, {
+          "gm" : 0.49,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.71"
+        }, {
+          "gm" : 29,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "42"
+        }, {
+          "gm" : 162,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "233"
+        }, {
+          "gm" : 22,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "32"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 0.014,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.020"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 43,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "62"
+        } ],
+        "weight" : 144
+      }, {
+        "consumedDate" : "2016-12-09T20:38:34-07:00",
+        "consumedGrams" : 28.35,
+        "measure" : "1.0 oz",
+        "multiplier" : "1",
+        "name" : "Tortilla chips, yellow, plain, salted",
+        "ndbid" : "25028",
+        "nutrientsOfInterest" : [ {
+          "gm" : 6.62,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "1.88"
+        }, {
+          "gm" : 22.33,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "6.33"
+        }, {
+          "gm" : 104,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "29"
+        }, {
+          "gm" : 206,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "58"
+        }, {
+          "gm" : 234,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "66"
+        }, {
+          "gm" : 310,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "88"
+        }, {
+          "gm" : 2.776,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.787"
+        }, {
+          "gm" : 0.066,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.019"
+        }, {
+          "gm" : 497,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "141"
+        } ],
+        "weight" : 28.35
+      }, {
+        "consumedDate" : "2016-12-09T20:38:53-07:00",
+        "consumedGrams" : 50,
+        "measure" : "1 bar",
+        "multiplier" : "1",
+        "name" : "zone perfect fudge graham",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "210"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "90"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "14"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "4"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "7"
+        } ],
+        "weight" : "50"
+      }, {
+        "consumedDate" : "2016-12-09T20:39:21-07:00",
+        "consumedGrams" : 125,
+        "measure" : "1.0 cup, quartered or chopped",
+        "multiplier" : "1",
+        "name" : "Apples, raw, with skin",
+        "ndbid" : "09003",
+        "nutrientsOfInterest" : [ {
+          "gm" : 0.26,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "0.32"
+        }, {
+          "gm" : 0.17,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "0.21"
+        }, {
+          "gm" : 6,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "8"
+        }, {
+          "gm" : 107,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "134"
+        }, {
+          "gm" : 11,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "14"
+        }, {
+          "gm" : 1,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "1"
+        }, {
+          "gm" : 0.028,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "0.035"
+        }, {
+          "gm" : 0,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0.000"
+        }, {
+          "gm" : 52,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "65"
+        } ],
+        "weight" : 125
+      }, {
+        "consumedDate" : "2016-12-10T10:05:47-07:00",
+        "consumedGrams" : 50,
+        "measure" : "1 bar",
+        "multiplier" : "1",
+        "name" : "Zone Perfect Strawberry Yogurt bar",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "14"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "75"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "200"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "4"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "6"
+        } ],
+        "weight" : "50"
+      }, {
+        "consumedDate" : "2016-12-10T10:06:18-07:00",
+        "consumedGrams" : 50,
+        "measure" : "1 bar",
+        "multiplier" : "1",
+        "name" : "Zone Perfect Strawberry Yogurt bar",
+        "ndbid" : "-1",
+        "nutrientsOfInterest" : [ {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "14"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "75"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "200"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "200"
+        }, {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "40"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "4"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "6"
+        } ],
+        "weight" : "50"
       } ],
       "customFood" : [ {
         "measure" : "1 bar",
@@ -14784,42 +19280,6 @@
           "value" : "60"
         } ],
         "weight" : "70"
-      }, {
-        "measure" : "1 can 8 oz.",
-        "name" : "Nepro Butter Pecan Flavor",
-        "ndbno" : "-1",
-        "nutrients" : [ {
-          "nutrient" : "Calcium, Ca",
-          "nutrient_id" : "301",
-          "unit" : "mg",
-          "value" : "250"
-        }, {
-          "nutrient" : "Energy",
-          "nutrient_id" : "208",
-          "unit" : "kcal",
-          "value" : "425"
-        }, {
-          "nutrient" : "Phosphorus, P",
-          "nutrient_id" : "305",
-          "unit" : "mg",
-          "value" : "170"
-        }, {
-          "nutrient" : "Potassium, K",
-          "nutrient_id" : "306",
-          "unit" : "mg",
-          "value" : "250"
-        }, {
-          "nutrient" : "Sodium, Na",
-          "nutrient_id" : "307",
-          "unit" : "mg",
-          "value" : "250"
-        }, {
-          "nutrient" : "Protein",
-          "nutrient_id" : "203",
-          "unit" : "g",
-          "value" : "19.1"
-        } ],
-        "weight" : "227"
       }, {
         "measure" : "1 bar",
         "name" : "Clif Builder's Bar, Chocolate Hazelnut",
@@ -15281,6 +19741,244 @@
           "value" : "6"
         } ],
         "weight" : "50"
+      }, {
+        "measure" : "1 can",
+        "name" : "Nepro Butter Pecan revised",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : "425"
+        }, {
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : "170"
+        }, {
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : "19"
+        }, {
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : "250"
+        }, {
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : "2"
+        }, {
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : "0"
+        }, {
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : "23"
+        } ],
+        "weight" : ""
+      }, {
+        "components" : [ {
+          "consumedDate" : "2016-12-07T11:59:33-07:00",
+          "consumedGrams" : 234,
+          "measure" : "1.0 cup",
+          "multiplier" : "1",
+          "name" : "Cereals, oats, regular and quick, unenriched, cooked with water (includes boiling and microwaving), without salt",
+          "ndbid" : "08121",
+          "nutrientsOfInterest" : [ {
+            "gm" : 2.54,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : 5.943300000000001
+          }, {
+            "gm" : 1.52,
+            "nutrient" : "Total lipid (fat)",
+            "nutrient_id" : "204",
+            "unit" : "g",
+            "value" : 3.5633
+          }, {
+            "gm" : 9,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : 27.6
+          }, {
+            "gm" : 70,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : 177.86
+          }, {
+            "gm" : 77,
+            "nutrient" : "Phosphorus, P",
+            "nutrient_id" : "305",
+            "unit" : "mg",
+            "value" : 180
+          }, {
+            "gm" : 4,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : 9.66
+          }, {
+            "gm" : 0.31,
+            "nutrient" : "Fatty acids, total saturated",
+            "nutrient_id" : "606",
+            "unit" : "g",
+            "value" : 0.72533
+          }, {
+            "gm" : 0.001,
+            "nutrient" : "Fatty acids, total trans",
+            "nutrient_id" : "605",
+            "unit" : "g",
+            "value" : 0.002
+          }, {
+            "gm" : 71,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : 183.16
+          } ],
+          "weight" : 234
+        }, {
+          "consumedDate" : "2016-12-07T12:00:29-07:00",
+          "consumedGrams" : 6.6000000000000005,
+          "measure" : "1.0 tbsp",
+          "multiplier" : ".33",
+          "name" : "Syrups, maple",
+          "ndbid" : "19353",
+          "nutrientsOfInterest" : [ {
+            "gm" : 0.04,
+            "nutrient" : "Protein",
+            "nutrient_id" : "203",
+            "unit" : "g",
+            "value" : "0.01"
+          }, {
+            "gm" : 0.06,
+            "nutrient" : "Total lipid (fat)",
+            "nutrient_id" : "204",
+            "unit" : "g",
+            "value" : "0.01"
+          }, {
+            "gm" : 102,
+            "nutrient" : "Calcium, Ca",
+            "nutrient_id" : "301",
+            "unit" : "mg",
+            "value" : "20"
+          }, {
+            "gm" : 212,
+            "nutrient" : "Potassium, K",
+            "nutrient_id" : "306",
+            "unit" : "mg",
+            "value" : "42"
+          }, {
+            "gm" : 2,
+            "nutrient" : "Phosphorus, P",
+            "nutrient_id" : "305",
+            "unit" : "mg",
+            "value" : "0"
+          }, {
+            "gm" : 12,
+            "nutrient" : "Sodium, Na",
+            "nutrient_id" : "307",
+            "unit" : "mg",
+            "value" : "2"
+          }, {
+            "gm" : 0.007,
+            "nutrient" : "Fatty acids, total saturated",
+            "nutrient_id" : "606",
+            "unit" : "g",
+            "value" : "0.001"
+          }, {
+            "gm" : "--",
+            "nutrient" : "Fatty acids, total trans",
+            "nutrient_id" : "605",
+            "unit" : "g",
+            "value" : "--"
+          }, {
+            "gm" : 260,
+            "nutrient" : "Energy",
+            "nutrient_id" : "208",
+            "unit" : "kcal",
+            "value" : "52"
+          } ],
+          "weight" : 20
+        } ],
+        "measure" : "1 cup",
+        "name" : "Sandra Oatmeal ",
+        "ndbno" : "-1",
+        "nutrients" : [ {
+          "gm" : 2.54,
+          "nutrient" : "Protein",
+          "nutrient_id" : "203",
+          "unit" : "g",
+          "value" : 5.943300000000001
+        }, {
+          "gm" : 1.52,
+          "nutrient" : "Total lipid (fat)",
+          "nutrient_id" : "204",
+          "unit" : "g",
+          "value" : 3.5633
+        }, {
+          "gm" : 9,
+          "nutrient" : "Calcium, Ca",
+          "nutrient_id" : "301",
+          "unit" : "mg",
+          "value" : 27.6
+        }, {
+          "gm" : 70,
+          "nutrient" : "Potassium, K",
+          "nutrient_id" : "306",
+          "unit" : "mg",
+          "value" : 177.86
+        }, {
+          "gm" : 77,
+          "nutrient" : "Phosphorus, P",
+          "nutrient_id" : "305",
+          "unit" : "mg",
+          "value" : 180
+        }, {
+          "gm" : 4,
+          "nutrient" : "Sodium, Na",
+          "nutrient_id" : "307",
+          "unit" : "mg",
+          "value" : 9.66
+        }, {
+          "gm" : 0.31,
+          "nutrient" : "Fatty acids, total saturated",
+          "nutrient_id" : "606",
+          "unit" : "g",
+          "value" : 0.72533
+        }, {
+          "gm" : 0.001,
+          "nutrient" : "Fatty acids, total trans",
+          "nutrient_id" : "605",
+          "unit" : "g",
+          "value" : 0.002
+        }, {
+          "gm" : 71,
+          "nutrient" : "Energy",
+          "nutrient_id" : "208",
+          "unit" : "kcal",
+          "value" : 183.16
+        } ],
+        "weight" : 254
       } ],
       "nutrientsOfInterest" : [ {
         "id" : "301",
