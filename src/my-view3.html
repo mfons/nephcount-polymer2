@@ -28,6 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/paper-styles/color.html">
   <link rel="import" href="../bower_components/paper-styles/typography.html">
   <link rel="import" href="../bower_components/paper-styles/default-theme.html">
+  <link rel="import" href="../bower_components/iron-list/iron-list.html">
 
 
 <dom-module id="my-view3">
@@ -77,6 +78,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          path="/users/[[user.uid]]/customFood"
           data="{{customFood}}">
       </firebase-document>
+      
+    <firebase-document id="fbdocEditableConsumption"
+          app-name="nephcount"
+         path="/users/[[user.uid]]/consumption"
+          data="{{editableConsumption}}">
+      </firebase-document>
 
       
     <div class="card">
@@ -104,7 +111,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <br /><hr />
       <h2>Consumed on Report Date</h2>
         <iron-selector multi selected-values="{{selectedConsumedValues}}">
-            <template is="dom-repeat" items="[[_consumptionOrDateChanged(consumption.*, todayString)]]">
+            <template id="consumedOnReportDateDomRepeatTemplate" is="dom-repeat" items="[[_consumptionOrDateChanged(consumption.*, todayString)]]">
                 <paper-material elevation="2">
                     <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
                 </paper-material>
@@ -113,6 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!--<paper-toolbar>-->
 <!--  <span class="title">Actions</span>-->
   <paper-button on-tap="_openCompositeCustomFoodDialog" >Save to Combo Food</paper-button>
+  <paper-button on-tap="_openDeleteSelectedDialog" >Delete Selected</paper-button>
 <!--</paper-toolbar>-->
 
       <paper-dialog id="compositeCustomFoodDialog" on-iron-overlay-closed="_dismissCompositeCustomFoodDialog">
@@ -120,6 +128,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <paper-input value="{{compositeCustomFoodName}}" label="Name" required></paper-input>
         <paper-input value="{{compositeCustomFoodMeasure}}" label="Measure" required></paper-input>
         <paper-input value="[[compositeCustomFoodWeight]]" label="Weight in grams" read-only></paper-input>          
+        <div class="buttons">
+          <paper-button dialog-dismiss>Cancel</paper-button>
+          <paper-button dialog-confirm>OK</paper-button>
+        </div>
+      </paper-dialog> 
+        
+      <paper-dialog id="deleteSelectedConsumptionsDialog" on-iron-overlay-closed="_dismissDeleteSelectedConsumptionDialog">
+          <h2>Delete all the selected items?</h2>
         <div class="buttons">
           <paper-button dialog-dismiss>Cancel</paper-button>
           <paper-button dialog-confirm>OK</paper-button>
@@ -142,6 +158,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             consumption : {
                 type: Array
             },
+            consumptionDisplay : Array,
             consumptionVisited : {
                 type: Object,
                 value: {}
@@ -169,7 +186,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             selectedConsumedValues: Array,
             compositeCustomFoodName: String,
             compositeCustomFoodMeasure: String,
-            compositeCustomFoodWeight: Number
+            compositeCustomFoodWeight: Number,
+            editableConsumption: Array
         },
         observers:[ 'consumptionChanged(consumption.*, todayString)',
                     '_selectedDateChanged(selectedDate)',
@@ -200,7 +218,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             return JSON.stringify(changeRecord.base);
         },
         consumptionChanged:function(changeRecord, dateString) {
-            console.log("consumption changed: ");
+           // console.log("consumption changed: ");
             this.splice('todaysNutrients', 0, this.todaysNutrients.length);
             if (changeRecord.base.length === 0 || dateString.length === 0) {
                 return;
@@ -262,6 +280,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 this.compositeCustomFoodWeight += this.consumption[this.selectedConsumedValues[i]].weight;
             }
         },
+        _openDeleteSelectedDialog: function(event) {
+            this.$.deleteSelectedConsumptionsDialog.opened = true;
+        },
         _dismissCompositeCustomFoodDialog: function(event) {
             if (event.detail.confirmed) {
                 var newObject = {
@@ -314,6 +335,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 this.compositeCustomFoodWeight = 0;
             }
         },
+        _dismissDeleteSelectedConsumptionDialog: function() {
+            if (!event.detail.confirmed) {
+                return;
+            }
+            var baseIndex = this._getBaseIndexForCurrentDateInConsumptions();
+            for (var i = this.selectedConsumedValues.length - 1; i >= 0 ; i--) {
+                this.splice('editableConsumption', 
+                            this.selectedConsumedValues[i] + baseIndex, 1);
+            }            
+        },
         _getSelectedListFromConsumed: function () {
             console.log("_getSelectedListFromConsumed...");
             var newSelectedList = [];
@@ -323,6 +354,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 newSelectedList.push(clone[this.selectedConsumedValues[i]]);
             }
             return newSelectedList;
+        },
+        _getBaseIndexForCurrentDateInConsumptions: function() {
+            var findThisConsumedDate = this.consumption[0].consumedDate;
+            for(var i = 0; i < this.editableConsumption.length; i++) {
+                if (findThisConsumedDate === this.editableConsumption[i].consumedDate) {
+                    return i;
+                }
+            }
+            return -1;
         }
         
     });
