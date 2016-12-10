@@ -281,6 +281,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
        function _submit  (event) {
            Polymer.dom(event).localTarget.parentElement.submit();
+           _reset(event);
            console.log("_submit function executed");
         };
        function _reset (event) {
