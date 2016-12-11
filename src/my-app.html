@@ -23,9 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="nephcount-login.html">
-<!--<link rel="import" href="my-custom-food.html">-->
 <link rel="import" href="my-view1.html">
-<!--link rel="import" href="na-login.html"-->
 
 <dom-module id="my-app">
   <template>
@@ -95,6 +93,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="view2" href="/view2">Enter Food/Fluid</a>
           <a name="view3" href="/view3">Report Totals</a>
           <a name="custom-food" href="/custom-food">Define Custom Food</a>
+          <a name="weight-entry" href="/weight-entry">Enter Daily Weight</a>
         </iron-selector>
       </app-drawer>
 
@@ -121,6 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                  nutrients-of-interest="[[savedNutrientsOfInterest]]"
                     user="[[user]]"></my-view3>
           <my-custom-food name="custom-food" user="[[user]]"></my-custom-food>
+          <my-weight-entry name="weight-entry" user="[[user]]"></my-weight-entry>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -154,7 +154,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       observers: [
         '_routePageChanged(routeData.page)', 'nutrientsOfInterestChanged(nutrientsOfInterest.*)',
           'onlineChanged(online)', 'signedInChanged(signedIn)',
-          '_usersChanged(users.*)'
+          '_userChanged(user.*)'
       ],
       listeners: {
         'nephIronSelector.iron-select':'_whenAppDrawerLinkIsClicked'
@@ -194,6 +194,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             if(this.$.nephDrawer.opened) {
                 this.$.nephDrawer.close();
             }
+        },
+        _userChanged: function (changeRecord) {
+            console.log("the user has changed");
         }
     });
   </script>
