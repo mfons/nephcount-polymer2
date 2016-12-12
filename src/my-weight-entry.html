@@ -4,9 +4,33 @@
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-date-picker/paper-date-picker.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="shared-styles.html">
 
 <dom-module id="my-weight-entry">
     <template>
+    <style is="custom-style" include="shared-styles paper-date-picker-dialog-style">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+       .pad {
+          padding: 0 16px;
+          @apply(--layout-flex);
+          @apply(--layout-horizontal);
+        }
+    paper-button {
+      width: 45%;
+      margin-top: 20px;
+    }
+    paper-button:not([disabled]) {
+      background: var(--paper-light-blue-500);
+      color: white;
+    }
+
+      </style>
 <!--
         <firebase-auth user="{{user}}">
         </firebase-auth>
@@ -17,6 +41,7 @@
         </firebase-query>
         
         <div id="card">
+     <h1>Weight Entry</h1>
             <div id="weights">
                 <ul id="weights-list">
                     <template is="dom-repeat" items="[[weights]]" as="weight">
@@ -26,8 +51,17 @@
                     </template>
                 </ul>
                 
-                <paper-input id="inputDate" label="Date"></paper-input>
-                <paper-input id="inputWeight" label="Weight"></paper-input>
+        <paper-input id="inputDate" label="Date" value="[[todayString]]" placeholder="YYYY-MM-DD"></paper-input>
+      <paper-button class="btn" on-tap="_showDialog" raised>Change Date</paper-button>
+      <paper-dialog id="dialog" class="paper-date-picker-dialog" on-iron-overlay-closed="_dismissDialog">
+        <paper-date-picker id="picker" date="{{selectedDate}}"></paper-date-picker>
+        <div class="buttons">
+          <paper-button dialog-dismiss>Cancel</paper-button>
+          <paper-button dialog-confirm>OK</paper-button>
+        </div>
+      </paper-dialog>
+                
+                <paper-input id="inputWeight" label="Weight"></paper-input><div> lbs</div>
 
                 <div id="weights-controls">
                     <paper-button id="add" on-tap="add">Add</paper-button>
@@ -41,17 +75,25 @@
             is:'my-weight-entry',
             properties: {
                 user: Object,
+                selectedDate: Date,
                 weights: {
                     type: Object,     
+                },
+                todayString: {
+                    type: String,
+                    value: function() {
+                        return this._formatLocalDate(new Date()).substring(0, 10);
+                    }
                 }
             },
             observers: ['userChanged(user.*)'],
             add: function() {
-                    this.$.query.ref.push({
-                        theDate: this.$.inputDate.value,
-                        weight: this.$.inputWeight.value
-                    });
+                this.$.query.ref.push({
+                    theDate: this.$.inputDate.value,
+                    weight: this.$.inputWeight.value
+                });
                 this.$.inputDate.value = null;
+                this.$.inputWeight.value = null;
             },
             userChanged:  function(changeRecord) {
                 console.log("user has changed... ");
@@ -61,8 +103,32 @@
             },
             _assembleQueryWeightPath:  function(newValue, oldValue) {
                 return "/users/" + newValue + "/weights";
+            },
+            _formatLocalDate: function (theDate) {
+                    var now = theDate,
+                        tzo = -now.getTimezoneOffset(),
+                        dif = tzo >= 0 ? '+' : '-',
+                        pad = function(num) {
+                            var norm = Math.abs(Math.floor(num));
+                            return (norm < 10 ? '0' : '') + norm;
+                        };
+                    return now.getFullYear() 
+                        + '-' + pad(now.getMonth()+1)
+                        + '-' + pad(now.getDate())
+                        + 'T' + pad(now.getHours())
+                        + ':' + pad(now.getMinutes()) 
+                        + ':' + pad(now.getSeconds()) 
+                        + dif + pad(tzo / 60) 
+                        + ':' + pad(tzo % 60);
+            },
+            _showDialog: function() {
+                this.$.dialog.opened = true;
+            },
+            _dismissDialog : function(event) {
+                if (event.detail.confirmed) {
+                  this.todayString = this._formatLocalDate(this.$.picker.date).substring(0, 10);
+                }
             }
-            
         })
     </script>
 </dom-module>
