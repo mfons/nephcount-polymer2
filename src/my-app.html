@@ -84,10 +84,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <app-drawer-layout responsive-width="1200px" fullbleed>
       <app-drawer id="nephDrawer">
+        <div style="height: 100%; overflow: auto;">
         <app-toolbar>Menu</app-toolbar>
           
       <nephcount-login user="{{user}}"></nephcount-login>
-
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation" id="nephIronSelector">
           <a name="view1" href="/view1">Select Nutrients to Track</a>
           <a name="view2" href="/view2">Enter Food/Fluid</a>
@@ -95,6 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="custom-food" href="/custom-food">Define Custom Food</a>
           <a name="weight-entry" href="/weight-entry">Enter Daily Weight</a>
         </iron-selector>
+        </div>
       </app-drawer>
 
       <app-header-layout has-scrolling-region>
@@ -130,7 +131,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     Polymer({
       is: 'my-app',
-      dom: 'shadow',
+      dom: 'shadow', // this is not necessary, but I heard it might speed up my app???
       properties: {
         page: {
           type: String,
