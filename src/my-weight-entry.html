@@ -7,6 +7,7 @@
 <link rel="import" href="../bower_components/paper-date-picker/paper-date-picker.html">
 <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/nvd3-elements/nvd3-line.html">
 
 <dom-module id="my-weight-entry">
     <template>
@@ -35,18 +36,28 @@
         <firebase-auth user="{{user}}">
         </firebase-auth>
 -->
-        <firebase-query id="query" app-name="nephcount"
+        <firebase-query id="query" 
+                        app-name="nephcount"
+                        order-by-child="theDate"
                         path="[[_assembleQueryWeightPath(user.uid)]]"
                         data="{{weights}}">
         </firebase-query>
         
         <div id="card">
      <h1>Weight Entry</h1>
+<nvd3-line 
+data="[[data]]"
+  height="50"
+  width="50"
+  auto-resize
+  show-legend
+  use-interactive-guideline>
+</nvd3-line>
             <div id="weights">
                 <ul id="weights-list">
                     <template is="dom-repeat" items="[[weights]]" as="weight">
                         <li>
-                            <p class="content"> [[weight.theDate]] </p>
+                            <p class="content"> [[weight.theDate]],[[weight.weight]] </p>
                         </li>
                     </template>
                 </ul>
@@ -84,6 +95,56 @@
                     value: function() {
                         return this._formatLocalDate(new Date()).substring(0, 10);
                     }
+                },
+                data: {
+                    type: Array,
+                    value: [
+  {
+    "key": "Sine Wave",
+    "color": "#ff7f0e",
+    "values": [{
+      "x": 0,
+      "y": 0
+    }, {
+      "x": 1,
+      "y": 0.09983341664682815
+    }, {
+      "x": 2,
+      "y": 0.19866933079506122
+    }, {
+      "x": 3,
+      "y": 0.29552020666133955
+    }, {
+      "x": 4,
+      "y": 0.3894183423086505
+    }, {
+      "x": 5,
+      "y": 0.479425538604203
+    }]
+  }, {
+    "key": "Cosine Wave",
+    "color": "#2ca02c",
+    "values": [{
+      "x": 0,
+      "y": 0.5
+    }, {
+      "x": 1,
+      "y": 0.49750208263901285
+    }, {
+      "x": 2,
+      "y": 0.4900332889206208
+    }, {
+      "x": 3,
+      "y": 0.477668244562803
+    }, {
+      "x": 4,
+      "y": 0.46053049700144255
+    }, {
+      "x": 5,
+      "y": 0.4387912809451864
+    }]
+  }
+]
                 }
             },
             observers: ['userChanged(user.*)'],

@@ -107,7 +107,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-toggle-button checked="{{isStandardReference}}">
               Use Standard Reference
            </paper-toggle-button>
-          <paper-input id="foodFluidSearchStringId" name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required></paper-input>
+          <paper-input id="foodFluidSearchStringId" name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required autocapitalize="off"></paper-input>
           <paper-dropdown-menu required label="Food/Fluid" id="foodSelectionMenu">
             <paper-listbox class="dropdown-content" selected="{{selectedFood}}" id="foodSelectionListbox">
              <template is="dom-repeat" items='[[foods]]' as="foodItem">
