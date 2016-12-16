@@ -9,6 +9,7 @@
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/nvd3-elements/nvd3-line.html">
 
+
 <dom-module id="my-weight-entry">
     <template>
     <style is="custom-style" include="shared-styles paper-date-picker-dialog-style">
@@ -47,8 +48,7 @@
      <h1>Weight Entry</h1>
 <nvd3-line 
 data="[[data]]"
-  height="50"
-  width="50"
+  height="200"
   auto-resize
   show-legend
   use-interactive-guideline>
@@ -57,22 +57,26 @@ data="[[data]]"
                 <ul id="weights-list">
                     <template is="dom-repeat" items="[[weights]]" as="weight">
                         <li>
-                            <p class="content"> [[weight.theDate]],[[weight.weight]] </p>
+                            <p class="content">On [[weight.theDate]] started: [[weight.weight]] lbs - end: [[weight.endWeight]] lbs </p>
                         </li>
                     </template>
                 </ul>
+                <div class="container pad">
+                  <paper-input id="inputDate" label="Date" value="[[todayString]]" placeholder="YYYY-MM-DD"></paper-input>
+                  <paper-button id="changeDateButton" class="btn" on-tap="_showDialog" raised>Change Date</paper-button>
+                </div>
+              <paper-dialog id="dialog" class="paper-date-picker-dialog" on-iron-overlay-closed="_dismissDialog">
+                <paper-date-picker id="picker" date="{{selectedDate}}"></paper-date-picker>
+                <div class="buttons">
+                  <paper-button dialog-dismiss>Cancel</paper-button>
+                  <paper-button dialog-confirm>OK</paper-button>
+                </div>
+              </paper-dialog>
                 
-        <paper-input id="inputDate" label="Date" value="[[todayString]]" placeholder="YYYY-MM-DD"></paper-input>
-      <paper-button class="btn" on-tap="_showDialog" raised>Change Date</paper-button>
-      <paper-dialog id="dialog" class="paper-date-picker-dialog" on-iron-overlay-closed="_dismissDialog">
-        <paper-date-picker id="picker" date="{{selectedDate}}"></paper-date-picker>
-        <div class="buttons">
-          <paper-button dialog-dismiss>Cancel</paper-button>
-          <paper-button dialog-confirm>OK</paper-button>
-        </div>
-      </paper-dialog>
-                
-                <paper-input id="inputWeight" label="Weight"></paper-input><div> lbs</div>
+                <div class="container pad">
+                    <paper-input id="inputWeight" label="Start Weight" placeholder="(weight in lbs)" required></paper-input>
+                    <paper-input id="inputEndWeight" label="End Weight" placeholder="(weight in lbs)"></paper-input>
+                </div>
 
                 <div id="weights-controls">
                     <paper-button id="add" on-tap="add">Add</paper-button>
@@ -98,63 +102,67 @@ data="[[data]]"
                 },
                 data: {
                     type: Array,
-                    value: [
-  {
-    "key": "Sine Wave",
-    "color": "#ff7f0e",
-    "values": [{
-      "x": 0,
-      "y": 0
+                    value: [{
+        "values": [{
+            "x": 0,
+            "y": 0
+        }, {
+            "x": 1,
+            "y": 3
+        }, {
+            "x": 2,
+            "y": 2
+        }, {
+            "x": 3,
+            "y": 5
+        }],
+        "key": "Line 1",
+        "color": "#ff7f0e"
     }, {
-      "x": 1,
-      "y": 0.09983341664682815
-    }, {
-      "x": 2,
-      "y": 0.19866933079506122
-    }, {
-      "x": 3,
-      "y": 0.29552020666133955
-    }, {
-      "x": 4,
-      "y": 0.3894183423086505
-    }, {
-      "x": 5,
-      "y": 0.479425538604203
+        "values": [{
+            "x": 0,
+            "y": 1
+        }, {
+            "x": 1,
+            "y": 4
+        }, {
+            "x": 2,
+            "y": 2
+        }, {
+            "x": 3,
+            "y": 3
+        }],
+        "key": "Line 2",
+        "color": "#2ca02c"
     }]
-  }, {
-    "key": "Cosine Wave",
-    "color": "#2ca02c",
-    "values": [{
-      "x": 0,
-      "y": 0.5
-    }, {
-      "x": 1,
-      "y": 0.49750208263901285
-    }, {
-      "x": 2,
-      "y": 0.4900332889206208
-    }, {
-      "x": 3,
-      "y": 0.477668244562803
-    }, {
-      "x": 4,
-      "y": 0.46053049700144255
-    }, {
-      "x": 5,
-      "y": 0.4387912809451864
-    }]
-  }
-]
                 }
             },
             observers: ['userChanged(user.*)'],
             add: function() {
-                this.$.query.ref.push({
-                    theDate: this.$.inputDate.value,
-                    weight: this.$.inputWeight.value
-                });
-                this.$.inputDate.value = null;
+                var found = false;
+                if (typeof this.weights != 'undefined' && this.weights.length > 0) {
+                    for (var i = 0; i < this.weights.length; i++) {
+                        if (this.weights[i].theDate === this.$.inputDate.value) {
+                            var updateRef = this.$.query.ref.child(this.weights[i].$key);
+                            updateRef.update({
+                                weight: this.$.inputWeight.value,
+                                endWeight: this.$.inputEndWeight.value
+                            });
+                            found = true;
+                            break;
+                        }                        
+                    }
+                }
+                if (!found) {
+                    this.$.query.ref.push({
+                        theDate: this.$.inputDate.value,
+                        weight: this.$.inputWeight.value,
+                        endWeight: this.$.inputEndWeight.value
+                    });                    
+                }
+//                this.$.inputDate.value = null;
                 this.$.inputWeight.value = null;
+                this.$.inputEndWeight.value = null;
             },
             userChanged:  function(changeRecord) {
                 console.log("user has changed... ");
