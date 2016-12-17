@@ -19,6 +19,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="my-icons.html">
 <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/maps-icons.html">
+
   <link rel="import" href="../bower_components/paper-styles/color.html">
   <link rel="import" href="../bower_components/paper-styles/typography.html">
   <link rel="import" href="../bower_components/paper-styles/default-theme.html">
@@ -46,6 +48,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       background: var(--paper-light-blue-500);
       color: white;
     }
+    iron-icon.blue {
+        --iron-icon-fill-color: var(--paper-blue-500);
+    }
 
       </style>
     
@@ -61,6 +66,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     data="{{consumption}}">
     </firebase-query>
       
+    <firebase-query id="queryDrinks" 
+        app-name="nephcount"
+        start-at="[[todayString]]"
+        end-at="[[todayString]]"
+        order-by-child="theDate"
+        path="[[_assembleQueryDrinkPath(user.uid)]]"
+        data="{{drinks}}">
+    </firebase-query>
+    
     <div class="card">
        <paper-input value="[[todayString]]" label="Report Date" placeholder="YYYY-MM-DD"></paper-input>
       <paper-button class="btn" on-tap="_showDialog" raised>Change Date</paper-button>
@@ -82,6 +96,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                  ([[_displayedAmountLeft(item.name, item.total, nutrientsOfInterest)]] left)
             </div>
         </template>
+        
+        <br />
+        
+        <div class="pad">
+            <template is="dom-repeat" items="[[_getArrayOfSize(drinks.*)]]" >
+                 <iron-icon class="blue" icon="maps:local-drink"></iron-icon>
+            </template>
+        </div>
         
         <br /><hr />
         
@@ -140,6 +162,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }
             }
             return 0;
+        },
+        _getArrayOfSize: function (changeRecord) {
+             if (typeof changeRecord.base !== "undefined" && changeRecord.base.length > 0) {
+                return new Array(changeRecord.base[0].theCount);  
+             }
+            return null;
         },
         _displayedAmountLeft: function(name, total, nutrientsOfInterest) {
             console.log("_displayedAmountLeft executed...");
@@ -202,7 +230,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 return changeRecord.base;
             }
 
+        },
+        _assembleQueryDrinkPath:  function(newValue, oldValue) {
+                return "/users/" + newValue + "/drinks";
         }
+
         
     });
       

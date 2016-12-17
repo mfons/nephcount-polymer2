@@ -25,10 +25,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/iron-form/iron-form.html">
   <link rel="import" href="../bower_components/iron-list/iron-list.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-document.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
   <link rel="import" href="simple-element.html">
   <link rel="import" href="nutrients-for-food-service.html">
   <link rel="import" href="foods-by-text-search.html">
   <link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html">
+  <link rel="import" href="../bower_components/iron-icons/maps-icons.html">
+  <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -56,6 +59,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     form > paper-button:not([disabled]) {
       background: var(--paper-light-blue-500);
       color: white;
+    }
+    paper-fab.label {
+        font-size: 20px;
+    }
+    paper-fab {
+         position:absolute;
+         right:0px;
+    }
+    paper-fab.blue {
+        --paper-fab-background: var(--paper-blue-500);
+        --paper-fab-keyboard-focus-background: var(--paper-blue-900);
     }
     button {
       margin-top: 20px;
@@ -101,6 +115,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           data="{{consumption}}">
       </firebase-document>
 
+        <firebase-query id="query" 
+                        app-name="nephcount"
+                        order-by-child="theDate"
+                        path="[[_assembleQueryDrinkPath(user.uid)]]"
+                        data="{{drinks}}">
+        </firebase-query>
+
+      
+      <paper-fab class="blue" icon="maps:local-drink" id="registerLiquidFab" title="Click on this every time you drink a 10 oz of fluid."></paper-fab>
+      
       <div class="vertical-section-container centered">
      <h1>Enter Food/Fluid</h1>
        <form is="iron-form" method="get" action="/" id="presubmit">
@@ -152,9 +176,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 type: Boolean,
                 value: true
             },
+            todayString: {
+                type: String,
+                value: function() {
+                    return this._formatLocalDate(new Date()).substring(0, 10);
+                }
+            },
             consumption: {
                 type: Array
             },
+            drinks: Object,
             nutrientsOfInterest: {
                 type: Array
             },
@@ -195,7 +226,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         listeners: {
             'presubmit.iron-form-presubmit': 'myPreSubmit',
             'presubmit.iron-form-submit': 'mySubmit',
-            'foodSelectionMenu.tap' : '_foodSelectionMenuTap'
+            'foodSelectionMenu.tap' : '_foodSelectionMenuTap',
+            'registerLiquidFab.tap':'_registerLiquid'
 //            ,
 //            'foodFluidSearchStringId.blur' : '_foodFluidSearchStringBlur'
         },
@@ -225,7 +257,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             newObject.weight = this.weight;
             newObject.multiplier = this.multiplier;
             newObject.consumedGrams = this.consumedGrams;
-            newObject.consumedDate = formatLocalDate();
+            newObject.consumedDate = this._formatLocalDate(new Date());
             newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
             this.push('consumption', newObject);
             //this.set('consumption.' + this.consumption.length + 'nutrientsOfInterest', new Array);
@@ -276,6 +308,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 //        },
         _isStandardReferenceChanged : function(newValue, oldValue) {
             console.log("isStandardReference value change from " + oldValue + " to " + newValue);
+        },
+        _registerLiquid: function(event) {
+                var found = false;
+                if (typeof this.drinks != 'undefined' && this.drinks.length > 0) {
+                    for (var i = 0; i < this.drinks.length; i++) {
+                        if (this.drinks[i].theDate === this.todayString) {
+                            var updateRef = this.$.query.ref.child(this.drinks[i].$key);
+                            updateRef.once('value').then(function(snapshot) {
+                                updateRef.update({
+                                    theCount:snapshot.val().theCount + 1
+                                });
+                            });
+                            found = true;
+                            break;
+                        }                        
+                    }
+                }
+                if (!found) {
+                    this.$.query.ref.push({
+                        theDate: this.todayString,
+                        theCount: 1
+                    });                    
+                }
+        },
+        _assembleQueryDrinkPath:  function(newValue, oldValue) {
+                return "/users/" + newValue + "/drinks";
+        },
+        _formatLocalDate: function (theDate) {
+                var now = theDate,
+                    tzo = -now.getTimezoneOffset(),
+                    dif = tzo >= 0 ? '+' : '-',
+                    pad = function(num) {
+                        var norm = Math.abs(Math.floor(num));
+                        return (norm < 10 ? '0' : '') + norm;
+                    };
+                return now.getFullYear() 
+                    + '-' + pad(now.getMonth()+1)
+                    + '-' + pad(now.getDate())
+                    + 'T' + pad(now.getHours())
+                    + ':' + pad(now.getMinutes()) 
+                    + ':' + pad(now.getSeconds()) 
+                    + dif + pad(tzo / 60) 
+                    + ':' + pad(tzo % 60);
         }
     });
 
@@ -290,23 +365,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             //form.querySelector('.output').innerHTML = '';
            console.log("_reset() function executed");
         };
-       function formatLocalDate() {
-        var now = new Date(),
-            tzo = -now.getTimezoneOffset(),
-            dif = tzo >= 0 ? '+' : '-',
-            pad = function(num) {
-                var norm = Math.abs(Math.floor(num));
-                return (norm < 10 ? '0' : '') + norm;
-            };
-        return now.getFullYear() 
-            + '-' + pad(now.getMonth()+1)
-            + '-' + pad(now.getDate())
-            + 'T' + pad(now.getHours())
-            + ':' + pad(now.getMinutes()) 
-            + ':' + pad(now.getSeconds()) 
-            + dif + pad(tzo / 60) 
-            + ':' + pad(tzo % 60);
-       };
 
 
 </script>
