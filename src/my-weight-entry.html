@@ -137,7 +137,7 @@ data="[[data]]"
     }]
                 }
             },
-            observers: ['userChanged(user.*)'],
+            observers: ['userChanged(user.*)', '_weightsChanged(weights.*)'],
             add: function() {
                 var found = false;
                 if (typeof this.weights != 'undefined' && this.weights.length > 0) {
@@ -189,6 +189,32 @@ data="[[data]]"
                         + ':' + pad(now.getSeconds()) 
                         + dif + pad(tzo / 60) 
                         + ':' + pad(tzo % 60);
+            },
+            _weightsChanged: function(changeRecord) {
+                this.data = [];
+                var startWeightLine = {};
+                startWeightLine.values = [];
+                startWeightLine.key = "Start Weights";
+                startWeightLine.color = "#ff7f0e";
+                var endWeightLine = {};
+                for (var i = 0; i < changeRecord.base.length; i++) {
+                    startWeightLine.values.push({
+                        "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
+                        "y": changeRecord.base[i].weight
+                    });
+                }
+                this.data.push(startWeightLine);
+                
+                endWeightLine.values = [];
+                endWeightLine.key = "End Weights";
+                endWeightLine.color = "#2ca02c";
+                for (var i = 0; i < changeRecord.base.length; i++) {
+                    endWeightLine.values.push({
+                        "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
+                        "y": changeRecord.base[i].endWeight
+                    });
+                }
+                this.data.push(endWeightLine);
             },
             _showDialog: function() {
                 this.$.dialog.opened = true;

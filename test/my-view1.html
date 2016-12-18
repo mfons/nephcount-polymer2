@@ -38,8 +38,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         });
 
         test('Number in circle should be 1', function() {
-          var circle = Polymer.dom(home.root).querySelector('.circle');
-          assert.equal(circle.textContent, '1');
+          var query = Polymer.dom(home.root).querySelector('#query');
+          assert.equal(query.data.length, 0);
         })
       });
     </script>
