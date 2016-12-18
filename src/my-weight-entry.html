@@ -47,7 +47,7 @@
         <div id="card">
      <h1>Weight Entry</h1>
 <nvd3-line 
-data="[[data]]"
+data="[[_weightsChanged(weights.*)]]"
   height="200"
   auto-resize
   show-legend
@@ -137,7 +137,7 @@ data="[[data]]"
     }]
                 }
             },
-            observers: ['userChanged(user.*)', '_weightsChanged(weights.*)'],
+            observers: ['userChanged(user.*)'],
             add: function() {
                 var found = false;
                 if (typeof this.weights != 'undefined' && this.weights.length > 0) {
@@ -191,30 +191,40 @@ data="[[data]]"
                         + ':' + pad(tzo % 60);
             },
             _weightsChanged: function(changeRecord) {
-                this.data = [];
+                var data = [];
                 var startWeightLine = {};
                 startWeightLine.values = [];
                 startWeightLine.key = "Start Weights";
                 startWeightLine.color = "#ff7f0e";
                 var endWeightLine = {};
                 for (var i = 0; i < changeRecord.base.length; i++) {
-                    startWeightLine.values.push({
-                        "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
-                        "y": changeRecord.base[i].weight
-                    });
+                    if (typeof changeRecord.base[i].weight !== 'undefined' && 
+                       changeRecord.base[i].endWeight !== '')
+{
+                        startWeightLine.values.push({
+                            "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
+                            "y": changeRecord.base[i].weight
+                        });
+}
                 }
-                this.push('data', startWeightLine);
-                
+                data.push(startWeightLine);
+                //////////////////////////////////////
+                var endWeightLine = {};
                 endWeightLine.values = [];
                 endWeightLine.key = "End Weights";
                 endWeightLine.color = "#2ca02c";
                 for (var i = 0; i < changeRecord.base.length; i++) {
-                    endWeightLine.values.push({
-                        "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
-                        "y": changeRecord.base[i].endWeight
-                    });
+                    if (typeof changeRecord.base[i].endWeight !== 'undefined' &&
+                       changeRecord.base[i].endWeight !== '')
+{
+                        endWeightLine.values.push({
+                            "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
+                            "y": changeRecord.base[i].endWeight
+                        });
+}
                 }
-                this.push('data', endWeightLine);
+                data.push(endWeightLine);
+                return data;
             },
             _showDialog: function() {
                 this.$.dialog.opened = true;
