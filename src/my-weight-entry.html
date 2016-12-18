@@ -203,7 +203,7 @@ data="[[data]]"
                         "y": changeRecord.base[i].weight
                     });
                 }
-                this.data.push(startWeightLine);
+                this.push('data', startWeightLine);
                 
                 endWeightLine.values = [];
                 endWeightLine.key = "End Weights";
@@ -214,7 +214,7 @@ data="[[data]]"
                         "y": changeRecord.base[i].endWeight
                     });
                 }
-                this.data.push(endWeightLine);
+                this.push('data', endWeightLine);
             },
             _showDialog: function() {
                 this.$.dialog.opened = true;
