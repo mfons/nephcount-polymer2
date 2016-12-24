@@ -13,7 +13,8 @@
       "src/my-icons.html",
       "src/ajax-nutrients-service.html",
       "src/my-enter-food.html",
-      "src/my-settings.html"
+      "src/my-settings.html",
+      "src/update-nutrients-of-interest.html"
   ],
   "sourceGlobs": [
    "src/**/*",
