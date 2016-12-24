@@ -65,14 +65,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
     </style>
-
+<p> whee! </p>
   <firebase-app
       name="nephcount"
       api-key="AIzaSyBJ1n9BY1f-KVIR2v-yGOzS9nEW-fWHK-s"
       auth-domain="nephcount.firebaseapp.com"
       database-url="https://nephcount.firebaseio.com">
   </firebase-app>
-      
+
 <!--    <nephcount-login></nephcount-login>-->
 
     <app-location route="{{route}}"></app-location>
@@ -86,7 +86,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer id="nephDrawer">
         <div style="height: 100%; overflow: auto;">
         <app-toolbar>Menu</app-toolbar>
-          
+
       <nephcount-login user="{{user}}"></nephcount-login>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation" id="nephIronSelector">
           <a name="view1" href="/view1">Select Nutrients to Track</a>
@@ -94,6 +94,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <a name="view3" href="/view3">Report Totals</a>
           <a name="custom-food" href="/custom-food">Define Custom Food</a>
           <a name="weight-entry" href="/weight-entry">Enter Daily Weight</a>
+          <a name="settings" href="/settings" >Settings</a>
+          <a name="enter-food" href="/enter-food">*Under Construction*</a>
         </iron-selector>
         </div>
       </app-drawer>
@@ -104,6 +106,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <div main-title>Nutrient Monitoring and Reporting</div>
+            <paper-icon-button icon="settings" ></paper-icon-button>
           </app-toolbar>
         </app-header>
 
@@ -122,6 +125,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     user="[[user]]"></my-view3>
           <my-custom-food name="custom-food" user="[[user]]"></my-custom-food>
           <my-weight-entry name="weight-entry" user="[[user]]"></my-weight-entry>
+          <my-enter-food name="enter-food"></my-enter-food>
+          <my-settings name="settings"></my-settings>
           <my-view404 name="view404"></my-view404>
         </iron-pages>
       </app-header-layout>
@@ -131,7 +136,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     Polymer({
       is: 'my-app',
-      dom: 'shadow', // this is not necessary, but I heard it might speed up my app???
       properties: {
         page: {
           type: String,
@@ -145,13 +149,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         signedIn: Boolean,
           user: {
               type: Object
-//              ,
-//              value: function () {
-//                  return { "uid" : "sandra" }
-//              }
           }
       },
-
       observers: [
         '_routePageChanged(routeData.page)', 'nutrientsOfInterestChanged(nutrientsOfInterest.*)',
           'onlineChanged(online)', 'signedInChanged(signedIn)',
@@ -173,11 +172,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
       view3BecomingActive: function(pg) {
-        var view3Active = false; 
+        var view3Active = false;
         if (pg === 'view3') {
             view3Active = true;
         }
-        return view3Active;  
+        return view3Active;
       },
       _showPage404: function() {
         this.page = 'view404';
@@ -201,6 +200,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
     });
   </script>
-    
-    
+
+
 </dom-module>

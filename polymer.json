@@ -11,7 +11,9 @@
       "src/shared-styles.html",
       "src/simple-element.html",
       "src/my-icons.html",
-      "src/ajax-nutrients-service.html"
+      "src/ajax-nutrients-service.html",
+      "src/my-enter-food.html",
+      "src/my-settings.html"
   ],
   "sourceGlobs": [
    "src/**/*",

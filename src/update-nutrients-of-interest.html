@@ -1,0 +1,90 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html" >
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="update-nutrients-of-interest">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <firebase-auth app-name="nephcount" user="{{user}}">
+    </firebase-auth>
+    <firebase-query id="noiQuery"
+                    app-name="nephcount"
+                    order-by-child="name"
+                    path="[[_assembleNutrientsOfInterestPath(user.uid)]]"
+                    data="{{nutrientsOfInterest}}">
+    </firebase-query>
+
+<paper-card heading="Edit Nutrients of Interest"  alt="Edit Nutrients of Interest">
+  <div class="card-content">
+    <paper-input id="nutrientNameField" readOnly label="Nutrient Name" value="[[nutrientName]]"></paper-input>
+    <paper-input id="maxAllowedDailyValueField" required label="Max Allowed Daily Value" value="{{maxAllowedDailyValue}}"></paper-input>
+    <paper-input id="maxAllowedDailyUnitOfMeasureField" required label="Max Allowed Daily Unit of Measure" value="{{maxAllowedDailyUnitOfMeasure}}"></paper-input>
+  </div>
+  <div class="card-actions">
+    <paper-button on-tap="update" >Update</paper-button>
+    <paper-button  on-tap="restore" >Restore</paper-button>
+    <paper-icon-button on-tap="previousRecord" icon="icons:arrow-back"></paper-icon-button>
+    <paper-icon-button on-tap="nextRecord" icon="icons:arrow-forward"></paper-icon-button>
+  </div>
+</paper-card>
+  </template>
+  <script>
+    Polymer({
+      is: 'update-nutrients-of-interest',
+      properties: {
+          maxAllowedDailyUnitOfMeasure: String,
+          maxAllowedDailyValue: Number,
+          nutrientName: String,
+          currentRecordIndex:  {
+            type: Number,
+            value: 0
+          }
+      },
+      observers: [ '_currentRecordIndexChanged(nutrientsOfInterest.*, currentRecordIndex)'],
+      _assembleNutrientsOfInterestPath:  function(newValue, oldValue) {
+          return "/users/" + newValue + "/nutrientsOfInterest";
+      },
+      previousRecord: function() {
+        if (this.currentRecordIndex > 0) {
+          this.currentRecordIndex -= 1;
+        }
+      },
+      nextRecord: function() {
+        if (this.currentRecordIndex < this.nutrientsOfInterest.length - 1) {
+          this.currentRecordIndex += 1;
+        }
+      },
+      _currentRecordIndexChanged: function(noiChangeRecord, currentRecordIndex) {
+        if (currentRecordIndex < 0 || noiChangeRecord.base.length === 0) {
+          return;
+        }
+        if (currentRecordIndex > noiChangeRecord.base.length - 1 && currentRecordIndex > 0) {
+          this.currentRecordIndex = noiChangeRecord.base.length - 1;
+        }
+        this.restore();
+      },
+      restore: function() {
+        this.nutrientName = this.nutrientsOfInterest[this.currentRecordIndex].name;
+        this.maxAllowedDailyUnitOfMeasure = this.nutrientsOfInterest[this.currentRecordIndex].maxAllowedDailyUnit;
+        this.maxAllowedDailyValue = this.nutrientsOfInterest[this.currentRecordIndex].maxAllowedDaily;
+      },
+      update: function() {
+          if (typeof this.nutrientsOfInterest != 'undefined' && this.nutrientsOfInterest.length > 0) {
+              var updateRef = this.$.noiQuery.ref.child(this.nutrientsOfInterest[this.currentRecordIndex].$key);
+              updateRef.update({
+                  maxAllowedDailyUnit: this.$.maxAllowedDailyUnitOfMeasureField.value,
+                  maxAllowedDaily: this.$.maxAllowedDailyValueField.value
+              });
+          }
+      }
+    });
+  </script>
+</dom-module>

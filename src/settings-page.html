@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animatable-behavior.html">
+<link rel="import" href="../bower_components/neon-animation/animations/slide-from-right-animation.html">
+<link rel="import" href="../bower_components/neon-animation/animations/slide-right-animation.html">
+
+<dom-module id="settings-page">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <p> Hi there. </p>
+  </template>
+  <script>
+    Polymer({
+      is: 'settings-page',
+      behaviors: [Polymer.NeonAnimatableBehavior],
+      properties: {
+        animationConfig: {
+          value : function () {
+            return {
+              'entry': {
+                name: 'slide-from-right-animation',
+                node: this
+              },
+              'exit': {
+                name: 'slide-right-animation',
+                node: this
+              }
+            };
+          }
+        }
+
+      }
+    });
+  </script>
+</dom-module>
