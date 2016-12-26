@@ -12,9 +12,12 @@
       "src/simple-element.html",
       "src/my-icons.html",
       "src/ajax-nutrients-service.html",
-      "src/my-enter-food.html",
       "src/my-settings.html",
-      "src/update-nutrients-of-interest.html"
+      "src/update-nutrients-of-interest.html",
+      "src/foods-by-text-search.html",
+      "src/consumed-on-report-date.html",
+      "src/simple-element.html",
+      "src/nutrients-for-food-service.html"
   ],
   "sourceGlobs": [
    "src/**/*",

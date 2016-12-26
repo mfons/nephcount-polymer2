@@ -7,7 +7,7 @@
   <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
   <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
   <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
-  <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="my-icons.html">
   <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
   <link rel="import" href="../bower_components/paper-styles/color.html">
@@ -152,37 +152,37 @@
       </style>
 
     <!--ajax-nutrients-service nutrients="{{nutrients}}"></ajax-nutrients-service-->
-                
+
     <firebase-query
     id="query"
     app-name="nephcount"
     path="/nutrients"
     data="{{nutrients}}">
     </firebase-query>
-                
+
      <firebase-document id="fbdoc"
           app-name="nephcount"
           path="/users/[[user.uid]]/nutrientsOfInterest"
           data="{{savedSelectedItems}}">
       </firebase-document>
-        
+
     <!--iron-selector items="[[nutrients]]" multi="true" selectedValues="{{selectedItems}}">
         <template id="myList" is="dom-repeat" items="[[nutrients]]">
             <div>[[item.name]]</div>
         </template>
     </iron-selector-->
-        
+
               <app-drawer-layout fullbleed>
         <div class="content">
           <app-toolbar class="pink-toolbar">
             <div main-title>Selection using iron-list</div>
             <div>
-              <paper-icon-button icon="star" alt="Starred" drawer-toggle></paper-icon-button>
+              <paper-icon-button icon="my-svg-icons:star" alt="Starred" drawer-toggle></paper-icon-button>
               <paper-badge label$="[[selectedItems.length]]"></paper-badge>
             </div>
           </app-toolbar>
           <!-- Main List for the items -->
-        
+
         <iron-list id="nutrientIronList" items="[[nutrients]]" selected-items="{{selectedItems}}" selection-enabled multi-selection>
            <template>
             <div>
@@ -220,9 +220,9 @@
         </app-drawer>
       </app-drawer-layout>
 
-<paper-fab class="blue" icon="favorite" id="saveSelectedItemsFab" title="Save selected nutrients of interest."></paper-fab>
-        
-        
+<paper-fab class="blue" icon="my-svg-icons:favorite" id="saveSelectedItemsFab" title="Save selected nutrients of interest."></paper-fab>
+
+
     </template>
     <script>
       //HTMLImports.whenReady(function() {
@@ -253,7 +253,7 @@
                 'saveSelectedItemsFab.tap':'_saveSelectedItems'
             },
           iconForItem: function(isSelected) {
-            return isSelected ? 'star' : 'star-border';
+            return isSelected ? 'my-svg-icons:star' : 'my-svg-icons:star-border';
           },
           _computedClass: function(isSelected) {
             var classes = 'item';
@@ -272,15 +272,15 @@
             console.log('selected items have changed to ' + changeRecord);
           },
           _savedSelectedItemsChanged: function(savedSelectedItemsChangeRecord, nutrientsChangedRecord) {
-            // When nutrients is fully loaded from firebase and 
+            // When nutrients is fully loaded from firebase and
             // selected list is empty, then restore saved selected
             // items to the selectedItems list.
-            if (savedSelectedItemsChangeRecord.base.length > 0 
+            if (savedSelectedItemsChangeRecord.base.length > 0
                 && nutrientsChangedRecord.base.length === 190  // ANTI PATTERN ALERT...190 IS THE NUMBER OF RECORDS IN THE NUTRIENTS ARRAY FROM FIREBASE
                 &&  this.selectedItems.length === 0 ) {
-                // load any saved nutrients of interest into selectedItems 
+                // load any saved nutrients of interest into selectedItems
                 console.log("about to load saved selected items into selected items...");
-                for(var i = 0; i < nutrientsChangedRecord.base.length; i++) { 
+                for(var i = 0; i < nutrientsChangedRecord.base.length; i++) {
                     for(var j = 0; j < savedSelectedItemsChangeRecord.base.length; j++) {
                         if (savedSelectedItemsChangeRecord.base[j].id === nutrientsChangedRecord.base[i].id) {
                             this.$.nutrientIronList.selectItem(i);
@@ -295,17 +295,17 @@
                   if (this.selectedItems.length > 0) { // there is something to save
                       console.log("There are nutrients of interest to save.");
                       this.splice('savedSelectedItems', 0, this.savedSelectedItems.length); // remove all previously saved items.
-                      for(var i = 0; i < this.selectedItems.length; i++) { 
-                          // push the selected items to the saved array; I am doing this because 
-                          // binding selectedItems to firebase-document value seems to cause an 
-                          // error because of the "$key" property which is in selecteditems for 
+                      for(var i = 0; i < this.selectedItems.length; i++) {
+                          // push the selected items to the saved array; I am doing this because
+                          // binding selectedItems to firebase-document value seems to cause an
+                          // error because of the "$key" property which is in selecteditems for
                           // some reason.
                           this.push('savedSelectedItems', {"id":  this.selectedItems[i].id, "name": this.selectedItems[i].name, "offset": this.selectedItems[i].offset,
                           "maxAllowedDaily": "234",
                           "maxAllowedDailyUnit": "mg"});
                       }
                   }
-                  
+
               }
           }
         });

@@ -9,22 +9,14 @@
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
-
-<!--
-  <link rel="import" href="../bower_components/paper-styles/color.html">
-  <link rel="import" href="../bower_components/paper-styles/typography.html">
-  <link rel="import" href="../bower_components/paper-styles/default-theme.html">
-<link rel="import" href="my-icons.html">
-<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
-<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
--->
+<link rel="import" href="nephcount-behaviors.html">
 <link rel="import" href="../bower_components/paper-styles/demo-pages.html">
 
 <!--
 `consumed-on-report-date`
 This element provides a list of consumed  items and relevant information thereabout,  each of which are selectable and can be acted upon.
 
-@demo demo/index.html 
+@demo demo/index.html
 -->
 
 <dom-module id="consumed-on-report-date">
@@ -45,18 +37,29 @@ This element provides a list of consumed  items and relevant information thereab
       background: #eee;
     }
     </style>
-    <firebase-document id="fbdocEditableConsumption"
+
+    <firebase-query
+    id="query"
+    order-by-child="consumedDate"
+    start-at="[[todayStringStart]]"
+    end-at="[[todayStringEnd]]"
+    app-name="nephcount"
+    path="/users/[[user.uid]]/consumption"
+    data="{{consumption}}">
+    </firebase-query>
+
+    <!-- <firebase-document id="fbdocEditableConsumption"
           app-name="nephcount"
          path="/users/[[user.uid]]/consumption"
           data="{{editableConsumption}}">
-      </firebase-document>
-      
+      </firebase-document> -->
+
     <firebase-document id="fbdoc"
           app-name="nephcount"
          path="/users/[[user.uid]]/customFood"
           data="{{customFood}}">
       </firebase-document>
-      
+
       <h2>Consumed on Report Date</h2>
         <iron-selector multi selected-values="{{selectedConsumedValues}}">
             <template id="consumedOnReportDateDomRepeatTemplate" is="dom-repeat" items="[[_consumptionOrDateChanged(consumption.*, todayString)]]">
@@ -75,13 +78,13 @@ This element provides a list of consumed  items and relevant information thereab
           <h2>Composite Custom Food</h2>
         <paper-input value="{{compositeCustomFoodName}}" label="Name" required></paper-input>
         <paper-input value="{{compositeCustomFoodMeasure}}" label="Measure" required></paper-input>
-        <paper-input value="[[compositeCustomFoodWeight]]" label="Weight in grams" read-only></paper-input>          
+        <paper-input value="[[compositeCustomFoodWeight]]" label="Weight in grams" read-only></paper-input>
         <div class="buttons">
           <paper-button dialog-dismiss>Cancel</paper-button>
           <paper-button dialog-confirm>OK</paper-button>
         </div>
-      </paper-dialog> 
-        
+      </paper-dialog>
+
       <paper-dialog id="deleteSelectedConsumptionsDialog" on-iron-overlay-closed="_dismissDeleteSelectedConsumptionDialog">
           <h2>Delete all the selected items?</h2>
         <div class="buttons">
@@ -89,28 +92,22 @@ This element provides a list of consumed  items and relevant information thereab
           <paper-button dialog-confirm>OK</paper-button>
         </div>
       </paper-dialog>
-      
+
       <paper-toast id="deleteToast" duration="6000" text="Refresh browser to see delete change...(sorry)"></paper-toast>
   </template>
-    
+
   <script>
     Polymer({
 
       is: 'consumed-on-report-date',
-
+      behaviors: [NephcountBehaviors.DateBehavior],
       properties: {
         selectedConsumedValues: Array,
         consumption: Array,
-        todayString: {
-                type: String,
-                value: function() { 
-                    return this.formatLocalDate(new Date()).substring(0, 10); 
-                }
-        },
         compositeCustomFoodName: String,
         compositeCustomFoodMeasure: String,
-        compositeCustomFoodWeight: Number,
-        editableConsumption: Array
+        compositeCustomFoodWeight: Number
+        // editableConsumption: Array
 
       },
       observers: ['_selectedConsumedValuesChanged(selectedConsumedValues.*)'],
@@ -120,7 +117,7 @@ This element provides a list of consumed  items and relevant information thereab
     _openCompositeCustomFoodDialog: function(event) {
         this.$.compositeCustomFoodDialog.toggle();
         // calculate weight
-        this.compositeCustomFoodWeight = 0; 
+        this.compositeCustomFoodWeight = 0;
         for (var i = 0; i < this.selectedConsumedValues.length; i++) {
             this.compositeCustomFoodWeight += this.consumption[this.selectedConsumedValues[i]].weight;
         }
@@ -144,7 +141,7 @@ This element provides a list of consumed  items and relevant information thereab
             newObject.weight = this.compositeCustomFoodWeight;
 
             newObject.components = this._getSelectedListFromConsumed();
-            var nutrientsArray = [];   
+            var nutrientsArray = [];
             for (var i = 0; i < newObject.components.length; i++) {
                 var currentNutrients = newObject.components[i].nutrientsOfInterest;
                 for(var j = 0; j < currentNutrients.length; j++) {
@@ -158,7 +155,7 @@ This element provides a list of consumed  items and relevant information thereab
                             if (nutrientsArray[k].nutrient_id === currentNutrients[j].nutrient_id) {
                                 nutrientsArray[k].value += currentValue;
                                 break;
-                            }   
+                            }
                         }
                     }
                 }
@@ -184,12 +181,26 @@ This element provides a list of consumed  items and relevant information thereab
         if (!event.detail.confirmed) {
             return;
         }
-        var baseIndex = this._getBaseIndexForCurrentDateInConsumptions();
-        for (var i = this.selectedConsumedValues.length - 1; i >= 0 ; i--) {
-            this.splice('editableConsumption', 
-                        this.selectedConsumedValues[i] + baseIndex, 1);
-        } 
-        
+
+        for (var i = 0; i < this.selectedConsumedValues.length; i++) {
+            var deleteRef = this.$.query.ref.child(this.consumption[this.selectedConsumedValues[i]].$key);
+            deleteRef.remove(function(error) {
+              if (error) {
+                console.error("remove failed!");
+              }
+              else {
+                console.log("remove succeeded!");
+              }
+            });
+        }
+
+        // var baseIndex = this._getBaseIndexForCurrentDateInConsumptions();
+        // for (var i = this.selectedConsumedValues.length - 1; i >= 0 ; i--) {
+        //     this.splice('editableConsumption',
+        //                 this.selectedConsumedValues[i] + baseIndex, 1);
+        // }
+
+
         this.$.deleteToast.opened = true;
     },
     _getSelectedListFromConsumed: function () {
@@ -197,44 +208,27 @@ This element provides a list of consumed  items and relevant information thereab
         var newSelectedList = [];
         for (var i = 0; i < this.selectedConsumedValues.length; i++) {
             clone = this.consumption.slice(0);
-            delete clone[this.selectedConsumedValues[i]].$key; 
+            delete clone[this.selectedConsumedValues[i]].$key;
             newSelectedList.push(clone[this.selectedConsumedValues[i]]);
         }
         return newSelectedList;
     },
-    _getBaseIndexForCurrentDateInConsumptions: function() {
-        var findThisConsumedDate = this.consumption[0].consumedDate;
-        for(var i = 0; i < this.editableConsumption.length; i++) {
-            if (typeof this.editableConsumption[i] != 'undefined' &&
-                findThisConsumedDate === this.editableConsumption[i].consumedDate) {
-                return i;
-            }
-        }
-        return -1;
-    },
+    // _getBaseIndexForCurrentDateInConsumptions: function() {
+    //     var findThisConsumedDate = this.consumption[0].consumedDate;
+    //     for(var i = 0; i < this.editableConsumption.length; i++) {
+    //         if (typeof this.editableConsumption[i] != 'undefined' &&
+    //             findThisConsumedDate === this.editableConsumption[i].consumedDate) {
+    //             return i;
+    //         }
+    //     }
+    //     return -1;
+    // },
     _consumptionOrDateChanged: function(changeRecord, dateString) {
         if (changeRecord.base.length > 0 &&
             dateString.length > 0) {
             return changeRecord.base;
         }
     },
-    formatLocalDate: function (theDate) {
-        var now = theDate,
-            tzo = -now.getTimezoneOffset(),
-            dif = tzo >= 0 ? '+' : '-',
-            pad = function(num) {
-                var norm = Math.abs(Math.floor(num));
-                return (norm < 10 ? '0' : '') + norm;
-            };
-        return now.getFullYear() 
-            + '-' + pad(now.getMonth()+1)
-            + '-' + pad(now.getDate())
-            + 'T' + pad(now.getHours())
-            + ':' + pad(now.getMinutes()) 
-            + ':' + pad(now.getSeconds()) 
-            + dif + pad(tzo / 60) 
-            + ':' + pad(tzo % 60);
-       },
       getUnavailableValue: function (value) {
           if (value === "--") {
               return 0;

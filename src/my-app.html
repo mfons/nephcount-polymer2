@@ -65,7 +65,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         font-weight: bold;
       }
     </style>
-<p> whee! </p>
+<!-- <p> whee! </p> -->
   <firebase-app
       name="nephcount"
       api-key="AIzaSyBJ1n9BY1f-KVIR2v-yGOzS9nEW-fWHK-s"
@@ -104,9 +104,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
-            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <paper-icon-button icon="my-svg-icons:menu" drawer-toggle></paper-icon-button>
             <div main-title>Nutrient Monitoring and Reporting</div>
-            <paper-icon-button icon="settings" ></paper-icon-button>
+            <paper-icon-button icon="my-svg-icons:settings" ></paper-icon-button>
           </app-toolbar>
         </app-header>
 
@@ -125,7 +125,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     user="[[user]]"></my-view3>
           <my-custom-food name="custom-food" user="[[user]]"></my-custom-food>
           <my-weight-entry name="weight-entry" user="[[user]]"></my-weight-entry>
-          <my-enter-food name="enter-food"></my-enter-food>
           <my-settings name="settings"></my-settings>
           <my-view404 name="view404"></my-view404>
         </iron-pages>

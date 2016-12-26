@@ -4,9 +4,15 @@
       ".write": "true",
       "users" : {
           "$uid" : {
-              "consumption" : {
-                    ".indexOn": "consumedDate"
-              }
+            "consumption" : {
+                  ".indexOn": "consumedDate"
+            },
+            "drinks" : {
+                  ".indexOn": "theDate"
+            },
+            "weights" : {
+                  ".indexOn": "theDate"
+            }
           }
       }
   }
