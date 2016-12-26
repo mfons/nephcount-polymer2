@@ -9,16 +9,18 @@
        .pad {
           padding: 0 16px;
           @apply(--layout-flex);
-          @apply(--layout-horizontal);
+          @apply(--layout-vertical);
         }
     </style>
     <template>
         <div class="card">
             <div class="pad">
                 <div>For [[inputItem.consumedDate]]:&nbsp;&nbsp;qty [[inputItem.multiplier]] of [[inputItem.measure]]&nbsp;of [[inputItem.name]] </div>
+                <ul>
                 <template is="dom-repeat" items="[[inputItem.nutrientsOfInterest]]">
-                    ** [[item.nutrient]]:&nbsp;&nbsp; [[_multiplyItOut(item.value, inputItem.multiplier)]]&nbsp;[[item.unit]] **
+                    <li>[[item.nutrient]]:&nbsp;&nbsp; [[_multiplyItOut(item.value, inputItem.multiplier)]]&nbsp;[[item.unit]]</li>
                 </template>
+                </ul>
             </div>
         </div>
        <!--div>[[_displayIfToday(inputItem, matchString)]]</div-->
@@ -47,7 +49,7 @@
             console.log("inputItemChanged called...");
         },
         _multiplyItOut: function(val, mult) {
-            return val * mult;
+            return (val * mult).toFixed(2);
         }
     });
 
