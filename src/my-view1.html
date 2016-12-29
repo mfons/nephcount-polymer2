@@ -290,12 +290,14 @@
                 }
             }
           },
+          cloneIt: function(anObject) {
+            return (JSON.parse(JSON.stringify(anObject)));
+          },
           _saveSelectedItems: function(event) {
               if (typeof this.savedSelectedItems != 'undefined') {
                   console.log("there are already saved nutrients of interest!");
                   if (this.selectedItems.length > 0) { // there is something to save
-                    this.$.noiQuery.ref.once('value').then(function(snapshot) {
-                      var originalValue = snapshot.val();
+                      var originalValue = this.cloneIt(this.savedSelectedItems);
                       console.log("There are nutrients of interest to save.");
                       this.$.noiQuery.ref.remove(); // remove all previously saved items.
                       for(var i = 0; i < this.selectedItems.length; i++) {
@@ -317,7 +319,6 @@
                           "maxAllowedDailyUnit": maxDailyUnit
                         });
                       }
-                    });
                   }
 
               }
