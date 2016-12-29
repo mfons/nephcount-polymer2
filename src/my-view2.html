@@ -13,6 +13,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../bower_components/paper-button/paper-button.html">
+  <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
   <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
   <link rel="import" href="../bower_components/paper-input/paper-input.html">
@@ -54,11 +55,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       word-wrap: break-word;
       @apply(--paper-font-common-code);
     }
-    form > paper-button {
+    form > paper-button, form > paper-icon-button {
       width: 45%;
       margin-top: 20px;
     }
-    form > paper-button:not([disabled]) {
+    form > paper-button:not([disabled]),   form > paper-icon-button:not([disabled]) {
       background: var(--paper-light-blue-500);
       color: white;
     }
@@ -158,7 +159,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-input name="weight" label="Weight in grams" readonly="true" value="[[weight]]"></paper-input>
           <paper-input name="multiplier" label="Multiplier" value="{{multiplier}}" required></paper-input>
           <paper-input name="consumedGrams" label="Consumed grams" value="{{consumedGrams}}" required></paper-input>
-          <paper-button raised onclick="_submit(event)">Consume</paper-button>
+          <paper-icon-button icon="my-svg-icons:local-dining" raised onclick="_submit(event)">Consume</paper-button>
           <paper-button raised onclick="_reset(event)">Reset</paper-button>
 
     <div class="card">
@@ -187,9 +188,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 type: Boolean,
                 value: true
             },
-            // consumption: {
-            //     type: Array
-            // },
             drinks: Object,
             nutrientsOfInterest: {
                 type: Array
@@ -224,9 +222,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             consumptions: Array
         },
         observers: [
-//        'foodsChanged(foods.*)',
-            // '_consumptionsChanged(consumptions.*)',
-            // 'consumptionChanged(consumption.*)',
              'foodNutrientsChanged(foodNutrients.*)',
              'foodIdChanged(foodId)',
              '_isStandardReferenceChanged(isStandardReference)'],
@@ -256,9 +251,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         foodFluidSearchStringChanged:  function (newString, oldString) {
             this.set('textSearch', newString);
         },
-        // consumptionChanged: function(changeRecord) {
-        //    console.log("consumption change fired" + changeRecord);
-        // },
         foodNutrientsChanged: function(changeRecord) {
             if (changeRecord.base.length > 0) {
                 this.set('measure', changeRecord.base[0].measure);

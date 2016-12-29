@@ -12,6 +12,9 @@
             },
             "weights" : {
                   ".indexOn": "theDate"
+            },
+            "customFood" : {
+                  ".indexOn": "name"
             }
           }
       }

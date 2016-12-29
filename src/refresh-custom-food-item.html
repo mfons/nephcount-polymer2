@@ -1,0 +1,161 @@
+<!--
+
+"Usage:  call this when you have defined a custom food, and have subsequently updated your nutrients of interest"
+	- calling program can perhaps choose to remove the original record  when this method returns
+	- calling program should probably insert the updated returned item into the user's custom foods list
+Parameters:  original custom food item
+Returns:  get a new constructed custom food item which is refreshed.
+
+var newCustomFood = {}
+"traverse the components looking for ""dirty"" manually-defined custom foods.  "	<=======
+"If any found, update their nutrient lists with value of dash-dash, and return null."	<==EITHER THIS...
+"if original custom food item has components (i.e., is combo custom food) ..."
+	for each of this original custom food item's component
+		if usda food… (then:  reconsume - opportunity for code sharing...)
+			take original component ndb# and original component multiplier
+			look up nutrients for all for each new current nutrient of interest (looked up (lazily and cached?) or passed in)
+			replace current component as usages/nutrients of interest with looked-up nutrients
+		else… (less likely/important to implement)
+			take component name and look up custom food
+			if is combo food… (least likely/important)
+				"take name and multiplier, and look up combo food"
+				"recursively call ""refresh custom food item"" on this combo food"
+				replace nutrients of interest in component with those returned from recursive call
+			else is manually defined custom food…
+			OR THIS==>	take name
+			========>	"add new dash-dash-valued nutrients of interest for nutrients of interest that are not in the original component (must be edited manually)"
+			end if is combo food
+		end if is usda food
+	end for each component
+	assign the old components array to the newCustomFood item
+	assign the original custom food item's unchanging properties to the newCustomFood item
+	calculate and assign the newCustomFood's nutrients of interest by aggregating the components
+"else (i.e., if no components it must be a manually defined custom food)"
+	"add new dash-dash value nutrients of interest for nutrients of interest that are not in the component (must be edited manually)"
+	set newCustomFood item to the original custom food item (clone first?)
+end if has components
+return newCustomFood											 -->
+<link rel="import" href="nutrients-for-food-service.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+
+<dom-module id="refresh-custom-food-item">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <firebase-auth app-name="nephcount" user="{{user}}">
+    </firebase-auth>
+
+    <firebase-query id="customFoodQuery"
+        app-name="nephcount"
+        order-by-child="name"
+       path="/users/[[user.uid]]/customFood"
+        data="{{customFood}}">
+    </firebase-query>
+
+    <nutrients-for-food-service
+           id="nffs"
+           food-id="[[foodId]]"
+           food-name="[[foodName]]"
+           nutrients-of-interest="[[nutrientsOfInterest]]"
+           food-nutrients="{{foodNutrients}}"
+           custom-foods="[[customFood]]">
+     </nutrients-for-food-service>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'refresh-custom-food-item',
+      properties:  {
+        nutrientsOfInterest: Array,
+        customFood: Array,
+        foodId: String,
+        foodName: String,
+        foodNutrients: Array,
+        customFoodItemsRefreshQueue: {
+          type: Array,
+          value: []
+        }
+      },
+      observers: ['_foodNutrientsChanged(foodNutrients.*)'],
+      refreshCustomFoodItem: function(originalCustomFoodItem) {
+        var refreshedCustomFoodItem = {};
+        if (originalCustomFoodItem != null &&
+            !this.isManuallyDefinedCustomFood(originalCustomFoodItem)) {
+            for(var i = 0; i < originalCustomFoodItem.components.length; i++) {
+              var comp = originalCustomFoodItem.components[i];
+              if (this.isUSDA(comp)) {
+                this.customFoodItemsRefreshQueue.push({
+                  customFoodKey: originalCustomFoodItem.$key,
+                  componentIndex:  i,
+                  componentName: originalCustomFoodItem.components[i].name,
+                  componentNdbno: originalCustomFoodItem.components[i].ndbno
+                });
+                this.foodId = comp.ndbid;
+                this.foodName = comp.name; // Just adding this to trigger on changed listener in nffs.
+              }
+              else { // component is either a combo or a manually defined custom food.
+                // TODO
+              }
+            }
+          }
+        // for each of this original custom food item's component
+        //   if usda food… (then:  reconsume - opportunity for code sharing...)
+        //     take original component ndb# and original component multiplier
+        //     look up nutrients for all for each new current nutrient of interest (looked up (lazily and cached?) or passed in)
+        //     replace current component as usages/nutrients of interest with looked-up nutrients
+        //   else… (less likely/important to implement)
+        //     take component name and look up custom food
+        //     if is combo food… (least likely/important)
+        //       "take name and multiplier, and look up combo food"
+        //       "recursively call ""refresh custom food item"" on this combo food"
+        //       replace nutrients of interest in component with those returned from recursive call
+        //     else is manually defined custom food…
+        //     OR THIS==>	take name
+        //     ========>	"add new dash-dash-valued nutrients of interest for nutrients of interest that are not in the original component (must be edited manually)"
+        //     end if is combo food
+        //   end if is usda food
+        // end for each component
+        // assign the old components array to the newCustomFood item
+        // assign the original custom food item's unchanging properties to the newCustomFood item
+        // calculate and assign the newCustomFood's nutrients of interest by aggregating the components
+        // "else (i.e., if no components it must be a manually defined custom food)"
+        // "add new dash-dash value nutrients of interest for nutrients of interest that are not in the component (must be edited manually)"
+        // set newCustomFood item to the original custom food item (clone first?)
+        // end if has components
+        // return newCustomFood
+
+      },
+      isUSDA: function (comp) {
+        return comp.ndbid !== "-1";
+      },
+      _foodNutrientsChanged: function(changeRecord) {
+        console.log("foodNutrients has changed...");
+            for (var i = 0; i < this.customFoodItemsRefreshQueue.length; i++) {
+            var updateRef = this.$.customFoodQuery.ref.child(
+              this.customFoodItemsRefreshQueue[i].customFoodKey).
+              child('components').
+              child(this.customFoodItemsRefreshQueue[i].componentIndex);
+            if (changeRecord.base[0].name ===
+              this.customFoodItemsRefreshQueue[i].componentName &&
+              changeRecord.base[0].ndbid ===
+              this.customFoodItemsRefreshQueue[i].componentNdbno) {
+                updateRef.update({
+                    nutrientsOfInterest: changeRecord.base[0].nutrients
+                });
+            }
+          }
+      },
+      cloneIt: function(anObject) {
+        return (JSON.parse(JSON.stringify(anObject)));
+      },
+      isManuallyDefinedCustomFood: function(aCustomFood) {
+        return typeof aCustomFood.components === 'undefined';
+      }
+    });
+  </script>
+</dom-module>

@@ -17,7 +17,8 @@
       "src/foods-by-text-search.html",
       "src/consumed-on-report-date.html",
       "src/simple-element.html",
-      "src/nutrients-for-food-service.html"
+      "src/nutrients-for-food-service.html",
+      "src/refresh-custom-food-item.html"
   ],
   "sourceGlobs": [
    "src/**/*",

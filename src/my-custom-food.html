@@ -11,11 +11,12 @@
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
-  <link rel="import" href="../bower_components/polymerfire/firebase-document.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
   <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="my-icons.html">
   <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+  <link rel="import" href="refresh-custom-food-item.html">
 <dom-module id="my-custom-food">
   <template>
     <style is="custom-style" include="demo-pages-shared-styles">
@@ -47,6 +48,16 @@
           background-color: #3f51b5;
           color: white;
         }
+        #scrollingRegion {
+          top: 10vh;
+          left: 25vh;
+          right: 25vh;
+          height: 80vh;
+          box-shadow: 0 0 60px rgba(0,0,0,0.5);
+          overflow: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+
     </style>
 
     <firebase-query
@@ -63,11 +74,17 @@
     data="{{possibleNutrients}}">
     </firebase-query>
 
-      <firebase-document id="fbdoc"
+      <firebase-query id="customFoodQuery"
           app-name="nephcount"
+          order-by-child="name"
          path="/users/[[user.uid]]/customFood"
           data="{{customFood}}">
-      </firebase-document>
+      </firebase-query>
+
+    <refresh-custom-food-item
+    id="refreshCustomFoodItemComponent"
+    nutrients-of-interest="[[nutrientsOfInterest]]">
+    </refresh-custom-food-item>
 
     <div class="vertical-section-container centered">
      <h1>Define Custom Food Items</h1>
@@ -117,32 +134,36 @@
         <br/>
         <paper-toolbar>
          <span class="title">Actions on Selected Below</span>
-         <paper-icon-button on-tap="_recalculateSelectedCustomFoodsForCurrentNOI" icon="my-svg-icons:update"
-         alt="Recalculate selected custom foods with current nutrients of interest."></paper-icon-button>
+         <paper-icon-button on-tap="_recalculateSelectedCustomFoodsForCurrentNOI"
+         icon="my-svg-icons:update"
+         alt="Recalculate selected custom foods with current nutrients of interest.">
+         </paper-icon-button>
         </paper-toolbar>
-        <iron-selector multi selected-values="{{selectedCustomFoods}}">
-          <template is="dom-repeat" items="[[customFood]]">
-              <paper-material elevation="2">
-                  [[_formatCustomFoodItem(item)]]
-                  <ul>
-                  <template is="dom-repeat" items="[[_lookAtCustomFoodNutrients(item.nutrients)]]" as="cfnItem">
-                      <li>[[_formatCustomFoodNutrientItem(cfnItem)]]</li>
-                  </template>
-                      <template is="dom-if" if="{{!_isEmptyArray(item.components)}}">
-                          <hr/>
-                          <div>made up of...</div>
-                      </template>
-                  <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
-                      <li>
-                          [[_formatCustomFoodComponentItem(cfcItem)]]
-                      </li>
-                  </template>
 
-                  </ul>
-              </paper-material>
-          </template>
-      </iron-selector>
+        <div id="scrollingRegion">
+          <iron-selector multi selected-values="{{selectedCustomFoods}}">
+            <template is="dom-repeat" items="[[customFood]]">
+                <paper-material elevation="2">
+                    [[_formatCustomFoodItem(item)]]
+                    <ul>
+                    <template is="dom-repeat" items="[[_lookAtCustomFoodNutrients(item.nutrients)]]" as="cfnItem">
+                        <li>[[_formatCustomFoodNutrientItem(cfnItem)]]</li>
+                    </template>
+                        <template is="dom-if" if="{{!_isEmptyArray(item.components)}}">
+                            <hr/>
+                            <div>made up of...</div>
+                        </template>
+                    <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
+                        <li>
+                            [[_formatCustomFoodComponentItem(cfcItem)]]
+                        </li>
+                    </template>
 
+                    </ul>
+                </paper-material>
+            </template>
+        </iron-selector>
+      </div>
 
       </div>
 
@@ -218,7 +239,8 @@
             newObject.weight = this.weight;
             newObject.nutrients = newObject.nutrients.concat(this.foodNutrients);
             console.log("done constructing new Object...");
-            this.push('customFood', newObject);
+            this.$.customFoodQuery.ref.push(newObject);
+            // this.push('customFood', newObject);
             this.foodName = null;
             //this.ndbno = null;
             this.measure = null;
@@ -276,16 +298,9 @@
         _recalculateSelectedCustomFoodsForCurrentNOI: function(event) {
           for (var i = 0; i < this.selectedCustomFoods.length; i++ ) {
               var recalculateThis = this.customFood[this.selectedCustomFoods[i]];
-              // General idea here is to recalculate each of the components
-              // as if it has gotten consumed again, if the custom food is a composite.
-              // If not, then just skip it.  They will have to edit this food
-              // if they do not like its current state.
-              // components:Array[5]
-              // measure:"1 bag"
-              // name:"big bag of veggies"
-              // ndbno:"-1"
-              // nutrients:Array[6]
-              // weight:388
+              var recalculatedCustomFoodItem =
+                this.$.refreshCustomFoodItemComponent.
+                refreshCustomFoodItem(recalculateThis);
           }
         }
     });

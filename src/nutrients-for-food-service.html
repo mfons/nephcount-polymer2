@@ -3,7 +3,7 @@
 
 
 <!-- http://api.data.gov/docs/rate-limits/  with this api_key we can do 1000 requests in an hour. -->
-<!-- Purpose of this element: to provide an array, "foodNutrients", which is an array of 
+<!-- Purpose of this element: to provide an array, "foodNutrients", which is an array of
 amounts of a parametrically provided list of nutrients for a parametrically provided food
 item number from the usda database    -->
 <dom-module id="nutrients-for-food-service">
@@ -13,15 +13,16 @@ item number from the usda database    -->
         }
     </style>
     <template>
-        <iron-ajax 
+        <iron-ajax
             id="ajaxNutrientsList"
             method="GET"
             url="https://api.nal.usda.gov/ndb/nutrients/"
             handle-as="json"
             params="[[ajaxParams]]"
-            requestUrl="[[theRequestUrl]]"
-            on-response="tasksLoaded">
+            on-response="tasksLoaded"
+            sync="[[sync]]">
         </iron-ajax>
+        <!-- requestUrl="[[theRequestUrl]]" -->
     </template>
 </dom-module>
 
@@ -29,6 +30,10 @@ item number from the usda database    -->
     Polymer({
         is: "nutrients-for-food-service",
         properties: {
+            sync: {
+              type: Boolean,
+              value: false
+            },
             nutrientsOfInterest: {
                 type: Array
             },
@@ -75,10 +80,10 @@ item number from the usda database    -->
             },
             foodId : String,
             foodName: String,
-            theRequestUrl: {
-                type: String,
-                observer: 'theRequestUrlChanged'
-            }
+            // theRequestUrl: {
+            //     type: String,
+            //     observer: 'theRequestUrlChanged'
+            // }
         },
         observers: [ 'nutrientsOfInterestAndFoodIdChanged(nutrientsOfInterest.*, foodId, foodName)',
         '_foodIdChanged(foodId)'],
@@ -107,9 +112,9 @@ item number from the usda database    -->
                 this.$.ajaxNutrientsList.generateRequest();
             }
         },
-        theRequestUrlChanged:  function (newRequestUrl, oldRequestUrl) {
-            console.log(newRequestUrl);
-        },
+        // theRequestUrlChanged:  function (newRequestUrl, oldRequestUrl) {
+        //     console.log(newRequestUrl);
+        // },
         _foodIdChanged: function(newValue, oldValue) {
             console.log("foodId has changed in nffs..." + newValue);
         }
@@ -123,7 +128,7 @@ item number from the usda database    -->
             }
             return returnArray;
         }
-    
+
         function _isCustomFood (foodId) {
             return foodId === "-1";
         }
