@@ -15,6 +15,9 @@
             },
             "customFood" : {
                   ".indexOn": "name"
+            },
+            "nutrientsOfInterest" : {
+                  ".indexOn" : "name"
             }
           }
       }

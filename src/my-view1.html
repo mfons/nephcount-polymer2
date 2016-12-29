@@ -160,11 +160,12 @@
     data="{{nutrients}}">
     </firebase-query>
 
-     <firebase-document id="fbdoc"
+     <firebase-query id="noiQuery"
           app-name="nephcount"
+          order-by-child="name"
           path="/users/[[user.uid]]/nutrientsOfInterest"
           data="{{savedSelectedItems}}">
-      </firebase-document>
+      </firebase-query>
 
     <!--iron-selector items="[[nutrients]]" multi="true" selectedValues="{{selectedItems}}">
         <template id="myList" is="dom-repeat" items="[[nutrients]]">
@@ -293,17 +294,30 @@
               if (typeof this.savedSelectedItems != 'undefined') {
                   console.log("there are already saved nutrients of interest!");
                   if (this.selectedItems.length > 0) { // there is something to save
+                    this.$.noiQuery.ref.once('value').then(function(snapshot) {
+                      var originalValue = snapshot.val();
                       console.log("There are nutrients of interest to save.");
-                      this.splice('savedSelectedItems', 0, this.savedSelectedItems.length); // remove all previously saved items.
+                      this.$.noiQuery.ref.remove(); // remove all previously saved items.
                       for(var i = 0; i < this.selectedItems.length; i++) {
-                          // push the selected items to the saved array; I am doing this because
-                          // binding selectedItems to firebase-document value seems to cause an
-                          // error because of the "$key" property which is in selecteditems for
-                          // some reason.
-                          this.push('savedSelectedItems', {"id":  this.selectedItems[i].id, "name": this.selectedItems[i].name, "offset": this.selectedItems[i].offset,
-                          "maxAllowedDaily": "234",
-                          "maxAllowedDailyUnit": "mg"});
+                        var maxDailyVal = "234";
+                        var maxDailyUnit = "mg";
+                        for (var j = 0; j < originalValue.length; j++) {
+                          if (this.selectedItems[i].id === originalValue[j].id &&
+                              this.selectedItems[i].name === originalValue[j].name) {
+                              maxDailyVal = originalValue[j].maxAllowedDaily;
+                              maxDailyUnit = originalValue[j].maxAllowedDailyUnit;
+                              break;
+                          }
+                        }
+                        this.$.noiQuery.ref.push({
+                          "id":  this.selectedItems[i].id,
+                          "name": this.selectedItems[i].name,
+                          "offset": this.selectedItems[i].offset,
+                          "maxAllowedDaily": maxDailyVal,
+                          "maxAllowedDailyUnit": maxDailyUnit
+                        });
                       }
+                    });
                   }
 
               }

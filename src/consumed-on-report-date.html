@@ -1,5 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-  <link rel="import" href="../bower_components/polymerfire/firebase-document.html">
+  <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
   <link rel="import" href="summary-item.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
   <link rel="import" href="../bower_components/paper-button/paper-button.html">
@@ -48,11 +48,12 @@ This element provides a list of consumed  items and relevant information thereab
     data="{{consumption}}">
     </firebase-query>
 
-    <firebase-document id="fbdoc"
-          app-name="nephcount"
-         path="/users/[[user.uid]]/customFood"
-          data="{{customFood}}">
-      </firebase-document>
+    <firebase-query id="customFoodQuery"
+        app-name="nephcount"
+        order-by-child="name"
+       path="/users/[[user.uid]]/customFood"
+        data="{{customFood}}">
+    </firebase-query>
 
       <h2>Consumed on Report Date</h2>
         <iron-selector multi selected-values="{{selectedConsumedValues}}">
@@ -158,7 +159,7 @@ This element provides a list of consumed  items and relevant information thereab
 
             newObject.nutrients = nutrientsArray;
             console.log("done constructing new Object...");
-            this.push('customFood', newObject);
+            this.$.customFoodQuery.ref.push(newObject);
 
             // clear the dialog
             this.foodName = null;

@@ -135,7 +135,8 @@ return newCustomFood											 -->
       },
       _foodNutrientsChanged: function(changeRecord) {
         console.log("foodNutrients has changed...");
-            for (var i = 0; i < this.customFoodItemsRefreshQueue.length; i++) {
+          var arrayOfIndexesToRemoveAfterForLoop = [];
+          for (var i = 0; i < this.customFoodItemsRefreshQueue.length; i++) {
             var updateRef = this.$.customFoodQuery.ref.child(
               this.customFoodItemsRefreshQueue[i].customFoodKey).
               child('components').
@@ -147,7 +148,13 @@ return newCustomFood											 -->
                 updateRef.update({
                     nutrientsOfInterest: changeRecord.base[0].nutrients
                 });
+                arrayOfIndexesToRemoveAfterForLoop.push(i);
             }
+          }
+          // Clean up the queue for every thing that updated successfully.
+          for (var i = 0; i < arrayOfIndexesToRemoveAfterForLoop.length; i++) {
+            this.splice('customFoodItemsRefreshQueue',
+                             arrayOfIndexesToRemoveAfterForLoop[i], 1);
           }
       },
       cloneIt: function(anObject) {
