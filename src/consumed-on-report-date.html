@@ -95,7 +95,8 @@ This element provides a list of consumed  items and relevant information thereab
     Polymer({
 
       is: 'consumed-on-report-date',
-      behaviors: [NephcountBehaviors.DateBehavior],
+      behaviors: [NephcountBehaviors.DateBehavior,
+                  NephcountBehaviors.DataBehavior],
       properties: {
         selectedConsumedValues: Array,
         consumption: Array,
@@ -136,26 +137,8 @@ This element provides a list of consumed  items and relevant information thereab
             newObject.weight = this.compositeCustomFoodWeight;
 
             newObject.components = this._getSelectedListFromConsumed();
-            var nutrientsArray = [];
-            for (var i = 0; i < newObject.components.length; i++) {
-                var currentNutrients = newObject.components[i].nutrientsOfInterest;
-                for(var j = 0; j < currentNutrients.length; j++) {
-                    var currentValue = this.getUnavailableValue(currentNutrients[j].value) * newObject.components[i].multiplier;
-                    if (i === 0) {
-                        currentNutrients[j].value = currentValue;
-                        nutrientsArray.push(currentNutrients[j]);
-                    }
-                    else {
-                        for (var k = 0; k < nutrientsArray.length; k++) {
-                            if (nutrientsArray[k].nutrient_id === currentNutrients[j].nutrient_id) {
-                                nutrientsArray[k].value += currentValue;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
+            var nutrientsArray =
+            this._aggregateConsumptionsToNutrientUsages(newObject.components);
 
             newObject.nutrients = nutrientsArray;
             console.log("done constructing new Object...");

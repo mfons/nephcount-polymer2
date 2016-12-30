@@ -39,4 +39,38 @@ NephcountBehaviors.DateBehavior = {
               + ':' + pad(tzo % 60);
   }
 };
+
+NephcountBehaviors.DataBehavior = {
+  _aggregateConsumptionsToNutrientUsages: function(consumptions) {
+    var nutrientsArray = [];
+    for (var i = 0; i < consumptions.length; i++) {
+        var currentNutrients = consumptions[i].nutrientsOfInterest;
+        for(var j = 0; j < currentNutrients.length; j++) {
+            var currentValue = this.getUnavailableValue(currentNutrients[j].value) * consumptions[i].multiplier;
+            if (i === 0) {
+                currentNutrients[j].value = currentValue;
+                nutrientsArray.push(currentNutrients[j]);
+            }
+            else {
+                for (var k = 0; k < nutrientsArray.length; k++) {
+                    if (nutrientsArray[k].nutrient_id === currentNutrients[j].nutrient_id) {
+                        nutrientsArray[k].value += currentValue;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    return nutrientsArray;
+  },
+  getUnavailableValue: function (value) {
+      if (value === "--") {
+          return 0;
+      }
+      else {
+          return value;
+      }
+  }
+
+};
 </script>

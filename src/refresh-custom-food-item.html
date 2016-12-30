@@ -136,8 +136,10 @@ return newCustomFood											 -->
       _foodNutrientsChanged: function(changeRecord) {
         console.log("foodNutrients has changed...");
           var arrayOfIndexesToRemoveAfterForLoop = [];
+          var uniqueKeysOfCustomFoodsToUpdate = {};
           for (var i = 0; i < this.customFoodItemsRefreshQueue.length; i++) {
-            var updateRef = this.$.customFoodQuery.ref.child(
+            uniqueKeysOfCustomFoodsToUpdate[this.customFoodItemsRefreshQueue[i].customFoodKey] = null;
+            var componentUpdateRef = this.$.customFoodQuery.ref.child(
               this.customFoodItemsRefreshQueue[i].customFoodKey).
               child('components').
               child(this.customFoodItemsRefreshQueue[i].componentIndex);
@@ -145,7 +147,7 @@ return newCustomFood											 -->
               this.customFoodItemsRefreshQueue[i].componentName &&
               changeRecord.base[0].ndbid ===
               this.customFoodItemsRefreshQueue[i].componentNdbno) {
-                updateRef.update({
+                componentUpdateRef.update({
                     nutrientsOfInterest: changeRecord.base[0].nutrients
                 });
                 arrayOfIndexesToRemoveAfterForLoop.push(i);
@@ -156,6 +158,39 @@ return newCustomFood											 -->
             this.splice('customFoodItemsRefreshQueue',
                              arrayOfIndexesToRemoveAfterForLoop[i], 1);
           }
+
+          for (var customFoodKey in uniqueKeysOfCustomFoodsToUpdate) {
+            if (uniqueKeysOfCustomFoodsToUpdate.hasOwnProperty(customFoodKey)) {
+              var customFoodRef = this.$.customFoodQuery.ref.child(customFoodKey);
+              customFoodRef.once('value').then(function(snapshot) {
+                var consumptions = snapshot.child('components').val();
+                // this code is repeated from nephcount-behaviors.html
+                // @ _aggregateConsumptionsToNutrientUsages()  :-(
+                var nutrientsArray = [];
+                for (var i = 0; i < consumptions.length; i++) {
+                    var currentNutrients = consumptions[i].nutrientsOfInterest;
+                    for(var j = 0; j < currentNutrients.length; j++) {
+                        var currentValue = (currentNutrients[j].value === '--' ? 0 : currentNutrients[j].value) * consumptions[i].multiplier;
+                        if (i === 0) {
+                            currentNutrients[j].value = currentValue;
+                            nutrientsArray.push(currentNutrients[j]);
+                        }
+                        else {
+                            for (var k = 0; k < nutrientsArray.length; k++) {
+                                if (nutrientsArray[k].nutrient_id === currentNutrients[j].nutrient_id) {
+                                    nutrientsArray[k].value += currentValue;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                //************end of repeated code*****************
+                snapshot.child('nutrients').ref.set(nutrientsArray);
+              });
+            }
+          }
+          // this.updateComboCustomFoodComponents(changeRecord);
       },
       cloneIt: function(anObject) {
         return (JSON.parse(JSON.stringify(anObject)));
