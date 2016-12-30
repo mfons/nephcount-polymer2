@@ -38,6 +38,7 @@ return newCustomFood											 -->
 <link rel="import" href="nutrients-for-food-service.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="nephcount-behaviors.html">
 
 <dom-module id="refresh-custom-food-item">
   <template>
@@ -70,6 +71,7 @@ return newCustomFood											 -->
   <script>
     Polymer({
       is: 'refresh-custom-food-item',
+      behaviors: [NephcountBehaviors.DataBehavior],
       properties:  {
         nutrientsOfInterest: Array,
         customFood: Array,
@@ -166,6 +168,8 @@ return newCustomFood											 -->
                 var consumptions = snapshot.child('components').val();
                 // this code is repeated from nephcount-behaviors.html
                 // @ _aggregateConsumptionsToNutrientUsages()  :-(
+                // FWIW:  the following did not work...
+                // var nutrientsArray = document.querySelector('refresh-custom-food-item')._aggregateConsumptionsToNutrientUsages(consumptions);
                 var nutrientsArray = [];
                 for (var i = 0; i < consumptions.length; i++) {
                     var currentNutrients = consumptions[i].nutrientsOfInterest;
