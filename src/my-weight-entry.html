@@ -32,6 +32,15 @@
       background: var(--paper-light-blue-500);
       color: white;
     }
+    #scrollingRegion {
+      top: 10vh;
+      left: 25vh;
+      right: 25vh;
+      height: 80vh;
+      box-shadow: 0 0 60px rgba(0,0,0,0.5);
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
 
       </style>
 <!--
@@ -55,6 +64,7 @@ data="[[_weightsChanged(weights.*)]]"
   use-interactive-guideline>
 </nvd3-line>
             <div id="weights">
+              <div id="scrollingRegion">
                 <ul id="weights-list">
                     <template is="dom-repeat" items="[[weights]]" as="weight">
                         <li>
@@ -62,6 +72,7 @@ data="[[_weightsChanged(weights.*)]]"
                         </li>
                     </template>
                 </ul>
+              </div>
                 <div class="container pad">
                   <paper-input id="inputDate" label="Date" value="[[todayString]]" placeholder="YYYY-MM-DD"></paper-input>
                   <paper-button id="changeDateButton" class="btn" on-tap="_showDialog" raised>Change Date</paper-button>
