@@ -105,32 +105,6 @@ return newCustomFood											 -->
               }
             }
           }
-        // for each of this original custom food item's component
-        //   if usda food… (then:  reconsume - opportunity for code sharing...)
-        //     take original component ndb# and original component multiplier
-        //     look up nutrients for all for each new current nutrient of interest (looked up (lazily and cached?) or passed in)
-        //     replace current component as usages/nutrients of interest with looked-up nutrients
-        //   else… (less likely/important to implement)
-        //     take component name and look up custom food
-        //     if is combo food… (least likely/important)
-        //       "take name and multiplier, and look up combo food"
-        //       "recursively call ""refresh custom food item"" on this combo food"
-        //       replace nutrients of interest in component with those returned from recursive call
-        //     else is manually defined custom food…
-        //     OR THIS==>	take name
-        //     ========>	"add new dash-dash-valued nutrients of interest for nutrients of interest that are not in the original component (must be edited manually)"
-        //     end if is combo food
-        //   end if is usda food
-        // end for each component
-        // assign the old components array to the newCustomFood item
-        // assign the original custom food item's unchanging properties to the newCustomFood item
-        // calculate and assign the newCustomFood's nutrients of interest by aggregating the components
-        // "else (i.e., if no components it must be a manually defined custom food)"
-        // "add new dash-dash value nutrients of interest for nutrients of interest that are not in the component (must be edited manually)"
-        // set newCustomFood item to the original custom food item (clone first?)
-        // end if has components
-        // return newCustomFood
-
       },
       isUSDA: function (comp) {
         return comp.ndbid !== "-1";
