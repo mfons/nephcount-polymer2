@@ -35,6 +35,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
   <link rel="import" href="nephcount-behaviors.html">
   <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+  <link rel="import" href="alter-food-nutrient-amounts.html">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -158,16 +159,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </form>
         <div class="card">
           <h2>Nutrients Of Interest</h2>
-           <template is="dom-repeat" items="[[_getNutrientsFromFoodNutrients(foodNutrients.*)]]">
+          <iron-list items="[[_getNutrientsFromFoodNutrients(foodNutrients.*)]]">
+            <template>
+              <div class="pad">
+                  <div>[[item.nutrient]]:&nbsp;&nbsp;</div>
+                  <div>[[_applyMultiplier(item.value, multiplier)]]&nbsp;</div>
+                  <div>[[item.unit]]</div>
+              </div>
+            </template>
+          </iron-list>
+
+           <!-- <template is="dom-repeat" items="[[_getNutrientsFromFoodNutrients(foodNutrients.*)]]">
                 <div class="pad">
                     <div>[[item.nutrient]]:&nbsp;&nbsp;</div>
                     <div>[[_applyMultiplier(item.value, multiplier)]]&nbsp;</div>
                     <div>[[item.unit]]</div>
                 </div>
-            </template>
+            </template> -->
             <paper-icon-button icon="my-svg-icons:edit" raised on-tap="_editNutrients"></paper-icon-button>
         </div>
         <paper-dialog id="editConsumptionNutrientsDialog">
+          <alter-food-nutrient-amounts
+                food-nutrients="[[_getNutrientsFromFoodNutrients(foodNutrients.*)]]"
+                multiplier="[[multiplier]]"
+                altered-nutrients="{{alteredNutrients}}">
+          </alter-food-nutrient-amounts>
           <div class="buttons">
             <paper-button dialog-dismiss>Cancel</paper-button>
             <paper-button dialog-confirm autofocus>Save Nutrients</paper-button>
@@ -219,7 +235,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 type:  Number,
                 computed: 'calculateConsumedGrams(weight, multiplier)'
             },
-            consumptions: Array
+            consumptions: Array,
+            alteredNutrients: Array
         },
         observers: [
              'foodNutrientsChanged(foodNutrients.*)',
@@ -244,26 +261,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         _getNutrientsFromFoodNutrients: function(changeRecord) {
           if (changeRecord.base.length > 0) {
+            this.notifyPath('foodNutrients.0.nutrients');
             return changeRecord.base[0].nutrients;
           }
           return [];
         },
         _editConsumptionNutrientsDialogClosed: function(event) {
           if (event.detail.confirmed) {
-              // var foodNutrientObject = {};
-              // foodNutrientObject.nutrient_id = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].id;
-              // foodNutrientObject.nutrient = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].name;
-              // foodNutrientObject.unit = this.possibleUnits[this.rowSelectedUnit].abbrev;
-              // foodNutrientObject.value = this.rowValue;
-              // this.push('foodNutrients', foodNutrientObject);
-              // this.rowSelectedNutrient = {};
-              // this.rowSelectedUnit = {};
-              // this.rowValue = null;
+            // Alter alteredNutrients to have non-multiplied nutrient value.
+            for (var i = 0; i < this.alteredNutrients.length; i++) {
+              this.set('alteredNutrients.' + i + '.value', this.alteredNutrients[i].value / this.multiplier);
+            }
+
+            // When alteredNutrients are changed then change foodNutrients
+            // as well.
+            this.splice('foodNutrients.0.nutrients', 0, this.foodNutrients[0].nutrients.length);
+            for (var i = 0; i < this.alteredNutrients.length; i++) {
+              this.push('foodNutrients.0.nutrients', this.alteredNutrients[i]);
+            }
+
+            // Force data system to pick up array mutations...
+            // Note:  I did this because I could not figure out how
+            // to refresh the screen any other way.  Generally this
+            // technique can be quite expensive, and should be avoided.
+            // Normal path notification techniques should be used first!
+            var fnArray = this.foodNutrients;
+            this.foodNutrients = [];
+            this.foodNutrients = fnArray;
           }
           else if (event.detail.cancelled) {
-              // this.rowSelectedNutrient = {};
-              // this.rowSelectedUnit = {};
-              // this.rowValue = null;
+            // do nothing...
           }
         },
         selectedFoodChanged: function(newObject,oldObject) {
@@ -357,7 +384,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             return "/users/" + newValue + "/consumption";
         },
         _editNutrients: function(event) {
-          this.$.editConsumptionNutrientsDialog.open();
+          this.$.editConsumptionNutrientsDialog.opened = true;
         }
     });
 

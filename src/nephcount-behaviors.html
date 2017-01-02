@@ -40,6 +40,39 @@ NephcountBehaviors.DateBehavior = {
   }
 };
 
+NephcountBehaviors.MultiRecordEditBehavior = {
+  properties: {
+    currentRecordIndex: {
+      type: Number,
+      value: 0
+    }
+  },
+  previousRecord: function() {
+    if (this.currentRecordIndex > 0) {
+      this.currentRecordIndex -= 1;
+    }
+  },
+  nextRecord: function() {
+      this.currentRecordIndex += 1;
+  },
+  _currentRecordIndexChanged: function(changeRecord, currentRecordIndex) {
+    if (currentRecordIndex < 0 || changeRecord.base.length === 0) {
+      return;
+    }
+    if (currentRecordIndex > changeRecord.base.length - 1 && currentRecordIndex > 0) {
+      this.currentRecordIndex = changeRecord.base.length - 1;
+    }
+    this.restore();
+  },
+  restore: function() {
+    // Abstract function to keep the current record properties up to date
+    // Example:
+    // this.nutrientName = this.nutrientsOfInterest[this.currentRecordIndex].name;
+    // this.maxAllowedDailyUnitOfMeasure = this.nutrientsOfInterest[this.currentRecordIndex].maxAllowedDailyUnit;
+    // this.maxAllowedDailyValue = this.nutrientsOfInterest[this.currentRecordIndex].maxAllowedDaily;
+  }
+};
+
 NephcountBehaviors.DataBehavior = {
   _aggregateConsumptionsToNutrientUsages: function(consumptions) {
     var nutrientsArray = [];
@@ -70,7 +103,9 @@ NephcountBehaviors.DataBehavior = {
       else {
           return value;
       }
+  },
+  cloneIt: function(anObject) {
+    return (JSON.parse(JSON.stringify(anObject)));
   }
-
 };
 </script>

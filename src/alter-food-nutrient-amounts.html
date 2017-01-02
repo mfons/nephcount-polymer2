@@ -1,0 +1,78 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="my-icons.html">
+<link rel="import" href="nephcount-behaviors.html">
+
+<dom-module id="alter-food-nutrient-amounts">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <paper-card heading="Alter Nutrient Amounts"  alt="Alter Nutrient Amounts">
+      <div class="card-content">
+        <paper-input id="nutrientNameField"  readonly label="Nutrient Name" value="[[nutrientName]]"></paper-input>
+        <paper-input id="nutrientValueField" required label="Value" value="{{nutrientValue}}" ></paper-input>
+        <paper-input id="nutrientUnitField" readonly label="Unit of Measure" value="[[nutrientUnit]]" ></paper-input>
+      </div>
+      <div class="card-actions">
+        <paper-button on-tap="update" >Update</paper-button>
+        <paper-button  on-tap="restore" >Restore</paper-button>
+        <paper-icon-button on-tap="previousRecord" icon="my-svg-icons:chevron-left"></paper-icon-button>
+        <paper-icon-button on-tap="nextRecord" icon="my-svg-icons:chevron-right"></paper-icon-button>
+      </div>
+    </paper-card>
+
+
+  </template>
+  <script>
+    Polymer({
+      is: 'alter-food-nutrient-amounts',
+      behaviors: [
+        NephcountBehaviors.DataBehavior,
+        NephcountBehaviors.MultiRecordEditBehavior
+      ],
+      properties: {
+        foodNutrients: Array,
+        multiplier: Number,
+        alteredNutrients: {
+          type: Array,
+          notify: true,
+          value: []
+        },
+        nutrientName: String,
+        nutrientValue: Number,
+        nutrientUnit: String
+      },
+      observers: [
+        '_foodNutrientsChanged(foodNutrients.*, multiplier)',
+        '_currentRecordIndexChanged(alteredNutrients.*, currentRecordIndex)'
+      ],
+      _foodNutrientsChanged: function(changeRecord, multiplier) {
+        this.splice('alteredNutrients', 0, this.alteredNutrients.length);
+        for (var i = 0; i < changeRecord.base.length; i++) {
+          var nutrientClone = this.cloneIt(changeRecord.base[i]);
+          nutrientClone.value = changeRecord.base[i].value * multiplier;
+          this.push ('alteredNutrients', nutrientClone);
+        }
+
+        this.restore();
+      },
+      restore: function() {
+        if (this.alteredNutrients.length === 0 ||
+            this.currentRecordIndex >= this.alteredNutrients.length) {
+              return;
+        }
+        this.nutrientName = this.alteredNutrients[this.currentRecordIndex].nutrient;
+        this.nutrientValue = this.alteredNutrients[this.currentRecordIndex].value;
+        this.nutrientUnit = this.alteredNutrients[this.currentRecordIndex].unit;
+      },
+      update: function() {
+        this.set('alteredNutrients.' + this.currentRecordIndex + '.value', this.nutrientValue);
+      }
+    });
+  </script>
+</dom-module>
