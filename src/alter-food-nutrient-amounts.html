@@ -44,7 +44,7 @@
           value: []
         },
         nutrientName: String,
-        nutrientValue: Number,
+        nutrientValue: String,
         nutrientUnit: String
       },
       observers: [
@@ -55,7 +55,7 @@
         this.splice('alteredNutrients', 0, this.alteredNutrients.length);
         for (var i = 0; i < changeRecord.base.length; i++) {
           var nutrientClone = this.cloneIt(changeRecord.base[i]);
-          nutrientClone.value = changeRecord.base[i].value * multiplier;
+          nutrientClone.value = (changeRecord.base[i].value === "--") ? "--" : changeRecord.base[i].value * multiplier;
           this.push ('alteredNutrients', nutrientClone);
         }
 

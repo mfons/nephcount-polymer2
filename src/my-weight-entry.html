@@ -192,7 +192,7 @@ data="[[_weightsChanged(weights.*)]]"
                        changeRecord.base[i].endWeight !== '')
 {
                         startWeightLine.values.push({
-                            "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
+                            "x": this._stringDateToDays(changeRecord.base[i].theDate),
                             "y": changeRecord.base[i].weight
                         });
 }
@@ -205,16 +205,21 @@ data="[[_weightsChanged(weights.*)]]"
                 endWeightLine.color = "#2ca02c";
                 for (var i = 0; i < changeRecord.base.length; i++) {
                     if (typeof changeRecord.base[i].endWeight !== 'undefined' &&
-                       changeRecord.base[i].endWeight !== '')
-{
+                       changeRecord.base[i].endWeight !== '') {
+//                         "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
                         endWeightLine.values.push({
-                            "x": new Number(changeRecord.base[i].theDate.replace(/-/g, "")),
+                            "x": this._stringDateToDays(changeRecord.base[i].theDate),
                             "y": changeRecord.base[i].endWeight
                         });
-}
+                    }
                 }
                 data.push(endWeightLine);
                 return data;
+            },
+            _stringDateToDays : function (stringDate) {
+              var parts = stringDate.split("-");
+              var theDate =  new Date(parts[2], parts[1] - 1, parts[0]);
+              return theDate.getTime() / (1000 * 60 * 60 * 24);
             },
             _showDialog: function() {
                 this.$.dialog.opened = true;

@@ -270,7 +270,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (event.detail.confirmed) {
             // Alter alteredNutrients to have non-multiplied nutrient value.
             for (var i = 0; i < this.alteredNutrients.length; i++) {
-              this.set('alteredNutrients.' + i + '.value', this.alteredNutrients[i].value / this.multiplier);
+              this.set('alteredNutrients.' + i + '.value', ((this.alteredNutrients[i].value === "--") ? "--" : this.alteredNutrients[i].value / this.multiplier));
             }
 
             // When alteredNutrients are changed then change foodNutrients
