@@ -138,6 +138,10 @@
          icon="my-svg-icons:update"
          alt="Recalculate selected custom foods with current nutrients of interest.">
          </paper-icon-button>
+         <paper-icon-button on-tap="_deleteSelectedCustomFoods"
+         icon="my-svg-icons:delete"
+         alt="Delete custom-defined food(s).">
+         </paper-icon-button>
         </paper-toolbar>
 
         <div id="scrollingRegion">
@@ -301,6 +305,19 @@
               var recalculatedCustomFoodItem =
                 this.$.refreshCustomFoodItemComponent.
                 refreshCustomFoodItem(recalculateThis);
+          }
+        },
+        _deleteSelectedCustomFoods: function(event) {
+          for (var i = 0; i < this.selectedCustomFoods.length; i++ ) {
+            var deleteRef = this.$.customFoodQuery.ref.child(this.customFood[this.selectedCustomFoods[i]].$key);
+            deleteRef.remove(function(error) {
+              if (error) {
+                console.error("remove failed!");
+              }
+              else {
+                console.log("remove succeeded!");
+              }
+            });
           }
         }
     });
