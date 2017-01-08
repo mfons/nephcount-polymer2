@@ -74,7 +74,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         data="{{drinks}}">
     </firebase-query>
 
-    <div class="card">
+    <!-- <div class="card"> -->
        <paper-input value="[[todayString]]" label="Report Date" placeholder="YYYY-MM-DD"></paper-input>
       <paper-button class="btn" on-tap="_showDialog" raised>Change Date</paper-button>
       <paper-dialog id="dialog" class="paper-date-picker-dialog" on-iron-overlay-closed="_dismissDialog">
@@ -109,7 +109,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <consumed-on-report-date consumption="[[consumption]]" today-string="[[todayString]]"
                                user="[[user]]"></consumed-on-report-date>
 
-      </div>
+      <!-- </div> -->
   </template>
 
   <script>
