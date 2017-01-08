@@ -12,6 +12,7 @@
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+  <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
   <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="my-icons.html">
@@ -99,10 +100,10 @@
             </paper-material>
         </template>
 
-           <paper-icon-button icon="my-svg-icons:add" raised on-tap="_openAddNutrientDialog">Add A Nutrient</paper-icon-button>
+           <paper-button raised on-tap="_openAddNutrientDialog" title="Add A Nutrient"><iron-icon icon="my-svg-icons:add"></iron-icon>Add A Nutrient</paper-button>
            <hr/>
-          <paper-icon-button icon="my-svg-icons:done" raised onclick="_submit(event)">Done</paper-icon-button>
-          <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)">Reset</paper-icon-button>
+          <paper-icon-button icon="my-svg-icons:done" raised onclick="_submit(event)" title="Done"></paper-icon-button>
+          <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
         </form>
 
         <paper-dialog id="addNutrientDialog">

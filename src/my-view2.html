@@ -154,8 +154,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-input name="weight" label="Weight in grams" readonly="true" value="[[weight]]"></paper-input>
           <paper-input name="multiplier" label="Multiplier" value="{{multiplier}}" required></paper-input>
           <paper-input name="consumedGrams" label="Consumed grams" value="{{consumedGrams}}" required></paper-input>
-          <paper-icon-button icon="my-svg-icons:local-dining" raised onclick="_submit(event)">Consume</paper-icon-button>
-          <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)">Reset</paper-icon-button>
+          <paper-icon-button icon="my-svg-icons:local-dining" raised onclick="_submit(event)" title="Consume"></paper-icon-button>
+          <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
         </form>
         <div class="card">
           <h2>Nutrients Of Interest</h2>
