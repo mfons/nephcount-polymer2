@@ -14,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymerfire/firebase-app.html">
 <!-- <link rel="import" href="../bower_components/polymerfire/firebase-query.html"> -->
 <link rel="import" href="nephcount-main.html">
+<link rel="import" href="nephcount-login.html">
 
 <dom-module id="my-app">
   <template>
@@ -121,7 +122,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <div class="giant">Nephcount</div>
       <p></p>
       <br>
-      <button on-tap="login" raised hidden$="[[offline]]">Sign-in</button>
+      <nephcount-login user="{{user}}" hidden$="[[offline]]"></nephcount-login>
+      <!-- <button on-tap="login" raised hidden$="[[offline]]">Sign-in</button> -->
       <div hidden$="[[!offline]]" class="offline">We can't log on right now because we are offline.</div>
     </div>
 

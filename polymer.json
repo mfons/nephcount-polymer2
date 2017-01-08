@@ -1,12 +1,11 @@
 {
   "entrypoint": "index.html",
-  "shell": "src/my-app.html",
+  "shell": "src/nephcount-main.html",
   "fragments": [
     "src/my-view1.html",
     "src/my-view2.html",
     "src/my-view3.html",
     "src/my-view404.html",
-    "src/my-app.html",
     "src/nephcount-main.html",
       "src/my-custom-food.html",
       "src/my-weight-entry.html",
@@ -21,7 +20,12 @@
       "src/simple-element.html",
       "src/nutrients-for-food-service.html",
       "src/refresh-custom-food-item.html",
-      "src/alter-food-nutrient-amounts.html"
+      "src/alter-food-nutrient-amounts.html",
+      "src/summary-item.html",
+      "src/nephcount-login.html",
+      "src/nephcount-behaviors.html",
+      "src/my-icons.html",
+      "src/my-app.html"
   ],
   "sourceGlobs": [
    "src/**/*",
