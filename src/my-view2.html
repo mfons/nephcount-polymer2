@@ -140,7 +140,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               Use Standard Reference
            </paper-toggle-button>
           <paper-input id="foodFluidSearchStringId" name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required autocapitalize="off"></paper-input>
-          <paper-dropdown-menu required label="Food/Fluid" id="foodSelectionMenu">
+          <paper-dropdown-menu required on-tap="_foodSelectionMenuTapped" label="Food/Fluid" id="foodSelectionMenu">
             <paper-listbox class="dropdown-content" selected="{{selectedFood}}" id="foodSelectionListbox">
              <template is="dom-repeat" items='[[foods]]' as="foodItem">
                 <paper-item>[[foodItem.name]]</paper-item>
@@ -258,6 +258,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           },
         printAsJson: function(jsonObject) {
             return JSON.stringify(jsonObject);
+        },
+        _foodSelectionMenuTapped: function(event) {
+          this.selectedFood = null;  // no default value please
         },
         _getNutrientsFromFoodNutrients: function(changeRecord) {
           if (changeRecord.base.length > 0) {

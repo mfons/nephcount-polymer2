@@ -306,6 +306,7 @@
                 this.$.refreshCustomFoodItemComponent.
                 refreshCustomFoodItem(recalculateThis);
           }
+          this.selectedCustomFoods = []; // deselect everything
         },
         _deleteSelectedCustomFoods: function(event) {
           for (var i = 0; i < this.selectedCustomFoods.length; i++ ) {
@@ -319,6 +320,7 @@
               }
             });
           }
+          this.selectedCustomFoods = []; // deselect everything
         }
     });
 

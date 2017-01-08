@@ -164,6 +164,7 @@ This element provides a list of consumed  items and relevant information thereab
             this.compositeCustomFoodName = "";
             this.compositeCustomFoodMeasure = "";
             this.compositeCustomFoodWeight = 0;
+            this.selectedConsumedValues = [];
         }
     },
     _dismissDeleteSelectedConsumptionDialog: function() {
@@ -182,7 +183,7 @@ This element provides a list of consumed  items and relevant information thereab
               }
             });
         }
-
+        this.selectedConsumedValues = [];
         // var baseIndex = this._getBaseIndexForCurrentDateInConsumptions();
         // for (var i = this.selectedConsumedValues.length - 1; i >= 0 ; i--) {
         //     this.splice('editableConsumption',
