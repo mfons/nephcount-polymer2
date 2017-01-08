@@ -114,7 +114,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </foods-by-text-search>
 
       <firebase-query id="consumptionsQuery"
-                      app-name="nephcount"
                       start-at="[[todayStringStart]]"
                       end-at="[[todayStringEnd]]"
                       order-by-child="consumedDate"
@@ -124,7 +123,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
         <firebase-query id="query"
-                        app-name="nephcount"
                         order-by-child="theDate"
                         path="[[_assembleQueryDrinkPath(user.uid)]]"
                         data="{{drinks}}">
@@ -299,6 +297,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         selectedFoodChanged: function(newObject,oldObject) {
             console.log("my-view2:  selectedFood has changed: " + newObject);
+            if (typeof newObject === "undefined" || newObject === null) {
+              return;
+            }
             this.set('foodId',this.foods[newObject].ndbno);
             this.set('foodName', this.foods[newObject].name);
         },

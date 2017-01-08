@@ -14,21 +14,20 @@
     }
     </style>
     <firebase-auth
-       app-name="nephcount"
        id="auth" 
-       user="{{user}}" 
-       provider="google" 
+       user="{{user}}"
+       provider="google"
        status-known="{{statusKnown}}">
     </firebase-auth>
-   
+
     <template is="dom-if" if="[[user]]">
        <h1>Welcome [[user.displayName]]</h1>
     </template>
-    
+
     <paper-button raised on-tap="login" hidden$="[[user]]">Sign In</paper-button>
     <paper-button raised on-tap="logout" hidden$="[[!user]]">Sign Out</paper-button>
     </template>
-    
+
     <script>
       Polymer({
           is: 'nephcount-login',
@@ -45,10 +44,10 @@
                       '_userChanged(user.*)'],
           login:  function() {
               this.$.auth.signInWithPopup()
-                  .then(function(response) { 
+                  .then(function(response) {
                   console.log("login succeeded.");
               })
-                  .catch(function(error) { 
+                  .catch(function(error) {
                   console.log("login failed...");
               });;
           },
@@ -68,5 +67,3 @@
     </script>
 
 </dom-module>
-
-

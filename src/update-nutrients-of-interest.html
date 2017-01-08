@@ -13,10 +13,9 @@
         display: block;
       }
     </style>
-    <firebase-auth app-name="nephcount" user="{{user}}">
+    <firebase-auth  user="{{user}}">
     </firebase-auth>
     <firebase-query id="noiQuery"
-                    app-name="nephcount"
                     order-by-child="name"
                     path="[[_assembleNutrientsOfInterestPath(user.uid)]]"
                     data="{{nutrientsOfInterest}}">

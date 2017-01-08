@@ -60,13 +60,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     order-by-child="consumedDate"
     start-at="[[todayStringStart]]"
     end-at="[[todayStringEnd]]"
-    app-name="nephcount"
     path="/users/[[user.uid]]/consumption"
     data="{{consumption}}">
     </firebase-query>
 
     <firebase-query id="queryDrinks"
-        app-name="nephcount"
         start-at="[[todayString]]"
         end-at="[[todayString]]"
         order-by-child="theDate"

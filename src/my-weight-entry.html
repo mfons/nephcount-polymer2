@@ -43,12 +43,7 @@
     }
 
       </style>
-<!--
-        <firebase-auth user="{{user}}">
-        </firebase-auth>
--->
         <firebase-query id="query"
-                        app-name="nephcount"
                         order-by-child="theDate"
                         path="[[_assembleQueryWeightPath(user.uid)]]"
                         data="{{weights}}">

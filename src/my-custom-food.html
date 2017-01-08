@@ -63,20 +63,17 @@
 
     <firebase-query
     id="noiQuery"
-    app-name="nephcount"
     path="/users/[[user.uid]]/nutrientsOfInterest"
     data="{{nutrientsOfInterest}}">
     </firebase-query>
 
     <firebase-query
     id="query"
-    app-name="nephcount"
     path="/nutrients"
     data="{{possibleNutrients}}">
     </firebase-query>
 
       <firebase-query id="customFoodQuery"
-          app-name="nephcount"
           order-by-child="name"
          path="/users/[[user.uid]]/customFood"
           data="{{customFood}}">

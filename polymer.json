@@ -6,6 +6,8 @@
     "src/my-view2.html",
     "src/my-view3.html",
     "src/my-view404.html",
+    "src/my-app.html",
+    "src/nephcount-main.html",
       "src/my-custom-food.html",
       "src/my-weight-entry.html",
       "src/shared-styles.html",

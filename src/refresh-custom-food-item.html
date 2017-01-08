@@ -48,11 +48,10 @@ return newCustomFood											 -->
       }
     </style>
 
-    <firebase-auth app-name="nephcount" user="{{user}}">
+    <firebase-auth  user="{{user}}">
     </firebase-auth>
 
     <firebase-query id="customFoodQuery"
-        app-name="nephcount"
         order-by-child="name"
        path="/users/[[user.uid]]/customFood"
         data="{{customFood}}">

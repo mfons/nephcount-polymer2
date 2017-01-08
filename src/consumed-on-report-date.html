@@ -55,13 +55,11 @@ This element provides a list of consumed  items and relevant information thereab
     order-by-child="consumedDate"
     start-at="[[todayStringStart]]"
     end-at="[[todayStringEnd]]"
-    app-name="nephcount"
     path="/users/[[user.uid]]/consumption"
     data="{{consumption}}">
     </firebase-query>
 
     <firebase-query id="customFoodQuery"
-        app-name="nephcount"
         order-by-child="name"
        path="/users/[[user.uid]]/customFood"
         data="{{customFood}}">

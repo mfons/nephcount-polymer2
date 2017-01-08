@@ -7,7 +7,7 @@
         }
     </style>
     <template>
-        <iron-ajax 
+        <iron-ajax
             auto
             id="ajaxNutrientsList"
             method="GET"
@@ -16,13 +16,12 @@
             params="[[ajaxParams]]"
             on-response="tasksLoaded">
         </iron-ajax>
-        
+
     <firebase-query
     id="query"
-    app-name="nephcount"
     path="/users/[[user.uid]]/customFood"
     data="{{customFoods}}">
-    </firebase-query>        
+    </firebase-query>
     </template>
 </dom-module>
 
@@ -30,9 +29,9 @@
     Polymer({
         is: "foods-by-text-search",
         properties: {
-            // ds=Standard+Referece limits to just a basic set of foods 
+            // ds=Standard+Referece limits to just a basic set of foods
             // that the USDA has a full set of nutrient information
-            // on.  Without ds param set like this, you get lots of 
+            // on.  Without ds param set like this, you get lots of
             // brand name foods, most of which do not have nutrient information
             // against them.  Some do however, so you may want to opt in
             // occasionally...hence this boolean control.
@@ -55,7 +54,7 @@
                 value: function () {
                     var paramsObject = {"format":"json", "q":"butter", "sort":"n", "max":"500", "offset":"0", "api_key":"JrBeMt1k9YsrhBrqfbt2GmmQJAu7XVgt3ttjAxJt",
                     "ds" : "Standard Reference"};
-                                        
+
                     return paramsObject;
                 }
             }

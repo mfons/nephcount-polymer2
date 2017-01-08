@@ -152,13 +152,11 @@
 
     <firebase-query
     id="query"
-    app-name="nephcount"
     path="/nutrients"
     data="{{nutrients}}">
     </firebase-query>
 
      <firebase-query id="noiQuery"
-          app-name="nephcount"
           order-by-child="name"
           path="/users/[[user.uid]]/nutrientsOfInterest"
           data="{{savedSelectedItems}}">
@@ -232,7 +230,7 @@
                        notify: true
                  },
                  nutrients: {
-                     type: Object,
+                     type: Array,
                      observer: 'dataChanged'
                  },
                  savedSelectedItems: {
@@ -243,7 +241,8 @@
             ready: function() {
             },
             observers: ['selectedItemsChanged(selectedItems.*)',
-            '_savedSelectedItemsChanged(savedSelectedItems.*, nutrients.*)'],
+            '_savedSelectedItemsChanged(savedSelectedItems.*, nutrients.*)',
+            '_userChanged(user)'],
             dataChanged: function (newData, oldData) {
                  console.log("is my app talking to firebase nephcount/nutrients?");
             },
@@ -320,6 +319,9 @@
                   }
 
               }
+          },
+          _userChanged : function(newValue, oldValue) {
+            console.log("user changed");
           }
         });
     //});
