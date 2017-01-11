@@ -13,6 +13,7 @@
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
   <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+  <link rel="import" href="../bower_components/iron-list/iron-list.html">
   <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
   <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
   <link rel="import" href="my-icons.html">
@@ -91,11 +92,13 @@
           <paper-input name="measure" label="Serving size" required value="{{measure}}" ></paper-input>
           <paper-input name="weight" label="Weight in grams" value="{{weight}}" ></paper-input>
 
-        <template is="dom-repeat" items="[[foodNutrients]]">
-            <paper-material elevation="2">
-                [[_formatFoodNutrientsItem(item)]]
-            </paper-material>
-        </template>
+        <iron-list  items="[[foodNutrients]]">
+          <template>
+              <paper-material elevation="2">
+                  [[_formatFoodNutrientsItem(item)]]
+              </paper-material>
+          </template>
+        </iron-list>
 
            <paper-button raised on-tap="_openAddNutrientDialog" title="Add A Nutrient"><iron-icon icon="my-svg-icons:add"></iron-icon>Add A Nutrient</paper-button>
            <hr/>
@@ -128,6 +131,14 @@
                     <paper-button dialog-confirm autofocus>Add Nutrient</paper-button>
                   </div>
         </paper-dialog>
+        <paper-dialog id="editCustomFoodDialog">
+            <edit-custom-food></edit-custom-food> <!-- dynamically load this -->
+            <div class="buttons">
+              <paper-icon-button icon="my-svg-icons:clear" dialog-dismiss></paper-icon-button>
+              <paper-icon-button icon="my-svg-icons:done" dialog-confirm autofocus title="Save and exit custom food edit dialog.">
+              </paper-icon-button>
+            </div>
+        </paper-dialog>
 
         <br/>
         <paper-toolbar>
@@ -139,6 +150,10 @@
          <paper-icon-button on-tap="_deleteSelectedCustomFoods"
          icon="my-svg-icons:delete"
          alt="Delete custom-defined food(s).">
+         </paper-icon-button>
+         <paper-icon-button on-tap="_editSelectedCustomFoods"
+         icon="my-svg-icons:edit"
+         alt="Edit the (first) selected record.">
          </paper-icon-button>
         </paper-toolbar>
 
@@ -319,6 +334,9 @@
             });
           }
           this.selectedCustomFoods = []; // deselect everything
+        },
+        _editSelectedCustomFoods: function() {
+            this.$.editCustomFoodDialog.opened = true;
         }
     });
 
