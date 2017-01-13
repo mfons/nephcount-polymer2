@@ -1,4 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+
 <dom-module id="edit-custom-foods">
   <template>
     <style>
@@ -6,11 +9,20 @@
         display: block;
       }
     </style>
-
+    <firebase-auth user="{{user}}"></firebase-auth>
+    <firebase-query id="customFoodQuery"
+        order-by-child="name"
+       path="/users/[[user.uid]]/customFood"
+        data="{{customFood}}">
+    </firebase-query>
+    <div>The key is [[key]]!</div>
   </template>
   <script>
     Polymer({
-      is: 'edit-custom-foods'
+      is: 'edit-custom-foods',
+      properties: {
+        key: String
+      }
     });
   </script>
 </dom-module>

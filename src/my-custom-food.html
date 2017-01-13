@@ -132,7 +132,7 @@
                   </div>
         </paper-dialog>
         <paper-dialog id="editCustomFoodDialog">
-            <edit-custom-food></edit-custom-food> <!-- dynamically load this -->
+            <edit-custom-foods key="[[_getFirstCurrentlySelectedKey(selectedCustomFoods.*)]]"></edit-custom-foods>
             <div class="buttons">
               <paper-icon-button icon="my-svg-icons:clear" dialog-dismiss></paper-icon-button>
               <paper-icon-button icon="my-svg-icons:done" dialog-confirm autofocus title="Save and exit custom food edit dialog.">
@@ -238,8 +238,7 @@
                     'theForm.iron-form-submit': '_mySubmit',
                     'addNutrientDialog.iron-overlay-closed': '_addDialogClosed'
                 },
-                observers: [ //'_possibleNutrientsChanged(possibleNutrients.*)',
-                             '_userChanged(user.*)'],
+                observers: [ '_userChanged(user.*)'],
         _myPreSubmit : function(event) {
             event.preventDefault;
             var newObject = {
@@ -335,8 +334,18 @@
           }
           this.selectedCustomFoods = []; // deselect everything
         },
-        _editSelectedCustomFoods: function() {
+        _editSelectedCustomFoods: function(event) {
+          var resolvedPageUrl = this.resolveUrl('edit-custom-foods.html');
+          this.importHref(resolvedPageUrl, function() {
             this.$.editCustomFoodDialog.opened = true;
+            // this.selectedCustomFoods = []; // TODO put on dismiss of dialog
+          }, null, true);
+        },
+        _getFirstCurrentlySelectedKey: function(changeRecord) {
+          for (var i = 0; i < this.selectedCustomFoods.length; i++ ) {
+              var firstSelected = this.selectedCustomFoods[i];
+              return this.customFood[firstSelected].$key;
+          }
         }
     });
 
