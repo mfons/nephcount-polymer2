@@ -137,37 +137,14 @@ return newCustomFood											 -->
           for (var customFoodKey in uniqueKeysOfCustomFoodsToUpdate) {
             if (uniqueKeysOfCustomFoodsToUpdate.hasOwnProperty(customFoodKey)) {
               var customFoodRef = this.$.customFoodQuery.ref.child(customFoodKey);
-              customFoodRef.once('value').then(function(snapshot) {
+              customFoodRef.once('value', function(snapshot) {
                 var consumptions = snapshot.child('components').val();
-                // this code is repeated from nephcount-behaviors.html
-                // @ _aggregateConsumptionsToNutrientUsages()  :-(
-                // FWIW:  the following did not work...
-                // var nutrientsArray = document.querySelector('refresh-custom-food-item')._aggregateConsumptionsToNutrientUsages(consumptions);
-                var nutrientsArray = [];
-                for (var i = 0; i < consumptions.length; i++) {
-                    var currentNutrients = consumptions[i].nutrientsOfInterest;
-                    for(var j = 0; j < currentNutrients.length; j++) {
-                        var currentValue = (currentNutrients[j].value === '--' ? 0 : currentNutrients[j].value) * consumptions[i].multiplier;
-                        if (i === 0) {
-                            currentNutrients[j].value = currentValue;
-                            nutrientsArray.push(currentNutrients[j]);
-                        }
-                        else {
-                            for (var k = 0; k < nutrientsArray.length; k++) {
-                                if (nutrientsArray[k].nutrient_id === currentNutrients[j].nutrient_id) {
-                                    nutrientsArray[k].value += currentValue;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-                //************end of repeated code*****************
+                var nutrientsArray =
+                    this._aggregateConsumptionsToNutrientUsages(consumptions);
                 snapshot.child('nutrients').ref.set(nutrientsArray);
-              });
+              }.bind(this));
             }
           }
-          // this.updateComboCustomFoodComponents(changeRecord);
       },
       cloneIt: function(anObject) {
         return (JSON.parse(JSON.stringify(anObject)));

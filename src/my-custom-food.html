@@ -19,6 +19,7 @@
   <link rel="import" href="my-icons.html">
   <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
   <link rel="import" href="refresh-custom-food-item.html">
+
 <dom-module id="my-custom-food">
   <template>
     <style is="custom-style" include="demo-pages-shared-styles">
@@ -59,6 +60,9 @@
           overflow: auto;
           -webkit-overflow-scrolling: touch;
         }
+        [hidden] {
+          display: none !important;
+        }
 
     </style>
 
@@ -91,7 +95,7 @@
           <paper-input name="name" label="Name" value="{{foodName}}" required ></paper-input>
           <paper-input name="measure" label="Serving size" required value="{{measure}}" ></paper-input>
           <paper-input name="weight" label="Weight in grams" value="{{weight}}" ></paper-input>
-
+          <paper-input hidden name="customFoodKey" label="(Key)" value="{{customFoodKey}}"></paper-input>
         <iron-list  items="[[foodNutrients]]">
           <template>
               <paper-material elevation="2">
@@ -100,7 +104,12 @@
           </template>
         </iron-list>
 
-           <paper-button raised on-tap="_openAddNutrientDialog" title="Add A Nutrient"><iron-icon icon="my-svg-icons:add"></iron-icon>Add A Nutrient</paper-button>
+        <paper-button hidden$="[[_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openAddNutrientDialog" title="Add A Nutrient">
+          <iron-icon icon="my-svg-icons:add"></iron-icon>Add A Nutrient
+        </paper-button>
+        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openEditNutrientDialog" title="Edit A Nutrient">
+          <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit A Nutrient
+        </paper-button>
            <hr/>
           <paper-icon-button icon="my-svg-icons:done" raised onclick="_submit(event)" title="Done"></paper-icon-button>
           <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
@@ -130,14 +139,6 @@
                     <paper-button dialog-dismiss>Cancel</paper-button>
                     <paper-button dialog-confirm autofocus>Add Nutrient</paper-button>
                   </div>
-        </paper-dialog>
-        <paper-dialog id="editCustomFoodDialog">
-            <edit-custom-foods key="[[_getFirstCurrentlySelectedKey(selectedCustomFoods.*)]]"></edit-custom-foods>
-            <div class="buttons">
-              <paper-icon-button icon="my-svg-icons:clear" dialog-dismiss></paper-icon-button>
-              <paper-icon-button icon="my-svg-icons:done" dialog-confirm autofocus title="Save and exit custom food edit dialog.">
-              </paper-icon-button>
-            </div>
         </paper-dialog>
 
         <br/>
@@ -203,6 +204,10 @@
             foodName: String,
             measure: String,
             weight: Number,
+            customFoodKey: {
+              type: String,
+              value: ""
+            },
             foodNutrients: {
                 type: Array,
                 value: []
@@ -253,14 +258,20 @@
             newObject.ndbno = this.ndbno;
             newObject.measure = this.measure;
             newObject.weight = this.weight;
-            newObject.nutrients = newObject.nutrients.concat(this.foodNutrients);
             console.log("done constructing new Object...");
-            this.$.customFoodQuery.ref.push(newObject);
-            // this.push('customFood', newObject);
+            if (this._isCustomFoodKey()) {
+              this.$.customFoodQuery.ref.child(this.customFoodKey).update(
+                newObject
+              );
+            }
+            else {
+              newObject.nutrients = newObject.nutrients.concat(this.foodNutrients);
+              this.$.customFoodQuery.ref.push(newObject);
+            }
             this.foodName = null;
-            //this.ndbno = null;
             this.measure = null;
             this.weight = null;
+            this.customFoodKey = "";
             this.foodNutrients = [];
           },
         _mySubmit : function(event) {
@@ -335,17 +346,21 @@
           this.selectedCustomFoods = []; // deselect everything
         },
         _editSelectedCustomFoods: function(event) {
-          var resolvedPageUrl = this.resolveUrl('edit-custom-foods.html');
-          this.importHref(resolvedPageUrl, function() {
-            this.$.editCustomFoodDialog.opened = true;
-            // this.selectedCustomFoods = []; // TODO put on dismiss of dialog
-          }, null, true);
-        },
-        _getFirstCurrentlySelectedKey: function(changeRecord) {
-          for (var i = 0; i < this.selectedCustomFoods.length; i++ ) {
-              var firstSelected = this.selectedCustomFoods[i];
-              return this.customFood[firstSelected].$key;
+          if (typeof this.selectedCustomFoods.length != "undefined" &&
+                                    this.selectedCustomFoods.length > 0) {
+            var editRef = this.$.customFoodQuery.ref
+                    .child(this.customFood[this.selectedCustomFoods[0]].$key);
+            editRef.once('value', function(snapshot) {
+              this.foodName = snapshot.val().name;
+              this.measure = snapshot.val().measure;
+              this.weight = snapshot.val().weight;
+              this.customFoodKey = snapshot.key;
+            }.bind(this));
+            this.selectedCustomFoods = [];
           }
+        },
+        _isCustomFoodKey: function() {
+          return this.customFoodKey.length > 0;
         }
     });
 
@@ -356,7 +371,6 @@
        function _reset (event) {
             var form = Polymer.dom(event).localTarget.parentElement
             form.reset();
-            form.querySelector('.output').innerHTML = '';
         };
 
   </script>
