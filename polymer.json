@@ -25,8 +25,7 @@
       "src/nephcount-login.html",
       "src/nephcount-behaviors.html",
       "src/my-icons.html",
-      "src/my-app.html",
-      "src/edit-custom-foods.html"
+      "src/my-app.html"
   ],
   "sourceGlobs": [
    "src/**/*",
