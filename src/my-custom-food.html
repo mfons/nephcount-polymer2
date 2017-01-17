@@ -94,7 +94,7 @@
        <form is="iron-form" method="get" action="/" id="theForm">
           <paper-input name="name" label="Name" value="{{foodName}}" required ></paper-input>
           <paper-input name="measure" label="Serving size" required value="{{measure}}" ></paper-input>
-          <paper-input name="weight" label="Weight in grams" value="{{weight}}" ></paper-input>
+          <paper-input name="weight" type="number" label="Weight in grams" value="{{weight}}" ></paper-input>
           <paper-input hidden name="customFoodKey" label="(Key)" value="{{customFoodKey}}"></paper-input>
         <iron-list  items="[[foodNutrients]]">
           <template>
@@ -125,7 +125,7 @@
                     </paper-listbox>
                   </paper-dropdown-menu>
 
-                    <paper-input value="{{rowValue}}" label="Value" required></paper-input>
+                    <paper-input value="{{rowValue}}" type="number" label="Value" required></paper-input>
 
                   <paper-dropdown-menu required label="Unit of Measure" >
                     <paper-listbox class="dropdown-content" selected="{{rowSelectedUnit}}" >
@@ -167,16 +167,17 @@
                     <template is="dom-repeat" items="[[_lookAtCustomFoodNutrients(item.nutrients)]]" as="cfnItem">
                         <li>[[_formatCustomFoodNutrientItem(cfnItem)]]</li>
                     </template>
+                  </ul>
                         <template is="dom-if" if="{{!_isEmptyArray(item.components)}}">
                             <hr/>
                             <div>made up of...</div>
                         </template>
+                    <ul>
                     <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
                         <li>
                             [[_formatCustomFoodComponentItem(cfcItem)]]
                         </li>
                     </template>
-
                     </ul>
                 </paper-material>
             </template>
