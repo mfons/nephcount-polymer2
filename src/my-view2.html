@@ -150,7 +150,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <paper-input name="measure" label="Serving size" readonly="true" value="[[measure]]"></paper-input>
           <paper-input name="weight" label="Weight in grams" readonly="true" value="[[weight]]"></paper-input>
-          <paper-input name="multiplier" type="number" label="Multiplier" value="{{multiplier}}" required></paper-input>
+          <paper-input name="multiplier" type="number" step="any" label="Multiplier" value="{{multiplier}}" required></paper-input>
           <paper-input name="consumedGrams" label="Consumed grams" value="{{consumedGrams}}" required></paper-input>
           <paper-icon-button icon="my-svg-icons:local-dining" raised onclick="_submit(event)" title="Consume"></paper-icon-button>
           <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
@@ -167,13 +167,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </template>
           </iron-list>
 
-           <!-- <template is="dom-repeat" items="[[_getNutrientsFromFoodNutrients(foodNutrients.*)]]">
-                <div class="pad">
-                    <div>[[item.nutrient]]:&nbsp;&nbsp;</div>
-                    <div>[[_applyMultiplier(item.value, multiplier)]]&nbsp;</div>
-                    <div>[[item.unit]]</div>
-                </div>
-            </template> -->
             <paper-icon-button icon="my-svg-icons:edit" raised on-tap="_editNutrients"></paper-icon-button>
         </div>
         <paper-dialog id="editConsumptionNutrientsDialog">

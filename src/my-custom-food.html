@@ -7,8 +7,6 @@
   <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/iron-form/iron-form.html">
-<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
-<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
@@ -72,12 +70,6 @@
     data="{{nutrientsOfInterest}}">
     </firebase-query>
 
-    <firebase-query
-    id="query"
-    path="/nutrients"
-    data="{{possibleNutrients}}">
-    </firebase-query>
-
       <firebase-query id="customFoodQuery"
           order-by-child="name"
          path="/users/[[user.uid]]/customFood"
@@ -94,7 +86,7 @@
        <form is="iron-form" method="get" action="/" id="theForm">
           <paper-input name="name" label="Name" value="{{foodName}}" required ></paper-input>
           <paper-input name="measure" label="Serving size" required value="{{measure}}" ></paper-input>
-          <paper-input name="weight" type="number" label="Weight in grams" value="{{weight}}" ></paper-input>
+          <paper-input name="weight" type="number" step="any" label="Weight in grams" value="{{weight}}" ></paper-input>
           <paper-input hidden name="customFoodKey" label="(Key)" value="{{customFoodKey}}"></paper-input>
         <iron-list  items="[[foodNutrients]]">
           <template>
@@ -104,40 +96,31 @@
           </template>
         </iron-list>
 
-        <paper-button hidden$="[[_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openAddNutrientDialog" title="Add A Nutrient">
+        <paper-button id="addNutrientButton" hidden$="[[_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Add A Nutrient">
           <iron-icon icon="my-svg-icons:add"></iron-icon>Add A Nutrient
         </paper-button>
-        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openEditNutrientDialog" title="Edit A Nutrient">
+        <paper-button id="editNutrientButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Edit A Nutrient">
           <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit A Nutrient
+        </paper-button>
+        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openComponentDialog" title="Edit A Component">
+          <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit A Component
         </paper-button>
            <hr/>
           <paper-icon-button icon="my-svg-icons:done" raised onclick="_submit(event)" title="Done"></paper-icon-button>
           <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
         </form>
 
-        <paper-dialog id="addNutrientDialog">
-            <h2>Nutrients</h2>
-                  <paper-dropdown-menu required label="Nutrient" >
-                    <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
-                     <template is="dom-repeat" items='[[_concatNOIWithPossibleNutrients(nutrientsOfInterest.*, possibleNutrients.*)]]' as="possibleNutrient">
-                        <paper-item>[[possibleNutrient.name]]</paper-item>
-                      </template>
-                    </paper-listbox>
-                  </paper-dropdown-menu>
-
-                    <paper-input value="{{rowValue}}" type="number" label="Value" required></paper-input>
-
-                  <paper-dropdown-menu required label="Unit of Measure" >
-                    <paper-listbox class="dropdown-content" selected="{{rowSelectedUnit}}" >
-                     <template is="dom-repeat" items='[[possibleUnits]]' as="possibleUnit">
-                        <paper-item>[[possibleUnit.name]]</paper-item>
-                      </template>
-                    </paper-listbox>
-                  </paper-dropdown-menu>
-
+        <paper-dialog id="nutrientDialog">
+            <alter-nutrients-set id="alterNutrientsSetId"
+            nutrients-of-interest="[[nutrientsOfInterest]]"
+            food-nutrients="{{foodNutrients}}"
+            >
+            </alter-nutrients-set>
                   <div class="buttons">
                     <paper-button dialog-dismiss>Cancel</paper-button>
                     <paper-button dialog-confirm autofocus>Add Nutrient</paper-button>
+                    <paper-icon-button icon="my-svg-icons:chevron-left"></paper-icon-button>
+                    <paper-icon-button icon="my-svg-icons:chevron-right"></paper-icon-button>
                   </div>
         </paper-dialog>
 
@@ -213,36 +196,12 @@
                 type: Array,
                 value: []
             },
-            rowSelectedNutrient: {
-                type: Number
-            },
-            rowUnit: String,
-            rowSelectedUnit: Number,
-            rowValue: String,
-            rowGm: {
-                type: Number,
-                value: -1
-            },
-            possibleUnits : {
-                type: Array,
-                value: function () {
-                    return [
-                        {"name": "milligrams", "abbrev" : "mg"},
-                        {"name": "grams", "abbrev" : "g"},
-                        {"name": "Calories", "abbrev" : "kcal"},
-                        {"name": "liters", "abbrev" : "l"},
-                        {"name": "milliliters", "abbrev" : "ml"}
-                           ];
-                }
-            },
-            selectedCustomFoods: Array,
-            possibleNutrients: Array,
-            noiConcatPossibleNutrients: Array
+            selectedCustomFoods: Array
         } ,
                 listeners: {
                     'theForm.iron-form-presubmit': '_myPreSubmit',
                     'theForm.iron-form-submit': '_mySubmit',
-                    'addNutrientDialog.iron-overlay-closed': '_addDialogClosed'
+                    'nutrientDialog.iron-overlay-closed': '_nutrientDialogClosed'
                 },
                 observers: [ '_userChanged(user.*)'],
         _myPreSubmit : function(event) {
@@ -277,26 +236,17 @@
           },
         _mySubmit : function(event) {
           },
-        _addDialogClosed: function(event) {
+        _nutrientDialogClosed: function(event) {
             if (event.detail.confirmed) {
-                var foodNutrientObject = {};
-                foodNutrientObject.nutrient_id = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].id;
-                foodNutrientObject.nutrient = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].name;
-                foodNutrientObject.unit = this.possibleUnits[this.rowSelectedUnit].abbrev;
-                foodNutrientObject.value = this.rowValue;
-                this.push('foodNutrients', foodNutrientObject);
-                this.rowSelectedNutrient = {};
-                this.rowSelectedUnit = {};
-                this.rowValue = null;
+              this.$.alterNutrientsSetId.saveTheNewNutrient = true; // save occurs when you set this boolean to true
             }
-            else if (event.detail.cancelled) {
-                this.rowSelectedNutrient = {};
-                this.rowSelectedUnit = {};
-                this.rowValue = null;
-            }
+            // else if (event.detail.cancelled) {
+            // }
         },
-        _openAddNutrientDialog: function(event) {
-            this.$.addNutrientDialog.open();
+        _openNutrientDialog: function(event) {
+            var resolvedPageUrl = this.resolveUrl('alter-nutrients-set.html');
+            this.importHref(resolvedPageUrl, function() {}, null, true);
+            this.$.nutrientDialog.opened = true;
         },
         _formatFoodNutrientsItem: function (item) {
             return item.nutrient + " " + item.value + " " + item.unit;
@@ -315,10 +265,6 @@
         },
         _userChanged: function(changeRecord) {
             console.log("user changed...");
-        },
-        _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {
-            this.noiConcatPossibleNutrients =  noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
-            return this.noiConcatPossibleNutrients;
         },
         _isEmptyArray: function(theArray) {
             return typeof theArray === "undefined" || theArray.length === 0;

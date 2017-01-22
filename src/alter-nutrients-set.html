@@ -1,0 +1,102 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+
+<dom-module id="alter-nutrients-set">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <firebase-query
+    id="query"
+    path="/nutrients"
+    data="{{possibleNutrients}}">
+    </firebase-query>
+
+
+    <h2>Nutrients</h2>
+    <paper-dropdown-menu required label="Nutrient" >
+      <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
+       <template is="dom-repeat" items='[[_concatNOIWithPossibleNutrients(nutrientsOfInterest.*, possibleNutrients.*)]]' as="possibleNutrient">
+          <paper-item>[[possibleNutrient.name]]</paper-item>
+        </template>
+      </paper-listbox>
+    </paper-dropdown-menu>
+
+      <paper-input value="{{rowValue}}" type="number" step="any" label="Value" required></paper-input>
+
+    <paper-dropdown-menu required label="Unit of Measure" >
+      <paper-listbox class="dropdown-content" selected="{{rowSelectedUnit}}" >
+       <template is="dom-repeat" items='[[possibleUnits]]' as="possibleUnit">
+          <paper-item>[[possibleUnit.name]]</paper-item>
+        </template>
+      </paper-listbox>
+    </paper-dropdown-menu>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'alter-nutrients-set',
+      properties: {
+        rowSelectedNutrient: {
+            type: Number
+        },
+        rowSelectedUnit: Number,
+        rowValue: String,
+        nutrientsOfInterest: Array,
+        saveTheNewNutrient: {
+          type: Boolean,
+          value: false,
+          observer: '_saveTheNewNewNutrientChanged'
+        },
+        foodNutrients: {
+          type: Array,
+          notify: true
+        },
+        possibleUnits : {
+            type: Array,
+            value: function () {
+                return [
+                    {"name": "milligrams", "abbrev" : "mg"},
+                    {"name": "grams", "abbrev" : "g"},
+                    {"name": "Calories", "abbrev" : "kcal"},
+                    {"name": "liters", "abbrev" : "l"},
+                    {"name": "milliliters", "abbrev" : "ml"}
+                       ];
+            }
+        },
+        possibleNutrients: Array,
+        noiConcatPossibleNutrients: Array
+
+      },
+      _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {
+          this.noiConcatPossibleNutrients =  noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
+          return this.noiConcatPossibleNutrients;
+      },
+      _saveTheNewNewNutrientChanged: function(newValue, oldValue) {
+        if (newValue !== true ||
+          typeof this.rowSelectedNutrient === 'undefined' ||
+          typeof this.rowSelectedUnit === 'undefined') {
+            return;
+          }
+        var foodNutrientObject = {};
+        foodNutrientObject.nutrient_id = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].id;
+        foodNutrientObject.nutrient = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].name;
+        foodNutrientObject.unit = this.possibleUnits[this.rowSelectedUnit].abbrev;
+        foodNutrientObject.value = this.rowValue;
+        this.push('foodNutrients', foodNutrientObject);
+        this.rowSelectedNutrient = {};
+        this.rowSelectedUnit = {};
+        this.rowValue = null;
+
+        // done; reset the page for the next nutrient
+        this.saveTheNewNutrient = false;
+      }
+    });
+  </script>
+</dom-module>
