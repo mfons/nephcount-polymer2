@@ -148,8 +148,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- usda api:  https://ndb.nal.usda.gov/ndb/doc/index -->
             <!-- get a list of food groups:  https://api.nal.usda.gov/ndb/list?format=json&lt=g&sort=n&api_key=DEMO_KEY -->
 
-          <paper-input name="measure" label="Serving size" readonly="true" value="[[measure]]"></paper-input>
-          <paper-input name="weight" label="Weight in grams" readonly="true" value="[[weight]]"></paper-input>
+          <paper-input name="measure" label="Serving size" readonly="true" value="[[_getMeasure(foodNutrients.*)]]"></paper-input>
+          <paper-input name="weight" label="Weight in grams" readonly="true" value="[[_getWeight(foodNutrients.*)]]"></paper-input>
           <paper-input name="multiplier" type="number" step="any" label="Multiplier" value="{{multiplier}}" required></paper-input>
           <paper-input name="consumedGrams" label="Consumed grams" value="{{consumedGrams}}" required></paper-input>
           <paper-icon-button icon="my-svg-icons:local-dining" raised onclick="_submit(event)" title="Consume"></paper-icon-button>
@@ -230,7 +230,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             alteredNutrients: Array
         },
         observers: [
-             'foodNutrientsChanged(foodNutrients.*)',
+            //  'foodNutrientsChanged(foodNutrients.*)',
              'foodIdChanged(foodId)',
              '_isStandardReferenceChanged(isStandardReference)'],
         listeners: {
@@ -299,12 +299,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         foodFluidSearchStringChanged:  function (newString, oldString) {
             this.set('textSearch', newString);
         },
-        foodNutrientsChanged: function(changeRecord) {
-            if (changeRecord.base.length > 0) {
-                this.set('measure', changeRecord.base[0].measure);
-                this.set('weight', changeRecord.base[0].weight);
-                // TODO create "no-data"
-            }
+        // foodNutrientsChanged: function(changeRecord) {
+        //     if (changeRecord.base.length > 0) {
+        //       this.set('measure', changeRecord.base[0].measure);
+        //       this.set('weight', changeRecord.base[0].weight);
+        //     }
+        // },
+        _getMeasure: function (changeRecord) {
+          if (changeRecord.base.length > 0) {
+            this.set('measure', changeRecord.base[0].measure);
+            return changeRecord.base[0].measure;
+          }
+        },
+        _getWeight: function (changeRecord) {
+          if (changeRecord.base.length > 0) {
+            this.set('weight', changeRecord.base[0].weight);
+            return changeRecord.base[0].weight;
+          }
         },
         calculateConsumedGrams: function(weight, multiplier) {
             return weight * multiplier;

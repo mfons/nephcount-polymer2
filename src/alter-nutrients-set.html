@@ -1,3 +1,7 @@
+<!--
+if in edit mode we will query up the custom food record from the parent key, then
+get the nutrients under it to populate the "output"
+-->
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
@@ -38,11 +42,20 @@
       </paper-listbox>
     </paper-dropdown-menu>
 
+    <paper-input hidden label="(Key)" value="{{rowKey}}"></paper-input>
+
   </template>
   <script>
     Polymer({
       is: 'alter-nutrients-set',
+      behaviors: [NephcountBehaviors.MultiRecordEditBehavior],
       properties: {
+        parentKey: String, // custom food key if there if editing custom food
+        mode: {
+          type: String,
+          value: 'add'
+        },
+        rowKey: String,
         rowSelectedNutrient: {
             type: Number
         },
@@ -70,8 +83,18 @@
                        ];
             }
         },
+        observers: ['_modeAndParentKeyChanged(parentKey, mode)'],
         possibleNutrients: Array,
         noiConcatPossibleNutrients: Array
+
+      },
+      _modeAndParentKeyChanged: function(parentKey, mode) {
+        if (mode === 'add' || parentKey === null || parentKey.length === 0) {
+          // should not be asking to edit when you are creating a new custom
+          // food; therefore "edit" mode with no parentKey should "never" happen.
+          return;
+        }
+        // otherwise we are in edit with a parent (custom food) key
 
       },
       _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {

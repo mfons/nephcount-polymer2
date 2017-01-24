@@ -141,7 +141,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         observers:[ 'consumptionChanged(consumption.*, todayString)',
                     '_selectedDateChanged(selectedDate)'],
         _calculatePercent: function(name, total, nutrientsOfInterest) {
-            console.log("_calculatePercent executed...");
             for(var i = 0; i < nutrientsOfInterest.length; i++) {
                 if (nutrientsOfInterest[i].name === name) {
                     return total * 100 / nutrientsOfInterest[i].maxAllowedDaily;
@@ -156,7 +155,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             return null;
         },
         _displayedAmountLeft: function(name, total, nutrientsOfInterest) {
-            console.log("_displayedAmountLeft executed...");
             for(var i = 0; i < nutrientsOfInterest.length; i++) {
                 if (nutrientsOfInterest[i].name === name) {
                     var num = nutrientsOfInterest[i].maxAllowedDaily - total;

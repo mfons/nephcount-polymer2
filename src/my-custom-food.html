@@ -96,13 +96,13 @@
           </template>
         </iron-list>
 
-        <paper-button id="addNutrientButton" hidden$="[[_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Add A Nutrient">
+        <paper-button id="addNutrientButton" raised on-tap="_openNutrientDialog" title="Add A Nutrient">
           <iron-icon icon="my-svg-icons:add"></iron-icon>Add A Nutrient
         </paper-button>
-        <paper-button id="editNutrientButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Edit A Nutrient">
-          <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit A Nutrient
+        <paper-button id="editNutrientButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Edit Nutrients">
+          <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit Nutrients
         </paper-button>
-        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openComponentDialog" title="Edit A Component">
+        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openComponentDialog" title="Edit Components">
           <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit A Component
         </paper-button>
            <hr/>
@@ -118,9 +118,9 @@
             </alter-nutrients-set>
                   <div class="buttons">
                     <paper-button dialog-dismiss>Cancel</paper-button>
-                    <paper-button dialog-confirm autofocus>Add Nutrient</paper-button>
-                    <paper-icon-button icon="my-svg-icons:chevron-left"></paper-icon-button>
-                    <paper-icon-button icon="my-svg-icons:chevron-right"></paper-icon-button>
+                    <paper-button dialog-confirm autofocus>Save Nutrients</paper-button>
+                    <paper-icon-button hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
+                    <paper-icon-button hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button>
                   </div>
         </paper-dialog>
 
@@ -220,6 +220,7 @@
             newObject.weight = this.weight;
             console.log("done constructing new Object...");
             if (this._isCustomFoodKey()) {
+              newObject.nutrients = this.foodNutrients;
               this.$.customFoodQuery.ref.child(this.customFoodKey).update(
                 newObject
               );
@@ -246,7 +247,16 @@
         _openNutrientDialog: function(event) {
             var resolvedPageUrl = this.resolveUrl('alter-nutrients-set.html');
             this.importHref(resolvedPageUrl, function() {}, null, true);
+            // TODO do I need to notify path for stuff passed into this element
+            // after this gets loaded?
             this.$.nutrientDialog.opened = true;
+            this.$.alterNutrientsSetId.parentKey = this.customFoodKey; // ...if there is one
+            if (event.target.id === 'addNutrientButton') {
+              this.$alterNutrientsSetId.mode = 'add';
+            }
+            else if (event.target.id === 'editNutrientButton') {
+              this.$alterNutrientsSetId.mode = 'edit';
+            }
         },
         _formatFoodNutrientsItem: function (item) {
             return item.nutrient + " " + item.value + " " + item.unit;
@@ -301,6 +311,7 @@
               this.foodName = snapshot.val().name;
               this.measure = snapshot.val().measure;
               this.weight = snapshot.val().weight;
+              this.foodNutrients = snapshot.val().nutrients;
               this.customFoodKey = snapshot.key;
             }.bind(this));
             this.selectedCustomFoods = [];
