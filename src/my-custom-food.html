@@ -314,6 +314,7 @@
               this.foodNutrients = snapshot.val().nutrients;
               this.customFoodKey = snapshot.key;
             }.bind(this));
+            this.fire('scroll-top');
             this.selectedCustomFoods = [];
           }
         },

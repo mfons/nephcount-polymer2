@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../bower_components/paper-button/paper-button.html">
@@ -26,6 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/iron-form/iron-form.html">
   <link rel="import" href="../bower_components/iron-list/iron-list.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+  <link rel="import" href="../bower_components/paper-date-picker/paper-date-picker.html">
   <link rel="import" href="simple-element.html">
   <link rel="import" href="nutrients-for-food-service.html">
   <link rel="import" href="foods-by-text-search.html">
@@ -45,7 +47,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="my-view2">
   <template>
-   <style is="custom-style" include="demo-pages-shared-styles">
+   <style is="custom-style" include="demo-pages-shared-styles paper-date-picker-dialog-style">
       :host {
         display: block;
 
@@ -56,7 +58,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       word-wrap: break-word;
       @apply(--paper-font-common-code);
     }
-    paper-button, paper-icon-button {
+    paper-button, paper-icon-button, .shortField {
       width: 45%;
       margin-top: 20px;
     }
@@ -167,7 +169,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </template>
           </iron-list>
 
-            <paper-icon-button icon="my-svg-icons:edit" raised on-tap="_editNutrients"></paper-icon-button>
+            <paper-icon-button icon="my-svg-icons:edit" raised on-tap="_editNutrients">
+            </paper-icon-button>
+            <div class="pad">
+            <paper-input class="shortField" value="[[todayString]]" label="Report Date" placeholder="YYYY-MM-DD"></paper-input>
+           <paper-button class="btn" on-tap="_showChangeDateDialog" raised>Change Date</paper-button>
+         </div>
+           <paper-dialog id="changeDateDialog" class="paper-date-picker-dialog" on-iron-overlay-closed="_dismissChangeDateDialog">
+             <paper-date-picker id="picker" date="{{selectedDate}}"></paper-date-picker>
+             <div class="buttons">
+               <paper-button dialog-dismiss>Cancel</paper-button>
+               <paper-button dialog-confirm>OK</paper-button>
+             </div>
+           </paper-dialog>
         </div>
         <paper-dialog id="editConsumptionNutrientsDialog">
           <alter-food-nutrient-amounts
@@ -191,6 +205,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'my-view2',
       behaviors: [NephcountBehaviors.DateBehavior],
         properties: {
+          selectedDate: Date,
             isStandardReference: {
                 type: Boolean,
                 value: true
@@ -247,6 +262,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           },
         mySubmit : function(event) {
           },
+          _showChangeDateDialog: function() {
+              this.$.changeDateDialog.opened = true;
+          },
+          _dismissChangeDateDialog : function(event) {
+              if (event.detail.confirmed) {
+                this.todayString = this._formatLocalDate(this.$.picker.date).substring(0, 10);
+                this.todayStringStart = this.todayString + "T00:00:00";
+                this.todayStringEnd = this.todayString + "T23:59:59";
+              }
+          },
+        _isHistoric : function () {
+          if (this.todayString ===
+              this._formatLocalDate(new Date()).substring(0, 10)) {
+                return false;
+              }
+          return true;
+        },
         printAsJson: function(jsonObject) {
             return JSON.stringify(jsonObject);
         },
@@ -359,7 +391,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           newObject.weight = this.weight;
           newObject.multiplier = this.multiplier;
           newObject.consumedGrams = this.consumedGrams;
-          newObject.consumedDate = this._formatLocalDate(new Date());
+          newObject.consumedDate = (this._isHistoric()) ? this.todayStringEnd : this._formatLocalDate(new Date()).substring(0, 10);
           newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
             this.$.consumptionsQuery.ref.push(newObject);
         },

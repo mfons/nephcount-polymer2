@@ -122,7 +122,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             selected="[[page]]"
             attr-for-selected="name"
             fallback-selection="view404"
-            role="main">
+            role="main" id="scrollableIronPages">
           <my-view1 name="view1" selected-items="{{nutrientsOfInterest}}"
                     saved-selected-items="{{savedNutrientsOfInterest}}"
                     user="[[user]]"></my-view1>
@@ -203,14 +203,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           console.log("the user changed..." + newValue.uid);
         }
       }
-      // ,
-      // _nutrientsChanged:  function(changeRecord) {
-      //   // console.log("nutrients array changed...");
-      // },
-      // _savedSelectedItemsChanged: function(changeRecord) {
-      //    console.log("savedSelectedItems has changed...");
-      // }
-
     });
   </script>
 

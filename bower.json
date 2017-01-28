@@ -1,7 +1,7 @@
 {
-  "name": "polymer-starter-kit",
+  "name": "polymer-starter-kit/nephcount",
   "authors": [
-    "The Polymer Authors"
+    "The Polymer Authors", "Michael A. Fons"
   ],
   "private": true,
   "dependencies": {
@@ -50,6 +50,7 @@
     "web-component-tester": "^4.0.0"
   },
   "resolutions": {
-    "polymerfire": "^0.10.3"
+    "polymerfire": "^0.10.3",
+    "firebase": ">= 3.5.1 < 4.0"
   }
 }
