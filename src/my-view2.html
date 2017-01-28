@@ -391,7 +391,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           newObject.weight = this.weight;
           newObject.multiplier = this.multiplier;
           newObject.consumedGrams = this.consumedGrams;
-          newObject.consumedDate = (this._isHistoric()) ? this.todayStringEnd : this._formatLocalDate(new Date()).substring(0, 10);
+          newObject.consumedDate = (this._isHistoric()) ? this.todayStringEnd : this._formatLocalDate(new Date());
           newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
             this.$.consumptionsQuery.ref.push(newObject);
         },
