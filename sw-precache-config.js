@@ -15,6 +15,6 @@ module.exports = {
   ]
   ,
   navigateFallback: '/index.html',
-  navigateFallbackWhitelist: [ /^\/view1\//,/^\/view2\//,/^\/view3\//,/^\/custom-food\//,/^\/weight-entry\//,/^\/settings\// ]
+  navigateFallbackWhitelist: [ /^(?!\/__)/, ' /getProjectConfig/' ]
 
 };
