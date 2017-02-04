@@ -119,8 +119,8 @@
                   <div class="buttons">
                     <paper-button dialog-dismiss>Cancel</paper-button>
                     <paper-button dialog-confirm autofocus>Save Nutrients</paper-button>
-                    <paper-icon-button hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
-                    <paper-icon-button hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button>
+                    <paper-icon-button on-tap="_goPriorNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
+                    <paper-icon-button on-tap="_goNextNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button>
                   </div>
         </paper-dialog>
 
@@ -204,6 +204,12 @@
                     'nutrientDialog.iron-overlay-closed': '_nutrientDialogClosed'
                 },
                 observers: [ '_userChanged(user.*)'],
+        _goPriorNutrient: function (event) {
+           this.$.alterNutrientsSetId.previousRecord();
+        },
+        _goNextNutrient:  function (event) {
+           this.$.alterNutrientsSetId.nextRecord();
+        },
         _myPreSubmit : function(event) {
             event.preventDefault;
             var newObject = {
@@ -239,24 +245,25 @@
           },
         _nutrientDialogClosed: function(event) {
             if (event.detail.confirmed) {
-              this.$.alterNutrientsSetId.saveTheNewNutrient = true; // save occurs when you set this boolean to true
+              this.$.alterNutrientsSetId.nutrientSaved = false; // save occurs when you set this boolean to false
             }
             // else if (event.detail.cancelled) {
             // }
         },
         _openNutrientDialog: function(event) {
             var resolvedPageUrl = this.resolveUrl('alter-nutrients-set.html');
-            this.importHref(resolvedPageUrl, function() {}, null, true);
-            // TODO do I need to notify path for stuff passed into this element
-            // after this gets loaded?
-            this.$.nutrientDialog.opened = true;
-            this.$.alterNutrientsSetId.parentKey = this.customFoodKey; // ...if there is one
             if (event.target.id === 'addNutrientButton') {
-              this.$alterNutrientsSetId.mode = 'add';
+                this.importHref(resolvedPageUrl, function() {
+                  this.mode = 'add';
+                }.bind(this.$.alterNutrientsSetId), null, true);
             }
             else if (event.target.id === 'editNutrientButton') {
-              this.$alterNutrientsSetId.mode = 'edit';
+                this.importHref(resolvedPageUrl, function() {
+                  this.mode = 'edit';
+                }.bind(this.$.alterNutrientsSetId), null, true);
             }
+            // after this gets loaded?
+            this.$.nutrientDialog.opened = true;
         },
         _formatFoodNutrientsItem: function (item) {
             return item.nutrient + " " + item.value + " " + item.unit;
@@ -312,9 +319,8 @@
               this.measure = snapshot.val().measure;
               this.weight = snapshot.val().weight;
               this.foodNutrients = snapshot.val().nutrients;
-              this.customFoodKey = snapshot.key;
+               this.customFoodKey = snapshot.key;
             }.bind(this));
-            this.fire('scroll-top');
             this.selectedCustomFoods = [];
           }
         },

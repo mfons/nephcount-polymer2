@@ -42,30 +42,30 @@ get the nutrients under it to populate the "output"
       </paper-listbox>
     </paper-dropdown-menu>
 
-    <paper-input hidden label="(Key)" value="{{rowKey}}"></paper-input>
-
   </template>
   <script>
     Polymer({
       is: 'alter-nutrients-set',
       behaviors: [NephcountBehaviors.MultiRecordEditBehavior],
       properties: {
-        parentKey: String, // custom food key if there if editing custom food
         mode: {
           type: String,
-          value: 'add'
+          value: 'none',
+          observer: '_modeChanged'
         },
-        rowKey: String,
+        rowSelectedNutrientId: String,
+        rowSelectedNutrientName: String,
         rowSelectedNutrient: {
             type: Number
         },
+        rowSelectedUnitName: String,
         rowSelectedUnit: Number,
         rowValue: String,
         nutrientsOfInterest: Array,
-        saveTheNewNutrient: {
+        nutrientSaved: {
           type: Boolean,
-          value: false,
-          observer: '_saveTheNewNewNutrientChanged'
+          value: true,
+          observer: '_nutrientSavedChanged'
         },
         foodNutrients: {
           type: Array,
@@ -83,26 +83,48 @@ get the nutrients under it to populate the "output"
                        ];
             }
         },
-        observers: ['_modeAndParentKeyChanged(parentKey, mode)'],
         possibleNutrients: Array,
         noiConcatPossibleNutrients: Array
-
       },
-      _modeAndParentKeyChanged: function(parentKey, mode) {
-        if (mode === 'add' || parentKey === null || parentKey.length === 0) {
-          // should not be asking to edit when you are creating a new custom
-          // food; therefore "edit" mode with no parentKey should "never" happen.
+      observers: ['_currentRecordIndexChanged(foodNutrients.*, currentRecordIndex)'],
+      _modeChanged: function(newValue, oldValue) {
+        if (this.mode === 'add') {
           return;
         }
-        // otherwise we are in edit with a parent (custom food) key
-
+        if (this.mode === 'edit') {
+          this.currentRecordIndex = 0;
+          this.restore();
+        }
       },
       _concatNOIWithPossibleNutrients:  function(noiChangeRecord, possibleNutrientsChangeRecord) {
           this.noiConcatPossibleNutrients =  noiChangeRecord.base.concat(possibleNutrientsChangeRecord.base);
+          this.restore();  // we need this because restore needs noiConcatPossibleNutrients and possibleNutrients arrays to be defined.
           return this.noiConcatPossibleNutrients;
       },
-      _saveTheNewNewNutrientChanged: function(newValue, oldValue) {
-        if (newValue !== true ||
+      restore: function() {
+        // overridden function to keep the current record properties up to date
+        if (typeof this.noiConcatPossibleNutrients === 'undefined') {
+            return;
+        }
+        this.rowSelectedNutrientId = this.foodNutrients[this.currentRecordIndex].nutrient_id;
+        this.rowSelectedNutrientName = this.foodNutrients[this.currentRecordIndex].nutrient;
+        for (var i = 0; i < this.noiConcatPossibleNutrients.length; i++) {
+            if (this.rowSelectedNutrientName === this.noiConcatPossibleNutrients[i].name) {
+                this.rowSelectedNutrient = i;
+                break;
+            }
+        }
+        this.rowValue = this.foodNutrients[this.currentRecordIndex].value;
+        this.rowSelectedUnitName = this.foodNutrients[this.currentRecordIndex].unit;
+        for (var i = 0; i < this.possibleUnits.length; i++) {
+            if (this.rowSelectedUnitName === this.possibleUnits[i].abbrev) {
+                this.rowSelectedUnit = i;
+                break;
+            }
+        }
+      },
+      _nutrientSavedChanged: function(newValue, oldValue) {
+        if (newValue === true ||
           typeof this.rowSelectedNutrient === 'undefined' ||
           typeof this.rowSelectedUnit === 'undefined') {
             return;
@@ -112,13 +134,24 @@ get the nutrients under it to populate the "output"
         foodNutrientObject.nutrient = this.noiConcatPossibleNutrients[this.rowSelectedNutrient].name;
         foodNutrientObject.unit = this.possibleUnits[this.rowSelectedUnit].abbrev;
         foodNutrientObject.value = this.rowValue;
-        this.push('foodNutrients', foodNutrientObject);
+        if (this.mode === 'add') {
+          this.push('foodNutrients', foodNutrientObject);
+        }
+        else if (this.mode === 'edit') {
+          for (var i = 0; i < this.foodNutrients.length; i++) {
+            if (this.foodNutrients[i].nutrient_id === 
+                this.noiConcatPossibleNutrients[this.rowSelectedNutrient].id) {
+              this.set('foodNutrients.' + i, foodNutrientObject);
+            }
+          }
+        }
         this.rowSelectedNutrient = {};
         this.rowSelectedUnit = {};
         this.rowValue = null;
 
         // done; reset the page for the next nutrient
-        this.saveTheNewNutrient = false;
+        this.nutrientSaved = true; // back to default value
+        this.mode = 'none'; // back to default value
       }
     });
   </script>
