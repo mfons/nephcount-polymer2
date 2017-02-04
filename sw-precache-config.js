@@ -12,6 +12,9 @@ module.exports = {
     '/index.html',
     '/manifest.json',
     '/bower_components/webcomponentsjs/webcomponents-lite.min.js'
-  ],
-  navigateFallback: '/index.html'
+  ]
+  ,
+  navigateFallback: '/index.html',
+  navigateFallbackWhitelist: [ /^\/view1\//,/^\/view2\//,/^\/view3\//,/^\/custom-food\//,/^\/weight-entry\//,/^\/settings\// ]
+
 };
