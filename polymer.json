@@ -2,9 +2,9 @@
   "entrypoint": "index.html",
   "shell": "src/nephcount-main.html",
   "fragments": [
-    "src/my-view1.html",
-    "src/my-view2.html",
-    "src/my-view3.html",
+    "src/my-nutrientsofinterest.html",
+    "src/my-consumption.html",
+    "src/my-reporttotals.html",
     "src/my-view404.html",
     "src/nephcount-main.html",
       "src/my-custom-food.html",

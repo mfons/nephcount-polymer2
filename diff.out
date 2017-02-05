@@ -130,10 +130,10 @@ index d1ea8d8..e69de29 100644
 -         },
 -         _formatFoodNutrientsItem: function (item) {
 -             return item.nutrient + " " + item.value + " " + item.unit;
--diff --git a/src/my-view2.html b/src/my-view2.html
+-diff --git a/src/my-consumption.html b/src/my-consumption.html
 -index 16f9657..600390d 100644
----- a/src/my-view2.html
--+++ b/src/my-view2.html
+---- a/src/my-consumption.html
+-+++ b/src/my-consumption.html
 -@@ -150,7 +150,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 - 
 -           <paper-input name="measure" label="Serving size" readonly="true" value="[[measure]]"></paper-input>

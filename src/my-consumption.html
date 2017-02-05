@@ -45,7 +45,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
 
-<dom-module id="my-view2">
+<dom-module id="my-consumption">
   <template>
    <style is="custom-style" include="demo-pages-shared-styles paper-date-picker-dialog-style">
       :host {
@@ -202,7 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
     Polymer({
-      is: 'my-view2',
+      is: 'my-consumption',
       behaviors: [NephcountBehaviors.DateBehavior],
         properties: {
           selectedDate: Date,
@@ -321,7 +321,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
         },
         selectedFoodChanged: function(newObject,oldObject) {
-            console.log("my-view2:  selectedFood has changed: " + newObject);
+            console.log("my-consumption:  selectedFood has changed: " + newObject);
             if (typeof newObject === "undefined" || newObject === null) {
               return;
             }

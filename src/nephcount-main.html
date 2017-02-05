@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
-<link rel="import" href="my-view1.html">
+<link rel="import" href="my-nutrientsofinterest.html">
 <link rel="import" href="nephcount-login.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
 <!-- <link rel="import" href="../bower_components/polymerfire/firebase-query.html"> -->
@@ -97,9 +97,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <nephcount-login user="{{user}}"></nephcount-login>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation" id="nephIronSelector">
-          <a name="view1" href="/view1">Select Nutrients to Track</a>
-          <a name="view2" href="/view2">Enter Food/Fluid</a>
-          <a name="view3" href="/view3">Report Totals</a>
+          <a name="nutrientsofinterest" href="/nutrientsofinterest">Select Nutrients to Track</a>
+          <a name="consumption" href="/consumption">Enter Food/Fluid</a>
+          <a name="reporttotals" href="/reporttotals">Report Totals</a>
           <a name="custom-food" href="/custom-food">Define Custom Food</a>
           <a name="weight-entry" href="/weight-entry">Enter Daily Weight</a>
           <a name="settings" href="/settings" >Settings</a>
@@ -123,14 +123,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main" id="scrollableIronPages">
-          <my-view1 name="view1" selected-items="{{nutrientsOfInterest}}"
+          <my-nutrientsofinterest name="nutrientsofinterest" selected-items="{{nutrientsOfInterest}}"
                     saved-selected-items="{{savedNutrientsOfInterest}}"
-                    user="[[user]]"></my-view1>
-          <my-view2 name="view2" nutrients-of-interest="[[nutrientsOfInterest]]"
-                    user="[[user]]"></my-view2>
-          <my-view3 name="view3" active="[[view3BecomingActive(page)]]"
+                    user="[[user]]"></my-nutrientsofinterest>
+          <my-consumption name="consumption" nutrients-of-interest="[[nutrientsOfInterest]]"
+                    user="[[user]]"></my-consumption>
+          <my-reporttotals name="reporttotals" active="[[reporttotalsBecomingActive(page)]]"
                  nutrients-of-interest="[[savedNutrientsOfInterest]]"
-                    user="[[user]]"></my-view3>
+                    user="[[user]]"></my-reporttotals>
           <my-custom-food name="custom-food" user="[[user]]"></my-custom-food>
           <my-weight-entry name="weight-entry" user="[[user]]"></my-weight-entry>
           <my-settings name="settings"></my-settings>
@@ -170,7 +170,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           console.log(' in my-app, the chosen nutrients are ' + changeRecord.base);
       },
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+        this.page = page || 'nutrientsofinterest';
       },
       _goToSettings: function(event) {
         this.set('routeData.page', 'settings');
@@ -180,12 +180,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
         this.importHref(resolvedPageUrl, null, this._showPage404, true);
       },
-      view3BecomingActive: function(pg) {
-        var view3Active = false;
-        if (pg === 'view3') {
-            view3Active = true;
+      reporttotalsBecomingActive: function(pg) {
+        var reporttotalsActive = false;
+        if (pg === 'reporttotals') {
+            reporttotalsActive = true;
         }
-        return view3Active;
+        return reporttotalsActive;
       },
       _showPage404: function() {
         this.page = 'view404';
