@@ -103,7 +103,7 @@ get the nutrients under it to populate the "output"
       },
       restore: function() {
         // overridden function to keep the current record properties up to date
-        if (typeof this.noiConcatPossibleNutrients === 'undefined') {
+        if (typeof this.noiConcatPossibleNutrients === 'undefined' || this.mode !== 'edit') {
             return;
         }
         this.rowSelectedNutrientId = this.foodNutrients[this.currentRecordIndex].nutrient_id;
