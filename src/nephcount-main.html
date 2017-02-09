@@ -24,7 +24,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="my-nutrientsofinterest.html">
 <link rel="import" href="nephcount-login.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
-<!-- <link rel="import" href="../bower_components/polymerfire/firebase-query.html"> -->
 
 <dom-module id="nephcount-main">
   <template>
@@ -71,17 +70,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        id="auth"
        user="{{user}}">
     </firebase-auth>
-    <!-- <firebase-query
-    id="query"
-    path="/nutrients"
-    data="{{nutrients}}">
-    </firebase-query>
-    <firebase-query id="noiQuery"
-         order-by-child="name"
-         path="/users/[[user.uid]]/nutrientsOfInterest"
-         data="{{savedSelectedItems}}">
-     </firebase-query> -->
-
 
     <app-location route="{{route}}"></app-location>
     <app-route

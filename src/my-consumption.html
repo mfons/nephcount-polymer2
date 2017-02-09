@@ -13,31 +13,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../bower_components/paper-button/paper-button.html">
-  <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
-  <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
-  <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
-  <link rel="import" href="../bower_components/paper-input/paper-input.html">
-  <link rel="import" href="../bower_components/paper-item/paper-item.html">
-  <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
-  <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
-  <link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
   <link rel="import" href="../bower_components/paper-styles/color.html">
   <link rel="import" href="../bower_components/paper-styles/typography.html">
-  <link rel="import" href="../bower_components/iron-form/iron-form.html">
-  <link rel="import" href="../bower_components/iron-list/iron-list.html">
   <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
-  <link rel="import" href="../bower_components/paper-date-picker/paper-date-picker.html">
   <link rel="import" href="simple-element.html">
-  <link rel="import" href="nutrients-for-food-service.html">
-  <link rel="import" href="foods-by-text-search.html">
-  <link rel="import" href="../bower_components/paper-toggle-button/paper-toggle-button.html">
   <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
   <link rel="import" href="my-icons.html">
   <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
-  <link rel="import" href="nephcount-behaviors.html">
-  <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
-  <link rel="import" href="alter-food-nutrient-amounts.html">
+  <link rel="import" href="consumption-form.html">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -47,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <dom-module id="my-consumption">
   <template>
-   <style is="custom-style" include="demo-pages-shared-styles paper-date-picker-dialog-style">
+   <style is="custom-style" include="demo-pages-shared-styles">
       :host {
         display: block;
 
@@ -57,14 +40,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       margin-top: 20px;
       word-wrap: break-word;
       @apply(--paper-font-common-code);
-    }
-    paper-button, paper-icon-button, .shortField {
-      width: 45%;
-      margin-top: 20px;
-    }
-    paper-button:not([disabled]),  paper-icon-button:not([disabled]) {
-      background: var(--paper-light-blue-500);
-      color: white;
     }
     paper-fab.label {
         font-size: 20px;
@@ -80,40 +55,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     button {
       margin-top: 20px;
     }
-    paper-spinner {
-      width: 14px;
-      height: 14px;
-      margin-right: 20px;
-    }
-    paper-dropdown-menu {
-      display: block;
-
-    }
     demo-snippet {
       --demo-snippet-code: {
         max-height: 300px;
       };
     }
-    iron-list {
-      flex: 1 1 auto;
-    }
-       .pad {
-          padding: 0 16px;
-          @apply(--layout-flex);
-          @apply(--layout-horizontal);
-        }
      </style>
-
-     <nutrients-for-food-service food-id="[[foodId]]" food-name="[[foodName]]"
-            nutrients-of-interest="[[nutrientsOfInterest]]"
-            food-nutrients="{{foodNutrients}}"
-            custom-foods="[[customFoods]]">
-      </nutrients-for-food-service>
-
-      <foods-by-text-search text-search="[[textSearch]]" foods="{{foods}}"
-                            user="[[user]]" id="foodsByTextSearch"
-                            custom-foods="{{customFoods}}" is-standard-reference="[[isStandardReference]]">
-      </foods-by-text-search>
 
       <firebase-query id="consumptionsQuery"
                       start-at="[[todayStringStart]]"
@@ -135,65 +82,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       <div class="vertical-section-container centered">
      <h1>Enter Food/Fluid</h1>
-       <form is="iron-form" method="get" action="/" id="presubmit">
-          <paper-toggle-button checked="{{isStandardReference}}">
-              Use Standard Reference
-           </paper-toggle-button>
-          <paper-input id="foodFluidSearchStringId" name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required autocapitalize="off"></paper-input>
-          <paper-dropdown-menu required on-tap="_foodSelectionMenuTapped" label="Food/Fluid" id="foodSelectionMenu">
-            <paper-listbox class="dropdown-content" selected="{{selectedFood}}" id="foodSelectionListbox">
-             <template is="dom-repeat" items='[[foods]]' as="foodItem">
-                <paper-item>[[foodItem.name]]</paper-item>
-              </template>
-            </paper-listbox>
-          </paper-dropdown-menu>
-            <!-- usda api:  https://ndb.nal.usda.gov/ndb/doc/index -->
-            <!-- get a list of food groups:  https://api.nal.usda.gov/ndb/list?format=json&lt=g&sort=n&api_key=DEMO_KEY -->
-
-          <paper-input name="measure" label="Serving size" readonly="true" value="[[_getMeasure(foodNutrients.*)]]"></paper-input>
-          <paper-input name="weight" label="Weight in grams" readonly="true" value="[[_getWeight(foodNutrients.*)]]"></paper-input>
-          <paper-input name="multiplier" type="number" step="any" label="Multiplier" value="{{multiplier}}" required></paper-input>
-          <paper-input name="consumedGrams" label="Consumed grams" value="{{consumedGrams}}" required></paper-input>
-          <paper-icon-button icon="my-svg-icons:local-dining" raised onclick="_submit(event)" title="Consume"></paper-icon-button>
-          <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
-        </form>
-        <div class="card">
-          <h2>Nutrients Of Interest</h2>
-          <iron-list items="[[_getNutrientsFromFoodNutrients(foodNutrients.*)]]">
-            <template>
-              <div class="pad">
-                  <div>[[item.nutrient]]:&nbsp;&nbsp;</div>
-                  <div>[[_applyMultiplier(item.value, multiplier)]]&nbsp;</div>
-                  <div>[[item.unit]]</div>
-              </div>
-            </template>
-          </iron-list>
-
-            <paper-icon-button icon="my-svg-icons:edit" raised on-tap="_editNutrients">
-            </paper-icon-button>
-            <div class="pad">
-            <paper-input class="shortField" value="[[todayString]]" label="Report Date" placeholder="YYYY-MM-DD"></paper-input>
-           <paper-button class="btn" on-tap="_showChangeDateDialog" raised>Change Date</paper-button>
-         </div>
-           <paper-dialog id="changeDateDialog" class="paper-date-picker-dialog" on-iron-overlay-closed="_dismissChangeDateDialog">
-             <paper-date-picker id="picker" date="{{selectedDate}}"></paper-date-picker>
-             <div class="buttons">
-               <paper-button dialog-dismiss>Cancel</paper-button>
-               <paper-button dialog-confirm>OK</paper-button>
-             </div>
-           </paper-dialog>
-        </div>
-        <paper-dialog id="editConsumptionNutrientsDialog">
-          <alter-food-nutrient-amounts
-                food-nutrients="[[_getNutrientsFromFoodNutrients(foodNutrients.*)]]"
-                multiplier="[[multiplier]]"
-                altered-nutrients="{{alteredNutrients}}">
-          </alter-food-nutrient-amounts>
-          <div class="buttons">
-            <paper-button dialog-dismiss>Cancel</paper-button>
-            <paper-button dialog-confirm autofocus>Save Nutrients</paper-button>
-          </div>
-        </paper-dialog>
+       <consumption-form nutrients-of-interest="[[nutrientsOfInterest]]">
+       </consumption-form>
 
       </div>
   </template>
@@ -203,197 +93,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
       is: 'my-consumption',
-      behaviors: [NephcountBehaviors.DateBehavior],
         properties: {
-          selectedDate: Date,
-            isStandardReference: {
-                type: Boolean,
-                value: true
-            },
             drinks: Object,
-            nutrientsOfInterest: {
-                type: Array
-            },
-            foodNutrients: {
-                type: Object
-            },
-            textSearch: {
-                type: String,
-                value: "butter"
-            },
-            foods: {
-                type: Array
-            },
-            selectedFood: {
-                type: Object,
-                observer: 'selectedFoodChanged'
-            },
-            foodFluidSearchString: {
-                type: String,
-                observer: 'foodFluidSearchStringChanged'
-            },
-            foodId: String,
-            foodName: String,
-            measure: String,
-            weight: Number,
-            multiplier: Number,
-            consumedGrams: {
-                type:  Number,
-                computed: 'calculateConsumedGrams(weight, multiplier)'
-            },
-            consumptions: Array,
-            alteredNutrients: Array
+            nutrientsOfInterest: Array,
+            consumptions: Array
         },
-        observers: [
-            //  'foodNutrientsChanged(foodNutrients.*)',
-             'foodIdChanged(foodId)',
-             '_isStandardReferenceChanged(isStandardReference)'],
         listeners: {
-            'presubmit.iron-form-presubmit': 'myPreSubmit',
-            'presubmit.iron-form-submit': 'mySubmit',
-            'foodSelectionMenu.tap' : '_foodSelectionMenuTap',
-            'registerLiquidFab.tap':'_registerLiquid',
-            'editConsumptionNutrientsDialog.iron-overlay-closed': '_editConsumptionNutrientsDialogClosed'
-        },
-        myPreSubmit : function(event) {
-            event.preventDefault;
-             console.log("myPreSubmit() function executed");
-             this._consume();
-          },
-        mySubmit : function(event) {
-          },
-          _showChangeDateDialog: function() {
-              this.$.changeDateDialog.opened = true;
-          },
-          _dismissChangeDateDialog : function(event) {
-              if (event.detail.confirmed) {
-                this.todayString = this._formatLocalDate(this.$.picker.date).substring(0, 10);
-                this.todayStringStart = this.todayString + "T00:00:00";
-                this.todayStringEnd = this.todayString + "T23:59:59";
-              }
-          },
-        _isHistoric : function () {
-          if (this.todayString ===
-              this._formatLocalDate(new Date()).substring(0, 10)) {
-                return false;
-              }
-          return true;
-        },
-        printAsJson: function(jsonObject) {
-            return JSON.stringify(jsonObject);
-        },
-        _foodSelectionMenuTapped: function(event) {
-          this.selectedFood = null;  // no default value please
-        },
-        _getNutrientsFromFoodNutrients: function(changeRecord) {
-          if (changeRecord.base.length > 0) {
-            this.notifyPath('foodNutrients.0.nutrients');
-            return changeRecord.base[0].nutrients;
-          }
-          return [];
-        },
-        _editConsumptionNutrientsDialogClosed: function(event) {
-          if (event.detail.confirmed) {
-            // Alter alteredNutrients to have non-multiplied nutrient value.
-            for (var i = 0; i < this.alteredNutrients.length; i++) {
-              this.set('alteredNutrients.' + i + '.value', ((this.alteredNutrients[i].value === "--") ? "--" : this.alteredNutrients[i].value / this.multiplier));
-            }
-
-            // When alteredNutrients are changed then change foodNutrients
-            // as well.
-            this.splice('foodNutrients.0.nutrients', 0, this.foodNutrients[0].nutrients.length);
-            for (var i = 0; i < this.alteredNutrients.length; i++) {
-              this.push('foodNutrients.0.nutrients', this.alteredNutrients[i]);
-            }
-
-            // Force data system to pick up array mutations...
-            // Note:  I did this because I could not figure out how
-            // to refresh the screen any other way.  Generally this
-            // technique can be quite expensive, and should be avoided.
-            // Normal path notification techniques should be used first!
-            var fnArray = this.foodNutrients;
-            this.foodNutrients = [];
-            this.foodNutrients = fnArray;
-            // *********** end data system force *********** //
-          }
-          else if (event.detail.cancelled) {
-            // do nothing...
-          }
-        },
-        selectedFoodChanged: function(newObject,oldObject) {
-            console.log("my-consumption:  selectedFood has changed: " + newObject);
-            if (typeof newObject === "undefined" || newObject === null) {
-              return;
-            }
-            this.set('foodId',this.foods[newObject].ndbno);
-            this.set('foodName', this.foods[newObject].name);
-        },
-        foodFluidSearchStringChanged:  function (newString, oldString) {
-            this.set('textSearch', newString);
-        },
-        // foodNutrientsChanged: function(changeRecord) {
-        //     if (changeRecord.base.length > 0) {
-        //       this.set('measure', changeRecord.base[0].measure);
-        //       this.set('weight', changeRecord.base[0].weight);
-        //     }
-        // },
-        _getMeasure: function (changeRecord) {
-          if (changeRecord.base.length > 0) {
-            this.set('measure', changeRecord.base[0].measure);
-            return changeRecord.base[0].measure;
-          }
-        },
-        _getWeight: function (changeRecord) {
-          if (changeRecord.base.length > 0) {
-            this.set('weight', changeRecord.base[0].weight);
-            return changeRecord.base[0].weight;
-          }
-        },
-        calculateConsumedGrams: function(weight, multiplier) {
-            return weight * multiplier;
-        },
-        foodIdChanged: function(newObject, oldObject) {
-            console.log("foodIdChanged fired...");
-        },
-        _applyMultiplier:  function(nutrientValue, multiplier) {
-            if (nutrientValue === "--") {
-                return "[Value Not Available]";
-            }
-            return (nutrientValue * multiplier).toFixed(2);
-        },
-        _foodSelectionMenuTap: function(event) {
-            console.log('foodSelectionMenu focus occurred...');
-            this.$.foodsByTextSearch.mergeCustomAndUSDAFoods();
-            this.$.foodSelectionMenu.open();
-        },
-        _isStandardReferenceChanged : function(newValue, oldValue) {
-            console.log("isStandardReference value change from " + oldValue + " to " + newValue);
+            'registerLiquidFab.tap':'_registerLiquid'
         },
         _consume: function() {
-          var newObject = {
-              "name" : "example food3",
-              "ndbid" : "00002",
-              "nutrientsOfInterest" : [{
-                "value" : 0,
-                "name" : "example nutrient",
-                "nutrientId" : 0,
-                "uofm" : "oz"
-              }],
-              "measure" : "1 serving size",
-              "weight" : 15,
-              "multiplier" : 1,
-              "consumedGrams" : 15,
-              "consumedDate" : null
-            };
-          newObject.name = this.foods[this.selectedFood].name;
-          newObject.ndbid = this.foods[this.selectedFood].ndbno;
-          newObject.measure = this.measure;
-          newObject.weight = this.weight;
-          newObject.multiplier = this.multiplier;
-          newObject.consumedGrams = this.consumedGrams;
-          newObject.consumedDate = (this._isHistoric()) ? this.todayStringEnd : this._formatLocalDate(new Date());
-          newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
-            this.$.consumptionsQuery.ref.push(newObject);
+            // TODO catch thrown consume event and get newObject.  Then uncomment
+            // the following line
+            // this.$.consumptionsQuery.ref.push(newObject);
         },
         _registerLiquid: function(event) {
                 var found = false;
@@ -423,9 +134,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         },
         _assembleQueryConsumptionsPath:  function(newValue, oldValue) {
             return "/users/" + newValue + "/consumption";
-        },
-        _editNutrients: function(event) {
-          this.$.editConsumptionNutrientsDialog.opened = true;
         }
     });
 
