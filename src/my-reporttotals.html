@@ -24,7 +24,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/paper-styles/default-theme.html">
   <link rel="import" href="consumed-on-report-date.html">
   <link rel="import" href="nephcount-behaviors.html">
-  <link rel="import" href="../bower_components/app-storage/app-indexdb-mirror/app-indexdb-mirror.html">
+  <link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
 
 <dom-module id="my-reporttotals">
   <template>
@@ -63,10 +63,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     path="/users/[[user.uid]]/consumption"
     data="{{_consumption}}">
     </firebase-query>
-    <app-indexdb-mirror
+    <app-indexeddb-mirror
     data="{{_consumption}}" persisted-data="{{consumption}}"
     session="[[user.uid]]" key="consumption">
-    </app-indexdb-mirror>
+    </app-indexeddb-mirror>
 
     <firebase-query id="queryDrinks"
         start-at="[[todayString]]"
