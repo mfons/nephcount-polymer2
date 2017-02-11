@@ -99,12 +99,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             consumptions: Array
         },
         listeners: {
-            'registerLiquidFab.tap':'_registerLiquid'
+            'registerLiquidFab.tap':'_registerLiquid',
+            'just-eat-it': '_consume'
         },
-        _consume: function() {
-            // TODO catch thrown consume event and get newObject.  Then uncomment
+        _consume: function(event) {
+            // catch thrown consume event and get newObject.  Then uncomment
             // the following line
-            // this.$.consumptionsQuery.ref.push(newObject);
+           this.$.consumptionsQuery.ref.push(event.detail);
         },
         _registerLiquid: function(event) {
                 var found = false;

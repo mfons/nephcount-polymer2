@@ -250,7 +250,8 @@
         newObject.consumedGrams = this.consumedGrams;
         newObject.consumedDate = (this._isHistoric()) ? this.todayStringEnd : this._formatLocalDate(new Date());
         newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
-        // TODO fire an event holding new object
+        // fire an event holding new object
+        this.fire('just-eat-it', newObject);
       },
       _isHistoric : function () {
         if (this.todayString ===

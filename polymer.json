@@ -26,7 +26,8 @@
       "src/nephcount-behaviors.html",
       "src/my-icons.html",
       "src/my-app.html",
-      "src/alter-nutrients-set.html"
+      "src/alter-nutrients-set.html",
+      "src/consumption-form.html"
   ],
   "sourceGlobs": [
    "src/**/*",
