@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/paper-dialog-scrollable/paper-dialog-scrollable.html">
 <link rel="import" href="../bower_components/neon-animation/neon-animations.html">
 <link rel="import" href="shared-styles.html">
   <link rel="import" href="../bower_components/paper-input/paper-input.html">
@@ -102,8 +103,8 @@
         <paper-button id="editNutrientButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Edit Nutrients">
           <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit Nutrients
         </paper-button>
-        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openComponentDialog" title="Edit Components">
-          <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit A Component
+        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openComponentDialog" title="Add A Component">
+          <iron-icon icon="my-svg-icons:edit"></iron-icon>Add A Component
         </paper-button>
            <hr/>
           <paper-icon-button icon="my-svg-icons:done" raised onclick="_submit(event)" title="Done"></paper-icon-button>
@@ -122,6 +123,20 @@
                     <paper-icon-button on-tap="_goPriorNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
                     <paper-icon-button on-tap="_goNextNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button>
                   </div>
+        </paper-dialog>
+
+        <paper-dialog id="componentDialog">]
+          <paper-dialog-scrollable>
+            <consumption-form id="consumptionFormId"
+            nutrients-of-interest="[[nutrientsOfInterest]]">
+            </consumption-form>
+          </paper-dialog-scrollable>
+          <div class="buttons">
+            <paper-button dialog-dismiss>Cancel</paper-button>
+            <paper-button dialog-confirm autofocus>Save Components</paper-button>
+            <!-- <paper-icon-button on-tap="_goPriorNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
+            <paper-icon-button on-tap="_goNextNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button> -->
+          </div>
         </paper-dialog>
 
         <br/>
@@ -156,7 +171,7 @@
                             <div>made up of...</div>
                         </template>
                     <ul>
-                    <template is="dom-repeat" items="[[item.components]]" as="cfcItem">
+                    <template is="dom-repeat" items="[[_convertToArray(item.components)]]" as="cfcItem">
                         <li>
                             [[_formatCustomFoodComponentItem(cfcItem)]]
                         </li>
@@ -201,9 +216,28 @@
                 listeners: {
                     'theForm.iron-form-presubmit': '_myPreSubmit',
                     'theForm.iron-form-submit': '_mySubmit',
-                    'nutrientDialog.iron-overlay-closed': '_nutrientDialogClosed'
+                    'nutrientDialog.iron-overlay-closed': '_nutrientDialogClosed',
+                    'just-eat-it': '_addToComponents'
                 },
                 observers: [ '_userChanged(user.*)'],
+        _addToComponents: function(event) {
+            // catch thrown consume event and get newObject.  Then uncomment
+            // the following line
+           this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components').push(event.detail);
+           // TODO refresh the nutrients of interest for this custom food.
+        },
+        _convertToArray:  function(thing) {
+          if (typeof thing === 'undefined') return;
+          if (Object.prototype.toString.call( thing ) === '[object Array]') return thing;
+          var newArray = [];
+          for (var field in thing) {
+            if (thing.hasOwnProperty(field)) {
+              newArray.push(thing[field]);
+            }
+          }
+          return newArray;
+//          console.log("what is this thing?", thing);
+        },
         _goPriorNutrient: function (event) {
            this.$.alterNutrientsSetId.previousRecord();
         },
@@ -249,6 +283,16 @@
             }
             // else if (event.detail.cancelled) {
             // }
+        },
+        _openComponentDialog: function(event) {
+          var resolvedPageUrl = this.resolveUrl('consumption-form.html');
+          // if (event.target.id === 'addNutrientButton') {
+              this.importHref(resolvedPageUrl, function() {
+                 this.$.componentDialog.opened = true;
+              }, null, true);
+          // }
+          // after this gets loaded?
+       //   this.$.componentDialog.opened = true;
         },
         _openNutrientDialog: function(event) {
             var resolvedPageUrl = this.resolveUrl('alter-nutrients-set.html');
