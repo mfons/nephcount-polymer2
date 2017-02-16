@@ -131,8 +131,10 @@
   <script>
     Polymer({
       is: 'consumption-form',
-      behaviors: [NephcountBehaviors.DateBehavior],
+      behaviors: [NephcountBehaviors.DateBehavior,
+        NephcountBehaviors.MultiRecordEditBehavior],
       properties: {
+        todayString: String,
         nutrientsOfInterest: Array,
         foodNutrients: Object,
         alteredNutrients: Array,
@@ -181,6 +183,28 @@
            this._consume();
         },
       mySubmit : function(event) {
+      },
+      restore: function() {
+        // overridden function to keep the current record properties up to date
+        if (typeof this.noiConcatPossibleNutrients === 'undefined' || this.mode !== 'edit') {
+            return;
+        }
+        this.rowSelectedNutrientId = this.foodNutrients[this.currentRecordIndex].nutrient_id;
+        this.rowSelectedNutrientName = this.foodNutrients[this.currentRecordIndex].nutrient;
+        for (var i = 0; i < this.noiConcatPossibleNutrients.length; i++) {
+            if (this.rowSelectedNutrientName === this.noiConcatPossibleNutrients[i].name) {
+                this.rowSelectedNutrient = i;
+                break;
+            }
+        }
+        this.rowValue = this.foodNutrients[this.currentRecordIndex].value;
+        this.rowSelectedUnitName = this.foodNutrients[this.currentRecordIndex].unit;
+        for (var i = 0; i < this.possibleUnits.length; i++) {
+            if (this.rowSelectedUnitName === this.possibleUnits[i].abbrev) {
+                this.rowSelectedUnit = i;
+                break;
+            }
+        }
       },
       foodFluidSearchStringChanged:  function (newString, oldString) {
           this.set('textSearch', newString);

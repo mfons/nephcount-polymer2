@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-auth.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
-<link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+<!-- <link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html"> -->
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-slider/paper-slider.html">
@@ -27,7 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/paper-styles/default-theme.html">
   <link rel="import" href="consumed-on-report-date.html">
   <link rel="import" href="nephcount-behaviors.html">
- 
+
 <dom-module id="my-reporttotals">
   <template>
     <style is="custom-style" include="shared-styles     paper-date-picker-dialog-style">
@@ -63,12 +63,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     start-at="[[todayStringStart]]"
     end-at="[[todayStringEnd]]"
     path="/users/[[user.uid]]/consumption"
-    data="{{_consumption}}">
+    data="{{consumption}}">
     </firebase-query>
-    <app-indexeddb-mirror
+    <!-- <app-indexeddb-mirror
     data="{{_consumption}}" persisted-data="{{consumption}}"
     session="[[user.uid]]" key="consumption">
-    </app-indexeddb-mirror>
+    </app-indexeddb-mirror> -->
 
     <firebase-query id="queryDrinks"
         start-at="[[todayString]]"
@@ -121,6 +121,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       is: 'my-reporttotals',
       behaviors:[NephcountBehaviors.DateBehavior],
         properties: {
+          todayStringStart: String,
+          todayStringEnd: String,
+          drinks: Array,
             selectedDate: {
                 type: Date
             },

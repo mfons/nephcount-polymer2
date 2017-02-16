@@ -97,15 +97,31 @@
           </template>
         </iron-list>
 
-        <paper-button id="addNutrientButton" raised on-tap="_openNutrientDialog" title="Add A Nutrient">
-          <iron-icon icon="my-svg-icons:add"></iron-icon>Add A Nutrient
-        </paper-button>
-        <paper-button id="editNutrientButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Edit Nutrients">
-          <iron-icon icon="my-svg-icons:edit"></iron-icon>Edit Nutrients
-        </paper-button>
-        <paper-button  hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openComponentDialog" title="Add A Component">
-          <iron-icon icon="my-svg-icons:edit"></iron-icon>Add A Component
-        </paper-button>
+        <paper-toolbar>
+         <span class="title">Nutrient Actions</span>
+        <paper-icon-button icon="my-svg-icons:add" id="addNutrientButton" raised on-tap="_openNutrientDialog" title="Add A Nutrient">
+        </paper-icon-button>
+        <paper-icon-button icon="my-svg-icons:edit" id="editNutrientButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openNutrientDialog" title="Edit Nutrients">
+        </paper-icon-button>
+      </paper-toolbar>
+
+        <br/>
+          <iron-selector multi selected-values="{{selectedComponents}}">
+          <template is="dom-repeat"  items="[[_convertToArray(components)]]">
+              <paper-material elevation="2">
+                  [[_formatComponentsItem(item)]]
+              </paper-material>
+          </template>
+        </iron-selector>
+
+      <paper-toolbar>
+       <span class="title">Component Actions</span>
+        <paper-icon-button icon="my-svg-icons:add" id="addComponentButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_openComponentDialog" title="Add A Component">
+        </paper-icon-button>
+        <paper-icon-button icon="my-svg-icons:delete" id="deleteComponentsButton" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" raised on-tap="_deleteSelectedComponents" title="Delete Components">
+        </paper-icon-button>
+      </paper-toolbar>
+
            <hr/>
           <paper-icon-button icon="my-svg-icons:done" raised onclick="_submit(event)" title="Done"></paper-icon-button>
           <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
@@ -134,8 +150,8 @@
           <div class="buttons">
             <paper-button dialog-dismiss>Cancel</paper-button>
             <paper-button dialog-confirm autofocus>Save Components</paper-button>
-            <!-- <paper-icon-button on-tap="_goPriorNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
-            <paper-icon-button on-tap="_goNextNutrient" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button> -->
+            <paper-icon-button on-tap="_goPriorComponent" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
+            <paper-icon-button on-tap="_goNextComponent" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button>
           </div>
         </paper-dialog>
 
@@ -211,12 +227,14 @@
                 type: Array,
                 value: []
             },
-            selectedCustomFoods: Array
+            selectedCustomFoods: Array,
+            components: Array
         } ,
                 listeners: {
                     'theForm.iron-form-presubmit': '_myPreSubmit',
                     'theForm.iron-form-submit': '_mySubmit',
                     'nutrientDialog.iron-overlay-closed': '_nutrientDialogClosed',
+                    'componentDialog.iron-overlay-closed': '_componentDialogClosed',
                     'just-eat-it': '_addToComponents'
                 },
                 observers: [ '_userChanged(user.*)'],
@@ -242,6 +260,12 @@
         },
         _goNextNutrient:  function (event) {
            this.$.alterNutrientsSetId.nextRecord();
+        },
+        _goPriorComponent: function (event) {
+           this.$.consumptionFormId.previousConsumptionRecord();
+        },
+        _goNextComponent:  function (event) {
+           this.$.consumptionFormId.nextConsumptionRecord();
         },
         _myPreSubmit : function(event) {
             event.preventDefault;
@@ -283,15 +307,25 @@
             // else if (event.detail.cancelled) {
             // }
         },
+        _componentDialogClosed: function(event) {
+          if (event.detail.confirmed) {
+            //this.$.alterNutrientsSetId.nutrientSaved = false; // save occurs when you set this boolean to false
+          }
+          // else if (event.detail.cancelled) {
+          // }
+        },
         _openComponentDialog: function(event) {
           var resolvedPageUrl = this.resolveUrl('consumption-form.html');
-          // if (event.target.id === 'addNutrientButton') {
+          if (event.target.id === 'addComponentButton') {
               this.importHref(resolvedPageUrl, function() {
                  this.$.componentDialog.opened = true;
               }, null, true);
-          // }
-          // after this gets loaded?
-       //   this.$.componentDialog.opened = true;
+          } else if (event.target.id === 'deleteComponentsButton') {
+              this.importHref(resolvedPageUrl, function() {
+
+                 this.$.componentDialog.opened = true;
+              }, null, true);
+          }
         },
         _openNutrientDialog: function(event) {
             var resolvedPageUrl = this.resolveUrl('alter-nutrients-set.html');
@@ -310,6 +344,9 @@
         },
         _formatFoodNutrientsItem: function (item) {
             return item.nutrient + " " + item.value + " " + item.unit;
+        },
+        _formatComponentsItem: function (item) {
+            return "qty " + item.multiplier + " of " + item.measure + " of " + item.name;
         },
         _formatCustomFoodItem: function(item) {
             return item.measure + " of " + item.name + " weighing " + item.weight + " gm";
@@ -352,6 +389,23 @@
           }
           this.selectedCustomFoods = []; // deselect everything
         },
+        _deleteSelectedComponents: function(event) {
+          for (var i = 0; i < this.selectedComponents.length; i++ ) {
+            var editRef =
+            this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components');
+            editRef.once('value', function(snapshot) {
+              var count = 0;
+              snapshot.forEach(function(child) {
+                if (count == this) {
+                  console.log('Removing child '+child.key);
+                  child.ref.remove();
+                }
+                count = count + 1;
+              }.bind(this));
+            }.bind(this.selectedComponents[i]));
+          }
+          this.selectedComponents = []; // deselect everything
+        },
         _editSelectedCustomFoods: function(event) {
           if (typeof this.selectedCustomFoods.length != "undefined" &&
                                     this.selectedCustomFoods.length > 0) {
@@ -363,6 +417,9 @@
               this.weight = snapshot.val().weight;
               this.foodNutrients = snapshot.val().nutrients;
                this.customFoodKey = snapshot.key;
+               if (typeof snapshot.val().components !== 'undefined') {
+                 this.components = snapshot.val().components;
+               }
             }.bind(this));
             this.selectedCustomFoods = [];
           }
