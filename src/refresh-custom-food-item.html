@@ -87,14 +87,15 @@ return newCustomFood											 -->
         var refreshedCustomFoodItem = {};
         if (originalCustomFoodItem != null &&
             !this.isManuallyDefinedCustomFood(originalCustomFoodItem)) {
-            for(var i = 0; i < originalCustomFoodItem.components.length; i++) {
-              var comp = originalCustomFoodItem.components[i];
+            var componentsArray = this._convertToArray(originalCustomFoodItem.components);
+            for(var i = 0; i < componentsArray.length; i++) {
+              var comp = componentsArray[i];
               if (this.isUSDA(comp)) {
                 this.customFoodItemsRefreshQueue.push({
                   customFoodKey: originalCustomFoodItem.$key,
-                  componentIndex:  i,
-                  componentName: originalCustomFoodItem.components[i].name,
-                  componentNdbno: originalCustomFoodItem.components[i].ndbno
+                  componentKey:  (typeof componentsArray[i].componentKey === "undefined") ? i : componentsArray[i].componentKey ,
+                  componentName: componentsArray[i].name,
+                  componentNdbno: componentsArray[i].ndbid //no? id?
                 });
                 this.foodId = comp.ndbid;
                 this.foodName = comp.name; // Just adding this to trigger on changed listener in nffs.
@@ -104,6 +105,18 @@ return newCustomFood											 -->
               }
             }
           }
+      },
+      _convertToArray:  function(thing) {
+        if (typeof thing === 'undefined') return;
+        if (Object.prototype.toString.call( thing ) === '[object Array]') return thing;
+        var newArray = [];
+        for (var field in thing) {
+          if (thing.hasOwnProperty(field)) {
+            thing[field].componentKey = field;
+            newArray.push(thing[field]);
+          }
+        }
+        return newArray;
       },
       isUSDA: function (comp) {
         return comp.ndbid !== "-1";
@@ -117,10 +130,10 @@ return newCustomFood											 -->
             var componentUpdateRef = this.$.customFoodQuery.ref.child(
               this.customFoodItemsRefreshQueue[i].customFoodKey).
               child('components').
-              child(this.customFoodItemsRefreshQueue[i].componentIndex);
+              child(this.customFoodItemsRefreshQueue[i].componentKey);
             if (changeRecord.base[0].name ===
               this.customFoodItemsRefreshQueue[i].componentName &&
-              changeRecord.base[0].ndbid ===
+              changeRecord.base[0].ndbno ===
               this.customFoodItemsRefreshQueue[i].componentNdbno) {
                 componentUpdateRef.update({
                     nutrientsOfInterest: changeRecord.base[0].nutrients
@@ -138,7 +151,7 @@ return newCustomFood											 -->
             if (uniqueKeysOfCustomFoodsToUpdate.hasOwnProperty(customFoodKey)) {
               var customFoodRef = this.$.customFoodQuery.ref.child(customFoodKey);
               customFoodRef.once('value', function(snapshot) {
-                var consumptions = snapshot.child('components').val();
+                var consumptions = this._convertToArray(snapshot.child('components').val());
                 var nutrientsArray =
                     this._aggregateConsumptionsToNutrientUsages(consumptions);
                 snapshot.child('nutrients').ref.set(nutrientsArray);
