@@ -206,6 +206,7 @@
   <script>
     Polymer({
       is: 'my-custom-food',
+      behaviors: [NephcountBehaviors.DataBehavior],
         properties: {
             user: Object ,
             customFood: {
@@ -242,17 +243,6 @@
             // catch thrown consume event and get newObject.  Then uncomment
             // the following line
            this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components').push(event.detail);
-        },
-        _convertToArray:  function(thing) {
-          if (typeof thing === 'undefined') return;
-          if (Object.prototype.toString.call( thing ) === '[object Array]') return thing;
-          var newArray = [];
-          for (var field in thing) {
-            if (thing.hasOwnProperty(field)) {
-              newArray.push(thing[field]);
-            }
-          }
-          return newArray;
         },
         _goPriorNutrient: function (event) {
            this.$.alterNutrientsSetId.previousRecord();
@@ -401,28 +391,14 @@
           this.selectedCustomFoods = []; // deselect everything
         },
         _deleteSelectedComponents: function(event) {
+          var refArrToDelete = [];
           for (var i = 0; i < this.selectedComponents.length; i++ ) {
-            var editRef =
-            this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components');
-            editRef.once('value', function(snapshot) {
-              var count = 0;
-              snapshot.forEach(function(child) {
-                if (count == this) {
-                  console.log('Removing child '+child.key);
-                  child.ref.remove();
-                }
-                count = count + 1;
-              }.bind(this));
-            }.bind(this.selectedComponents[i]));
+              var keyToDelete = this._convertToArray(this.components)[this.selectedComponents[i]].key;
+              refArrToDelete.push(this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components').child(keyToDelete));
           }
-          // TODO You can uncomment the below when you figure out
-          // how to deal with the fact that by the time the refresh gets
-          // to actually refreshing that custom food, one of its expected
-          // (enqueued?) components is missing...I think?  That explaination
-          // seems to sort of match the firebase errors that ensue, as
-          // the refresh is attempted.  Maybe I am trying to refer to the
-          // deleted component by key.  But if so, how to fix this...do surgery
-          // on the queue??  Refresh the queue?  Something else??
+          for (var i = 0; i < refArrToDelete.length; i++) {
+              refArrToDelete[i].remove();
+          }
           this._refreshCustomFoodByCurrentKey();
 
           this.selectedComponents = []; // deselect everything

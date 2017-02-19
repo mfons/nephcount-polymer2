@@ -74,6 +74,18 @@ NephcountBehaviors.MultiRecordEditBehavior = {
 };
 
 NephcountBehaviors.DataBehavior = {
+  _convertToArray:  function(thing) {
+    if (typeof thing === 'undefined') return;
+    if (Object.prototype.toString.call( thing ) === '[object Array]') return thing;
+    var newArray = [];
+    for (var field in thing) {
+      if (thing.hasOwnProperty(field)) {
+          thing[field].key = field;
+        newArray.push(thing[field]);
+      }
+    }
+    return newArray;
+  },
   _aggregateConsumptionsToNutrientUsages: function(consumptions) {
     var nutrientsArray = [];
     for (var i = 0; i < consumptions.length; i++) {

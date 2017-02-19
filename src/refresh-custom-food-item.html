@@ -93,7 +93,7 @@ return newCustomFood											 -->
               if (this.isUSDA(comp)) {
                 this.customFoodItemsRefreshQueue.push({
                   customFoodKey: originalCustomFoodItem.$key,
-                  componentKey:  (typeof componentsArray[i].componentKey === "undefined") ? i : componentsArray[i].componentKey ,
+                  componentKey:  (typeof componentsArray[i].key === "undefined") ? i : componentsArray[i].key ,
                   componentName: componentsArray[i].name,
                   componentNdbno: componentsArray[i].ndbid //no? id?
                 });
@@ -105,18 +105,6 @@ return newCustomFood											 -->
               }
             }
           }
-      },
-      _convertToArray:  function(thing) {
-        if (typeof thing === 'undefined') return;
-        if (Object.prototype.toString.call( thing ) === '[object Array]') return thing;
-        var newArray = [];
-        for (var field in thing) {
-          if (thing.hasOwnProperty(field)) {
-            thing[field].componentKey = field;
-            newArray.push(thing[field]);
-          }
-        }
-        return newArray;
       },
       isUSDA: function (comp) {
         return comp.ndbid !== "-1";
@@ -152,8 +140,11 @@ return newCustomFood											 -->
               var customFoodRef = this.$.customFoodQuery.ref.child(customFoodKey);
               customFoodRef.once('value', function(snapshot) {
                 var consumptions = this._convertToArray(snapshot.child('components').val());
+                var consumptionsWithoutPartiallyDeletedElements = consumptions.filter(function(el) {
+                	return typeof el.multiplier !== "undefined";
+                });
                 var nutrientsArray =
-                    this._aggregateConsumptionsToNutrientUsages(consumptions);
+                    this._aggregateConsumptionsToNutrientUsages(consumptionsWithoutPartiallyDeletedElements);
                 snapshot.child('nutrients').ref.set(nutrientsArray);
               }.bind(this));
             }
