@@ -242,7 +242,6 @@
             // catch thrown consume event and get newObject.  Then uncomment
             // the following line
            this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components').push(event.detail);
-           // TODO refresh the nutrients of interest for this custom food.
         },
         _convertToArray:  function(thing) {
           if (typeof thing === 'undefined') return;
@@ -307,9 +306,21 @@
             // else if (event.detail.cancelled) {
             // }
         },
+        _refreshCustomFoodByCurrentKey: function() {
+          for (var i = 0; i < this.customFood.length; i++) {
+            if (this.customFood[i].$key === this.customFoodKey) {
+              var recalculateThis = this.customFood[i];
+              var recalculatedCustomFoodItem =
+                this.$.refreshCustomFoodItemComponent.
+                refreshCustomFoodItem(recalculateThis);
+            }
+          }
+        },
         _componentDialogClosed: function(event) {
           if (event.detail.confirmed) {
-            //this.$.alterNutrientsSetId.nutrientSaved = false; // save occurs when you set this boolean to false
+            // refresh custom food item
+            this._refreshCustomFoodByCurrentKey();
+            this.selectedComponents = []; // deselect everything
           }
           // else if (event.detail.cancelled) {
           // }
@@ -404,6 +415,16 @@
               }.bind(this));
             }.bind(this.selectedComponents[i]));
           }
+          // TODO You can uncomment the below when you figure out
+          // how to deal with the fact that by the time the refresh gets
+          // to actually refreshing that custom food, one of its expected
+          // (enqueued?) components is missing...I think?  That explaination
+          // seems to sort of match the firebase errors that ensue, as
+          // the refresh is attempted.  Maybe I am trying to refer to the
+          // deleted component by key.  But if so, how to fix this...do surgery
+          // on the queue??  Refresh the queue?  Something else??
+          this._refreshCustomFoodByCurrentKey();
+
           this.selectedComponents = []; // deselect everything
         },
         _editSelectedCustomFoods: function(event) {
