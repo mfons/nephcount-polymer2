@@ -61,7 +61,7 @@ data="[[_weightsChanged(weights.*)]]"
             <div id="weights">
               <div id="scrollingRegion">
                 <ul id="weights-list">
-                    <template is="dom-repeat" items="[[weights]]" as="weight">
+                    <template is="dom-repeat" items="[[weights]]" as="weight" initial-count="10">
                         <li>
                             <p class="content">On [[weight.theDate]] started: [[weight.weight]] lbs - end: [[weight.endWeight]] lbs </p>
                         </li>

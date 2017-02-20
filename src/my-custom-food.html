@@ -107,7 +107,7 @@
 
         <br/>
           <iron-selector multi selected-values="{{selectedComponents}}">
-          <template is="dom-repeat"  items="[[_convertToArray(components)]]">
+          <template is="dom-repeat"  items="[[_convertToArray(components)]]" initial-count="10">
               <paper-material elevation="2">
                   [[_formatComponentsItem(item)]]
               </paper-material>
@@ -123,8 +123,8 @@
       </paper-toolbar>
 
            <hr/>
-          <paper-icon-button icon="my-svg-icons:done" raised onclick="_submit(event)" title="Done"></paper-icon-button>
-          <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
+          <paper-icon-button icon="my-svg-icons:done" raised on-tap="_submit" title="Done"></paper-icon-button>
+          <paper-icon-button icon="my-svg-icons:clear" raised on-tap="_reset" title="Reset"></paper-icon-button>
         </form>
 
         <paper-dialog id="nutrientDialog">
@@ -141,7 +141,7 @@
                   </div>
         </paper-dialog>
 
-        <paper-dialog id="componentDialog">]
+        <paper-dialog id="componentDialog">
           <paper-dialog-scrollable>
             <consumption-form id="consumptionFormId"
             nutrients-of-interest="[[nutrientsOfInterest]]">
@@ -150,8 +150,8 @@
           <div class="buttons">
             <paper-button dialog-dismiss>Cancel</paper-button>
             <paper-button dialog-confirm autofocus>Save Components</paper-button>
-            <paper-icon-button on-tap="_goPriorComponent" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
-            <paper-icon-button on-tap="_goNextComponent" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button>
+            <!-- <paper-icon-button on-tap="_goPriorComponent" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-left"></paper-icon-button>
+            <paper-icon-button on-tap="_goNextComponent" hidden$="[[!_isCustomFoodKey(customFoodKey)]]" icon="my-svg-icons:chevron-right"></paper-icon-button> -->
           </div>
         </paper-dialog>
 
@@ -174,7 +174,7 @@
 
         <div id="scrollingRegion">
           <iron-selector multi selected-values="{{selectedCustomFoods}}">
-            <template is="dom-repeat" items="[[customFood]]">
+            <template is="dom-repeat" items="[[customFood]]" initial-count="10">
                 <paper-material elevation="2">
                     [[_formatCustomFoodItem(item)]]
                     <ul>
@@ -229,7 +229,11 @@
                 value: []
             },
             selectedCustomFoods: Array,
-            components: Array
+            components: Array,
+            _componentsToAdd: {
+              type: Array,
+              value: []
+            }
         } ,
                 listeners: {
                     'theForm.iron-form-presubmit': '_myPreSubmit',
@@ -242,7 +246,7 @@
         _addToComponents: function(event) {
             // catch thrown consume event and get newObject.  Then uncomment
             // the following line
-           this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components').push(event.detail);
+            this._componentsToAdd.push(event.detail);
         },
         _goPriorNutrient: function (event) {
            this.$.alterNutrientsSetId.previousRecord();
@@ -308,12 +312,17 @@
         },
         _componentDialogClosed: function(event) {
           if (event.detail.confirmed) {
+            for (var i = 0; i < this._componentsToAdd.length; i++) {
+              this.$.customFoodQuery.ref.child(this.customFoodKey).child('/components').push(this._componentsToAdd[i]);
+            }
             // refresh custom food item
             this._refreshCustomFoodByCurrentKey();
             this.selectedComponents = []; // deselect everything
+            this._componentsToAdd = [];          
           }
-          // else if (event.detail.cancelled) {
-          // }
+          else if (event.detail.cancelled) {
+            this._componentsToAdd = [];          
+          }
         },
         _openComponentDialog: function(event) {
           var resolvedPageUrl = this.resolveUrl('consumption-form.html');
@@ -423,17 +432,20 @@
         },
         _isCustomFoodKey: function() {
           return this.customFoodKey.length > 0;
+        },
+        _submit: function   (event) {
+           Polymer.dom(event).localTarget.parentElement.submit();
+           this._reset(event);
+        },
+       _reset: function  (event) {
+            var form = Polymer.dom(event).localTarget.parentElement
+            form.reset();
+            this.foodNutrients = [];
+            this.components = {};
         }
     });
 
 
-        function _submit  (event) {
-           Polymer.dom(event).localTarget.parentElement.submit();
-        };
-       function _reset (event) {
-            var form = Polymer.dom(event).localTarget.parentElement
-            form.reset();
-        };
 
   </script>
 </dom-module>

@@ -26,7 +26,7 @@ get the nutrients under it to populate the "output"
     <h2>Nutrients</h2>
     <paper-dropdown-menu required label="Nutrient" >
       <paper-listbox class="dropdown-content" selected="{{rowSelectedNutrient}}">
-       <template is="dom-repeat" items='[[_concatNOIWithPossibleNutrients(nutrientsOfInterest.*, possibleNutrients.*)]]' as="possibleNutrient">
+       <template is="dom-repeat" items='[[_concatNOIWithPossibleNutrients(nutrientsOfInterest.*, possibleNutrients.*)]]' as="possibleNutrient" initial-count="10">
           <paper-item>[[possibleNutrient.name]]</paper-item>
         </template>
       </paper-listbox>
@@ -139,7 +139,7 @@ get the nutrients under it to populate the "output"
         }
         else if (this.mode === 'edit') {
           for (var i = 0; i < this.foodNutrients.length; i++) {
-            if (this.foodNutrients[i].nutrient_id === 
+            if (this.foodNutrients[i].nutrient_id ===
                 this.noiConcatPossibleNutrients[this.rowSelectedNutrient].id) {
               this.set('foodNutrients.' + i, foodNutrientObject);
             }

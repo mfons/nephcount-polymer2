@@ -72,7 +72,7 @@
        <paper-input id="foodFluidSearchStringId" name="foodFluidSearch" label="Search Food/Fluid" value="{{foodFluidSearchString}}" required autocapitalize="off"></paper-input>
        <paper-dropdown-menu required on-tap="_foodSelectionMenuTapped" label="Food/Fluid" id="foodSelectionMenu">
          <paper-listbox class="dropdown-content" selected="{{selectedFood}}" id="foodSelectionListbox">
-          <template is="dom-repeat" items='[[foods]]' as="foodItem">
+          <template is="dom-repeat" items='[[foods]]' as="foodItem" initial-count="10">
              <paper-item>[[foodItem.name]]</paper-item>
            </template>
          </paper-listbox>
@@ -84,8 +84,8 @@
        <paper-input name="weight" label="Weight in grams" readonly="true" value="[[_getWeight(foodNutrients.*)]]"></paper-input>
        <paper-input name="multiplier" type="number" step="any" label="Multiplier" value="{{multiplier}}" required></paper-input>
        <paper-input name="consumedGrams" label="Consumed grams" value="{{consumedGrams}}" required></paper-input>
-       <paper-icon-button icon="my-svg-icons:local-dining" raised onclick="_submit(event)" title="Consume"></paper-icon-button>
-       <paper-icon-button icon="my-svg-icons:clear" raised onclick="_reset(event)" title="Reset"></paper-icon-button>
+       <paper-icon-button icon="my-svg-icons:local-dining" raised on-tap="_submit" title="Consume"></paper-icon-button>
+       <paper-icon-button icon="my-svg-icons:clear" raised on-tap="_reset" title="Reset"></paper-icon-button>
      </form>
 
      <div class="card">
@@ -336,7 +336,15 @@
       },
       foodIdChanged: function(newObject, oldObject) {
           console.log("foodIdChanged fired...");
-      }
+      },
+        _submit: function   (event) {
+           Polymer.dom(event).localTarget.parentElement.submit();
+           this._reset(event);
+        },
+       _reset: function  (event) {
+            var form = Polymer.dom(event).localTarget.parentElement
+            form.reset();
+        }
     });
   </script>
 </dom-module>

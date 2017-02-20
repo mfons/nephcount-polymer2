@@ -81,7 +81,7 @@ This element provides a list of consumed  items and relevant information thereab
       <div id="scrollingRegion">
         <iron-selector multi selected-values="{{selectedConsumedValues}}">
             <template id="consumedOnReportDateDomRepeatTemplate" is="dom-repeat"
-            items="[[_consumptionOrDateChanged(consumption.*, todayString)]]" >
+            items="[[_consumptionOrDateChanged(consumption.*, todayString)]]" initial-count="10">
                 <paper-material elevation="2">
                     <summary-item input-item="[[item]]" match-string="[[todayString]]"></summary-item>
                 </paper-material>
