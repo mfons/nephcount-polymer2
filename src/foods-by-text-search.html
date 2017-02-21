@@ -76,18 +76,21 @@
            ,
         mergeCustomAndUSDAFoods: function() {
             console.log("customFoods has changed...");
-            if (this.customFoods.length > 0 &&
-               this.foods.length > 0 &&
-               this.textSearch.length > 0) {
-                while (this.foods[0].ndbno === "-1") {
-                    this.shift('foods');
-                }
-                for (var i = 0; i < this.customFoods.length; i++) {
-                    if (this.customFoods[i].name.toUpperCase().indexOf(this.textSearch.toUpperCase()) > -1){
-                        this.unshift('foods', this.customFoods[i]);
+            this.$.query.syncToMemory(function () {
+                console.log("in syncToMemory...");
+                if (this.customFoods.length > 0 &&
+                   this.foods.length > 0 &&
+                   this.textSearch.length > 0) {
+                    while (this.foods[0].ndbno === "-1") {
+                        this.shift('foods');
+                    }
+                    for (var i = 0; i < this.customFoods.length; i++) {
+                        if (this.customFoods[i].name.toUpperCase().indexOf(this.textSearch.toUpperCase()) > -1){
+                            this.unshift('foods', this.customFoods[i]);
+                        }
                     }
                 }
-            }
+            }.bind(this));
         },
         _isStandardReferenceChanged:  function(newValue, oldValue) {
             if (newValue) {
