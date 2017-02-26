@@ -37,7 +37,14 @@ NephcountBehaviors.DateBehavior = {
               + ':' + pad(now.getSeconds())
               + dif + pad(tzo / 60)
               + ':' + pad(tzo % 60);
-  }
+  },
+  _isHistoric : function (myDateString) {
+    if (myDateString.substring(0, 10) ===
+        this._formatLocalDate(new Date()).substring(0, 10)) {
+          return false;
+        }
+    return true;
+  },
 };
 
 NephcountBehaviors.MultiRecordEditBehavior = {

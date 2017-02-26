@@ -272,17 +272,10 @@
         newObject.weight = this.weight;
         newObject.multiplier = this.multiplier;
         newObject.consumedGrams = this.consumedGrams;
-        newObject.consumedDate = (this._isHistoric()) ? this.todayStringEnd : this._formatLocalDate(new Date());
+        newObject.consumedDate = (this._isHistoric(this.todayString)) ? this.todayStringEnd : this._formatLocalDate(new Date());
         newObject.nutrientsOfInterest = this.foodNutrients[0].nutrients;
         // fire an event holding new object
         this.fire('just-eat-it', newObject);
-      },
-      _isHistoric : function () {
-        if (this.todayString ===
-            this._formatLocalDate(new Date()).substring(0, 10)) {
-              return false;
-            }
-        return true;
       },
       printAsJson: function(jsonObject) {
           return JSON.stringify(jsonObject);

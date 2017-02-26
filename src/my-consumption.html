@@ -20,6 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="../bower_components/iron-icon/iron-icon.html">
   <link rel="import" href="my-icons.html">
   <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
   <link rel="import" href="consumption-form.html">
 
     <meta charset="utf-8">
@@ -86,6 +87,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        </consumption-form>
 
       </div>
+
+      <paper-toast id="historyToast" text="Historic Consumption!" duration="2000"></paper-toast>
+
   </template>
 
   <script>
@@ -93,6 +97,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     Polymer({
       is: 'my-consumption',
+      behaviors: [NephcountBehaviors.DateBehavior],
         properties: {
             drinks: Object,
             nutrientsOfInterest: Array,
@@ -103,8 +108,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             'just-eat-it': '_consume'
         },
         _consume: function(event) {
-            // catch thrown consume event and get newObject.  Then uncomment
-            // the following line
+           if (this._isHistoric(event.detail.consumedDate)) {
+             this.$.historyToast.opened = true;
+           }
            this.$.consumptionsQuery.ref.push(event.detail);
         },
         _registerLiquid: function(event) {
@@ -137,18 +143,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             return "/users/" + newValue + "/consumption";
         }
     });
-
-//        function _submit  (event) {
-//            Polymer.dom(event).localTarget.parentElement.submit();
-//            _reset(event);
-//            console.log("_submit function executed");
-//         };
-//        function _reset (event) {
-//             var form = Polymer.dom(event).localTarget.parentElement
-//             form.reset();
-//             //form.querySelector('.output').innerHTML = '';
-//            console.log("_reset() function executed");
-//         };
 
 
 </script>
