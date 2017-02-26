@@ -50,6 +50,28 @@
           background-color: #3f51b5;
           color: white;
         }
+
+        paper-material ul {
+          display: none;
+        }
+
+        paper-material.iron-selected ul {
+          display: block;
+        }
+
+        paper-material.iron-selected:hover ul::after {
+          content: ' [–]';
+        }
+
+        paper-material:hover::after{
+          content: ' [+]';
+          color: gray;
+        }
+
+        paper-material.iron-selected:hover::after {
+          content: '';
+        }
+
         #scrollingRegion {
           top: 10vh;
           left: 25vh;
@@ -176,7 +198,7 @@
           <iron-selector multi selected-values="{{selectedCustomFoods}}">
             <template is="dom-repeat" items="[[customFood]]" initial-count="10">
                 <paper-material elevation="2">
-                    [[_formatCustomFoodItem(item)]]
+                    <div class="customFoodNameText">[[_formatCustomFoodItem(item)]]</div>
                     <ul>
                     <template is="dom-repeat" items="[[_lookAtCustomFoodNutrients(item.nutrients)]]" as="cfnItem">
                         <li>[[_formatCustomFoodNutrientItem(cfnItem)]]</li>
@@ -185,14 +207,14 @@
                         <template is="dom-if" if="{{!_isEmptyArray(item.components)}}">
                             <hr/>
                             <div>made up of...</div>
+                            <ul>
+                            <template is="dom-repeat" items="[[_convertToArray(item.components)]]" as="cfcItem">
+                                <li>
+                                    [[_formatCustomFoodComponentItem(cfcItem)]]
+                                </li>
+                            </template>
+                            </ul>
                         </template>
-                    <ul>
-                    <template is="dom-repeat" items="[[_convertToArray(item.components)]]" as="cfcItem">
-                        <li>
-                            [[_formatCustomFoodComponentItem(cfcItem)]]
-                        </li>
-                    </template>
-                    </ul>
                 </paper-material>
             </template>
         </iron-selector>
@@ -318,10 +340,10 @@
             // refresh custom food item
             this._refreshCustomFoodByCurrentKey();
             this.selectedComponents = []; // deselect everything
-            this._componentsToAdd = [];          
+            this._componentsToAdd = [];
           }
           else if (event.detail.cancelled) {
-            this._componentsToAdd = [];          
+            this._componentsToAdd = [];
           }
         },
         _openComponentDialog: function(event) {
